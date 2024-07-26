@@ -1,0 +1,8 @@
+{
+  "name": "AllodsOnlineAPI",
+  "description": "Allods Online API definition",
+  "files": ["%.d.lua"],
+  "settings": {
+    "Lua.runtime.version": "Lua 5.3"
+  }
+}

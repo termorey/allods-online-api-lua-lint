@@ -1,0 +1,437 @@
+
+---@alias GOAL_STATE_NOT_SHOWS integer # не доступна и не должна отображаться
+---@alias GOAL_STATE_ACTIVE integer # доступна для выполнения
+---@alias GOAL_STATE_COMPLETED integer # выполнена
+---@alias GOAL_STATE GOAL_STATE_NOT_SHOWS | GOAL_STATE_ACTIVE | GOAL_STATE_COMPLETED
+
+---@alias ENUM_InnateStats_Plain integer | "ENUM_InnateStats_Plain"
+---@alias ENUM_InnateStats_Rage integer | "ENUM_InnateStats_Rage"
+---@alias ENUM_InnateStats_Finisher integer | "ENUM_InnateStats_Finisher"
+---@alias ENUM_InnateStats_Lethality integer | "ENUM_InnateStats_Lethality"
+---@alias ENUM_InnateStats_Vitality integer | "ENUM_InnateStats_Vitality"
+---@alias ENUM_InnateStats_Endurance integer | "ENUM_InnateStats_Endurance"
+---@alias ENUM_InnateStats_Lifesteal integer | "ENUM_InnateStats_Lifesteal"
+---@alias ENUM_InnateStats_Will integer | "ENUM_InnateStats_Will"
+---@alias ENUM_InnateStats_CritChance integer | "ENUM_InnateStats_CritChance"
+---@alias ENUM_InnateStats ENUM_InnateStats_Plain | ENUM_InnateStats_Rage | ENUM_InnateStats_Finisher | ENUM_InnateStats_Lethality | ENUM_InnateStats_Vitality | ENUM_InnateStats_Endurance | ENUM_InnateStats_Lifesteal | ENUM_InnateStats_Will | ENUM_InnateStats_CritChance
+
+---@alias MOUSE_BUTTON_NONE integer
+---@alias MOUSE_BUTTON_LEFT integer
+---@alias MOUSE_BUTTON_RIGHT integer
+---@alias MOUSE_BUTTON_MIDDLE integer
+---@alias MOUSE_BUTTON_X1 integer
+---@alias MOUSE_BUTTON_X2 integer
+---@alias MOUSE_BUTTON MOUSE_BUTTON_NONE | MOUSE_BUTTON_LEFT | MOUSE_BUTTON_RIGHT | MOUSE_BUTTON_MIDDLE | MOUSE_BUTTON_X1 | MOUSE_BUTTON_X2
+
+---@alias VK_PAUSE integer # Pause
+---@alias VK_CAPITAL integer # CapsLock
+---@alias VK_NUMLOCK integer # NumLock
+---@alias VK_SCROLL integer # ScrollLock
+---@alias VK_INSERT integer # Insert
+---@alias VK_DELETE integer # Delete
+---@alias VK_CODES VK_PAUSE | VK_CAPITAL | VK_NUMLOCK | VK_SCROLL | VK_INSERT | VK_DELETE
+
+---@alias ENUM_SaleTag string
+
+---@alias ENUM_RequestAddressByNameType string
+
+---@alias ENUM_RequestAddressByNameFailCause string
+
+---@alias CANON_TARGET_NONE integer # в прицеле нет враждебных целей, либо до них слишком далеко
+---@alias CANON_TARGET_COMMON integer # в прицеле есть враждебные цели
+---@alias CANON_TARGET_HEADSHOT integer # прицел направлен на уязвимую точку враждебной цели
+---@alias CANNON_TARGET CANON_TARGET_NONE | CANON_TARGET_COMMON | CANON_TARGET_HEADSHOT # цель
+
+---@alias CHAT_TYPE string
+
+---@alias ENUM_DevelopmentTrack_Experience integer | "ENUM_DevelopmentTrack_Experience" # опыт
+---@alias ENUM_DevelopmentTrack_Reputation integer | "ENUM_DevelopmentTrack_Reputation" # репутация с определённой фракцией
+---@alias ENUM_DevelopmentTrack ENUM_DevelopmentTrack_Experience | ENUM_DevelopmentTrack_Reputation
+
+---@alias ENUM_GlobalScalerType_MobExp integer | "ENUM_GlobalScalerType_MobExp"
+---@alias ENUM_GlobalScalerType_Authority integer | "ENUM_GlobalScalerType_Authority"
+---@alias ENUM_GlobalScalerType_QuestExp integer | "ENUM_GlobalScalerType_QuestExp"
+---@alias ENUM_GlobalScalerType_Reputation integer | "ENUM_GlobalScalerType_Reputation"
+---@alias ENUM_GlobalScalerType_QuestLoot integer | "ENUM_GlobalScalerType_QuestLoot"
+---@alias ENUM_GlobalScalerType_AstralLoot integer | "ENUM_GlobalScalerType_AstralLoot"
+---@alias ENUM_GlobalScalerType_GoldAndTrashDrop integer | "ENUM_GlobalScalerType_GoldAndTrashDrop"
+---@alias ENUM_GlobalScalerType_WorldDrop integer | "ENUM_GlobalScalerType_WorldDrop"
+---@alias ENUM_GlobalScalerType_QuestMoney integer | "ENUM_GlobalScalerType_QuestMoney"
+---@alias ENUM_GlobalScalerType_PersonalDrop integer | "ENUM_GlobalScalerType_PersonalDrop"
+---@alias ENUM_GlobalScalerType ENUM_GlobalScalerType_MobExp | ENUM_GlobalScalerType_Authority | ENUM_GlobalScalerType_QuestExp | ENUM_GlobalScalerType_Reputation | ENUM_GlobalScalerType_QuestLoot | ENUM_GlobalScalerType_AstralLoot | ENUM_GlobalScalerType_GoldAndTrashDrop | ENUM_GlobalScalerType_WorldDrop | ENUM_GlobalScalerType_QuestMoney | ENUM_GlobalScalerType_PersonalDrop
+
+---@alias ENUM_ActionFailCause_NoFail "ENUM_ActionFailCause_NoFail"
+---@alias ENUM_ActionFailCause_Void "ENUM_ActionFailCause_Void"
+---@alias ENUM_ActionFailCause_Cooldown "ENUM_ActionFailCause_Cooldown"
+---@alias ENUM_ActionFailCause_Disabled "ENUM_ActionFailCause_Disabled"
+---@alias ENUM_ActionFailCause_TooFar "ENUM_ActionFailCause_TooFar"
+---@alias ENUM_ActionFailCause_NotInGroup "ENUM_ActionFailCause_NotInGroup"
+---@alias ENUM_ActionFailCause_NotInRaid "ENUM_ActionFailCause_NotInRaid"
+---@alias ENUM_ActionFailCause_Immune "ENUM_ActionFailCause_Immune"
+---@alias ENUM_ActionFailCause_NotInFront "ENUM_ActionFailCause_NotInFront"
+---@alias ENUM_ActionFailCause_NoLoS "ENUM_ActionFailCause_NoLoS"
+---@alias ENUM_ActionFailCause_NoPath "ENUM_ActionFailCause_NoPath"
+---@alias ENUM_ActionFailCause_NoTarget "ENUM_ActionFailCause_NoTarget"
+---@alias ENUM_ActionFailCause_NoTargetPoint "ENUM_ActionFailCause_NoTargetPoint"
+---@alias ENUM_ActionFailCause_Occupied "ENUM_ActionFailCause_Occupied"
+---@alias ENUM_ActionFailCause_Resisted "ENUM_ActionFailCause_Resisted"
+---@alias ENUM_ActionFailCause_NotFriend "ENUM_ActionFailCause_NotFriend"
+---@alias ENUM_ActionFailCause_NotEnemy "ENUM_ActionFailCause_NotEnemy"
+---@alias ENUM_ActionFailCause_NoPvpFlag "ENUM_ActionFailCause_NoPvpFlag"
+---@alias ENUM_ActionFailCause_BarrierInNotActive "ENUM_ActionFailCause_BarrierInNotActive"
+---@alias ENUM_ActionFailCause_CannotTakeItem "ENUM_ActionFailCause_CannotTakeItem"
+---@alias ENUM_ActionFailCause_NoSpaceInBag "ENUM_ActionFailCause_NoSpaceInBag"
+---@alias ENUM_ActionFailCause_WrongCharacterClass "ENUM_ActionFailCause_WrongCharacterClass"
+---@alias ENUM_ActionFailCause_ItemCountTooSmall "ENUM_ActionFailCause_ItemCountTooSmall"
+---@alias ENUM_ActionFailCause_ItemCountTooBig "ENUM_ActionFailCause_ItemCountTooBig"
+---@alias ENUM_ActionFailCause_WrongCreatureRace "ENUM_ActionFailCause_WrongCreatureRace"
+---@alias ENUM_ActionFailCause_WrongAvatarRace "ENUM_ActionFailCause_WrongAvatarRace"
+---@alias ENUM_ActionFailCause_WrongAvatarSex "ENUM_ActionFailCause_WrongAvatarSex"
+---@alias ENUM_ActionFailCause_NotEquipped "ENUM_ActionFailCause_NotEquipped"
+---@alias ENUM_ActionFailCause_NoItem "ENUM_ActionFailCause_NoItem"
+---@alias ENUM_ActionFailCause_NotInZone "ENUM_ActionFailCause_NotInZone"
+---@alias ENUM_ActionFailCause_NotInScriptZone "ENUM_ActionFailCause_NotInScriptZone"
+---@alias ENUM_ActionFailCause_NotManaCaster "ENUM_ActionFailCause_NotManaCaster"
+---@alias ENUM_ActionFailCause_NotEnergyUser "ENUM_ActionFailCause_NotEnergyUser"
+---@alias ENUM_ActionFailCause_NotHonorUser "ENUM_ActionFailCause_NotHonorUser"
+---@alias ENUM_ActionFailCause_WrongMobWorld "ENUM_ActionFailCause_WrongMobWorld"
+---@alias ENUM_ActionFailCause_NotInCombat "ENUM_ActionFailCause_NotInCombat"
+---@alias ENUM_ActionFailCause_InCombat "ENUM_ActionFailCause_InCombat"
+---@alias ENUM_ActionFailCause_CannotStrike "ENUM_ActionFailCause_CannotStrike"
+---@alias ENUM_ActionFailCause_TooClose "ENUM_ActionFailCause_TooClose"
+---@alias ENUM_ActionFailCause_NoShield "ENUM_ActionFailCause_NoShield"
+---@alias ENUM_ActionFailCause_NoMainhandWeapon "ENUM_ActionFailCause_NoMainhandWeapon"
+---@alias ENUM_ActionFailCause_NotEnoughMana "ENUM_ActionFailCause_NotEnoughMana"
+---@alias ENUM_ActionFailCause_NotEnoughEnergy "ENUM_ActionFailCause_NotEnoughEnergy"
+---@alias ENUM_ActionFailCause_NotEnoughHonor "ENUM_ActionFailCause_NotEnoughHonor"
+---@alias ENUM_ActionFailCause_NoBuff "ENUM_ActionFailCause_NoBuff"
+---@alias ENUM_ActionFailCause_InterruptedMove "ENUM_ActionFailCause_InterruptedMove"
+---@alias ENUM_ActionFailCause_InterruptedRotate "ENUM_ActionFailCause_InterruptedRotate"
+---@alias ENUM_ActionFailCause_Canceled "ENUM_ActionFailCause_Canceled"
+---@alias ENUM_ActionFailCause_Fizzled "ENUM_ActionFailCause_Fizzled"
+---@alias ENUM_ActionFailCause_Evaded "ENUM_ActionFailCause_Evaded"
+---@alias ENUM_ActionFailCause_QuestNotActive "ENUM_ActionFailCause_QuestNotActive"
+---@alias ENUM_ActionFailCause_CreatureLevelTooSmall "ENUM_ActionFailCause_CreatureLevelTooSmall"
+---@alias ENUM_ActionFailCause_QuestNotFinished "ENUM_ActionFailCause_QuestNotFinished"
+---@alias ENUM_ActionFailCause_NotNeededForQuests "ENUM_ActionFailCause_NotNeededForQuests"
+---@alias ENUM_ActionFailCause_QuestAlreadyVisitedScriptZone "ENUM_ActionFailCause_QuestAlreadyVisitedScriptZone"
+---@alias ENUM_ActionFailCause_QuestActive "ENUM_ActionFailCause_QuestActive"
+---@alias ENUM_ActionFailCause_HasNoQuestsOnCooldown "ENUM_ActionFailCause_HasNoQuestsOnCooldown"
+---@alias ENUM_ActionFailCause_WrongFaction "ENUM_ActionFailCause_WrongFaction"
+---@alias ENUM_ActionFailCause_InterruptedDamage "ENUM_ActionFailCause_InterruptedDamage"
+---@alias ENUM_ActionFailCause_InterruptedChangeTarget "ENUM_ActionFailCause_InterruptedChangeTarget"
+---@alias ENUM_ActionFailCause_HealthNotLower "ENUM_ActionFailCause_HealthNotLower"
+---@alias ENUM_ActionFailCause_HealthNotHigher "ENUM_ActionFailCause_HealthNotHigher"
+---@alias ENUM_ActionFailCause_LootableOccupied "ENUM_ActionFailCause_LootableOccupied"
+---@alias ENUM_ActionFailCause_Dead "ENUM_ActionFailCause_Dead"
+---@alias ENUM_ActionFailCause_MorePowerfulEffectActive "ENUM_ActionFailCause_MorePowerfulEffectActive"
+---@alias ENUM_ActionFailCause_HavePet "ENUM_ActionFailCause_HavePet"
+---@alias ENUM_ActionFailCause_DontHavePet "ENUM_ActionFailCause_DontHavePet"
+---@alias ENUM_ActionFailCause_PvpFlagSet "ENUM_ActionFailCause_PvpFlagSet"
+---@alias ENUM_ActionFailCause_PvpFlagNotSet "ENUM_ActionFailCause_PvpFlagNotSet"
+---@alias ENUM_ActionFailCause_NotEnoughSkillScore "ENUM_ActionFailCause_NotEnoughSkillScore"
+---@alias ENUM_ActionFailCause_HasSkill "ENUM_ActionFailCause_HasSkill"
+---@alias ENUM_ActionFailCause_NotAvatar "ENUM_ActionFailCause_NotAvatar"
+---@alias ENUM_ActionFailCause_NotMob "ENUM_ActionFailCause_NotMob"
+---@alias ENUM_ActionFailCause_NotDead "ENUM_ActionFailCause_NotDead"
+---@alias ENUM_ActionFailCause_NotAlive "ENUM_ActionFailCause_NotAlive"
+---@alias ENUM_ActionFailCause_ResurrectNotActive "ENUM_ActionFailCause_ResurrectNotActive"
+---@alias ENUM_ActionFailCause_ExploitForQuestsOnly "ENUM_ActionFailCause_ExploitForQuestsOnly"
+---@alias ENUM_ActionFailCause_CannotBeResized "ENUM_ActionFailCause_CannotBeResized"
+---@alias ENUM_ActionFailCause_QuestCounterLessThenTest "ENUM_ActionFailCause_QuestCounterLessThenTest"
+---@alias ENUM_ActionFailCause_QuestStatusMismatch "ENUM_ActionFailCause_QuestStatusMismatch"
+---@alias ENUM_ActionFailCause_CannotAttack "ENUM_ActionFailCause_CannotAttack"
+---@alias ENUM_ActionFailCause_CartridgeBeltIsEmpty "ENUM_ActionFailCause_CartridgeBeltIsEmpty"
+---@alias ENUM_ActionFailCause_CartridgeBeltIsFull "ENUM_ActionFailCause_CartridgeBeltIsFull"
+---@alias ENUM_ActionFailCause_NoCartridgeBelt "ENUM_ActionFailCause_NoCartridgeBelt"
+---@alias ENUM_ActionFailCause_NoPsionicContact "ENUM_ActionFailCause_NoPsionicContact"
+---@alias ENUM_ActionFailCause_PsionicContactHasNoBuff "ENUM_ActionFailCause_PsionicContactHasNoBuff"
+---@alias ENUM_ActionFailCause_StatTooLow "ENUM_ActionFailCause_StatTooLow"
+---@alias ENUM_ActionFailCause_DeviceAlreadyInUse "ENUM_ActionFailCause_DeviceAlreadyInUse"
+---@alias ENUM_ActionFailCause_CreatureIsTooFat "ENUM_ActionFailCause_CreatureIsTooFat"
+---@alias ENUM_ActionFailCause_DeviceBroken "ENUM_ActionFailCause_DeviceBroken"
+---@alias ENUM_ActionFailCause_DeviceOffline "ENUM_ActionFailCause_DeviceOffline"
+---@alias ENUM_ActionFailCause_TargetNotVisible "ENUM_ActionFailCause_TargetNotVisible"
+---@alias ENUM_ActionFailCause_NotEnoughCombatAdvantage "ENUM_ActionFailCause_NotEnoughCombatAdvantage"
+---@alias ENUM_ActionFailCause_BuffStackCountNotInRange "ENUM_ActionFailCause_BuffStackCountNotInRange"
+---@alias ENUM_ActionFailCause_NothingToDispel "ENUM_ActionFailCause_NothingToDispel"
+---@alias ENUM_ActionFailCause_NoPlane "ENUM_ActionFailCause_NoPlane"
+---@alias ENUM_ActionFailCause_VariableValueIsTooSmall "ENUM_ActionFailCause_VariableValueIsTooSmall"
+---@alias ENUM_ActionFailCause_VariableValueIsTooBig "ENUM_ActionFailCause_VariableValueIsTooBig"
+---@alias ENUM_ActionFailCause_NoVariable "ENUM_ActionFailCause_NoVariable"
+---@alias ENUM_ActionFailCause_InvalidPos "ENUM_ActionFailCause_InvalidPos"
+---@alias ENUM_ActionFailCause_NotOnBoundShip "ENUM_ActionFailCause_NotOnBoundShip"
+---@alias ENUM_ActionFailCause_NoStolenLoot "ENUM_ActionFailCause_NoStolenLoot"
+---@alias ENUM_ActionFailCause_CannotGetAddressImmediately "ENUM_ActionFailCause_CannotGetAddressImmediately"
+---@alias ENUM_ActionFailCause_DruidPetIsNotActive "ENUM_ActionFailCause_DruidPetIsNotActive"
+---@alias ENUM_ActionFailCause_NoBoundShip "ENUM_ActionFailCause_NoBoundShip"
+---@alias ENUM_ActionFailCause_NoShipInProgress "ENUM_ActionFailCause_NoShipInProgress"
+---@alias ENUM_ActionFailCause_ShipInProgressNotComplete "ENUM_ActionFailCause_ShipInProgressNotComplete"
+---@alias ENUM_ActionFailCause_ShipInProgressNotSummoned "ENUM_ActionFailCause_ShipInProgressNotSummoned"
+---@alias ENUM_ActionFailCause_NoShipInRepair "ENUM_ActionFailCause_NoShipInRepair"
+---@alias ENUM_ActionFailCause_HonorNotLess "ENUM_ActionFailCause_HonorNotLess"
+---@alias ENUM_ActionFailCause_NoForagingInstrument "ENUM_ActionFailCause_NoForagingInstrument"
+---@alias ENUM_ActionFailCause_NoForagingDeviceFound "ENUM_ActionFailCause_NoForagingDeviceFound"
+---@alias ENUM_ActionFailCause_ForagingSkillNotEnough "ENUM_ActionFailCause_ForagingSkillNotEnough"
+---@alias ENUM_ActionFailCause_ReputationNotLess "ENUM_ActionFailCause_ReputationNotLess"
+---@alias ENUM_ActionFailCause_ReputationLevelNotLess "ENUM_ActionFailCause_ReputationLevelNotLess"
+---@alias ENUM_ActionFailCause_NotOurShip "ENUM_ActionFailCause_NotOurShip"
+---@alias ENUM_ActionFailCause_TooHigh "ENUM_ActionFailCause_TooHigh"
+---@alias ENUM_ActionFailCause_NoAbility "ENUM_ActionFailCause_NoAbility"
+---@alias ENUM_ActionFailCause_NoFairy "ENUM_ActionFailCause_NoFairy"
+---@alias ENUM_ActionFailCause_InvalidFairyRank "ENUM_ActionFailCause_InvalidFairyRank"
+---@alias ENUM_ActionFailCause_FairyNotActive "ENUM_ActionFailCause_FairyNotActive"
+---@alias ENUM_ActionFailCause_NoSpell "ENUM_ActionFailCause_NoSpell"
+---@alias ENUM_ActionFailCause_DressedItemCannotBeUpgraded "ENUM_ActionFailCause_DressedItemCannotBeUpgraded"
+---@alias ENUM_ActionFailCause_NothingToTalkAbout "ENUM_ActionFailCause_NothingToTalkAbout"
+---@alias ENUM_ActionFailCause_NoContentKey "ENUM_ActionFailCause_NoContentKey"
+---@alias ENUM_ActionFailCause_NoSpellInSpellBook "ENUM_ActionFailCause_NoSpellInSpellBook"
+---@alias ENUM_ActionFailCause_NotEnoughMoney "ENUM_ActionFailCause_NotEnoughMoney"
+---@alias ENUM_ActionFailCause_PetHealthNotHigher "ENUM_ActionFailCause_PetHealthNotHigher"
+---@alias ENUM_ActionFailCause_NotEnoughAlternativeCurrency "ENUM_ActionFailCause_NotEnoughAlternativeCurrency"
+---@alias ENUM_ActionFailCause_CannotLearnSkill "ENUM_ActionFailCause_CannotLearnSkill"
+---@alias ENUM_ActionFailCause_CantSummonShipHere "ENUM_ActionFailCause_CantSummonShipHere"
+---@alias ENUM_ActionFailCause_CannotConvertItems "ENUM_ActionFailCause_CannotConvertItems"
+---@alias ENUM_ActionFailCause_HasNotGuildRight "ENUM_ActionFailCause_HasNotGuildRight"
+---@alias ENUM_ActionFailCause_NotUnlocked "ENUM_ActionFailCause_NotUnlocked"
+---@alias ENUM_ActionFailCause_GroupInviteOtherShip "ENUM_ActionFailCause_GroupInviteOtherShip"
+---@alias ENUM_ActionFailCause_AlreadyHaveShip "ENUM_ActionFailCause_AlreadyHaveShip"
+---@alias ENUM_ActionFailCause_TeleportTargetNotFound "ENUM_ActionFailCause_TeleportTargetNotFound"
+---@alias ENUM_ActionFailCause_InvalidShipName "ENUM_ActionFailCause_InvalidShipName"
+---@alias ENUM_ActionFailCause_ShipNameAlreadyUsed "ENUM_ActionFailCause_ShipNameAlreadyUsed"
+---@alias ENUM_ActionFailCause_GuildCreateWrongPlace "ENUM_ActionFailCause_GuildCreateWrongPlace"
+---@alias ENUM_ActionFailCause_GuildCreateMemberBusy "ENUM_ActionFailCause_GuildCreateMemberBusy"
+---@alias ENUM_ActionFailCause_GuildCreateAlreadyInGuild "ENUM_ActionFailCause_GuildCreateAlreadyInGuild"
+---@alias ENUM_ActionFailCause_RaidInviteOtherShip "ENUM_ActionFailCause_RaidInviteOtherShip"
+---@alias ENUM_ActionFailCause_NotEnoughRepairMats "ENUM_ActionFailCause_NotEnoughRepairMats"
+---@alias ENUM_ActionFailCause_ShipDoesNotNeedRepair "ENUM_ActionFailCause_ShipDoesNotNeedRepair"
+---@alias ENUM_ActionFailCause_UnstuckNotAllowed "ENUM_ActionFailCause_UnstuckNotAllowed"
+---@alias ENUM_ActionFailCause_ItemMoveNotAvailable "ENUM_ActionFailCause_ItemMoveNotAvailable"
+---@alias ENUM_ActionFailCause_LootOpenOccupied "ENUM_ActionFailCause_LootOpenOccupied"
+---@alias ENUM_ActionFailCause_NoLoot "ENUM_ActionFailCause_NoLoot"
+---@alias ENUM_ActionFailCause_DepositeBoxAlreadyOpened "ENUM_ActionFailCause_DepositeBoxAlreadyOpened"
+---@alias ENUM_ActionFailCause_DepositeBoxNotOpened "ENUM_ActionFailCause_DepositeBoxNotOpened"
+---@alias ENUM_ActionFailCause_DepositeBoxUpdateEmptySlot "ENUM_ActionFailCause_DepositeBoxUpdateEmptySlot"
+---@alias ENUM_ActionFailCause_DepositeBoxUpdateNotBox "ENUM_ActionFailCause_DepositeBoxUpdateNotBox"
+---@alias ENUM_ActionFailCause_DepositeBoxUpdateTooSmall "ENUM_ActionFailCause_DepositeBoxUpdateTooSmall"
+---@alias ENUM_ActionFailCause_DepositeBoxPutNoSpace "ENUM_ActionFailCause_DepositeBoxPutNoSpace"
+---@alias ENUM_ActionFailCause_DepositeBoxItemCannotBePut "ENUM_ActionFailCause_DepositeBoxItemCannotBePut"
+---@alias ENUM_ActionFailCause_NoSkill "ENUM_ActionFailCause_NoSkill"
+---@alias ENUM_ActionFailCause_NoProficiency "ENUM_ActionFailCause_NoProficiency"
+---@alias ENUM_ActionFailCause_NoItemWithRune "ENUM_ActionFailCause_NoItemWithRune"
+---@alias ENUM_ActionFailCause_NotEnoughInsight "ENUM_ActionFailCause_NotEnoughInsight"
+---@alias ENUM_ActionFailCause_NoReturnPoint "ENUM_ActionFailCause_NoReturnPoint"
+---@alias ENUM_ActionFailCause_ScanPortalNotFound "ENUM_ActionFailCause_ScanPortalNotFound"
+---@alias ENUM_ActionFailCause_ScanIslandNotFound "ENUM_ActionFailCause_ScanIslandNotFound"
+---@alias ENUM_ActionFailCause_ScanContinentNotFound "ENUM_ActionFailCause_ScanContinentNotFound"
+---@alias ENUM_ActionFailCause_ScanWreckNotFound "ENUM_ActionFailCause_ScanWreckNotFound"
+---@alias ENUM_ActionFailCause_ScanShipNotFound "ENUM_ActionFailCause_ScanShipNotFound"
+---@alias ENUM_ActionFailCause_NotOnLand "ENUM_ActionFailCause_NotOnLand"
+---@alias ENUM_ActionFailCause_DeviceActionDisabled "ENUM_ActionFailCause_DeviceActionDisabled"
+---@alias ENUM_ActionFailCause_DeviceActionOnCooldown "ENUM_ActionFailCause_DeviceActionOnCooldown"
+---@alias ENUM_ActionFailCause_NotOnEnemyShip "ENUM_ActionFailCause_NotOnEnemyShip"
+---@alias ENUM_ActionFailCause_NotOnFriendlyShip "ENUM_ActionFailCause_NotOnFriendlyShip"
+---@alias ENUM_ActionFailCause_NoMorePowerfulBuff "ENUM_ActionFailCause_NoMorePowerfulBuff"
+---@alias ENUM_ActionFailCause_DeviceNotNear "ENUM_ActionFailCause_DeviceNotNear"
+---@alias ENUM_ActionFailCause_MobNotNear "ENUM_ActionFailCause_MobNotNear"
+---@alias ENUM_ActionFailCause_ProjectileNotNear "ENUM_ActionFailCause_ProjectileNotNear"
+---@alias ENUM_ActionFailCause_CaptainCantTeleportToAllod "ENUM_ActionFailCause_CaptainCantTeleportToAllod"
+---@alias ENUM_ActionFailCause_AvatarNotCapableForAllod "ENUM_ActionFailCause_AvatarNotCapableForAllod"
+---@alias ENUM_ActionFailCause_AvatarBindedToAnotherAllod "ENUM_ActionFailCause_AvatarBindedToAnotherAllod"
+---@alias ENUM_ActionFailCause_CannotEnterMapInCombat "ENUM_ActionFailCause_CannotEnterMapInCombat"
+---@alias ENUM_ActionFailCause_NoFreeStableSlots "ENUM_ActionFailCause_NoFreeStableSlots"
+---@alias ENUM_ActionFailCause_DontHaveMount "ENUM_ActionFailCause_DontHaveMount"
+---@alias ENUM_ActionFailCause_AlreadyHaveMount "ENUM_ActionFailCause_AlreadyHaveMount"
+---@alias ENUM_ActionFailCause_ShipNotInCustomizeMode "ENUM_ActionFailCause_ShipNotInCustomizeMode"
+---@alias ENUM_ActionFailCause_NoShipInUpgrade "ENUM_ActionFailCause_NoShipInUpgrade"
+---@alias ENUM_ActionFailCause_NotOnIsland "ENUM_ActionFailCause_NotOnIsland"
+---@alias ENUM_ActionFailCause_CantRideIndoor "ENUM_ActionFailCause_CantRideIndoor"
+---@alias ENUM_ActionFailCause_FairyAutoFeedIsOff "ENUM_ActionFailCause_FairyAutoFeedIsOff"
+---@alias ENUM_ActionFailCause_NoFairyAutoFeedItem "ENUM_ActionFailCause_NoFairyAutoFeedItem"
+---@alias ENUM_ActionFailCause_HangarIsNotEmpty "ENUM_ActionFailCause_HangarIsNotEmpty"
+---@alias ENUM_ActionFailCause_InAstral "ENUM_ActionFailCause_InAstral"
+---@alias ENUM_ActionFailCause_PurifySlotOutOfBounds "ENUM_ActionFailCause_PurifySlotOutOfBounds"
+---@alias ENUM_ActionFailCause_PurifyEmptySlot "ENUM_ActionFailCause_PurifyEmptySlot"
+---@alias ENUM_ActionFailCause_ItemNotCursed "ENUM_ActionFailCause_ItemNotCursed"
+---@alias ENUM_ActionFailCause_CannotPurifyStack "ENUM_ActionFailCause_CannotPurifyStack"
+---@alias ENUM_ActionFailCause_ItemIsNotPurifier "ENUM_ActionFailCause_ItemIsNotPurifier"
+---@alias ENUM_ActionFailCause_PurifierCannotPurifyThis "ENUM_ActionFailCause_PurifierCannotPurifyThis"
+---@alias ENUM_ActionFailCause_MustOwnShipToUpgrade "ENUM_ActionFailCause_MustOwnShipToUpgrade"
+---@alias ENUM_ActionFailCause_NotAllowedToStartReadyCheck "ENUM_ActionFailCause_NotAllowedToStartReadyCheck"
+---@alias ENUM_ActionFailCause_ReadyCheckAlreadyInProgress "ENUM_ActionFailCause_ReadyCheckAlreadyInProgress"
+---@alias ENUM_ActionFailCause_HaveNoTargetShip "ENUM_ActionFailCause_HaveNoTargetShip"
+---@alias ENUM_ActionFailCause_UsingIncorrectDevice "ENUM_ActionFailCause_UsingIncorrectDevice"
+---@alias ENUM_ActionFailCause_EnemiesNear "ENUM_ActionFailCause_EnemiesNear"
+---@alias ENUM_ActionFailCause_SlotCannotBeEmpty "ENUM_ActionFailCause_SlotCannotBeEmpty"
+---@alias ENUM_ActionFailCause_TransportIsOverloaded "ENUM_ActionFailCause_TransportIsOverloaded"
+---@alias ENUM_ActionFailCause_NotADweller "ENUM_ActionFailCause_NotADweller"
+---@alias ENUM_ActionFailCause_NotAllowedToListTWarAuctions "ENUM_ActionFailCause_NotAllowedToListTWarAuctions"
+---@alias ENUM_ActionFailCause_NotAllowedToBidTWarAuction "ENUM_ActionFailCause_NotAllowedToBidTWarAuction"
+---@alias ENUM_ActionFailCause_NotInAffectGroup "ENUM_ActionFailCause_NotInAffectGroup"
+---@alias ENUM_ActionFailCause_CannotLootThisTreasure "ENUM_ActionFailCause_CannotLootThisTreasure"
+---@alias ENUM_ActionFailCause_QuestBookTooBig "ENUM_ActionFailCause_QuestBookTooBig"
+---@alias ENUM_ActionFailCause_ShipIsNotPersistent "ENUM_ActionFailCause_ShipIsNotPersistent"
+---@alias ENUM_ActionFailCause_NotGuildLeader "ENUM_ActionFailCause_NotGuildLeader"
+---@alias ENUM_ActionFailCause_GuildProgressAlreadyEnabled "ENUM_ActionFailCause_GuildProgressAlreadyEnabled"
+---@alias ENUM_ActionFailCause_IncorrectGuildLevel "ENUM_ActionFailCause_IncorrectGuildLevel"
+---@alias ENUM_ActionFailCause_MetaSourceSlotOutOfBounds "ENUM_ActionFailCause_MetaSourceSlotOutOfBounds"
+---@alias ENUM_ActionFailCause_MetaEnhancerSlotOutOfBounds "ENUM_ActionFailCause_MetaEnhancerSlotOutOfBounds"
+---@alias ENUM_ActionFailCause_MetaAgentSlotOutOfBounds "ENUM_ActionFailCause_MetaAgentSlotOutOfBounds"
+---@alias ENUM_ActionFailCause_MetaSourceSlotEqualsEnhancerSlot "ENUM_ActionFailCause_MetaSourceSlotEqualsEnhancerSlot"
+---@alias ENUM_ActionFailCause_MetaSourceSlotEmpty "ENUM_ActionFailCause_MetaSourceSlotEmpty"
+---@alias ENUM_ActionFailCause_MetaEnhancerSlotEmpty "ENUM_ActionFailCause_MetaEnhancerSlotEmpty"
+---@alias ENUM_ActionFailCause_MetaAgentSlotEmpty "ENUM_ActionFailCause_MetaAgentSlotEmpty"
+---@alias ENUM_ActionFailCause_MetaItemNotMeta "ENUM_ActionFailCause_MetaItemNotMeta"
+---@alias ENUM_ActionFailCause_MetaCannotUpgradeStack "ENUM_ActionFailCause_MetaCannotUpgradeStack"
+---@alias ENUM_ActionFailCause_MetaEnhancerIsDifferent "ENUM_ActionFailCause_MetaEnhancerIsDifferent"
+---@alias ENUM_ActionFailCause_MetaAgentIsNotAgent "ENUM_ActionFailCause_MetaAgentIsNotAgent"
+---@alias ENUM_ActionFailCause_MetaWrongAgentCount "ENUM_ActionFailCause_MetaWrongAgentCount"
+---@alias ENUM_ActionFailCause_MetaCannotUpgradeMaxQuality "ENUM_ActionFailCause_MetaCannotUpgradeMaxQuality"
+---@alias ENUM_ActionFailCause_NoNecessaryGuildTabardRight "ENUM_ActionFailCause_NoNecessaryGuildTabardRight"
+---@alias ENUM_ActionFailCause_NoCustomizeCurrency "ENUM_ActionFailCause_NoCustomizeCurrency"
+---@alias ENUM_ActionFailCause_NoGuildProgress "ENUM_ActionFailCause_NoGuildProgress"
+---@alias ENUM_ActionFailCause_PeerNoSpaceInBag "ENUM_ActionFailCause_PeerNoSpaceInBag"
+---@alias ENUM_ActionFailCause_MountIsHungry "ENUM_ActionFailCause_MountIsHungry"
+---@alias ENUM_ActionFailCause_NotOnTWar "ENUM_ActionFailCause_NotOnTWar"
+---@alias ENUM_ActionFailCause_OtherMap "ENUM_ActionFailCause_OtherMap"
+---@alias ENUM_ActionFailCause_SectorUnavailable "ENUM_ActionFailCause_SectorUnavailable"
+---@alias ENUM_ActionFailCause_SectorIsFactionRestricted "ENUM_ActionFailCause_SectorIsFactionRestricted"
+---@alias ENUM_ActionFailCause_InHangar "ENUM_ActionFailCause_InHangar"
+---@alias ENUM_ActionFailCause_NotInHangar "ENUM_ActionFailCause_NotInHangar"
+---@alias ENUM_ActionFailCause_TreasuryIsNotEmpty "ENUM_ActionFailCause_TreasuryIsNotEmpty"
+---@alias ENUM_ActionFailCause_OnAstralIsland "ENUM_ActionFailCause_OnAstralIsland"
+---@alias ENUM_ActionFailCause_CantRideInZone "ENUM_ActionFailCause_CantRideInZone"
+---@alias ENUM_ActionFailCause_NotMounted "ENUM_ActionFailCause_NotMounted"
+---@alias ENUM_ActionFailCause_NoAssistant "ENUM_ActionFailCause_NoAssistant"
+---@alias ENUM_ActionFailCause_NoUsedStatPoints "ENUM_ActionFailCause_NoUsedStatPoints"
+---@alias ENUM_ActionFailCause_NotMarried "ENUM_ActionFailCause_NotMarried"
+---@alias ENUM_ActionFailCause_NoGuildRenameMark "ENUM_ActionFailCause_NoGuildRenameMark" - гильдия не помечена, как безымянная (требующая переименования)
+---@alias ENUM_ActionFailCause_NoGuild "ENUM_ActionFailCause_NoGuild" - аватар не является членом гильдии
+---@alias ENUM_ActionFailCause_CCItemsProhibited "ENUM_ActionFailCause_CCItemsProhibited" - аватар пытается сменить класс, но у него есть предметы, которые несовместимы со сменой класса
+---@alias ENUM_ActionFailCause_GoalIsNotCompleted "ENUM_ActionFailCause_GoalIsNotCompleted" - Цель не выполнена
+---@alias ENUM_ActionFailCause_RuleIsNotActive "ENUM_ActionFailCause_RuleIsNotActive" - Правило не выполнено
+---@alias ENUM_ActionFailCause_MetaItemNotAppear "ENUM_ActionFailCause_MetaItemNotAppear" - Метапредмет не появлялся
+---@alias ENUM_ActionFailCause_AvatarNotUsedTeleport "ENUM_ActionFailCause_AvatarNotUsedTeleport" - Аватар не использовал телепорт
+---@alias ENUM_ActionFailCause_NotLookingForGroup "ENUM_ActionFailCause_NotLookingForGroup"
+---@alias ENUM_ActionFailCause ENUM_ActionFailCause_NoFail | ENUM_ActionFailCause_Void | ENUM_ActionFailCause_Cooldown | ENUM_ActionFailCause_Disabled | ENUM_ActionFailCause_TooFar | ENUM_ActionFailCause_NotInGroup | ENUM_ActionFailCause_NotInRaid | ENUM_ActionFailCause_Immune | ENUM_ActionFailCause_NotInFront | ENUM_ActionFailCause_NoLoS | ENUM_ActionFailCause_NoPath | ENUM_ActionFailCause_NoTarget | ENUM_ActionFailCause_NoTargetPoint | ENUM_ActionFailCause_Occupied | ENUM_ActionFailCause_Resisted | ENUM_ActionFailCause_NotFriend | ENUM_ActionFailCause_NotEnemy | ENUM_ActionFailCause_NoPvpFlag | ENUM_ActionFailCause_BarrierInNotActive | ENUM_ActionFailCause_CannotTakeItem | ENUM_ActionFailCause_NoSpaceInBag | ENUM_ActionFailCause_WrongCharacterClass | ENUM_ActionFailCause_ItemCountTooSmall | ENUM_ActionFailCause_ItemCountTooBig | ENUM_ActionFailCause_WrongCreatureRace | ENUM_ActionFailCause_WrongAvatarRace | ENUM_ActionFailCause_WrongAvatarSex | ENUM_ActionFailCause_NotEquipped | ENUM_ActionFailCause_NoItem | ENUM_ActionFailCause_NotInZone | ENUM_ActionFailCause_NotInScriptZone | ENUM_ActionFailCause_NotManaCaster | ENUM_ActionFailCause_NotEnergyUser | ENUM_ActionFailCause_NotHonorUser | ENUM_ActionFailCause_WrongMobWorld | ENUM_ActionFailCause_NotInCombat | ENUM_ActionFailCause_InCombat | ENUM_ActionFailCause_CannotStrike | ENUM_ActionFailCause_TooClose | ENUM_ActionFailCause_NoShield | ENUM_ActionFailCause_NoMainhandWeapon | ENUM_ActionFailCause_NotEnoughMana | ENUM_ActionFailCause_NotEnoughEnergy | ENUM_ActionFailCause_NotEnoughHonor | ENUM_ActionFailCause_NoBuff | ENUM_ActionFailCause_InterruptedMove | ENUM_ActionFailCause_InterruptedRotate | ENUM_ActionFailCause_Canceled | ENUM_ActionFailCause_Fizzled | ENUM_ActionFailCause_Evaded | ENUM_ActionFailCause_QuestNotActive | ENUM_ActionFailCause_CreatureLevelTooSmall | ENUM_ActionFailCause_QuestNotFinished | ENUM_ActionFailCause_NotNeededForQuests | ENUM_ActionFailCause_QuestAlreadyVisitedScriptZone | ENUM_ActionFailCause_QuestActive | ENUM_ActionFailCause_HasNoQuestsOnCooldown | ENUM_ActionFailCause_WrongFaction | ENUM_ActionFailCause_InterruptedDamage | ENUM_ActionFailCause_InterruptedChangeTarget | ENUM_ActionFailCause_HealthNotLower | ENUM_ActionFailCause_HealthNotHigher | ENUM_ActionFailCause_LootableOccupied | ENUM_ActionFailCause_Dead | ENUM_ActionFailCause_MorePowerfulEffectActive | ENUM_ActionFailCause_HavePet | ENUM_ActionFailCause_DontHavePet | ENUM_ActionFailCause_PvpFlagSet | ENUM_ActionFailCause_PvpFlagNotSet | ENUM_ActionFailCause_NotEnoughSkillScore | ENUM_ActionFailCause_HasSkill | ENUM_ActionFailCause_NotAvatar | ENUM_ActionFailCause_NotMob | ENUM_ActionFailCause_NotDead | ENUM_ActionFailCause_NotAlive | ENUM_ActionFailCause_ResurrectNotActive | ENUM_ActionFailCause_ExploitForQuestsOnly | ENUM_ActionFailCause_CannotBeResized | ENUM_ActionFailCause_QuestCounterLessThenTest | ENUM_ActionFailCause_QuestStatusMismatch | ENUM_ActionFailCause_CannotAttack | ENUM_ActionFailCause_CartridgeBeltIsEmpty | ENUM_ActionFailCause_CartridgeBeltIsFull | ENUM_ActionFailCause_NoCartridgeBelt | ENUM_ActionFailCause_NoPsionicContact | ENUM_ActionFailCause_PsionicContactHasNoBuff | ENUM_ActionFailCause_StatTooLow | ENUM_ActionFailCause_DeviceAlreadyInUse | ENUM_ActionFailCause_CreatureIsTooFat | ENUM_ActionFailCause_DeviceBroken | ENUM_ActionFailCause_DeviceOffline | ENUM_ActionFailCause_TargetNotVisible | ENUM_ActionFailCause_NotEnoughCombatAdvantage | ENUM_ActionFailCause_BuffStackCountNotInRange | ENUM_ActionFailCause_NothingToDispel | ENUM_ActionFailCause_NoPlane | ENUM_ActionFailCause_VariableValueIsTooSmall | ENUM_ActionFailCause_VariableValueIsTooBig | ENUM_ActionFailCause_NoVariable | ENUM_ActionFailCause_InvalidPos | ENUM_ActionFailCause_NotOnBoundShip | ENUM_ActionFailCause_NoStolenLoot | ENUM_ActionFailCause_CannotGetAddressImmediately | ENUM_ActionFailCause_DruidPetIsNotActive | ENUM_ActionFailCause_NoBoundShip | ENUM_ActionFailCause_NoShipInProgress | ENUM_ActionFailCause_ShipInProgressNotComplete | ENUM_ActionFailCause_ShipInProgressNotSummoned | ENUM_ActionFailCause_NoShipInRepair | ENUM_ActionFailCause_HonorNotLess | ENUM_ActionFailCause_NoForagingInstrument | ENUM_ActionFailCause_NoForagingDeviceFound | ENUM_ActionFailCause_ForagingSkillNotEnough | ENUM_ActionFailCause_ReputationNotLess | ENUM_ActionFailCause_ReputationLevelNotLess | ENUM_ActionFailCause_NotOurShip | ENUM_ActionFailCause_TooHigh | ENUM_ActionFailCause_NoAbility | ENUM_ActionFailCause_NoFairy | ENUM_ActionFailCause_InvalidFairyRank | ENUM_ActionFailCause_FairyNotActive | ENUM_ActionFailCause_NoSpell | ENUM_ActionFailCause_DressedItemCannotBeUpgraded | ENUM_ActionFailCause_NothingToTalkAbout | ENUM_ActionFailCause_NoContentKey | ENUM_ActionFailCause_NoSpellInSpellBook | ENUM_ActionFailCause_NotEnoughMoney | ENUM_ActionFailCause_PetHealthNotHigher | ENUM_ActionFailCause_NotEnoughAlternativeCurrency | ENUM_ActionFailCause_CannotLearnSkill | ENUM_ActionFailCause_CantSummonShipHere | ENUM_ActionFailCause_CannotConvertItems | ENUM_ActionFailCause_HasNotGuildRight | ENUM_ActionFailCause_NotUnlocked | ENUM_ActionFailCause_GroupInviteOtherShip | ENUM_ActionFailCause_AlreadyHaveShip | ENUM_ActionFailCause_TeleportTargetNotFound | ENUM_ActionFailCause_InvalidShipName | ENUM_ActionFailCause_ShipNameAlreadyUsed | ENUM_ActionFailCause_GuildCreateWrongPlace | ENUM_ActionFailCause_GuildCreateMemberBusy | ENUM_ActionFailCause_GuildCreateAlreadyInGuild | ENUM_ActionFailCause_RaidInviteOtherShip | ENUM_ActionFailCause_NotEnoughRepairMats | ENUM_ActionFailCause_ShipDoesNotNeedRepair | ENUM_ActionFailCause_UnstuckNotAllowed | ENUM_ActionFailCause_ItemMoveNotAvailable | ENUM_ActionFailCause_LootOpenOccupied | ENUM_ActionFailCause_NoLoot | ENUM_ActionFailCause_DepositeBoxAlreadyOpened | ENUM_ActionFailCause_DepositeBoxNotOpened | ENUM_ActionFailCause_DepositeBoxUpdateEmptySlot | ENUM_ActionFailCause_DepositeBoxUpdateNotBox | ENUM_ActionFailCause_DepositeBoxUpdateTooSmall | ENUM_ActionFailCause_DepositeBoxPutNoSpace | ENUM_ActionFailCause_DepositeBoxItemCannotBePut | ENUM_ActionFailCause_NoSkill | ENUM_ActionFailCause_NoProficiency | ENUM_ActionFailCause_NoItemWithRune | ENUM_ActionFailCause_NotEnoughInsight | ENUM_ActionFailCause_NoReturnPoint | ENUM_ActionFailCause_ScanPortalNotFound | ENUM_ActionFailCause_ScanIslandNotFound | ENUM_ActionFailCause_ScanContinentNotFound | ENUM_ActionFailCause_ScanWreckNotFound | ENUM_ActionFailCause_ScanShipNotFound | ENUM_ActionFailCause_NotOnLand | ENUM_ActionFailCause_DeviceActionDisabled | ENUM_ActionFailCause_DeviceActionOnCooldown | ENUM_ActionFailCause_NotOnEnemyShip | ENUM_ActionFailCause_NotOnFriendlyShip | ENUM_ActionFailCause_NoMorePowerfulBuff | ENUM_ActionFailCause_DeviceNotNear | ENUM_ActionFailCause_MobNotNear | ENUM_ActionFailCause_ProjectileNotNear | ENUM_ActionFailCause_CaptainCantTeleportToAllod | ENUM_ActionFailCause_AvatarNotCapableForAllod | ENUM_ActionFailCause_AvatarBindedToAnotherAllod | ENUM_ActionFailCause_CannotEnterMapInCombat | ENUM_ActionFailCause_NoFreeStableSlots | ENUM_ActionFailCause_DontHaveMount | ENUM_ActionFailCause_AlreadyHaveMount | ENUM_ActionFailCause_ShipNotInCustomizeMode | ENUM_ActionFailCause_NoShipInUpgrade | ENUM_ActionFailCause_NotOnIsland | ENUM_ActionFailCause_CantRideIndoor | ENUM_ActionFailCause_FairyAutoFeedIsOff | ENUM_ActionFailCause_NoFairyAutoFeedItem | ENUM_ActionFailCause_HangarIsNotEmpty | ENUM_ActionFailCause_InAstral | ENUM_ActionFailCause_PurifySlotOutOfBounds | ENUM_ActionFailCause_PurifyEmptySlot | ENUM_ActionFailCause_ItemNotCursed | ENUM_ActionFailCause_CannotPurifyStack | ENUM_ActionFailCause_ItemIsNotPurifier | ENUM_ActionFailCause_PurifierCannotPurifyThis | ENUM_ActionFailCause_MustOwnShipToUpgrade | ENUM_ActionFailCause_NotAllowedToStartReadyCheck | ENUM_ActionFailCause_ReadyCheckAlreadyInProgress | ENUM_ActionFailCause_HaveNoTargetShip | ENUM_ActionFailCause_UsingIncorrectDevice | ENUM_ActionFailCause_EnemiesNear | ENUM_ActionFailCause_SlotCannotBeEmpty | ENUM_ActionFailCause_TransportIsOverloaded | ENUM_ActionFailCause_NotADweller | ENUM_ActionFailCause_NotAllowedToListTWarAuctions | ENUM_ActionFailCause_NotAllowedToBidTWarAuction | ENUM_ActionFailCause_NotInAffectGroup | ENUM_ActionFailCause_CannotLootThisTreasure | ENUM_ActionFailCause_QuestBookTooBig | ENUM_ActionFailCause_ShipIsNotPersistent | ENUM_ActionFailCause_NotGuildLeader | ENUM_ActionFailCause_GuildProgressAlreadyEnabled | ENUM_ActionFailCause_IncorrectGuildLevel | ENUM_ActionFailCause_MetaSourceSlotOutOfBounds | ENUM_ActionFailCause_MetaEnhancerSlotOutOfBounds | ENUM_ActionFailCause_MetaAgentSlotOutOfBounds | ENUM_ActionFailCause_MetaSourceSlotEqualsEnhancerSlot | ENUM_ActionFailCause_MetaSourceSlotEmpty | ENUM_ActionFailCause_MetaEnhancerSlotEmpty | ENUM_ActionFailCause_MetaAgentSlotEmpty | ENUM_ActionFailCause_MetaItemNotMeta | ENUM_ActionFailCause_MetaCannotUpgradeStack | ENUM_ActionFailCause_MetaEnhancerIsDifferent | ENUM_ActionFailCause_MetaAgentIsNotAgent | ENUM_ActionFailCause_MetaWrongAgentCount | ENUM_ActionFailCause_MetaCannotUpgradeMaxQuality | ENUM_ActionFailCause_NoNecessaryGuildTabardRight | ENUM_ActionFailCause_NoCustomizeCurrency | ENUM_ActionFailCause_NoGuildProgress | ENUM_ActionFailCause_PeerNoSpaceInBag | ENUM_ActionFailCause_MountIsHungry | ENUM_ActionFailCause_NotOnTWar | ENUM_ActionFailCause_OtherMap | ENUM_ActionFailCause_SectorUnavailable | ENUM_ActionFailCause_SectorIsFactionRestricted | ENUM_ActionFailCause_InHangar | ENUM_ActionFailCause_NotInHangar | ENUM_ActionFailCause_TreasuryIsNotEmpty | ENUM_ActionFailCause_OnAstralIsland | ENUM_ActionFailCause_CantRideInZone | ENUM_ActionFailCause_NotMounted | ENUM_ActionFailCause_NoAssistant | ENUM_ActionFailCause_NoUsedStatPoints | ENUM_ActionFailCause_NotMarried | ENUM_ActionFailCause_NoGuildRenameMark | ENUM_ActionFailCause_NoGuild | ENUM_ActionFailCause_CCItemsProhibited | ENUM_ActionFailCause_GoalIsNotCompleted | ENUM_ActionFailCause_RuleIsNotActive | ENUM_ActionFailCause_MetaItemNotAppear | ENUM_ActionFailCause_AvatarNotUsedTeleport | ENUM_ActionFailCause_NotLookingForGroup
+
+---@alias ENUM_ShowItemsInfoReason_Unknown ENUM_ShowItemsInfoReason_Unknown # причина неизвестна
+---@alias ENUM_ShowItemsInfoReason_XRayLootChest ENUM_ShowItemsInfoReason_XRayLootChest # спец. устройство прислало список предметов в астральном сундуке
+---@alias ENUM_ShowItemsInfoReason ENUM_ShowItemsInfoReason_Unknown | ENUM_ShowItemsInfoReason_XRayLootChest
+
+---@alias ENUM_SLASH_COMMAND_INVITE_FAILED_WRONG_FORMAT "ENUM_SLASH_COMMAND_INVITE_FAILED_WRONG_FORMAT" # неверный формат команды /invite
+---@alias ENUM_SLASH_COMMAND_KICK_FAILED_WRONG_FORMAT "ENUM_SLASH_COMMAND_KICK_FAILED_WRONG_FORMAT" # неверный формат команды /kick
+---@alias ENUM_SLASH_COMMAND_CUSTOM_EMOTE_FAILED_WRONG_FORMAT "ENUM_SLASH_COMMAND_CUSTOM_EMOTE_FAILED_WRONG_FORMAT" # неверный формат команды /emote
+---@alias ENUM_SLASH_COMMAND_TRADE_FAILED_WRONG_FORMAT "ENUM_SLASH_COMMAND_TRADE_FAILED_WRONG_FORMAT" # неверный формат команды /trade
+---@alias ENUM_SLASH_COMMAND_GUILD_INVITE_FAILED_WRONG_FORMAT "ENUM_SLASH_COMMAND_GUILD_INVITE_FAILED_WRONG_FORMAT" # неверный формат команды /ginvite
+---@alias ENUM_SLASH_COMMAND_GUILD_KICK_FAILED_WRONG_FORMAT "ENUM_SLASH_COMMAND_GUILD_KICK_FAILED_WRONG_FORMAT" # неверный формат команды /gkick
+---@alias ENUM_SLASH_COMMAND ENUM_SLASH_COMMAND_INVITE_FAILED_WRONG_FORMAT | ENUM_SLASH_COMMAND_KICK_FAILED_WRONG_FORMAT | ENUM_SLASH_COMMAND_CUSTOM_EMOTE_FAILED_WRONG_FORMAT | ENUM_SLASH_COMMAND_TRADE_FAILED_WRONG_FORMAT | ENUM_SLASH_COMMAND_GUILD_INVITE_FAILED_WRONG_FORMAT | ENUM_SLASH_COMMAND_GUILD_KICK_FAILED_WRONG_FORMAT
+
+---@alias ENUM_RequestAddressByNameFailCause_NotExist "ENUM_RequestAddressByNameFailCause_NotExist"
+---@alias ENUM_RequestAddressByNameFailCause_NotLoggedIn "ENUM_RequestAddressByNameFailCause_NotLoggedIn"
+---@alias ENUM_EnumRequestAddressByNameFailCause ENUM_RequestAddressByNameFailCause_NotExist | ENUM_RequestAddressByNameFailCause_NotLoggedIn
+
+---@alias USDEV_NOT_USABLE_DEVICE integer # это не используемое устройство
+---@alias USDEV_USABLE_DEVICE integer # просто используемое устройство
+---@alias USDEV_BEAM_CANNON integer
+---@alias USDEV_CANNON integer
+---@alias USDEV_ENGINE_HORIZONTAL integer
+---@alias USDEV_ENGINE_VERTICAL integer
+---@alias USDEV_NAVIGATOR integer
+---@alias USDEV_REACTOR integer
+---@alias USDEV_REMOTE_RUDDER integer
+---@alias USDEV_REMOTE_ENGINE_VERTICAL integer
+---@alias USDEV_REPAIR integer
+---@alias USDEV_RUDDER integer
+---@alias USDEV_SCANER integer
+---@alias USDEV_VISUAL integer
+---@alias USDEV_SHIELD integer
+---@alias USDEV USDEV_NOT_USABLE_DEVICE | USDEV_USABLE_DEVICE | USDEV_BEAM_CANNON | USDEV_CANNON | USDEV_ENGINE_HORIZONTAL | USDEV_ENGINE_VERTICAL | USDEV_NAVIGATOR | USDEV_REACTOR | USDEV_REMOTE_RUDDER | USDEV_REMOTE_ENGINE_VERTICAL | USDEV_REPAIR | USDEV_RUDDER | USDEV_SCANER | USDEV_VISUAL | USDEV_SHIELD
+
+---@alias ENUM_MoneyChangeReason_Unspecified integer | "ENUM_MoneyChangeReason_Unspecified"
+---@alias ENUM_MoneyChangeReason_DirectTransfer integer | "ENUM_MoneyChangeReason_DirectTransfer"
+---@alias ENUM_MoneyChangeReason_TaxPayment integer | "ENUM_MoneyChangeReason_TaxPayment"
+---@alias ENUM_MoneyChangeReason_Antifraud integer | "ENUM_MoneyChangeReason_Antifraud"
+---@alias ENUM_MoneyChangeReason_LevelUpPayment integer | "ENUM_MoneyChangeReason_LevelUpPayment"
+---@alias ENUM_MoneyChangeReason_MWarPayment integer | "ENUM_MoneyChangeReason_MWarPayment"
+---@alias ENUM_MoneyChangeReason_Taxes integer | "ENUM_MoneyChangeReason_Taxes"
+---@alias ENUM_MoneyChangeReason_Correction integer | "ENUM_MoneyChangeReason_Correction"
+---@alias ENUM_MoneyChangeReason ENUM_MoneyChangeReason_Unspecified | ENUM_MoneyChangeReason_DirectTransfer | ENUM_MoneyChangeReason_TaxPayment | ENUM_MoneyChangeReason_Antifraud | ENUM_MoneyChangeReason_LevelUpPayment | ENUM_MoneyChangeReason_MWarPayment | ENUM_MoneyChangeReason_Taxes | ENUM_MoneyChangeReason_Correction
+
+---@alias ENUM_DiminishingGroup_Slow integer # Замедление
+---@alias ENUM_DiminishingGroup_Stun integer # Оглушение, Отталкивание
+---@alias ENUM_DiminishingGroup_Fear integer # Страх
+---@alias ENUM_DiminishingGroup_Silence integer # Немота, Обезоруживание
+---@alias ENUM_DiminishingGroup_Blind integer # Ослепление, Дезориентация
+---@alias ENUM_DiminishingGroup_Disable integer # Длительное обездвиживание, Заморозка, Усыпление, Очарование, Гипноз, Астрал
+---@alias ENUM_DiminishingGroup ENUM_DiminishingGroup_Slow | ENUM_DiminishingGroup_Stun | ENUM_DiminishingGroup_Fear | ENUM_DiminishingGroup_Silence | ENUM_DiminishingGroup_Blind | ENUM_DiminishingGroup_Disable
+
+---@alias LEARN_ERROR_LOW_LEVEL unknown
+---@alias LEARN_ERROR_NO_CASH unknown
+---@alias LEARN_ERROR_NO_PREVIOS_RANKS unknown
+---@alias LEARN_ERROR_ALREADY_KNOWN unknown
+---@alias LEARN_ERROR_PREVIOS_TRAINING_UNFINISHED unknown
+---@alias LEARN_ERROR LEARN_ERROR_LOW_LEVEL | LEARN_ERROR_NO_CASH | LEARN_ERROR_NO_PREVIOS_RANKS | LEARN_ERROR_ALREADY_KNOWN | LEARN_ERROR_PREVIOS_TRAINING_UNFINISHED
+
+---@alias ENUM_TakeItemActionType_Loot "ENUM_TakeItemActionType_Loot" - предмет пришёл из лута
+---@alias ENUM_TakeItemActionType_Quest "ENUM_TakeItemActionType_Quest" - предмет получен/забран квестом (выдан в начале, забран в конце, ревард)
+---@alias ENUM_TakeItemActionType_QuestAbandon "ENUM_TakeItemActionType_QuestAbandon" - итем забрали по причине отказа от квеста
+---@alias ENUM_TakeItemActionType_Spell "ENUM_TakeItemActionType_Spell" - итем появился/исчез по причине каста спела
+---@alias ENUM_TakeItemActionType_Vendor "ENUM_TakeItemActionType_Vendor" - итем появился/исчез при разговоре с вендором
+---@alias ENUM_TakeItemActionType_Craft "ENUM_TakeItemActionType_Craft" - при каком-то крафтинге (итем взят из крафт бега)
+---@alias ENUM_TakeItemActionType_Mail "ENUM_TakeItemActionType_Mail" - из почты
+---@alias ENUM_TakeItemActionType_Drop "ENUM_TakeItemActionType_Drop" - игрок выкинул итем
+---@alias ENUM_TakeItemActionType_SelfAnnihilation "ENUM_TakeItemActionType_SelfAnnihilation" - итем был уничтожен по времени
+---@alias ENUM_TakeItemActionType_Money "ENUM_TakeItemActionType_Money" - простая операция с деньгами
+---@alias ENUM_TakeItemActionType_Box "ENUM_TakeItemActionType_Box"
+---@alias ENUM_TakeItemActionType_RuneCombine "ENUM_TakeItemActionType_RuneCombine"
+---@alias ENUM_TakeItemActionType_SkilledItemGeneration "ENUM_TakeItemActionType_SkilledItemGeneration"
+---@alias ENUM_TakeItemActionType_AuctionBet "ENUM_TakeItemActionType_AuctionBet" - игрок делает ставку
+---@alias ENUM_TakeItemActionType_AuctionCreate "ENUM_TakeItemActionType_AuctionCreate" - игрок выставляет предмет на аукцион и с него берут залог
+---@alias ENUM_TakeItemActionType_AuctionBuyout "ENUM_TakeItemActionType_AuctionBuyout" - игрок выкупает предмет на аукционе
+---@alias ENUM_TakeItemActionType_Other "ENUM_TakeItemActionType_Other"
+---@alias ENUM_TakeItemActionType_CurrencyExchange "ENUM_TakeItemActionType_CurrencyExchange"
+---@alias ENUM_TakeItemActionType_Mentor "ENUM_TakeItemActionType_Mentor"
+---@alias ENUM_TakeItemActionType_ItemMall "ENUM_TakeItemActionType_ItemMall"
+---@alias ENUM_EnumTakeItemActionType ENUM_TakeItemActionType_Loot | ENUM_TakeItemActionType_Quest | ENUM_TakeItemActionType_QuestAbandon | ENUM_TakeItemActionType_Spell | ENUM_TakeItemActionType_Vendor | ENUM_TakeItemActionType_Craft | ENUM_TakeItemActionType_Mail | ENUM_TakeItemActionType_Drop | ENUM_TakeItemActionType_SelfAnnihilation | ENUM_TakeItemActionType_Money | ENUM_TakeItemActionType_Box | ENUM_TakeItemActionType_RuneCombine | ENUM_TakeItemActionType_SkilledItemGeneration | ENUM_TakeItemActionType_AuctionBet | ENUM_TakeItemActionType_AuctionCreate | ENUM_TakeItemActionType_AuctionBuyout | ENUM_TakeItemActionType_Other | ENUM_TakeItemActionType_CurrencyExchange | ENUM_TakeItemActionType_Mentor | ENUM_TakeItemActionType_ItemMall
+
+---@alias KBF_NONE integer # нет модификаторов
+---@alias KBF_SHIFT integer # зажата одна из клавиш "Shift"
+---@alias KBF_ALT integer # зажата одна из клавиш "Alt"
+---@alias KBF_CTRL integer # зажата одна из клавиш "Ctrl"
+---@alias KBF_ANY integer # признак, что модификатор не имеет значения
+---@alias KBF KBF_NONE | KBF_SHIFT | KBF_ALT | KBF_CTRL | KBF_ANY
+
+---@alias ENUM_LOADING_PROGRESS_SYNCHRONIZATION_WITH_SERVER "ENUM_LOADING_PROGRESS_SYNCHRONIZATION_WITH_SERVER"
+---@alias ENUM_LOADING_PROGRESS_INITIALIZING_LOGIC "ENUM_LOADING_PROGRESS_INITIALIZING_LOGIC"
+---@alias ENUM_LOADING_PROGRESS_STARTING_MISSION "ENUM_LOADING_PROGRESS_STARTING_MISSION"
+---@alias ENUM_LOADING_PROGRESS_LOADING_RESOURCES "ENUM_LOADING_PROGRESS_LOADING_RESOURCES"
+---@alias ENUM_LOADING_PROGRESS_WAITING_AVATAR "ENUM_LOADING_PROGRESS_WAITING_AVATAR"
+---@alias ENUM_LOADING_PROGRESS ENUM_LOADING_PROGRESS_SYNCHRONIZATION_WITH_SERVER | ENUM_LOADING_PROGRESS_INITIALIZING_LOGIC | ENUM_LOADING_PROGRESS_STARTING_MISSION | ENUM_LOADING_PROGRESS_LOADING_RESOURCES | ENUM_LOADING_PROGRESS_WAITING_AVATAR
+
+
+---@alias EFFECT_TYPE_UNKNOWN unknown # не используется
+---@alias EFFECT_TYPE_COOLDOWN_STARTED unknown # начался кулдаун
+---@alias EFFECT_TYPE_COOLDOWN_FINISHED unknown # кулдаун закончился
+---@alias EFFECT_TYPE_SPELL_PREPARED unknown # заклинание приготовлено к использованию
+---@alias EFFECT_TYPE_SPELL_ACTIVE_STATE_CHANGED unknown # у заклинания изменено состояние активности
+---@alias EFFECT_TYPE EFFECT_TYPE_UNKNOWN | EFFECT_TYPE_COOLDOWN_STARTED | EFFECT_TYPE_COOLDOWN_FINISHED | EFFECT_TYPE_SPELL_PREPARED | EFFECT_TYPE_SPELL_ACTIVE_STATE_CHANGED
+
+---@alias CHAR_SCENE_CHARACTER integer
+---@alias CHAR_SCENE_ITEMMALL integer
+---@alias CHAR_SCENE_INSPECT integer
+---@alias CHAR_SCENE_MOUNT integer
+---@alias CHAR_SCENE_CHECKROOM integer
+---@alias CHAR_SCENE_FITTING integer
+---@alias CHAR_SCENE_ACHIEVEMENT integer
+---@alias CHAR_SCENE_GUILD_BOSS integer
+---@alias CHAR_SCENE CHAR_SCENE_CHARACTER | CHAR_SCENE_ITEMMALL | CHAR_SCENE_INSPECT | CHAR_SCENE_MOUNT | CHAR_SCENE_CHECKROOM | CHAR_SCENE_FITTING | CHAR_SCENE_ACHIEVEMENT | CHAR_SCENE_GUILD_BOSS
+
+
+---@alias ATTACHED_OBJECT_POS_BOTTOM unknown - снизу
+---@alias ATTACHED_OBJECT_POS_CENTER unknown - по центру
+---@alias ATTACHED_OBJECT_POS_UP unknown - сверху
+---@alias ATTACHED_OBJECT_POS ATTACHED_OBJECT_POS_BOTTOM | ATTACHED_OBJECT_POS_CENTER | ATTACHED_OBJECT_POS_UP
+
+---@alias VIS_ACTION_NPC_TALK unknown # управление визуальным скриптом при разговоре с НПС
+---@alias VIS_ACTION VIS_ACTION_NPC_TALK
