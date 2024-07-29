@@ -150,14 +150,6 @@
 ---@alias ENUM_MoneyChangeReason_Correction integer | "ENUM_MoneyChangeReason_Correction"
 ---@alias ENUM_MoneyChangeReason ENUM_MoneyChangeReason_Unspecified | ENUM_MoneyChangeReason_DirectTransfer | ENUM_MoneyChangeReason_TaxPayment | ENUM_MoneyChangeReason_Antifraud | ENUM_MoneyChangeReason_LevelUpPayment | ENUM_MoneyChangeReason_MWarPayment | ENUM_MoneyChangeReason_Taxes | ENUM_MoneyChangeReason_Correction
 
----@alias ENUM_DiminishingGroup_Slow integer # Замедление
----@alias ENUM_DiminishingGroup_Stun integer # Оглушение, Отталкивание
----@alias ENUM_DiminishingGroup_Fear integer # Страх
----@alias ENUM_DiminishingGroup_Silence integer # Немота, Обезоруживание
----@alias ENUM_DiminishingGroup_Blind integer # Ослепление, Дезориентация
----@alias ENUM_DiminishingGroup_Disable integer # Длительное обездвиживание, Заморозка, Усыпление, Очарование, Гипноз, Астрал
----@alias ENUM_DiminishingGroup ENUM_DiminishingGroup_Slow | ENUM_DiminishingGroup_Stun | ENUM_DiminishingGroup_Fear | ENUM_DiminishingGroup_Silence | ENUM_DiminishingGroup_Blind | ENUM_DiminishingGroup_Disable
-
 ---@alias LEARN_ERROR_LOW_LEVEL unknown
 ---@alias LEARN_ERROR_NO_CASH unknown
 ---@alias LEARN_ERROR_NO_PREVIOS_RANKS unknown
