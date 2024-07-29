@@ -34,6 +34,8 @@
 
 ---@alias ItemId integer # TODO: требует уточнения
 
+---@alias ItemCategoryId integer # категория // TODO: требует уточнения
+
 ---@alias QuestId integer # идентификатор задания // TODO: требует уточнения
 
 ---@alias SpecialStatId integer # TODO: требует уточнения
