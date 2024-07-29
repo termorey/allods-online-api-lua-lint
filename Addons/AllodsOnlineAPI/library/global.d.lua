@@ -103,3 +103,8 @@ ButtonSafe = {}
 
 ---@class TextViewSafe
 TextViewSafe = {}
+
+---@class BattlegroundMarkId
+BattlegroundMarkId = {}
+---@return { image: WString, sysName: string | nil }
+function BattlegroundMarkId:GetInfo() end
