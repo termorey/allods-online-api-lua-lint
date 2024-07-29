@@ -219,3 +219,8 @@
 
 ---@alias VIS_ACTION_NPC_TALK unknown # управление визуальным скриптом при разговоре с НПС
 ---@alias VIS_ACTION VIS_ACTION_NPC_TALK
+
+---@alias ENUM_ColorType_TEXT integer
+---@alias ENUM_ColorType_SHADOW integer
+---@alias ENUM_ColorType_OUTLINE integer
+---@alias EnumColorType ENUM_ColorType_TEXT | ENUM_ColorType_SHADOW | ENUM_ColorType_OUTLINE

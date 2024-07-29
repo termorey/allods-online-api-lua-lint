@@ -100,6 +100,25 @@
 
 ---@class ButtonSafe
 ButtonSafe = {}
+function ButtonSafe:ClearValues(  ) end
+---@return integer
+function ButtonSafe:GetVariant(  )end
+---@return integer
+function ButtonSafe:GetVariantCount(  ) end
+---@param tag string | WString
+---@param value string | WString
+function ButtonSafe:SetClassVal( tag, value ) end
+---@param tagName string | WString
+---@param color integer | string | WString | Color
+---@param colorType? EnumColorType
+function ButtonSafe:SetTextColor( tagName, color, colorType ) end
+---@param textValues string | WString
+function ButtonSafe:SetTextValues( textValues ) end
+---@param tag string | WString
+---@param value WString
+function ButtonSafe:SetVal( tag, value ) end
+---@param variant integer
+function ButtonSafe:SetVariant( variant ) end
 
 ---@class TextViewSafe
 TextViewSafe = {}
