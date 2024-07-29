@@ -37,10 +37,6 @@
 
 ---@alias CHAT_TYPE string
 
----@alias ENUM_DevelopmentTrack_Experience integer | "ENUM_DevelopmentTrack_Experience" # опыт
----@alias ENUM_DevelopmentTrack_Reputation integer | "ENUM_DevelopmentTrack_Reputation" # репутация с определённой фракцией
----@alias ENUM_DevelopmentTrack ENUM_DevelopmentTrack_Experience | ENUM_DevelopmentTrack_Reputation
-
 ---@alias ENUM_GlobalScalerType_MobExp integer | "ENUM_GlobalScalerType_MobExp"
 ---@alias ENUM_GlobalScalerType_Authority integer | "ENUM_GlobalScalerType_Authority"
 ---@alias ENUM_GlobalScalerType_QuestExp integer | "ENUM_GlobalScalerType_QuestExp"
