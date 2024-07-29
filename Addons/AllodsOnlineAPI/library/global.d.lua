@@ -28,6 +28,10 @@
 
 ---@alias ResourceId integer # TODO: требует уточнения
 
+---@alias GoalId integer #  // TODO: требует уточнения
+
+---@alias AstralSectorId integer # сектор астрала // TODO: требует уточнения
+
 ---@alias ItemId integer # TODO: требует уточнения
 
 ---@alias QuestId integer # идентификатор задания // TODO: требует уточнения

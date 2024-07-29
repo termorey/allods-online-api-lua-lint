@@ -150,10 +150,6 @@ guild = {}
 ---@alias ACTION_TYPE_MOUNT_METAMORPH unknown
 ---@alias ACTION_TYPE ACTION_TYPE_SPELL | ACTION_TYPE_ITEM | ACTION_TYPE_MOUNT | ACTION_TYPE_EMOTE | ACTION_TYPE_MOUNT_METAMORPH # типы действий
 
----@alias ATTACK_FAILED number
----@alias ATTACK_RESULT_UNKNOWN number
----@alias ATTACK ATTACK_FAILED | ATTACK_RESULT_UNKNOWN
-
 ---@alias ITEM_CONT_EQUIPMENT integer # одежда и руны
 ---@alias ITEM_CONT_EQUIPMENT_RITUAL integer # одежда ("драконий облик")
 ---@alias ITEM_CONT_INVENTORY integer # сумка
