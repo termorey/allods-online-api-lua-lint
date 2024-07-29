@@ -74,6 +74,10 @@
 
 ---@alias TeleportMasterId integer # TODO: требует уточнения
 
+---@alias InterfaceMapMarkerId integer # идентификатор ресурса маркера // TODO: требует уточнения
+
+---@alias MapModifierId integer # идентификатор модификатора карты // TODO: требует уточнения
+
 ---@alias UniqueId string # кросс-серверный (постоянный) уникальный идентификатор аватара TODO: требует уточнения
 
 ---@alias PersistentId string # серверный (постоянный) идентификатор аватара // TODO: требует уточнения
