@@ -24,6 +24,10 @@
 
 ---@alias Color { r: number, g: number, b: number, a: number } # цвет
 
+---@alias CheckRoomCategoryId integer # идентификатор ресурса коневой категории гардероба // TODO: требует уточнения
+
+---@alias CheckRoomCollectionId integer # идентификатор ресурсов коллекций категории // TODO: требует уточнения
+
 ---@alias TextureId integer # TODO: требует уточнения
 
 ---@alias ResourceId integer # TODO: требует уточнения
@@ -51,8 +55,6 @@
 ---@alias BuffId integer # TODO: требует уточнения
 
 ---@alias ComponentId integer # TODO: требует уточнения
-
----@alias ComponentPropertyId string # Id ресурса компонента // TODO: требует уточнения
 
 ---@alias VariableId string # идентификатор ресурса переменной // TODO: требует уточнения
 
@@ -131,3 +133,13 @@ TextViewSafe = {}
 BattlegroundMarkId = {}
 ---@return { image: WString, sysName: string | nil }
 function BattlegroundMarkId:GetInfo() end
+
+---@class LifestyleCategoryId
+LifestyleCategoryId = {}
+---@return { name: WString, description: string }
+function LifestyleCategoryId:GetInfo() end
+
+---@class LifestyleCollectionId
+LifestyleCollectionId = {}
+---@return { name: WString, description: string }
+function LifestyleCollectionId:GetInfo() end
