@@ -95,18 +95,6 @@
 ---@alias TAKE_ITEMS_RESULT_FULL_STACK_LEFT integer
 ---@alias TAKE_ITEMS_RESULT TAKE_ITEMS_RESULT_SUCCESS | TAKE_ITEMS_RESULT_PARTIAL_STACK_LEFT | TAKE_ITEMS_RESULT_FULL_STACK_LEFT
 
----@alias ITEM_QUALITY_SYSTEM unknown # служебное значение, не означающее никакого качества
----@alias ITEM_QUALITY_JUNK unknown
----@alias ITEM_QUALITY_GOODS unknown
----@alias ITEM_QUALITY_COMMON unknown
----@alias ITEM_QUALITY_UNCOMMON unknown
----@alias ITEM_QUALITY_RARE unknown
----@alias ITEM_QUALITY_EPIC unknown
----@alias ITEM_QUALITY_LEGENDARY unknown
----@alias ITEM_QUALITY_RELIC unknown
----@alias ITEM_QUALITY_DRAGON unknown
----@alias ITEM_QUALITY ITEM_QUALITY_SYSTEM | ITEM_QUALITY_JUNK | ITEM_QUALITY_GOODS | ITEM_QUALITY_COMMON | ITEM_QUALITY_UNCOMMON | ITEM_QUALITY_RARE | ITEM_QUALITY_EPIC | ITEM_QUALITY_LEGENDARY | ITEM_QUALITY_RELIC | ITEM_QUALITY_DRAGON
-
 ---@alias ENUM_ShowItemsInfoReason_Unknown ENUM_ShowItemsInfoReason_Unknown # причина неизвестна
 ---@alias ENUM_ShowItemsInfoReason_XRayLootChest ENUM_ShowItemsInfoReason_XRayLootChest # спец. устройство прислало список предметов в астральном сундуке
 ---@alias ENUM_ShowItemsInfoReason ENUM_ShowItemsInfoReason_Unknown | ENUM_ShowItemsInfoReason_XRayLootChest
