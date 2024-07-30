@@ -227,3 +227,5 @@
 ---@alias HT_ALLOD unknown
 ---@alias HT_ISLAND unknown
 ---@alias HT HT_NONE | HT_UNKNOWN | HT_OUR | HT_ENEMYSHIP | HT_PORTAL | HT_ALLOD | HT_ISLAND # тип хаба
+
+---@alias ENUM_SlotName integer | string # слот
