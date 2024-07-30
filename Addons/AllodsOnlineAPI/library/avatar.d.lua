@@ -20,14 +20,6 @@ guild = {}
 ---@alias ENUM_AccessionResult_AlreadyIn "ENUM_AccessionResult_AlreadyIn"
 ---@alias ENUM_AccessionResult ENUM_AccessionResult_NoChat | ENUM_AccessionResult_Success | ENUM_AccessionResult_WrongFaction | ENUM_AccessionResult_AlreadyIn
 
----@alias ENUM_ChatFailedType_Mute "ENUM_ChatFailedType_Mute"
----@alias ENUM_ChatFailedType_InternalError "ENUM_ChatFailedType_InternalError"
----@alias ENUM_ChatFailedType_Silence "ENUM_ChatFailedType_Silence"
----@alias ENUM_ChatFailedType_NoPoints "ENUM_ChatFailedType_NoPoints"
----@alias ENUM_ChatFailedType_EnemyFaction "ENUM_ChatFailedType_EnemyFaction"
----@alias ENUM_ChatFailedType_Ignored "ENUM_ChatFailedType_Ignored"
----@alias ENUM_ChatFailedType ENUM_ChatFailedType_Mute | ENUM_ChatFailedType_InternalError | ENUM_ChatFailedType_Silence | ENUM_ChatFailedType_NoPoints | ENUM_ChatFailedType_EnemyFaction | ENUM_ChatFailedType_Ignored
-
 ---@alias ENUM_DisassemblingFailCause_NoFail "ENUM_DisassemblingFailCause_NoFail"
 ---@alias ENUM_DisassemblingFailCause_ItemType "ENUM_DisassemblingFailCause_ItemType"
 ---@alias ENUM_DisassemblingFailCause_ItemLevel "ENUM_DisassemblingFailCause_ItemLevel"
@@ -306,13 +298,6 @@ guild = {}
 ---@alias EVENT_CANNON_TARGET_CHANGE "EVENT_CANNON_TARGET_CHANGE"
 ---@alias EVENT_CANT_LOOT_DISAPPEARED_LOOT_BAG "EVENT_CANT_LOOT_DISAPPEARED_LOOT_BAG"
 ---@alias EVENT_CHARACTER_CLASS_CHANGER_CHANGED "EVENT_CHARACTER_CLASS_CHANGER_CHANGED"
----@alias EVENT_CHAT_AVATAR_MUTED "EVENT_CHAT_AVATAR_MUTED"
----@alias EVENT_CHAT_MESSAGE "EVENT_CHAT_MESSAGE"
----@alias EVENT_CHAT_MESSAGE_IS_FLOOD "EVENT_CHAT_MESSAGE_IS_FLOOD"
----@alias EVENT_CHAT_MESSAGE_REJECTED "EVENT_CHAT_MESSAGE_REJECTED"
----@alias EVENT_CHAT_MESSAGE_WITH_OBJECTS "EVENT_CHAT_MESSAGE_WITH_OBJECTS"
----@alias EVENT_CHAT_NAMED_ERROR "EVENT_CHAT_NAMED_ERROR"
----@alias EVENT_CHAT_SENT_TO_ALT "EVENT_CHAT_SENT_TO_ALT"
 ---@alias EVENT_CONTAINER_ITEM_ADDED "EVENT_CONTAINER_ITEM_ADDED"
 ---@alias EVENT_CONTAINER_ITEM_REMOVED "EVENT_CONTAINER_ITEM_REMOVED"
 ---@alias EVENT_CURRENCIES_CHANGED "EVENT_CURRENCIES_CHANGED"
@@ -369,7 +354,6 @@ guild = {}
 ---@alias EVENT_NECROMANCER_BLOOD_POOL_CHANGED "EVENT_NECROMANCER_BLOOD_POOL_CHANGED"
 ---@alias EVENT_NEW_REPUTATION_APPEARED "EVENT_NEW_REPUTATION_APPEARED"
 ---@alias EVENT_PASSANGER_STATE_CHANGED "EVENT_PASSANGER_STATE_CHANGED"
----@alias EVENT_PLAYED_COMMAND_RESPONSE "EVENT_PLAYED_COMMAND_RESPONSE"
 ---@alias EVENT_PROFICIENCY_ADDED "EVENT_PROFICIENCY_ADDED"
 ---@alias EVENT_PROFICIENCY_REMOVED "EVENT_PROFICIENCY_REMOVED"
 ---@alias EVENT_READY_FOR_FINALLY_RESPAWN "EVENT_READY_FOR_FINALLY_RESPAWN"
@@ -386,8 +370,6 @@ guild = {}
 ---@alias EVENT_SKILL_REMOVED "EVENT_SKILL_REMOVED"
 ---@alias EVENT_SKILLS_CHANGED "EVENT_SKILLS_CHANGED"
 ---@alias EVENT_SKILL_SCORE_CHANGED "EVENT_SKILL_SCORE_CHANGED"
----@alias EVENT_SLASH_COMMAND_FAILED "EVENT_SLASH_COMMAND_FAILED"
----@alias EVENT_SLASH_COMMAND_PREFIX_CHANGED "EVENT_SLASH_COMMAND_PREFIX_CHANGED"
 ---@alias EVENT_SPELLBOOK_CHANGED "EVENT_SPELLBOOK_CHANGED"
 ---@alias EVENT_SPELLBOOK_ELEMENT_ADDED "EVENT_SPELLBOOK_ELEMENT_ADDED"
 ---@alias EVENT_SPELLBOOK_ELEMENT_CHANGED "EVENT_SPELLBOOK_ELEMENT_CHANGED"
@@ -402,7 +384,6 @@ guild = {}
 ---@alias EVENT_TRANSPORT_OBSERVING_STARTED "EVENT_TRANSPORT_OBSERVING_STARTED"
 ---@alias EVENT_TREASURY_FULL "EVENT_TREASURY_FULL"
 ---@alias EVENT_UNEQUIP_FAILED "EVENT_UNEQUIP_FAILED"
----@alias EVENT_UNKNOWN_SLASH_COMMAND "EVENT_UNKNOWN_SLASH_COMMAND"
 ---@alias EVENT_VARIABLE_ADDED "EVENT_VARIABLE_ADDED"
 ---@alias EVENT_VARIABLE_REMOVED "EVENT_VARIABLE_REMOVED"
 ---@alias EVENT_VARIABLE_VALUE_CHANGED "EVENT_VARIABLE_VALUE_CHANGED"
@@ -412,9 +393,7 @@ guild = {}
 ---@alias EVENT_VENDOR_ITEM_ALREADY_SOLD "EVENT_VENDOR_ITEM_ALREADY_SOLD"
 ---@alias EVENT_VENDOR_ITEM_NOT_FOR_SALE "EVENT_VENDOR_ITEM_NOT_FOR_SALE"
 ---@alias EVENT_VENDOR_LIST_UPDATED "EVENT_VENDOR_LIST_UPDATED"
----@alias EVENT_VETERANRANKS_COMMAND_RESPONSE "EVENT_VETERANRANKS_COMMAND_RESPONSE"
 ---@alias EVENT_VICTIM_TRACKER_CHANGED "EVENT_VICTIM_TRACKER_CHANGED"
----@alias EVENT_WHISPER_FAILED "EVENT_WHISPER_FAILED"
 
 ---@overload fun(eventFunction: fun(data: { id: AbilityId, silent: boolean }), sysEventName: EVENT_ABILITIES_ELEMENT_ADDED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_ACTION_PANEL_CHANGED)
@@ -470,13 +449,6 @@ guild = {}
 ---@overload fun(eventFunction: fun(data: { target: CANNON_TARGET }), sysEventName: EVENT_CANNON_TARGET_CHANGE)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_CANT_LOOT_DISAPPEARED_LOOT_BAG)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_CHARACTER_CLASS_CHANGER_CHANGED)
----@overload fun(eventFunction: fun(data: { reason: WString, durationMinutes: integer, time: { h: integer, m: integer, s: integer } }), sysEventName: EVENT_CHAT_AVATAR_MUTED)
----@overload fun(eventFunction: fun(data: { sender: WString, shard: WString, senderUniqueId: UniqueId | nil, senderId: ObjectId, chatType: CHAT_TYPE, isEcho: boolean, recipient?: WString, isAlive:boolean, msg: WString, spamWeight: integer }), sysEventName: EVENT_CHAT_MESSAGE)
----@overload fun(eventFunction: fun(data: { cooldownMs: integer }), sysEventName: EVENT_CHAT_MESSAGE_IS_FLOOD)
----@overload fun(eventFunction: fun(data: { sysReason: ENUM_ChatFailedType, time: { h: integer, m: integer, s: integer }, expiredTime?: { d: integer, h: integer, m: integer, s: integer } }), sysEventName: EVENT_CHAT_MESSAGE_REJECTED)
----@overload fun(eventFunction: fun(data: { sender: WString, shard: WString, senderUniqueId: UniqueId | nil, senderId: ObjectId | nil, recipientUniqueId: UniqueId | nil, recipientId: ObjectId | nil, chatType: CHAT_TYPE, isEcho: boolean, time: { h: integer, m: integer, s: integer }, recipient?: WString, isAlive: boolean, messages: table<integer, { text: WString | nil, spamWeight: integer | nil, item: ValuedObject | nil, medal: ValuedObject | nil }> }), sysEventName: EVENT_CHAT_MESSAGE_WITH_OBJECTS)
----@overload fun(eventFunction: fun(data: { sysResult: ENUM_AccessionResult }), sysEventName: EVENT_CHAT_NAMED_ERROR)
----@overload fun(eventFunction: fun(data: { altName: WString }), sysEventName: EVENT_CHAT_SENT_TO_ALT)
 ---@overload fun(eventFunction: fun(data: { ownerId: ObjectId, slotType: ITEM_CONT, slot: integer, itemId: ObjectId, sysName: string, isNewItem: boolean }), sysEventName: EVENT_CONTAINER_ITEM_ADDED)
 ---@overload fun(eventFunction: fun(data: { ownerId: ObjectId, slotType: ITEM_CONT, slot: integer, sysName: string, isRemovedItem: boolean }), sysEventName: EVENT_CONTAINER_ITEM_REMOVED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_CURRENCIES_CHANGED)
@@ -533,7 +505,6 @@ guild = {}
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_NECROMANCER_BLOOD_POOL_CHANGED)
 ---@overload fun(eventFunction: fun(data: { factionId: FactionId }), sysEventName: EVENT_NEW_REPUTATION_APPEARED)
 ---@overload fun(eventFunction: fun(data: { passangerState: boolean }), sysEventName: EVENT_PASSANGER_STATE_CHANGED)
----@overload fun(eventFunction: fun(data: { time: { d: number, h: number, m: number, s: number } }), sysEventName: EVENT_PLAYED_COMMAND_RESPONSE)
 ---@overload fun(eventFunction: fun(data: { id: ObjectId }), sysEventName: EVENT_PROFICIENCY_ADDED)
 ---@overload fun(eventFunction: fun(data: { id: ObjectId }), sysEventName: EVENT_PROFICIENCY_REMOVED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_READY_FOR_FINALLY_RESPAWN)
@@ -550,8 +521,6 @@ guild = {}
 ---@overload fun(eventFunction: fun(data: { skillId: SkillId }), sysEventName: EVENT_SKILL_REMOVED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_SKILLS_CHANGED)
 ---@overload fun(eventFunction: fun(data: { skillId: SkillId }), sysEventName: EVENT_SKILL_SCORE_CHANGED)
----@overload fun(eventFunction: fun(data: { name: WString, sysReason: ENUM_SLASH_COMMAND }), sysEventName: EVENT_SLASH_COMMAND_FAILED)
----@overload fun(eventFunction: fun(), sysEventName: EVENT_SLASH_COMMAND_PREFIX_CHANGED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_SPELLBOOK_CHANGED)
 ---@overload fun(eventFunction: fun(data: { id: ObjectId }), sysEventName: EVENT_SPELLBOOK_ELEMENT_ADDED)
 ---@overload fun(eventFunction: fun(data: { id: SpellId }), sysEventName: EVENT_SPELLBOOK_ELEMENT_CHANGED)
@@ -566,7 +535,6 @@ guild = {}
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_TRANSPORT_OBSERVING_STARTED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_TREASURY_FULL)
 ---@overload fun(eventFunction: fun(data: { slot: integer, sysCode: ENUM_DressResult }), sysEventName: EVENT_UNEQUIP_FAILED)
----@overload fun(eventFunction: fun(data: { text: WString }), sysEventName: EVENT_UNKNOWN_SLASH_COMMAND)
 ---@overload fun(eventFunction: fun(data: { id: VariableId, sysName: string }), sysEventName: EVENT_VARIABLE_ADDED)
 ---@overload fun(eventFunction: fun(data: { id: VariableId }), sysEventName: EVENT_VARIABLE_REMOVED)
 ---@overload fun(eventFunction: fun(data: { id: VariableId, sysName: string, delta: number }), sysEventName: EVENT_VARIABLE_VALUE_CHANGED)
@@ -576,9 +544,7 @@ guild = {}
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_VENDOR_ITEM_ALREADY_SOLD)
 ---@overload fun(eventFunction: fun(data: { itemId: ObjectId }), sysEventName: EVENT_VENDOR_ITEM_NOT_FOR_SALE)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_VENDOR_LIST_UPDATED)
----@overload fun(eventFunction: fun(data: { value: integer, rewards: table<integer, { value: integer, name: WString }> }), sysEventName: EVENT_VETERANRANKS_COMMAND_RESPONSE)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_VICTIM_TRACKER_CHANGED)
----@overload fun(eventFunction: fun(data: { name: WString, sysReason: ENUM_EnumRequestAddressByNameFailCause }), sysEventName: EVENT_WHISPER_FAILED)
 function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
 
 --[[ FUNCTIONS --]]
