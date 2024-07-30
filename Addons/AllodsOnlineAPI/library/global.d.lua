@@ -76,8 +76,6 @@
 
 ---@alias RequirementsTable table # список условий // TODO: требует уточнения
 
----@alias FactionId integer # идентификатор фракции // TODO: требует уточнения
-
 ---@alias TeleportId integer # TODO: требует уточнения
 
 ---@alias TeleportMasterId integer # TODO: требует уточнения
@@ -158,4 +156,9 @@ function CurrencyCategoryId:GetInfo() end
 ---@class CurrencyId # идентификатор ресурса валюты
 CurrencyId = {}
 ---@return { category: CurrencyCategoryId, description: WString, hideMaxValue: boolean, image: TextureId, isCoupon: boolean, limitCurrency: CurrencyId, maxValue: integer, name: WString, storage: ENUM_CURRENCY_STORAGE, sysStorage: string, sysName: string, visualizeMode: ENUM_CURRENCY_VISUALIZE_MODE, sysVisualizeMode: string }
+function CurrencyId:GetInfo() end
+
+---@class FactionId # Идентификатор фракции
+CurrencyId = {}
+---@return { name: WString, sysName: string | nil, hide: boolean, hideNotification: boolean }
 function CurrencyId:GetInfo() end
