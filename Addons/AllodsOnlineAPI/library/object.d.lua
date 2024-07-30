@@ -9,7 +9,6 @@ object = {}
 
 --[[ EVENTS --]]
 
----@alias EVENT_CANNOT_ATTACH_WIDGET_3D "EVENT_CANNOT_ATTACH_WIDGET_3D"
 ---@alias EVENT_OBJECT_COMBAT_STATUS_CHANGED "EVENT_OBJECT_COMBAT_STATUS_CHANGED"
 ---@alias EVENT_OBJECT_DETECT_FINISHED "EVENT_OBJECT_DETECT_FINISHED"
 ---@alias EVENT_OBJECT_DETECTOR_LIST_CHANGED "EVENT_OBJECT_DETECTOR_LIST_CHANGED"
@@ -28,7 +27,6 @@ object = {}
 ---@alias EVENT_QUEST_MARK_UPDATED "EVENT_QUEST_MARK_UPDATED"
 ---@alias EVENT_SECRET_FINISHER_STATUS_CHANGED "EVENT_SECRET_FINISHER_STATUS_CHANGED"
 
----@overload fun(eventFunction: fun(data: { objectId: ObjectId }), sysEventName: EVENT_CANNOT_ATTACH_WIDGET_3D)
 ---@overload fun(eventFunction: fun(data: { objectId: ObjectId, isCombat: boolean }), sysEventName: EVENT_OBJECT_COMBAT_STATUS_CHANGED)
 ---@overload fun(eventFunction: fun(data: { objectId: ObjectId }), sysEventName: EVENT_OBJECT_DETECT_FINISHED)
 ---@overload fun(eventFunction: fun(data: { objectId: ObjectId }), sysEventName: EVENT_OBJECT_DETECTOR_LIST_CHANGED)
