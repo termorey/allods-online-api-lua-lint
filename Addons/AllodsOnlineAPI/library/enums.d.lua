@@ -219,4 +219,11 @@
 ---@alias ENUM_ColorType_OUTLINE integer
 ---@alias EnumColorType ENUM_ColorType_TEXT | ENUM_ColorType_SHADOW | ENUM_ColorType_OUTLINE
 
+---@alias HT_NONE unknown
+---@alias HT_UNKNOWN unknown
+---@alias HT_OUR unknown
+---@alias HT_ENEMYSHIP unknown
+---@alias HT_PORTAL unknown
+---@alias HT_ALLOD unknown
+---@alias HT_ISLAND unknown
 ---@alias HT HT_NONE | HT_UNKNOWN | HT_OUR | HT_ENEMYSHIP | HT_PORTAL | HT_ALLOD | HT_ISLAND # тип хаба
