@@ -142,17 +142,6 @@ guild = {}
 ---@alias ACTION_TYPE_MOUNT_METAMORPH unknown
 ---@alias ACTION_TYPE ACTION_TYPE_SPELL | ACTION_TYPE_ITEM | ACTION_TYPE_MOUNT | ACTION_TYPE_EMOTE | ACTION_TYPE_MOUNT_METAMORPH # типы действий
 
----@alias ITEM_CONT_EQUIPMENT integer # одежда и руны
----@alias ITEM_CONT_EQUIPMENT_RITUAL integer # одежда ("драконий облик")
----@alias ITEM_CONT_INVENTORY integer # сумка
----@alias ITEM_CONT_DEPOSITE integer # банковская ячейка
----@alias ITEM_CONT_INVENTORY_OVERFLOW integer # переполненная сумка
----@alias ITEM_CONT_BESTIARY integer # Бестиарий, контейнер с существами для личного острова
----@alias ITEM_CONT_CHECKROOM integer # Гардероб
----@alias ITEM_CONT_POWEREDLSWEAPON integer # прокаченое оружие
----@alias ITEM_CONT_GEMS integer # предметы для дерева талантов души
----@alias ITEM_CONT ITEM_CONT_EQUIPMENT | ITEM_CONT_EQUIPMENT_RITUAL | ITEM_CONT_INVENTORY | ITEM_CONT_DEPOSITE | ITEM_CONT_INVENTORY_OVERFLOW | ITEM_CONT_BESTIARY | ITEM_CONT_CHECKROOM | ITEM_CONT_POWEREDLSWEAPON | ITEM_CONT_GEMS
-
 ---@alias ENUM_CONTEXT_ACTION_TYPE_UNKNOWN "ENUM_CONTEXT_ACTION_TYPE_UNKNOWN" # тип не известен
 ---@alias ENUM_CONTEXT_ACTION_TYPE_SPELL "ENUM_CONTEXT_ACTION_TYPE_SPELL" # запустить заклинание
 ---@alias ENUM_CONTEXT_ACTION_TYPE_EXPLOIT "ENUM_CONTEXT_ACTION_TYPE_EXPLOIT" # использовать устройство
@@ -299,7 +288,6 @@ guild = {}
 ---@alias EVENT_CANT_LOOT_DISAPPEARED_LOOT_BAG "EVENT_CANT_LOOT_DISAPPEARED_LOOT_BAG"
 ---@alias EVENT_CHARACTER_CLASS_CHANGER_CHANGED "EVENT_CHARACTER_CLASS_CHANGER_CHANGED"
 ---@alias EVENT_CONTAINER_ITEM_ADDED "EVENT_CONTAINER_ITEM_ADDED"
----@alias EVENT_CONTAINER_ITEM_REMOVED "EVENT_CONTAINER_ITEM_REMOVED"
 ---@alias EVENT_CURRENCIES_CHANGED "EVENT_CURRENCIES_CHANGED"
 ---@alias EVENT_CURRENCY_NOT_ENOUGH "EVENT_CURRENCY_NOT_ENOUGH"
 ---@alias EVENT_CURRENCY_VALUE_CHANGED "EVENT_CURRENCY_VALUE_CHANGED"
@@ -450,7 +438,6 @@ guild = {}
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_CANT_LOOT_DISAPPEARED_LOOT_BAG)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_CHARACTER_CLASS_CHANGER_CHANGED)
 ---@overload fun(eventFunction: fun(data: { ownerId: ObjectId, slotType: ITEM_CONT, slot: integer, itemId: ObjectId, sysName: string, isNewItem: boolean }), sysEventName: EVENT_CONTAINER_ITEM_ADDED)
----@overload fun(eventFunction: fun(data: { ownerId: ObjectId, slotType: ITEM_CONT, slot: integer, sysName: string, isRemovedItem: boolean }), sysEventName: EVENT_CONTAINER_ITEM_REMOVED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_CURRENCIES_CHANGED)
 ---@overload fun(eventFunction: fun(data: { id: CurrencyId }), sysEventName: EVENT_CURRENCY_NOT_ENOUGH)
 ---@overload fun(eventFunction: fun(data: { id: CurrencyId, delta: integer, sysName: string }), sysEventName: EVENT_CURRENCY_VALUE_CHANGED)
