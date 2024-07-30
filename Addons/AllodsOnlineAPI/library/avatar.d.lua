@@ -288,9 +288,6 @@ guild = {}
 ---@alias EVENT_CANT_LOOT_DISAPPEARED_LOOT_BAG "EVENT_CANT_LOOT_DISAPPEARED_LOOT_BAG"
 ---@alias EVENT_CHARACTER_CLASS_CHANGER_CHANGED "EVENT_CHARACTER_CLASS_CHANGER_CHANGED"
 ---@alias EVENT_CONTAINER_ITEM_ADDED "EVENT_CONTAINER_ITEM_ADDED"
----@alias EVENT_CURRENCIES_CHANGED "EVENT_CURRENCIES_CHANGED"
----@alias EVENT_CURRENCY_NOT_ENOUGH "EVENT_CURRENCY_NOT_ENOUGH"
----@alias EVENT_CURRENCY_VALUE_CHANGED "EVENT_CURRENCY_VALUE_CHANGED"
 ---@alias EVENT_DEFAULT_SPELL_CHANGED "EVENT_DEFAULT_SPELL_CHANGED"
 ---@alias EVENT_DISASSEMBLING_RESULT "EVENT_DISASSEMBLING_RESULT"
 ---@alias EVENT_DRUID_PET_COMMAND_POINTS_CHANGED "EVENT_DRUID_PET_COMMAND_POINTS_CHANGED"
@@ -304,7 +301,6 @@ guild = {}
 ---@alias EVENT_GENERAL_ERROR "EVENT_GENERAL_ERROR"
 ---@alias EVENT_GUILD_AVATAR_HISTORY "EVENT_GUILD_AVATAR_HISTORY"
 ---@alias EVENT_GUILD_TALENTS_CHANGED "EVENT_GUILD_TALENTS_CHANGED"
----@alias EVENT_HIDDEN_CURRENCY_VALUE_CHANGED "EVENT_HIDDEN_CURRENCY_VALUE_CHANGED"
 ---@alias EVENT_INSPECT_FINISHED "EVENT_INSPECT_FINISHED"
 ---@alias EVENT_INSPECT_MOUNT_CHANGED "EVENT_INSPECT_MOUNT_CHANGED"
 ---@alias EVENT_INSPECT_SKILL_CHANGED "EVENT_INSPECT_SKILL_CHANGED"
@@ -438,9 +434,6 @@ guild = {}
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_CANT_LOOT_DISAPPEARED_LOOT_BAG)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_CHARACTER_CLASS_CHANGER_CHANGED)
 ---@overload fun(eventFunction: fun(data: { ownerId: ObjectId, slotType: ITEM_CONT, slot: integer, itemId: ObjectId, sysName: string, isNewItem: boolean }), sysEventName: EVENT_CONTAINER_ITEM_ADDED)
----@overload fun(eventFunction: fun(), sysEventName: EVENT_CURRENCIES_CHANGED)
----@overload fun(eventFunction: fun(data: { id: CurrencyId }), sysEventName: EVENT_CURRENCY_NOT_ENOUGH)
----@overload fun(eventFunction: fun(data: { id: CurrencyId, delta: integer, sysName: string }), sysEventName: EVENT_CURRENCY_VALUE_CHANGED)
 ---@overload fun(eventFunction: fun(data: { id: SpellId }), sysEventName: EVENT_DEFAULT_SPELL_CHANGED)
 ---@overload fun(eventFunction: fun(data: { skillId: SkillId | nil, sysResult: ENUM_DisassemblingResult, value: integer | nil }), sysEventName: EVENT_DISASSEMBLING_RESULT)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_DRUID_PET_COMMAND_POINTS_CHANGED)
@@ -454,7 +447,6 @@ guild = {}
 ---@overload fun(eventFunction: fun(data: { sysCause: ENUM_ActionFailCause }), sysEventName: EVENT_GENERAL_ERROR)
 ---@overload fun(eventFunction: fun(data: table<integer, { moneyChange: integer, comment: WString, time: LuaFullDateTime, changeReason: ENUM_MoneyChangeReason, sysChangeReason: ENUM_MoneyChangeReason }>), sysEventName: EVENT_GUILD_AVATAR_HISTORY)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_GUILD_TALENTS_CHANGED)
----@overload fun(eventFunction: fun(data: { id: CurrencyId, delta: integer, sysName: string }), sysEventName: EVENT_HIDDEN_CURRENCY_VALUE_CHANGED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_INSPECT_FINISHED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_INSPECT_MOUNT_CHANGED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_INSPECT_SKILL_CHANGED)

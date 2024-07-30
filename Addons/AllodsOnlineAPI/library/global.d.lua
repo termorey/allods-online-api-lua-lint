@@ -78,10 +78,6 @@
 
 ---@alias FactionId integer # идентификатор фракции // TODO: требует уточнения
 
----@alias CurrencyId integer # идентификатор ресурса валюты // TODO: требует уточнения
-
----@alias CurrencyCategoryId integer # TODO: требует уточнения
-
 ---@alias TeleportId integer # TODO: требует уточнения
 
 ---@alias TeleportMasterId integer # TODO: требует уточнения
@@ -153,3 +149,13 @@ function LifestyleCategoryId:GetInfo() end
 LifestyleCollectionId = {}
 ---@return { name: WString, description: string }
 function LifestyleCollectionId:GetInfo() end
+
+---@class CurrencyCategoryId # идентификатор категории альтернативной игровой валюты
+CurrencyCategoryId = {}
+---@return { name: WString, description: string, sysName: string }
+function CurrencyCategoryId:GetInfo() end
+
+---@class CurrencyId # идентификатор ресурса валюты
+CurrencyId = {}
+---@return { category: CurrencyCategoryId, description: WString, hideMaxValue: boolean, image: TextureId, isCoupon: boolean, limitCurrency: CurrencyId, maxValue: integer, name: WString, storage: ENUM_CURRENCY_STORAGE, sysStorage: string, sysName: string, visualizeMode: ENUM_CURRENCY_VISUALIZE_MODE, sysVisualizeMode: string }
+function CurrencyId:GetInfo() end
