@@ -66,6 +66,16 @@
 
 ---@alias RecipeId integer # Id ресурса рецепта // TODO: требует уточнения
 
+---@alias ForgeRecipeId integer # идентификатор рецепта для forge крафта // TODO: требует уточнения
+
+---@alias ForgeResourceId integer # идентификатор ресурса (тира) для forge-крафта // TODO: требует уточнения
+
+---@alias ForgeCraftRecipeId integer # идентификатор рецепта для forge крафта // TODO: требует уточнения & is equal ForgeRecipeId?
+
+---@alias ReforgeResourceId table # идентификатор ресурса для reforge крафта // TODO: требует уточнения
+
+---@alias RequirementsTable table # список условий // TODO: требует уточнения
+
 ---@alias FactionId integer # идентификатор фракции // TODO: требует уточнения
 
 ---@alias CurrencyId integer # идентификатор ресурса валюты // TODO: требует уточнения
