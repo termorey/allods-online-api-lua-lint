@@ -76,6 +76,8 @@
 
 ---@alias RequirementsTable table # список условий // TODO: требует уточнения
 
+---@alias ShipSkinId integer #  // TODO: требует уточнения
+
 ---@alias TeleportId integer # TODO: требует уточнения
 
 ---@alias TeleportMasterId integer # TODO: требует уточнения
@@ -159,6 +161,11 @@ CurrencyId = {}
 function CurrencyId:GetInfo() end
 
 ---@class FactionId # Идентификатор фракции
-CurrencyId = {}
+FactionId = {}
 ---@return { name: WString, sysName: string | nil, hide: boolean, hideNotification: boolean }
-function CurrencyId:GetInfo() end
+function FactionId:GetInfo() end
+
+---@class VisualShipId # Идентификатор корпуса корабля
+VisualShipId = {}
+---@return { description: WString, name: WString, image: TextureId, cannonVisualType: ENUM_CANNON_VISUAL_TYPE, sysCannonVisualType: string }
+function VisualShipId:GetInfo() end
