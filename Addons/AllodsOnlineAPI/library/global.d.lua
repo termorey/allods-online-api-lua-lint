@@ -82,6 +82,8 @@
 
 ---@alias ShipSkinId integer #  // TODO: требует уточнения
 
+---@alias InstancedEventResourceId unknown #  // TODO: требует уточнения
+
 ---@alias TeleportId integer # TODO: требует уточнения
 
 ---@alias TeleportMasterId integer # TODO: требует уточнения
@@ -234,3 +236,27 @@ function ItemId:GetInstanceId() end
 ---@param resourceId WidgetSafe | ResourceId
 ---@return boolean
 function ItemId:IsEqual( resourceId ) end
+
+---@class LfgDestinationId # Идентификатор активности для LFG
+LfgDestinationId = {}
+---@return { name: WString | nil, description: WString | nil, requiredItem: ItemId | nil, requiredCurrency: CurrencyId | nil, leaderDepartOnly: boolean, category: LfgDestinationCategoryId | nil, minAvatarLvl: integer, maxMembers: integer, maxEventDuration: integer, soloMode: boolean, instancedEvent: InstancedEventResourceId | nil, difficulty: WString | nil, difficultyMode: ENUM_LFGEventDifficulty, sysDifficultyMode: ENUM_LFGEventDifficulty }
+function LfgDestinationId:GetInfo() end
+---@return nil | string
+function LfgDestinationId:GetPath() end
+---@return nil | lightuserdata
+function LfgDestinationId:GetInstanceId() end
+---@param resourceId WidgetSafe | ResourceId
+---@return boolean
+function LfgDestinationId:IsEqual( resourceId ) end
+
+---@class LfgDestinationCategoryId # Идентификатор категории цели для LFG
+LfgDestinationCategoryId = {}
+---@return { name: WString | nil, sysName: string }
+function LfgDestinationCategoryId:GetInfo() end
+---@return nil | string
+function LfgDestinationCategoryId:GetPath() end
+---@return nil | lightuserdata
+function LfgDestinationCategoryId:GetInstanceId() end
+---@param resourceId WidgetSafe | ResourceId
+---@return boolean
+function LfgDestinationCategoryId:IsEqual( resourceId ) end
