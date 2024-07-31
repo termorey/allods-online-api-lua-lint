@@ -84,8 +84,6 @@
 
 ---@alias ShipSkinId integer #  // TODO: требует уточнения
 
----@alias InstancedEventResourceId unknown #  // TODO: требует уточнения
-
 ---@alias TeleportId integer # TODO: требует уточнения
 
 ---@alias TeleportMasterId integer # TODO: требует уточнения
@@ -286,3 +284,39 @@ function VoteId:GetInstanceId() end
 ---@param resourceId WidgetSafe | ResourceId
 ---@return boolean
 function VoteId:IsEqual( resourceId ) end
+
+---@class InstancedEventCategoryId # Идентификатор ресурса категории сражения
+InstancedEventCategoryId = {}
+---@return { name: WString, sysName: string, allowDummyPass: boolean }
+function InstancedEventCategoryId:GetInfo() end
+---@return nil | string
+function InstancedEventCategoryId:GetPath() end
+---@return nil | lightuserdata
+function InstancedEventCategoryId:GetInstanceId() end
+---@param resourceId WidgetSafe | ResourceId
+---@return boolean
+function InstancedEventCategoryId:IsEqual( resourceId ) end
+
+---@class InstancedEventResourceId # Идентификатор ресурса сражения
+InstancedEventResourceId = {}
+---@return { startTime: TimeTableId }
+function InstancedEventResourceId:GetInfo() end
+---@return nil | string
+function InstancedEventResourceId:GetPath() end
+---@return nil | lightuserdata
+function InstancedEventResourceId:GetInstanceId() end
+---@param resourceId WidgetSafe | ResourceId
+---@return boolean
+function InstancedEventResourceId:IsEqual( resourceId ) end
+
+---@class TimeTableId # Идентификатор таблицы с предустановленным списком времен/дат
+TimeTableId = {}
+---@return { entries: nil | table }
+function TimeTableId:GetInfo() end
+---@return nil | string
+function TimeTableId:GetPath() end
+---@return nil | lightuserdata
+function TimeTableId:GetInstanceId() end
+---@param resourceId WidgetSafe | ResourceId
+---@return boolean
+function TimeTableId:IsEqual( resourceId ) end
