@@ -80,6 +80,8 @@
 
 ---@alias RequirementsTable table # список условий // TODO: требует уточнения
 
+---@alias PostTypeId unknown # идентификатор раздела // TODO: требует уточнения
+
 ---@alias ShipSkinId integer #  // TODO: требует уточнения
 
 ---@alias InstancedEventResourceId unknown #  // TODO: требует уточнения
