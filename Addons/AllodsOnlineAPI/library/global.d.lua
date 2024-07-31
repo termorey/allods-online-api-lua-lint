@@ -274,3 +274,15 @@ function LootGroupId:GetInstanceId() end
 ---@param resourceId WidgetSafe | ResourceId
 ---@return boolean
 function LootGroupId:IsEqual( resourceId ) end
+
+---@class VoteId # Идентификатор ресурса, определяющего вариант выпадения лута на астральных островах
+VoteId = {}
+---@return { marker: CurrencyId, questions: nil | table<integer, { description: WString, answersCount: 0 | integer, answers: nil | table<integer, { description: WString }> }> }
+function VoteId:GetInfo() end
+---@return nil | string
+function VoteId:GetPath() end
+---@return nil | lightuserdata
+function VoteId:GetInstanceId() end
+---@param resourceId WidgetSafe | ResourceId
+---@return boolean
+function VoteId:IsEqual( resourceId ) end
