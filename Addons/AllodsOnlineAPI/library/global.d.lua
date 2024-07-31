@@ -260,3 +260,15 @@ function LfgDestinationCategoryId:GetInstanceId() end
 ---@param resourceId WidgetSafe | ResourceId
 ---@return boolean
 function LfgDestinationCategoryId:IsEqual( resourceId ) end
+
+---@class LootGroupId # Идентификатор ресурса, определяющего вариант выпадения лута на астральных островах
+LootGroupId = {}
+---@return { name: WString | nil, image?: TextureId | nil }
+function LootGroupId:GetInfo() end
+---@return nil | string
+function LootGroupId:GetPath() end
+---@return nil | lightuserdata
+function LootGroupId:GetInstanceId() end
+---@param resourceId WidgetSafe | ResourceId
+---@return boolean
+function LootGroupId:IsEqual( resourceId ) end

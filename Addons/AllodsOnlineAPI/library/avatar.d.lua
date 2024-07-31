@@ -44,8 +44,6 @@ guild = {}
 
 -- ENUM_ItemSource
 
--- LOOT_SCHEME_TYPE
-
 -- ENUM_SubElement
 
 ---@alias CLIENT_DETECTOR_QUEST_NPC unknown # NPC, принимающий или выдающий квесты

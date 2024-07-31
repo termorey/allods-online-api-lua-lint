@@ -79,16 +79,16 @@
 ---@alias ITEM_BINDING_BIND_ON_USE unknown
 ---@alias ITEM_BINDING_BIND ITEM_BINDING_BIND_NONE | ITEM_BINDING_BIND_ON_PICKUP | ITEM_BINDING_BIND_ON_EQUIP | ITEM_BINDING_BIND_ON_USE
 
----@alias ITEM_QUALITY_SYSTEM unknown # служебное значение, не означающее никакого качества
----@alias ITEM_QUALITY_JUNK unknown
----@alias ITEM_QUALITY_GOODS unknown
----@alias ITEM_QUALITY_COMMON unknown
----@alias ITEM_QUALITY_UNCOMMON unknown
----@alias ITEM_QUALITY_RARE unknown
----@alias ITEM_QUALITY_EPIC unknown
----@alias ITEM_QUALITY_LEGENDARY unknown
----@alias ITEM_QUALITY_RELIC unknown
----@alias ITEM_QUALITY_DRAGON unknown
+---@alias ITEM_QUALITY_SYSTEM integer # служебное значение, не означающее никакого качества
+---@alias ITEM_QUALITY_JUNK integer
+---@alias ITEM_QUALITY_GOODS integer
+---@alias ITEM_QUALITY_COMMON integer
+---@alias ITEM_QUALITY_UNCOMMON integer
+---@alias ITEM_QUALITY_RARE integer
+---@alias ITEM_QUALITY_EPIC integer
+---@alias ITEM_QUALITY_LEGENDARY integer
+---@alias ITEM_QUALITY_RELIC integer
+---@alias ITEM_QUALITY_DRAGON integer
 ---@alias ITEM_QUALITY ITEM_QUALITY_SYSTEM | ITEM_QUALITY_JUNK | ITEM_QUALITY_GOODS | ITEM_QUALITY_COMMON | ITEM_QUALITY_UNCOMMON | ITEM_QUALITY_RARE | ITEM_QUALITY_EPIC | ITEM_QUALITY_LEGENDARY | ITEM_QUALITY_RELIC | ITEM_QUALITY_DRAGON
 
 --[[ EVENTS --]]
