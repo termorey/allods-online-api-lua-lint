@@ -139,33 +139,82 @@ TextViewSafe = {}
 BattlegroundMarkId = {}
 ---@return { image: WString, sysName: string | nil }
 function BattlegroundMarkId:GetInfo() end
+---@return nil | string
+function BattlegroundMarkId:GetPath() end
+---@return nil | lightuserdata
+function BattlegroundMarkId:GetInstanceId() end
+---@param resourceId WidgetSafe | ResourceId
+---@return boolean
+function BattlegroundMarkId:IsEqual( resourceId ) end
 
 ---@class LifestyleCategoryId
 LifestyleCategoryId = {}
 ---@return { name: WString, description: string }
 function LifestyleCategoryId:GetInfo() end
+---@return nil | string
+function LifestyleCategoryId:GetPath() end
+---@return nil | lightuserdata
+function LifestyleCategoryId:GetInstanceId() end
+---@param resourceId WidgetSafe | ResourceId
+---@return boolean
+function LifestyleCategoryId:IsEqual( resourceId ) end
 
 ---@class LifestyleCollectionId
 LifestyleCollectionId = {}
 ---@return { name: WString, description: string }
 function LifestyleCollectionId:GetInfo() end
+---@return nil | string
+function LifestyleCollectionId:GetPath() end
+---@return nil | lightuserdata
+function LifestyleCollectionId:GetInstanceId() end
+---@param resourceId WidgetSafe | ResourceId
+---@return boolean
+function LifestyleCollectionId:IsEqual( resourceId ) end
 
 ---@class CurrencyCategoryId # идентификатор категории альтернативной игровой валюты
 CurrencyCategoryId = {}
 ---@return { name: WString, description: string, sysName: string }
 function CurrencyCategoryId:GetInfo() end
+---@return nil | string
+function CurrencyCategoryId:GetPath() end
+---@return nil | lightuserdata
+function CurrencyCategoryId:GetInstanceId() end
+---@param resourceId WidgetSafe | ResourceId
+---@return boolean
+function CurrencyCategoryId:IsEqual( resourceId ) end
 
 ---@class CurrencyId # идентификатор ресурса валюты
 CurrencyId = {}
 ---@return { category: CurrencyCategoryId, description: WString, hideMaxValue: boolean, image: TextureId, isCoupon: boolean, limitCurrency: CurrencyId, maxValue: integer, name: WString, storage: ENUM_CURRENCY_STORAGE, sysStorage: string, sysName: string, visualizeMode: ENUM_CURRENCY_VISUALIZE_MODE, sysVisualizeMode: string }
 function CurrencyId:GetInfo() end
+---@return nil | string
+function CurrencyId:GetPath() end
+---@return nil | lightuserdata
+function CurrencyId:GetInstanceId() end
+---@param resourceId WidgetSafe | ResourceId
+---@return boolean
+function CurrencyId:IsEqual( resourceId ) end
 
 ---@class FactionId # Идентификатор фракции
 FactionId = {}
 ---@return { name: WString, sysName: string | nil, hide: boolean, hideNotification: boolean }
 function FactionId:GetInfo() end
+---@return nil | string
+function FactionId:GetPath() end
+---@return nil | lightuserdata
+function FactionId:GetInstanceId() end
+---@param resourceId WidgetSafe | ResourceId
+---@return boolean
+function FactionId:IsEqual( resourceId ) end
 
 ---@class VisualShipId # Идентификатор корпуса корабля
 VisualShipId = {}
 ---@return { description: WString, name: WString, image: TextureId, cannonVisualType: ENUM_CANNON_VISUAL_TYPE, sysCannonVisualType: string }
 function VisualShipId:GetInfo() end
+---@return nil | string
+function VisualShipId:GetPath() end
+---@return nil | lightuserdata
+function VisualShipId:GetInstanceId() end
+---@param resourceId WidgetSafe | ResourceId
+---@return boolean
+function VisualShipId:IsEqual( resourceId ) end
