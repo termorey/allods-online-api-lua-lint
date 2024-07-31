@@ -34,7 +34,10 @@ spellLib = {}
 
 --[[ EVENTS --]]
 
+---@alias EVENT_ITEM_RELATED_QUESTS_CHANGED "EVENT_ITEM_RELATED_QUESTS_CHANGED"
 
+---@overload fun(eventFunction: fun(data: { itemId: ObjectId }), sysEventName: EVENT_ITEM_RELATED_QUESTS_CHANGED)
+function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
 
 --[[ FUNCTIONS --]]
 
