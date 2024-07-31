@@ -36,9 +36,13 @@
 
 ---@alias AstralSectorId integer # сектор астрала // TODO: требует уточнения
 
----@alias ItemId integer # TODO: требует уточнения
-
 ---@alias ItemCategoryId integer # категория // TODO: требует уточнения
+
+---@alias ItemClassId integer # идентификатор класса предмета // TODO: требует уточнения
+
+---@alias ComponetPropertyId integer # Id ресурсов компонент крафтинг // TODO: требует уточнения
+
+---@alias ZodiacSignId unknown # id знака зодиака руны // TODO: требует уточнения
 
 ---@alias QuestId integer # идентификатор задания // TODO: требует уточнения
 
@@ -218,3 +222,15 @@ function VisualShipId:GetInstanceId() end
 ---@param resourceId WidgetSafe | ResourceId
 ---@return boolean
 function VisualShipId:IsEqual( resourceId ) end
+
+---@class ItemId # Идентификатор ресурса предмета
+ItemId = {}
+---@return { description: WString, image: TextureId, name: WString }
+function ItemId:GetInfo() end
+---@return nil | string
+function ItemId:GetPath() end
+---@return nil | lightuserdata
+function ItemId:GetInstanceId() end
+---@param resourceId WidgetSafe | ResourceId
+---@return boolean
+function ItemId:IsEqual( resourceId ) end
