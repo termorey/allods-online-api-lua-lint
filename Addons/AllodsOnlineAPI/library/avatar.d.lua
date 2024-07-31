@@ -105,8 +105,19 @@ guild = {}
 ---@alias QUEST_FAILED number
 ---@alias QUEST QUEST_IN_PROGRESS | QUEST_READY_TO_RETURN | QUEST_COMPLETED | QUEST_FAILED # состояние квеста
 
--- ENUM_AvatarKickCause
----@alias ENUM_AvatarKickCause string
+---@alias ENUM_AvatarKickCause
+---| "ENUM_AvatarKickCause_Void"
+---| "ENUM_AvatarKickCause_ExtraAvatar"
+---| "ENUM_AvatarKickCause_InvalidGuild"
+---| "ENUM_AvatarKickCause_NoGuild"
+---| "ENUM_AvatarKickCause_NoTabard"
+---| "ENUM_AvatarKickCause_NoGroup"
+---| "ENUM_AvatarKickCause_NoRaid"
+---| "ENUM_AvatarKickCause_LevelControl"
+---| "ENUM_AvatarKickCause_EventFinished"
+---| "ENUM_AvatarKickCause_NoShip"
+---| "ENUM_AvatarKickCause_InvalidMap"
+---| "ENUM_AvatarKickCause_RaidVarsConflict"
 
 -- ENUM_UpgradeChanceBehavior
 --- TODO: check type (string and number types in avatar.GetMetaUpgradeResults)
