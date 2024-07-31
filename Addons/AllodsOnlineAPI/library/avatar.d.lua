@@ -36,8 +36,6 @@ guild = {}
 ---@alias ENUM_DisassemblingResult_Server ENUM_DisassemblingOperationResult_SlotNumberOutOfBounds | ENUM_DisassemblingOperationResult_SlotIsEmpty | ENUM_DisassemblingOperationResult_ItemIsNotDisassembler | ENUM_DisassemblingOperationResult_CannotDisassembleThis | ENUM_DisassemblingOperationResult_AvatarBusy | ENUM_DisassemblingOperationResult_Success
 ---@alias ENUM_DisassemblingResult ENUM_DisassemblingResult_Client | ENUM_DisassemblingResult_Server
 
--- ENUM_ExchangeResult
-
 -- ITEM_BINDING
 
 -- ITEMMALL_ITEM
@@ -233,7 +231,6 @@ guild = {}
 ---@alias EVENT_INSPECT_MOUNT_CHANGED "EVENT_INSPECT_MOUNT_CHANGED"
 ---@alias EVENT_INSPECT_SKILL_CHANGED "EVENT_INSPECT_SKILL_CHANGED"
 ---@alias EVENT_INSPECT_STARTED "EVENT_INSPECT_STARTED"
----@alias EVENT_INTERACTION_STARTED "EVENT_INTERACTION_STARTED"
 ---@alias EVENT_INVENTORY_CHANGED "EVENT_INVENTORY_CHANGED"
 ---@alias EVENT_INVENTORY_OVERFLOW_CHANGED "EVENT_INVENTORY_OVERFLOW_CHANGED"
 ---@alias EVENT_INVENTORY_OVERFLOW_SLOT_ADDED "EVENT_INVENTORY_OVERFLOW_SLOT_ADDED"
@@ -378,7 +375,6 @@ guild = {}
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_INSPECT_MOUNT_CHANGED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_INSPECT_SKILL_CHANGED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_INSPECT_STARTED)
----@overload fun(eventFunction: fun(), sysEventName: EVENT_INTERACTION_STARTED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_INVENTORY_CHANGED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_INVENTORY_OVERFLOW_CHANGED)
 ---@overload fun(eventFunction: fun(data: { slot: integer }), sysEventName: EVENT_INVENTORY_OVERFLOW_SLOT_ADDED)
