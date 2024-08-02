@@ -392,3 +392,39 @@ function QuestId:GetInstanceId() end
 ---@param resourceId WidgetSafe | ResourceId
 ---@return boolean
 function QuestId:IsEqual( resourceId ) end
+
+---@class BillingBonusId # Идентификатор платёжного бонуса
+BillingBonusId = {}
+---@return unknown
+function BillingBonusId:GetInfo() end
+---@return nil | string
+function BillingBonusId:GetPath() end
+---@return nil | lightuserdata
+function BillingBonusId:GetInstanceId() end
+---@param resourceId WidgetSafe | ResourceId
+---@return boolean
+function BillingBonusId:IsEqual( resourceId ) end
+
+---@class RuleId # Идентификатор ресурса переодического события
+RuleId = {}
+---@return { name: WString, description: WString, sysName: string }
+function RuleId:GetInfo() end
+---@return nil | string
+function RuleId:GetPath() end
+---@return nil | lightuserdata
+function RuleId:GetInstanceId() end
+---@param resourceId WidgetSafe | ResourceId
+---@return boolean
+function RuleId:IsEqual( resourceId ) end
+
+---@class WishmasterResourceId # Идентификатор Волшебной лампы
+WishmasterResourceId = {}
+---@return unknown
+function WishmasterResourceId:GetInfo() end
+---@return nil | string
+function WishmasterResourceId:GetPath() end
+---@return nil | lightuserdata
+function WishmasterResourceId:GetInstanceId() end
+---@param resourceId WidgetSafe | ResourceId
+---@return boolean
+function WishmasterResourceId:IsEqual( resourceId ) end
