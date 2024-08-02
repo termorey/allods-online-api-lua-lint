@@ -19,11 +19,15 @@ remortCreation = {}
 ---@alias EVENT_REMORT_LIST_GAINED "EVENT_REMORT_LIST_GAINED"
 ---@alias EVENT_REMORT_SHOW_CREATION_DIALOG "EVENT_REMORT_SHOW_CREATION_DIALOG"
 ---@alias EVENT_REMORT_VARIATIONS_INFO_CHANGED "EVENT_REMORT_VARIATIONS_INFO_CHANGED"
+---@alias EVENT_REMORT_CHARACTER_SCENE_CAMERA_READY "EVENT_REMORT_CHARACTER_SCENE_CAMERA_READY"
+---@alias EVENT_REMORT_ZOOM_TRIGGER_CHANGED "EVENT_REMORT_ZOOM_TRIGGER_CHANGED"
 
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_REMORT_ABILITY_SHARING_REQUEST)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_REMORT_LIST_GAINED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_REMORT_SHOW_CREATION_DIALOG)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_REMORT_VARIATIONS_INFO_CHANGED)
+---@overload fun(eventFunction: fun(), sysEventName: EVENT_REMORT_CHARACTER_SCENE_CAMERA_READY)
+---@overload fun(eventFunction: fun(), sysEventName: EVENT_REMORT_ZOOM_TRIGGER_CHANGED)
 function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
 
 --[[ FUNCTIONS --]]
