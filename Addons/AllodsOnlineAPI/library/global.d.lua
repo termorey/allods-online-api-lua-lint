@@ -112,6 +112,10 @@
 
 ---@alias ItemTable { name: WString, type: WString?, special: string? }
 
+---@alias LuaSexInfoPart { sex: SEX, name: WString, raceSexName: WString }
+
+---@alias LuaRaceClassInfoPart { sysName: WString, name: WString, description: WString, sysClassName: WString, className: WString, sysRaceName: WString, raceName: WString }
+
 ---@alias Locale "ru" | "en" | "de" | string
 
 ---@alias Localization "rus" | string
