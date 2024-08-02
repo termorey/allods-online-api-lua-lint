@@ -141,6 +141,12 @@ function ButtonSafe:SetVariant( variant ) end
 ---@class TextViewSafe
 TextViewSafe = {}
 
+---@class Sound
+Sound = {}
+function Sound:Play() end
+---@param immediate boolean
+function Sound:Stop( immediate ) end
+
 ---@class BattlegroundMarkId
 BattlegroundMarkId = {}
 ---@return { image: WString, sysName: string | nil }
@@ -320,3 +326,15 @@ function TimeTableId:GetInstanceId() end
 ---@param resourceId WidgetSafe | ResourceId
 ---@return boolean
 function TimeTableId:IsEqual( resourceId ) end
+
+---@class Sound2DId # Идентификатор звука
+Sound2DId = {}
+---@return unknown
+function Sound2DId:GetInfo() end
+---@return nil | string
+function Sound2DId:GetPath() end
+---@return nil | lightuserdata
+function Sound2DId:GetInstanceId() end
+---@param resourceId WidgetSafe | ResourceId
+---@return boolean
+function Sound2DId:IsEqual( resourceId ) end
