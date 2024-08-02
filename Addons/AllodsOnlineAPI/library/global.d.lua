@@ -338,3 +338,27 @@ function Sound2DId:GetInstanceId() end
 ---@param resourceId WidgetSafe | ResourceId
 ---@return boolean
 function Sound2DId:IsEqual( resourceId ) end
+
+---@class MedalId # Идентификатор ресурса достижения
+MedalId = {}
+---@return { name: WString, description: WString, image: TextureId, canLink: boolean }
+function MedalId:GetInfo() end
+---@return nil | string
+function MedalId:GetPath() end
+---@return nil | lightuserdata
+function MedalId:GetInstanceId() end
+---@param resourceId WidgetSafe | ResourceId
+---@return boolean
+function MedalId:IsEqual( resourceId ) end
+
+---@class MedalRankId # Идентификатор ресурса ранга достижения
+MedalRankId = {}
+---@return { completeProgress: integer, name: WString, description: WString, image: TextureId, score: integer, reward: { description: WString } }
+function MedalRankId:GetInfo() end
+---@return nil | string
+function MedalRankId:GetPath() end
+---@return nil | lightuserdata
+function MedalRankId:GetInstanceId() end
+---@param resourceId WidgetSafe | ResourceId
+---@return boolean
+function MedalRankId:IsEqual( resourceId ) end
