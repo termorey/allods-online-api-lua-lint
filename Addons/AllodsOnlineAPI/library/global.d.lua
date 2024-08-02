@@ -82,6 +82,8 @@
 
 ---@alias ShipSkinId integer #  // TODO: требует уточнения
 
+---@alias OrderBonusId unknown # идентификатор бонуса // TODO: требует уточнения
+
 ---@alias TeleportId integer # TODO: требует уточнения
 
 ---@alias TeleportMasterId integer # TODO: требует уточнения
