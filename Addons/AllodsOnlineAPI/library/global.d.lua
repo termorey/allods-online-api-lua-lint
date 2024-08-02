@@ -92,7 +92,7 @@
 
 ---@alias UniqueId string # кросс-серверный (постоянный) уникальный идентификатор аватара TODO: требует уточнения
 
----@alias PersistentId string # серверный (постоянный) идентификатор аватара // TODO: требует уточнения
+---@alias PersistentId number # серверный (постоянный) идентификатор аватара
 
 ---@alias ActionGroupId integer # TODO: требует уточнения
 
