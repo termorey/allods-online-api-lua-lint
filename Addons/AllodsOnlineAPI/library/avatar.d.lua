@@ -56,10 +56,6 @@ guild = {}
 ---@alias CLIENT_DETECTOR_PROFESSION_NPC unknown # крафтовый наставник (торговец)
 ---@alias CLIENT_DETECTOR CLIENT_DETECTOR_QUEST_NPC | CLIENT_DETECTOR_TRAINER_NPC | CLIENT_DETECTOR_VENDOR_NPC | CLIENT_DETECTOR_SERVICE_NPC | CLIENT_DETECTOR_PLAYER | CLIENT_DETECTOR_SPOUSE | CLIENT_DETECTOR_BATTLEGROUND_CHECKPOINT | CLIENT_DETECTOR_PROFESSION_NPC
 
----@alias QUEST_FIND_NEXT_QUEST_MODE_ZONE unknown # искать в пределах зоны, в которой находится аватар
----@alias QUEST_FIND_NEXT_QUEST_MODE_ALL unknown # искать во всём игровом мире
----@alias QUEST_FIND_NEXT_QUEST_MODE QUEST_FIND_NEXT_QUEST_MODE_ZONE | QUEST_FIND_NEXT_QUEST_MODE_ALL
-
 ---@alias ACTION_TYPE_SPELL unknown
 ---@alias ACTION_TYPE_ITEM unknown
 ---@alias ACTION_TYPE_MOUNT unknown
@@ -134,9 +130,6 @@ guild = {}
 
 -- PSIONIC_CONTACT
 ---@alias PSIONIC_CONTACT number # тип контакта
-
--- QUEST_TYPE
----@alias QUEST_TYPE number # тип квеста
 
 ---@alias QUEST_COUNT_KILL number
 ---@alias QUEST_COUNT_ITEM number

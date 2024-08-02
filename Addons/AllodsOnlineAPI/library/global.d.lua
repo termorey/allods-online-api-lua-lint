@@ -42,8 +42,6 @@
 
 ---@alias ZodiacSignId unknown # id знака зодиака руны // TODO: требует уточнения
 
----@alias QuestId integer # идентификатор задания // TODO: требует уточнения
-
 ---@alias SpecialStatId integer # TODO: требует уточнения
 
 ---@alias SkillId integer # TODO: требует уточнения
@@ -382,3 +380,15 @@ function AstralSectorId:GetInstanceId() end
 ---@param resourceId WidgetSafe | ResourceId
 ---@return boolean
 function AstralSectorId:IsEqual( resourceId ) end
+
+---@class QuestId # Идентификатор задания
+QuestId = {}
+---@return { finishText: WString, startText: WString, goal: WString, image: TextureId, name: WString, isAutomatic: boolean, questCategory: ENUM_QuestCategory }
+function QuestId:GetInfo() end
+---@return nil | string
+function QuestId:GetPath() end
+---@return nil | lightuserdata
+function QuestId:GetInstanceId() end
+---@param resourceId WidgetSafe | ResourceId
+---@return boolean
+function QuestId:IsEqual( resourceId ) end
