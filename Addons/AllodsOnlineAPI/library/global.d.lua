@@ -114,6 +114,8 @@
 
 ---@alias LuaRaceClassInfoPart { sysName: WString, name: WString, description: WString, sysClassName: WString, className: WString, sysRaceName: WString, raceName: WString }
 
+---@alias MutationInfo { difficulty: ZONE_TIER_DIFFICULTY, population: number, buff: BuffId }
+
 ---@alias TimeEntry table
 
 ---@alias Locale "ru" | "en" | "de" | string
