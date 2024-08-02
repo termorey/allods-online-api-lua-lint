@@ -34,8 +34,6 @@
 
 ---@alias GoalId integer #  // TODO: требует уточнения
 
----@alias AstralSectorId integer # сектор астрала // TODO: требует уточнения
-
 ---@alias ItemCategoryId integer # категория // TODO: требует уточнения
 
 ---@alias ItemClassId integer # идентификатор класса предмета // TODO: требует уточнения
@@ -115,6 +113,8 @@
 ---@alias LuaSexInfoPart { sex: SEX, name: WString, raceSexName: WString }
 
 ---@alias LuaRaceClassInfoPart { sysName: WString, name: WString, description: WString, sysClassName: WString, className: WString, sysRaceName: WString, raceName: WString }
+
+---@alias TimeEntry table
 
 ---@alias Locale "ru" | "en" | "de" | string
 
@@ -366,3 +366,15 @@ function MedalRankId:GetInstanceId() end
 ---@param resourceId WidgetSafe | ResourceId
 ---@return boolean
 function MedalRankId:IsEqual( resourceId ) end
+
+---@class AstralSectorId # Идентификатор астрального сектора
+AstralSectorId = {}
+---@return unknown
+function AstralSectorId:GetInfo() end
+---@return nil | string
+function AstralSectorId:GetPath() end
+---@return nil | lightuserdata
+function AstralSectorId:GetInstanceId() end
+---@param resourceId WidgetSafe | ResourceId
+---@return boolean
+function AstralSectorId:IsEqual( resourceId ) end
