@@ -280,8 +280,6 @@ guild = {}
 ---@alias EVENT_NECROMANCER_BLOOD_POOL_CHANGED "EVENT_NECROMANCER_BLOOD_POOL_CHANGED"
 ---@alias EVENT_NEW_REPUTATION_APPEARED "EVENT_NEW_REPUTATION_APPEARED"
 ---@alias EVENT_PASSANGER_STATE_CHANGED "EVENT_PASSANGER_STATE_CHANGED"
----@alias EVENT_PROFICIENCY_ADDED "EVENT_PROFICIENCY_ADDED"
----@alias EVENT_PROFICIENCY_REMOVED "EVENT_PROFICIENCY_REMOVED"
 ---@alias EVENT_READY_FOR_FINALLY_RESPAWN "EVENT_READY_FOR_FINALLY_RESPAWN"
 ---@alias EVENT_REPUTATION_DISAPPEARED "EVENT_REPUTATION_DISAPPEARED"
 ---@alias EVENT_REPUTATION_LEVEL_CHANGED "EVENT_REPUTATION_LEVEL_CHANGED"
@@ -424,8 +422,6 @@ guild = {}
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_NECROMANCER_BLOOD_POOL_CHANGED)
 ---@overload fun(eventFunction: fun(data: { factionId: FactionId }), sysEventName: EVENT_NEW_REPUTATION_APPEARED)
 ---@overload fun(eventFunction: fun(data: { passangerState: boolean }), sysEventName: EVENT_PASSANGER_STATE_CHANGED)
----@overload fun(eventFunction: fun(data: { id: ObjectId }), sysEventName: EVENT_PROFICIENCY_ADDED)
----@overload fun(eventFunction: fun(data: { id: ObjectId }), sysEventName: EVENT_PROFICIENCY_REMOVED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_READY_FOR_FINALLY_RESPAWN)
 ---@overload fun(eventFunction: fun(data: { factionId: FactionId }), sysEventName: EVENT_REPUTATION_DISAPPEARED)
 ---@overload fun(eventFunction: fun(data: { factionId: FactionId }), sysEventName: EVENT_REPUTATION_LEVEL_CHANGED)
