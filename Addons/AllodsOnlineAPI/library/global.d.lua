@@ -446,3 +446,15 @@ function RecipeId:GetInstanceId() end
 ---@param resourceId WidgetSafe | ResourceId
 ---@return boolean
 function RecipeId:IsEqual( resourceId ) end
+
+---@class SocketId # Идентификатор ресурса предмета для дерева талантов души
+SocketId = {}
+---@return { gemSlot: unknown, quality: ITEM_QUALITY }
+function SocketId:GetInfo() end
+---@return nil | string
+function SocketId:GetPath() end
+---@return nil | lightuserdata
+function SocketId:GetInstanceId() end
+---@param resourceId WidgetSafe | ResourceId
+---@return boolean
+function SocketId:IsEqual( resourceId ) end
