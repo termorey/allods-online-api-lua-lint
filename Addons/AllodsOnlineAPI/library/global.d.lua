@@ -44,8 +44,6 @@
 
 ---@alias SpecialStatId integer # TODO: требует уточнения
 
----@alias SpellId integer # TODO: требует уточнения
-
 ---@alias GuildAbilityId integer # TODO: требует уточнения
 
 ---@alias BuffId integer # TODO: требует уточнения
@@ -478,3 +476,15 @@ function ActionGroupId:GetInstanceId() end
 ---@param resourceId WidgetSafe | ResourceId
 ---@return boolean
 function ActionGroupId:IsEqual( resourceId ) end
+
+---@class SpellId # Идентификатор группы заклинаний
+SpellId = {}
+---@return unknown
+function SpellId:GetInfo() end
+---@return nil | string
+function SpellId:GetPath() end
+---@return nil | lightuserdata
+function SpellId:GetInstanceId() end
+---@param resourceId WidgetSafe | ResourceId
+---@return boolean
+function SpellId:IsEqual( resourceId ) end
