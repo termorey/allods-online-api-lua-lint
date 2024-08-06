@@ -129,7 +129,7 @@ function matchMaking.GetEventReward( eventId ) end
 --- TODO: check return type
 function matchMaking.GetEvents() end
 
----@param categoryId InstanceEventCategoryId
+---@param categoryId InstancedEventCategoryId
 ---@param type nil | "pve" | "pvp"
 function matchMaking.GetEventsByCategory( categoryId, type ) end
 
