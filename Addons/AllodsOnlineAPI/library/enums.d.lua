@@ -208,3 +208,8 @@
 ---@alias ZONE_TIER_DIFFICULTY_HARD number - тяжелая
 ---@alias ZONE_TIER_DIFFICULTY_INSANE number - сверх тяжелая
 ---@alias ZONE_TIER_DIFFICULTY ZONE_TIER_DIFFICULTY_DEFAULT | ZONE_TIER_DIFFICULTY_NONE | ZONE_TIER_DIFFICULTY_EASY | ZONE_TIER_DIFFICULTY_MEDIUM | ZONE_TIER_DIFFICULTY_HARD | ZONE_TIER_DIFFICULTY_INSANE
+
+---@alias CRAFTING_SKILL_UNKNOWN number - неизвестный тип.
+---@alias CRAFTING_SKILL_ALCHEMY number - по типу алхимии. Компоненты крафта - алхимические компоненты предмета.
+---@alias CRAFTING_SKILL_DICE_CRAFT number - новый ARMOR_CRAFT с карточной игрой. Компоненты - обычные предметы.
+---@alias CRAFTING_SKILL CRAFTING_SKILL_UNKNOWN | CRAFTING_SKILL_ALCHEMY | CRAFTING_SKILL_DICE_CRAFT

@@ -44,8 +44,6 @@
 
 ---@alias SpecialStatId integer # TODO: требует уточнения
 
----@alias SkillId integer # TODO: требует уточнения
-
 ---@alias SpellId integer # TODO: требует уточнения
 
 ---@alias AbilityId integer # TODO: требует уточнения
@@ -61,8 +59,6 @@
 ---@alias UnlockId integer # идентификатор возможности (анлока) // TODO: требует уточнения
 
 ---@alias UnlockCategoryId integer # идентификатор типа категории возможностей (анлоков) // TODO: требует уточнения
-
----@alias RecipeId integer # Id ресурса рецепта // TODO: требует уточнения
 
 ---@alias ForgeRecipeId integer # идентификатор рецепта для forge крафта // TODO: требует уточнения
 
@@ -426,3 +422,27 @@ function WishmasterResourceId:GetInstanceId() end
 ---@param resourceId WidgetSafe | ResourceId
 ---@return boolean
 function WishmasterResourceId:IsEqual( resourceId ) end
+
+---@class SkillId # Идентификатор умения
+SkillId = {}
+---@return { name: WString, description: WString, sysName: string | nil, image: TextureId, type: CRAFTING_SKILL, useLevels: boolean }
+function SkillId:GetInfo() end
+---@return nil | string
+function SkillId:GetPath() end
+---@return nil | lightuserdata
+function SkillId:GetInstanceId() end
+---@param resourceId WidgetSafe | ResourceId
+---@return boolean
+function SkillId:IsEqual( resourceId ) end
+
+---@class RecipeId # Идентификатор рецепта
+RecipeId = {}
+---@return { name: WString, description: WString, image: unknown }
+function RecipeId:GetInfo() end
+---@return nil | string
+function RecipeId:GetPath() end
+---@return nil | lightuserdata
+function RecipeId:GetInstanceId() end
+---@param resourceId WidgetSafe | ResourceId
+---@return boolean
+function RecipeId:IsEqual( resourceId ) end
