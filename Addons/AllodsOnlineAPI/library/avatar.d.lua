@@ -215,6 +215,7 @@ guild = {}
 ---@alias EVENT_CHARACTER_CLASS_CHANGER_CHANGED "EVENT_CHARACTER_CLASS_CHANGER_CHANGED"
 ---@alias EVENT_CONTAINER_ITEM_ADDED "EVENT_CONTAINER_ITEM_ADDED"
 ---@alias EVENT_DEFAULT_SPELL_CHANGED "EVENT_DEFAULT_SPELL_CHANGED"
+---@alias EVENT_DEFAULT_SPELL_EFFECT "EVENT_DEFAULT_SPELL_EFFECT"
 ---@alias EVENT_DISASSEMBLING_RESULT "EVENT_DISASSEMBLING_RESULT"
 ---@alias EVENT_DRUID_PET_COMMAND_POINTS_CHANGED "EVENT_DRUID_PET_COMMAND_POINTS_CHANGED"
 ---@alias EVENT_EMOTES_CHANGED "EVENT_EMOTES_CHANGED"
@@ -267,9 +268,6 @@ guild = {}
 ---@alias EVENT_RESURRECT_REJECTED "EVENT_RESURRECT_REJECTED"
 ---@alias EVENT_RESURRECT_REQUESTED "EVENT_RESURRECT_REQUESTED"
 ---@alias EVENT_SHOW_ITEMS_INFO "EVENT_SHOW_ITEMS_INFO"
----@alias EVENT_SPELLBOOK_CHANGED "EVENT_SPELLBOOK_CHANGED"
----@alias EVENT_SPELLBOOK_ELEMENT_ADDED "EVENT_SPELLBOOK_ELEMENT_ADDED"
----@alias EVENT_SPELLBOOK_ELEMENT_CHANGED "EVENT_SPELLBOOK_ELEMENT_CHANGED"
 ---@alias EVENT_TALENTS_CHANGED "EVENT_TALENTS_CHANGED"
 ---@alias EVENT_TALK_STARTED "EVENT_TALK_STARTED"
 ---@alias EVENT_TALK_STOPPED "EVENT_TALK_STOPPED"
@@ -348,6 +346,7 @@ guild = {}
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_CHARACTER_CLASS_CHANGER_CHANGED)
 ---@overload fun(eventFunction: fun(data: { ownerId: ObjectId, slotType: ITEM_CONT, slot: integer, itemId: ObjectId, sysName: string, isNewItem: boolean }), sysEventName: EVENT_CONTAINER_ITEM_ADDED)
 ---@overload fun(eventFunction: fun(data: { id: SpellId }), sysEventName: EVENT_DEFAULT_SPELL_CHANGED)
+---@overload fun(eventFunction: fun(data: { effect: EFFECT_TYPE, id: SpellId } | { effect: EFFECT_TYPE_COOLDOWN_STARTED, id: SpellId, duration: integer, remaining: integer } | { effect: EFFECT_TYPE_SPELL_PREPARED, id: SpellId, prepared: boolean } | { effect: EFFECT_TYPE_SPELL_ACTIVE_STATE_CHANGED, id: SpellId, isActive: boolean, objectId: ObjectId | nil }), sysEventName: EVENT_DEFAULT_SPELL_EFFECT)
 ---@overload fun(eventFunction: fun(data: { skillId: SkillId | nil, sysResult: ENUM_DisassemblingResult, value: integer | nil }), sysEventName: EVENT_DISASSEMBLING_RESULT)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_DRUID_PET_COMMAND_POINTS_CHANGED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_EMOTES_CHANGED)
@@ -400,9 +399,6 @@ guild = {}
 ---@overload fun(eventFunction: fun(data: { resurrecterName: WString, unitId: ObjectId | nil }), sysEventName: EVENT_RESURRECT_REJECTED)
 ---@overload fun(eventFunction: fun(data: { resurrecterName: WString, unitId: ObjectId, timeOutMs: integer }), sysEventName: EVENT_RESURRECT_REQUESTED)
 ---@overload fun(eventFunction: fun(data: { items: table<integer, ValuedObject>, reason: ENUM_ShowItemsInfoReason }), sysEventName: EVENT_SHOW_ITEMS_INFO)
----@overload fun(eventFunction: fun(), sysEventName: EVENT_SPELLBOOK_CHANGED)
----@overload fun(eventFunction: fun(data: { id: ObjectId }), sysEventName: EVENT_SPELLBOOK_ELEMENT_ADDED)
----@overload fun(eventFunction: fun(data: { id: SpellId }), sysEventName: EVENT_SPELLBOOK_ELEMENT_CHANGED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_TALENTS_CHANGED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_TALK_STARTED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_TALK_STOPPED)

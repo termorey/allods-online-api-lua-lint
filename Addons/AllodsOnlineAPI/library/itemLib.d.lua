@@ -3,9 +3,6 @@
 ---@class itemLib
 itemLib = {}
 
----@class spellLib
-spellLib = {}
-
 --[[ ENUMS --]]
 
 ---@alias ENUM_FloatingBudgetType_MainBudget unknown
@@ -435,10 +432,6 @@ function itemLib.IsUserChoice( itemId ) end
 ---@param itemId ObjectId
 ---@return boolean
 function itemLib.IsWeapon( itemId ) end
-
----@param spellId SpellId
----@return nil | table<integer, ObjectId>
-function spellLib.GetRequiredResources( spellId ) end
 
 ---@param unitId ObjectId
 ---@param slot DRESS_SLOT

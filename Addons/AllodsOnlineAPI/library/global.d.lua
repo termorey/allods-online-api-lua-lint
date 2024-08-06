@@ -46,8 +46,6 @@
 
 ---@alias SpellId integer # TODO: требует уточнения
 
----@alias AbilityId integer # TODO: требует уточнения
-
 ---@alias GuildAbilityId integer # TODO: требует уточнения
 
 ---@alias BuffId integer # TODO: требует уточнения
@@ -87,8 +85,6 @@
 ---@alias UniqueId string # кросс-серверный (постоянный) уникальный идентификатор аватара TODO: требует уточнения
 
 ---@alias PersistentId number # серверный (постоянный) идентификатор аватара
-
----@alias ActionGroupId integer # TODO: требует уточнения
 
 ---@alias CharacterClassId integer # идентификатор класса аватара // TODO: требует уточнения
 
@@ -458,3 +454,27 @@ function SocketId:GetInstanceId() end
 ---@param resourceId WidgetSafe | ResourceId
 ---@return boolean
 function SocketId:IsEqual( resourceId ) end
+
+---@class AbilityId # Идентификатор умения
+AbilityId = {}
+---@return unknown
+function AbilityId:GetInfo() end
+---@return nil | string
+function AbilityId:GetPath() end
+---@return nil | lightuserdata
+function AbilityId:GetInstanceId() end
+---@param resourceId WidgetSafe | ResourceId
+---@return boolean
+function AbilityId:IsEqual( resourceId ) end
+
+---@class ActionGroupId # Идентификатор группы заклинаний
+ActionGroupId = {}
+---@return unknown
+function ActionGroupId:GetInfo() end
+---@return nil | string
+function ActionGroupId:GetPath() end
+---@return nil | lightuserdata
+function ActionGroupId:GetInstanceId() end
+---@param resourceId WidgetSafe | ResourceId
+---@return boolean
+function ActionGroupId:IsEqual( resourceId ) end
