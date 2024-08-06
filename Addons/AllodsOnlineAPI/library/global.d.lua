@@ -500,3 +500,15 @@ function CombatTagId:GetInstanceId() end
 ---@param resourceId WidgetSafe | ResourceId
 ---@return boolean
 function CombatTagId:IsEqual( resourceId ) end
+
+---@class ComponentPropertyId # Идентификатор компонента для крафтинга
+ComponentPropertyId = {}
+---@return unknown
+function ComponentPropertyId:GetInfo() end
+---@return nil | string
+function ComponentPropertyId:GetPath() end
+---@return nil | lightuserdata
+function ComponentPropertyId:GetInstanceId() end
+---@param resourceId WidgetSafe | ResourceId
+---@return boolean
+function ComponentPropertyId:IsEqual( resourceId ) end
