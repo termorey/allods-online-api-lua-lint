@@ -263,3 +263,7 @@ function object.StartVisualAction( objectId, channelIndex, visActionId ) end
 ---@param objectId ObjectId # идентификатор объекта
 ---@param channelIndex VIS_ACTION # индекс канала визуального скрипта
 function object.StopVisualAction( objectId, channelIndex ) end
+
+---@param Id ObjectId
+---@return integer
+function object.GetBuffCount(Id) end

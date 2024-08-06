@@ -432,10 +432,3 @@ function itemLib.IsUserChoice( itemId ) end
 ---@param itemId ObjectId
 ---@return boolean
 function itemLib.IsWeapon( itemId ) end
-
----@param unitId ObjectId
----@param slot DRESS_SLOT
----@param slotType ITEM_CONT
----@return table
---- TODO: check return type
-function unit.GetEquipmentSlotBonus( unitId, slot, slotType ) end

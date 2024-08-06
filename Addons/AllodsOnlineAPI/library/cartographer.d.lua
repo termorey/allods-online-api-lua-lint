@@ -125,7 +125,3 @@ function cartographer.IsOnCommon() end
 
 ---@return table<integer, ObjectId>
 function rules.GetZonesMaps() end
-
----@param unitId ObjectId
----@return ObjectId | nil
-function unit.GetZonesMapId( unitId ) end

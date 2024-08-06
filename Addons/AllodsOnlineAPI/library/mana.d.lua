@@ -18,11 +18,3 @@
 function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
 
 --[[ FUNCTIONS --]]
-
----@param unitId ObjectId
----@return { mana: integer | nil, maxMana: integer | nil, percents: integer | nil }
-function unit.GetMana( unitId ) end
-
----@param unitId ObjectId
----@return integer | nil
-function unit.GetManaPercentage( unitId ) end

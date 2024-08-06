@@ -92,11 +92,3 @@ function interaction.IsExchangeInProgress() end
 
 ---@param exchangeSlot integer
 function interaction.RemoveExchangeItem( exchangeSlot ) end
-
----@param id ObjectId
----@return nil | { className: string, manaType: MANA_TYPE, name: WString }
-function unit.GetTrainerClass(id) end
-
----@param id ObjectId
----@return boolean
-function unit.IsTrainer( id ) end

@@ -334,7 +334,3 @@ unit = {}
 function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
 
 --[[ FUNCTIONS --]]
-
----@param unitId ObjectId # идентификатор юнита
----@return nil | { duration: integer, progress: integer, name: WString, spellId: SpellId | nil, isPrecast: boolean | nil, isChannel: boolean | nil }
-function unit.GetMobActionProgress( unitId ) end

@@ -2,7 +2,11 @@
 
 --[[ ENUMS --]]
 
-
+---@alias PET_TYPE_UNKNOWN number
+---@alias PET_TYPE_NECROMANCER number
+---@alias PET_TYPE_DRUID number
+---@alias PET_TYPE_PSIONIC number
+---@alias PET_TYPE PET_TYPE_UNKNOWN | PET_TYPE_NECROMANCER | PET_TYPE_DRUID | PET_TYPE_PSIONIC
 
 --[[ EVENTS --]]
 

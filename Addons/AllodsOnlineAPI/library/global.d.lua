@@ -488,3 +488,15 @@ function SpellId:GetInstanceId() end
 ---@param resourceId WidgetSafe | ResourceId
 ---@return boolean
 function SpellId:IsEqual( resourceId ) end
+
+---@class CombatTagId # Идентификатор группы заклинаний
+CombatTagId = {}
+---@return { name: WString | nil, shortname: WString | nil, description: WString | nil, isHelpful: boolean, image: TextureId | nil }
+function CombatTagId:GetInfo() end
+---@return nil | string
+function CombatTagId:GetPath() end
+---@return nil | lightuserdata
+function CombatTagId:GetInstanceId() end
+---@param resourceId WidgetSafe | ResourceId
+---@return boolean
+function CombatTagId:IsEqual( resourceId ) end

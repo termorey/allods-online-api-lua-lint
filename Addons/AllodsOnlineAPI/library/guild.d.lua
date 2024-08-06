@@ -554,7 +554,3 @@ function guild.SetMinimumTransaction( minimumTransaction ) end
 ---@param comment WString
 --- TODO: non correct docs title args
 function guild.TransferMoney( sum, changeReason, direction, comment ) end
-
----@param unitId ObjectId
----@return nil | { name: WString, rank: nil | number, level: number | nil, guildId: integer | nil }
-function unit.GetGuildInfo( unitId ) end
