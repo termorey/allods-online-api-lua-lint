@@ -62,8 +62,6 @@
 
 ---@alias UnlockCategoryId integer # идентификатор типа категории возможностей (анлоков) // TODO: требует уточнения
 
----@alias RuleId integer # идентификатор события // TODO: требует уточнения
-
 ---@alias RecipeId integer # Id ресурса рецепта // TODO: требует уточнения
 
 ---@alias ForgeRecipeId integer # идентификатор рецепта для forge крафта // TODO: требует уточнения
