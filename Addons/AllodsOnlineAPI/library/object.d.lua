@@ -24,7 +24,6 @@ object = {}
 ---@alias EVENT_OBJECT_UIINFO_REMOVED "EVENT_OBJECT_UIINFO_REMOVED"
 ---@alias EVENT_PICK_OBJECT "EVENT_PICK_OBJECT"
 ---@alias EVENT_PROJECTED_OBJECTS_CHANGED "EVENT_PROJECTED_OBJECTS_CHANGED"
----@alias EVENT_SECRET_FINISHER_STATUS_CHANGED "EVENT_SECRET_FINISHER_STATUS_CHANGED"
 
 ---@overload fun(eventFunction: fun(data: { objectId: ObjectId, isCombat: boolean }), sysEventName: EVENT_OBJECT_COMBAT_STATUS_CHANGED)
 ---@overload fun(eventFunction: fun(data: { objectId: ObjectId }), sysEventName: EVENT_OBJECT_DETECT_FINISHED)
@@ -41,7 +40,6 @@ object = {}
 ---@overload fun(eventFunction: fun(data: { id: ObjectId }), sysEventName: EVENT_OBJECT_UIINFO_REMOVED)
 ---@overload fun(eventFunction: fun(data: { id: ObjectId, simplified: boolean, moveByClick: boolean, primary: boolean, dbClock: boolean, kbfFlags: KBF }), sysEventName: EVENT_PICK_OBJECT)
 ---@overload fun(eventFunction: fun(data: table<integer, ObjectId>), sysEventName: EVENT_PROJECTED_OBJECTS_CHANGED)
----@overload fun(eventFunction: fun(data: { id: ObjectId }), sysEventName: EVENT_SECRET_FINISHER_STATUS_CHANGED)
 function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
 
 --[[ FUNCTIONS --]]
