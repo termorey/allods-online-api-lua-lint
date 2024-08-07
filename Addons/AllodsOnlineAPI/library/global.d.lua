@@ -23,7 +23,6 @@
 ---@alias ZodiacSignId unknown # id знака зодиака руны // TODO: требует уточнения
 ---@alias SpecialStatId integer # TODO: требует уточнения
 ---@alias GuildAbilityId integer # TODO: требует уточнения
----@alias BuffId integer # TODO: требует уточнения
 ---@alias ComponentId integer # TODO: требует уточнения
 ---@alias VariableId string # идентификатор ресурса переменной // TODO: требует уточнения
 ---@alias UnlockId integer # идентификатор возможности (анлока) // TODO: требует уточнения
@@ -39,7 +38,6 @@
 ---@alias TeleportId integer # TODO: требует уточнения
 ---@alias TeleportMasterId integer # TODO: требует уточнения
 ---@alias InterfaceMapMarkerId integer # идентификатор ресурса маркера // TODO: требует уточнения
----@alias MapModifierId integer # идентификатор модификатора карты // TODO: требует уточнения
 ---@alias UniqueId string # кросс-серверный (постоянный) уникальный идентификатор аватара TODO: требует уточнения
 ---@alias PersistentId number # серверный (постоянный) идентификатор аватара
 ---@alias CharacterClassId integer # идентификатор класса аватара // TODO: требует уточнения
@@ -506,3 +504,27 @@ function TutorialCategoryId:GetInstanceId() end
 ---@param resourceId WidgetSafe | ResourceId
 ---@return boolean
 function TutorialCategoryId:IsEqual( resourceId ) end
+
+---@class BuffId # Идентификатор бафа
+BuffId = {}
+---@return unknown
+function BuffId:GetInfo() end
+---@return nil | string
+function BuffId:GetPath() end
+---@return nil | lightuserdata
+function BuffId:GetInstanceId() end
+---@param resourceId WidgetSafe | ResourceId
+---@return boolean
+function BuffId:IsEqual( resourceId ) end
+
+---@class MapModifierId # Идентификатор модификатора карты
+MapModifierId = {}
+---@return unknown
+function MapModifierId:GetInfo() end
+---@return nil | string
+function MapModifierId:GetPath() end
+---@return nil | lightuserdata
+function MapModifierId:GetInstanceId() end
+---@param resourceId WidgetSafe | ResourceId
+---@return boolean
+function MapModifierId:IsEqual( resourceId ) end

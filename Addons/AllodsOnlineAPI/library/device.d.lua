@@ -3,9 +3,6 @@
 ---@class device
 device = {}
 
----@class transport
-transport = {}
-
 --[[ ENUMS --]]
 
 ---@alias ENUM_TurnReason
@@ -38,14 +35,6 @@ transport = {}
 ---@alias USDEV_VISUAL integer
 ---@alias USDEV_SHIELD integer
 ---@alias USDEV USDEV_NOT_USABLE_DEVICE | USDEV_USABLE_DEVICE | USDEV_BEAM_CANNON | USDEV_CANNON | USDEV_ENGINE_HORIZONTAL | USDEV_ENGINE_VERTICAL | USDEV_NAVIGATOR | USDEV_REACTOR | USDEV_REMOTE_RUDDER | USDEV_REMOTE_ENGINE_VERTICAL | USDEV_REPAIR | USDEV_RUDDER | USDEV_SCANER | USDEV_VISUAL | USDEV_SHIELD
-
----@alias SHIP_SIDE_NONE number
----@alias SHIP_SIDE_GENERAL number
----@alias SHIP_SIDE_FRONT number
----@alias SHIP_SIDE_REAR number
----@alias SHIP_SIDE_LEFT number
----@alias SHIP_SIDE_RIGHT number
----@alias SHIP_SIDE SHIP_SIDE_NONE | SHIP_SIDE_GENERAL | SHIP_SIDE_FRONT | SHIP_SIDE_REAR | SHIP_SIDE_LEFT | SHIP_SIDE_RIGHT # сторона корабля
 
 --[[ EVENTS --]]
 
@@ -207,7 +196,3 @@ function device.SetScanerDestinationDevice() end
 
 ---@param trailId ObjectId
 function device.SetScanerDestinationTrail( trailId ) end
-
----@param transportId ObjectId
----@return table<integer, ObjectId>
-function transport.GetDevices( transportId ) end

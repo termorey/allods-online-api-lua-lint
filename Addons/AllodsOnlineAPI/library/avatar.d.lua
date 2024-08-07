@@ -275,8 +275,6 @@ guild = {}
 ---@alias EVENT_TARGET_SALES_CHANGED "EVENT_TARGET_SALES_CHANGED"
 ---@alias EVENT_TELEPORT_OFFER_REQUEST "EVENT_TELEPORT_OFFER_REQUEST"
 ---@alias EVENT_TRAINER_LEARN_ERROR "EVENT_TRAINER_LEARN_ERROR"
----@alias EVENT_TRANSPORT_OBSERVING_FINISHED "EVENT_TRANSPORT_OBSERVING_FINISHED"
----@alias EVENT_TRANSPORT_OBSERVING_STARTED "EVENT_TRANSPORT_OBSERVING_STARTED"
 ---@alias EVENT_TREASURY_FULL "EVENT_TREASURY_FULL"
 ---@alias EVENT_UNEQUIP_FAILED "EVENT_UNEQUIP_FAILED"
 ---@alias EVENT_VARIABLE_ADDED "EVENT_VARIABLE_ADDED"
@@ -406,8 +404,6 @@ guild = {}
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_TARGET_SALES_CHANGED)
 ---@overload fun(eventFunction: fun(data: { requesterId: ObjectId, timeoutMs: integer }), sysEventName: EVENT_TELEPORT_OFFER_REQUEST)
 ---@overload fun(eventFunction: fun(data: table<integer, LEARN_ERROR>), sysEventName: EVENT_TRAINER_LEARN_ERROR)
----@overload fun(eventFunction: fun(), sysEventName: EVENT_TRANSPORT_OBSERVING_FINISHED)
----@overload fun(eventFunction: fun(), sysEventName: EVENT_TRANSPORT_OBSERVING_STARTED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_TREASURY_FULL)
 ---@overload fun(eventFunction: fun(data: { slot: integer, sysCode: ENUM_DressResult }), sysEventName: EVENT_UNEQUIP_FAILED)
 ---@overload fun(eventFunction: fun(data: { id: VariableId, sysName: string }), sysEventName: EVENT_VARIABLE_ADDED)
