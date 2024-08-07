@@ -27,7 +27,6 @@
 ---@alias ComponentId integer # TODO: требует уточнения
 ---@alias VariableId string # идентификатор ресурса переменной // TODO: требует уточнения
 ---@alias UnlockId integer # идентификатор возможности (анлока) // TODO: требует уточнения
----@alias UnlockCategoryId integer # идентификатор типа категории возможностей (анлоков) // TODO: требует уточнения
 ---@alias ForgeRecipeId integer # идентификатор рецепта для forge крафта // TODO: требует уточнения
 ---@alias ForgeResourceId integer # идентификатор ресурса (тира) для forge-крафта // TODO: требует уточнения
 ---@alias ForgeCraftRecipeId integer # идентификатор рецепта для forge крафта // TODO: требует уточнения & is equal ForgeRecipeId?
@@ -471,3 +470,15 @@ function MountTalentId:GetInstanceId() end
 ---@param resourceId WidgetSafe | ResourceId
 ---@return boolean
 function MountTalentId:IsEqual( resourceId ) end
+
+---@class UnlockCategoryId # Идентификатор категории анлоков
+UnlockCategoryId = {}
+---@return { name: string, sysName: string }
+function UnlockCategoryId:GetInfo() end
+---@return nil | string
+function UnlockCategoryId:GetPath() end
+---@return nil | lightuserdata
+function UnlockCategoryId:GetInstanceId() end
+---@param resourceId WidgetSafe | ResourceId
+---@return boolean
+function UnlockCategoryId:IsEqual( resourceId ) end
