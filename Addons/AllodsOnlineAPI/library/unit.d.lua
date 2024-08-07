@@ -1,8 +1,5 @@
 ---@meta
 
----@class mount
-mount = {}
-
 --[[ ENUMS --]]
 
 ---@alias ENUM_MobWorld_OvertipCustomView_NEVER unknown -- овертип всегда скрыт
@@ -133,10 +130,6 @@ mount = {}
 function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
 
 --[[ FUNCTIONS --]]
-
----@param unitId ObjectId
----@return nil | { health: integer, healthlinit: integer }
-function mount.GetUnitMountHealth( unitId ) end
 
 ---@param unitId ObjectId
 ---@return boolean

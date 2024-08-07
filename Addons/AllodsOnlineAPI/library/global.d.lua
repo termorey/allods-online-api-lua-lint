@@ -72,6 +72,8 @@
 
 ---@alias OrderBonusId unknown # идентификатор бонуса // TODO: требует уточнения
 
+---@alias MountTalentGroupId unknown #  // TODO: TODO: требует уточнения
+
 ---@alias TeleportId integer # TODO: требует уточнения
 
 ---@alias TeleportMasterId integer # TODO: требует уточнения
@@ -512,3 +514,15 @@ function ComponentPropertyId:GetInstanceId() end
 ---@param resourceId WidgetSafe | ResourceId
 ---@return boolean
 function ComponentPropertyId:IsEqual( resourceId ) end
+
+---@class MountTalentId # Идентификатор компонента для крафтинга
+MountTalentId = {}
+---@return { price: integer, unlock: UnlockId, unlockItems: table<integer, ItemId> }
+function MountTalentId:GetInfo() end
+---@return nil | string
+function MountTalentId:GetPath() end
+---@return nil | lightuserdata
+function MountTalentId:GetInstanceId() end
+---@param resourceId WidgetSafe | ResourceId
+---@return boolean
+function MountTalentId:IsEqual( resourceId ) end
