@@ -13,8 +13,6 @@
 ---@alias Color { r: number, g: number, b: number, a: number } # цвет
 ---@alias CheckRoomCategoryId integer # идентификатор ресурса коневой категории гардероба // TODO: требует уточнения
 ---@alias CheckRoomCollectionId integer # идентификатор ресурсов коллекций категории // TODO: требует уточнения
----@alias TextureId integer # TODO: требует уточнения
----@alias ResourceId integer # TODO: требует уточнения
 ---@alias GoalId integer #  // TODO: требует уточнения
 ---@alias ItemCategoryId integer # категория // TODO: требует уточнения
 ---@alias ItemClassId integer # идентификатор класса предмета // TODO: требует уточнения
@@ -83,6 +81,18 @@ Sound = {}
 function Sound:Play() end
 ---@param immediate boolean
 function Sound:Stop( immediate ) end
+
+---@class ResourceId
+ResourceId = {}
+---@return table
+function ResourceId:GetInfo() end
+---@return nil | string
+function ResourceId:GetPath() end
+---@return nil | lightuserdata
+function ResourceId:GetInstanceId() end
+---@param resourceId WidgetSafe | ResourceId
+---@return boolean
+function ResourceId:IsEqual( resourceId ) end
 
 ---@class BattlegroundMarkId
 BattlegroundMarkId = {}
@@ -527,3 +537,15 @@ function MapModifierId:GetInstanceId() end
 ---@param resourceId WidgetSafe | ResourceId
 ---@return boolean
 function MapModifierId:IsEqual( resourceId ) end
+
+---@class TextureId # Идентификатор текстуры
+TextureId = {}
+---@return unknown
+function TextureId:GetInfo() end
+---@return nil | string
+function TextureId:GetPath() end
+---@return nil | lightuserdata
+function TextureId:GetInstanceId() end
+---@param resourceId WidgetSafe | ResourceId
+---@return boolean
+function TextureId:IsEqual( resourceId ) end
