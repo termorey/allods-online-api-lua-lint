@@ -115,13 +115,6 @@ guild = {}
 ---| "ENUM_AvatarKickCause_InvalidMap"
 ---| "ENUM_AvatarKickCause_RaidVarsConflict"
 
--- ENUM_UpgradeChanceBehavior
---- TODO: check type (string and number types in avatar.GetMetaUpgradeResults)
----@alias ENUM_UpgradeChanceBehavior string
-
--- META_UPGRADE
----@alias META_UPGRADE integer
-
 -- PET_AGGRO
 ---@alias PET_AGGRO number # тип поведения
 
@@ -254,9 +247,6 @@ guild = {}
 ---@alias EVENT_MAP_INSTANCE_FULL "EVENT_MAP_INSTANCE_FULL"
 ---@alias EVENT_MAP_INSTANCE_KICK_TIMER_FINISHED "EVENT_MAP_INSTANCE_KICK_TIMER_FINISHED"
 ---@alias EVENT_MAP_INSTANCE_KICK_TIMER_STARTED "EVENT_MAP_INSTANCE_KICK_TIMER_STARTED"
----@alias EVENT_META_DIALOG "EVENT_META_DIALOG"
----@alias EVENT_META_UPGRADE_BREAK "EVENT_META_UPGRADE_BREAK"
----@alias EVENT_META_UPGRADE_RESULT "EVENT_META_UPGRADE_RESULT"
 ---@alias EVENT_MOVE_BY_CLICK_CHANGED "EVENT_MOVE_BY_CLICK_CHANGED"
 ---@alias EVENT_MUTATION_ZONE_MAP_MODIFIERS_CHANGED "EVENT_MUTATION_ZONE_MAP_MODIFIERS_CHANGED"
 ---@alias EVENT_MUTATION_ZONE_POPULATION_CHANGED "EVENT_MUTATION_ZONE_POPULATION_CHANGED"
@@ -383,9 +373,6 @@ guild = {}
 ---@overload fun(eventFunction: fun(data: { mapName: WString }), sysEventName: EVENT_MAP_INSTANCE_FULL)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_MAP_INSTANCE_KICK_TIMER_FINISHED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_MAP_INSTANCE_KICK_TIMER_STARTED)
----@overload fun(eventFunction: fun(), sysEventName: EVENT_META_DIALOG)
----@overload fun(eventFunction: fun(), sysEventName: EVENT_META_UPGRADE_BREAK)
----@overload fun(eventFunction: fun(data: { sysCause: ENUM_ActionFailCause, isLucky: boolean, improvementIncrease: number, upgradeChanceBehavior: ENUM_UpgradeChanceBehavior, upgradeVector: META_UPGRADE, sourceId?: ObjectId, enchancerId?: ObjectId, agentId?: ObjectId, agentCount?: integer, resultId?: ObjectId }), sysEventName: EVENT_META_UPGRADE_RESULT)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_MOVE_BY_CLICK_CHANGED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_MUTATION_ZONE_MAP_MODIFIERS_CHANGED)
 ---@overload fun(eventFunction: fun(data: { table: table<integer, ObjectId> }), sysEventName: EVENT_MUTATION_ZONE_POPULATION_CHANGED)
