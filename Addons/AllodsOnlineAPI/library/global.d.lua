@@ -482,3 +482,27 @@ function UnlockCategoryId:GetInstanceId() end
 ---@param resourceId WidgetSafe | ResourceId
 ---@return boolean
 function UnlockCategoryId:IsEqual( resourceId ) end
+
+---@class TutorialId # Идентификатор ресурса обучения
+TutorialId = {}
+---@return {}
+function TutorialId:GetInfo() end
+---@return nil | string
+function TutorialId:GetPath() end
+---@return nil | lightuserdata
+function TutorialId:GetInstanceId() end
+---@param resourceId WidgetSafe | ResourceId
+---@return boolean
+function TutorialId:IsEqual( resourceId ) end
+
+---@class TutorialCategoryId # Идентификатор ресурса категории обучения
+TutorialCategoryId = {}
+---@return {}
+function TutorialCategoryId:GetInfo() end
+---@return nil | string
+function TutorialCategoryId:GetPath() end
+---@return nil | lightuserdata
+function TutorialCategoryId:GetInstanceId() end
+---@param resourceId WidgetSafe | ResourceId
+---@return boolean
+function TutorialCategoryId:IsEqual( resourceId ) end
