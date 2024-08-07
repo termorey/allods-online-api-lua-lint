@@ -3,9 +3,6 @@
 ---@class checkroomLib
 checkroomLib = {}
 
----@class poweredLSWeaponsLib
-poweredLSWeaponsLib = {}
-
 --[[ ENUMS --]]
 
 
@@ -89,9 +86,3 @@ function checkroomLib.IsItemsInCheckroom( itemIds ) end
 function checkroomLib.IsOpened() end
 
 function checkroomLib.Open() end
-
----@param itemId ObjectId
-function poweredLSWeaponsLib.EquipItem( itemId ) end
-
----@param itemId ObjectId
-function poweredLSWeaponsLib.UnequipItem( itemId ) end
