@@ -14,26 +14,26 @@ guild = {}
 
 --[[ ENUMS --]]
 
----@alias ENUM_AccessionResult_NoChat "ENUM_AccessionResult_NoChat"
----@alias ENUM_AccessionResult_Success "ENUM_AccessionResult_Success"
----@alias ENUM_AccessionResult_WrongFaction "ENUM_AccessionResult_WrongFaction"
----@alias ENUM_AccessionResult_AlreadyIn "ENUM_AccessionResult_AlreadyIn"
----@alias ENUM_AccessionResult ENUM_AccessionResult_NoChat | ENUM_AccessionResult_Success | ENUM_AccessionResult_WrongFaction | ENUM_AccessionResult_AlreadyIn
+---@alias ENUM_AccessionResult
+---| "ENUM_AccessionResult_NoChat"
+---| "ENUM_AccessionResult_Success"
+---| "ENUM_AccessionResult_WrongFaction"
+---| "ENUM_AccessionResult_AlreadyIn"
 
----@alias ENUM_DisassemblingFailCause_NoFail "ENUM_DisassemblingFailCause_NoFail"
----@alias ENUM_DisassemblingFailCause_ItemType "ENUM_DisassemblingFailCause_ItemType"
----@alias ENUM_DisassemblingFailCause_ItemLevel "ENUM_DisassemblingFailCause_ItemLevel"
----@alias ENUM_DisassemblingFailCause_System "ENUM_DisassemblingFailCause_System"
----@alias ENUM_DisassemblingFailCause_NotDisassembler "ENUM_DisassemblingFailCause_NotDisassembler"
----@alias ENUM_DisassemblingFailCause_NoSkill "ENUM_DisassemblingFailCause_NoSkill"
----@alias ENUM_DisassemblingResult_Client ENUM_DisassemblingFailCause_NoFail | ENUM_DisassemblingFailCause_ItemType | ENUM_DisassemblingFailCause_ItemLevel | ENUM_DisassemblingFailCause_System | ENUM_DisassemblingFailCause_NotDisassembler | ENUM_DisassemblingFailCause_NoSkill
----@alias ENUM_DisassemblingOperationResult_SlotNumberOutOfBounds "ENUM_DisassemblingOperationResult_SlotNumberOutOfBounds"
----@alias ENUM_DisassemblingOperationResult_SlotIsEmpty "ENUM_DisassemblingOperationResult_SlotIsEmpty"
----@alias ENUM_DisassemblingOperationResult_ItemIsNotDisassembler "ENUM_DisassemblingOperationResult_ItemIsNotDisassembler"
----@alias ENUM_DisassemblingOperationResult_CannotDisassembleThis "ENUM_DisassemblingOperationResult_CannotDisassembleThis"
----@alias ENUM_DisassemblingOperationResult_AvatarBusy "ENUM_DisassemblingOperationResult_AvatarBusy"
----@alias ENUM_DisassemblingOperationResult_Success "ENUM_DisassemblingOperationResult_Success"
----@alias ENUM_DisassemblingResult_Server ENUM_DisassemblingOperationResult_SlotNumberOutOfBounds | ENUM_DisassemblingOperationResult_SlotIsEmpty | ENUM_DisassemblingOperationResult_ItemIsNotDisassembler | ENUM_DisassemblingOperationResult_CannotDisassembleThis | ENUM_DisassemblingOperationResult_AvatarBusy | ENUM_DisassemblingOperationResult_Success
+---@alias ENUM_DisassemblingResult_Client
+---| "ENUM_DisassemblingFailCause_NoFail"
+---| "ENUM_DisassemblingFailCause_ItemType"
+---| "ENUM_DisassemblingFailCause_ItemLevel"
+---| "ENUM_DisassemblingFailCause_System"
+---| "ENUM_DisassemblingFailCause_NotDisassembler"
+---| "ENUM_DisassemblingFailCause_NoSkill"
+---@alias ENUM_DisassemblingResult_Server
+---| "ENUM_DisassemblingOperationResult_SlotNumberOutOfBounds"
+---| "ENUM_DisassemblingOperationResult_SlotIsEmpty"
+---| "ENUM_DisassemblingOperationResult_ItemIsNotDisassembler"
+---| "ENUM_DisassemblingOperationResult_CannotDisassembleThis"
+---| "ENUM_DisassemblingOperationResult_AvatarBusy"
+---| "ENUM_DisassemblingOperationResult_Success"
 ---@alias ENUM_DisassemblingResult ENUM_DisassemblingResult_Client | ENUM_DisassemblingResult_Server
 
 -- ITEM_BINDING
@@ -63,13 +63,13 @@ guild = {}
 ---@alias ACTION_TYPE_MOUNT_METAMORPH unknown
 ---@alias ACTION_TYPE ACTION_TYPE_SPELL | ACTION_TYPE_ITEM | ACTION_TYPE_MOUNT | ACTION_TYPE_EMOTE | ACTION_TYPE_MOUNT_METAMORPH # типы действий
 
----@alias ENUM_CONTEXT_ACTION_TYPE_UNKNOWN "ENUM_CONTEXT_ACTION_TYPE_UNKNOWN" # тип не известен
----@alias ENUM_CONTEXT_ACTION_TYPE_SPELL "ENUM_CONTEXT_ACTION_TYPE_SPELL" # запустить заклинание
----@alias ENUM_CONTEXT_ACTION_TYPE_EXPLOIT "ENUM_CONTEXT_ACTION_TYPE_EXPLOIT" # использовать устройство
----@alias ENUM_CONTEXT_ACTION_TYPE_LOOT "ENUM_CONTEXT_ACTION_TYPE_LOOT" # собрать лут
----@alias ENUM_CONTEXT_ACTION_TYPE_NPC_TALK "ENUM_CONTEXT_ACTION_TYPE_NPC_TALK" # поговорить с NPC
----@alias ENUM_CONTEXT_ACTION_TYPE_ITEM "ENUM_CONTEXT_ACTION_TYPE_ITEM" # использовать предмет из сумки
----@alias ENUM_CONTEXT_ACTION_TYPE ENUM_CONTEXT_ACTION_TYPE_UNKNOWN | ENUM_CONTEXT_ACTION_TYPE_SPELL | ENUM_CONTEXT_ACTION_TYPE_EXPLOIT | ENUM_CONTEXT_ACTION_TYPE_LOOT | ENUM_CONTEXT_ACTION_TYPE_NPC_TALK | ENUM_CONTEXT_ACTION_TYPE_ITEM
+---@alias ENUM_CONTEXT_ACTION_TYPE
+---| "ENUM_CONTEXT_ACTION_TYPE_UNKNOWN" # тип не известен
+---| "ENUM_CONTEXT_ACTION_TYPE_SPELL" # запустить заклинание
+---| "ENUM_CONTEXT_ACTION_TYPE_EXPLOIT" # использовать устройство
+---| "ENUM_CONTEXT_ACTION_TYPE_LOOT" # собрать лут
+---| "ENUM_CONTEXT_ACTION_TYPE_NPC_TALK" # поговорить с NPC
+---| "ENUM_CONTEXT_ACTION_TYPE_ITEM" # использовать предмет из сумки
 
 ---@alias VENDOR_NO_VENDOR integer # не торговец
 ---@alias VENDOR_GENERAL integer # обычный торговец с предметами неясного назначения
