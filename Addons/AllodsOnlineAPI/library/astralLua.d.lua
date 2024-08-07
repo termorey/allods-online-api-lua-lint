@@ -5,18 +5,18 @@ astral = {}
 
 --[[ ENUMS --]]
 
----@alias ENUM_FailType_Offline "ENUM_FailType_Offline"
----@alias ENUM_FailType_NotOnShip "ENUM_FailType_NotOnShip"
----@alias ENUM_FailType_NoHalo "ENUM_FailType_NoHalo"
----@alias ENUM_FailType_LowTierLevel "ENUM_FailType_LowTierLevel"
----@alias ENUM_FailType_NoTicket "ENUM_FailType_NoTicket"
----@alias ENUM_FailType_NoAstralMap "ENUM_FailType_NoAstralMap"
----@alias ENUM_FailType_NoJumpCurrency "ENUM_FailType_NoJumpCurrency"
----@alias ENUM_FailType ENUM_FailType_Offline | ENUM_FailType_NotOnShip | ENUM_FailType_NoHalo | ENUM_FailType_LowTierLevel | ENUM_FailType_NoTicket | ENUM_FailType_NoAstralMap | ENUM_FailType_NoJumpCurrency
+---@alias ENUM_FailType
+---| "ENUM_FailType_Offline"
+---| "ENUM_FailType_NotOnShip"
+---| "ENUM_FailType_NoHalo"
+---| "ENUM_FailType_LowTierLevel"
+---| "ENUM_FailType_NoTicket"
+---| "ENUM_FailType_NoAstralMap"
+---| "ENUM_FailType_NoJumpCurrency"
 
----@alias ENUM_HubScanInfoObjectType_Mob "ENUM_HubScanInfoObjectType_Mob"
----@alias ENUM_HubScanInfoObjectType_Ship "ENUM_HubScanInfoObjectType_Ship"
----@alias ENUM_HubScanInfoObjectType ENUM_HubScanInfoObjectType_Mob | ENUM_HubScanInfoObjectType_Ship
+---@alias ENUM_HubScanInfoObjectType
+---| "ENUM_HubScanInfoObjectType_Mob"
+---| "ENUM_HubScanInfoObjectType_Ship"
 
 --[[ EVENTS --]]
 
