@@ -49,14 +49,14 @@
 ---@alias ENUM_GlobalScalerType_PersonalDrop integer | "ENUM_GlobalScalerType_PersonalDrop"
 ---@alias ENUM_GlobalScalerType ENUM_GlobalScalerType_MobExp | ENUM_GlobalScalerType_Authority | ENUM_GlobalScalerType_QuestExp | ENUM_GlobalScalerType_Reputation | ENUM_GlobalScalerType_QuestLoot | ENUM_GlobalScalerType_AstralLoot | ENUM_GlobalScalerType_GoldAndTrashDrop | ENUM_GlobalScalerType_WorldDrop | ENUM_GlobalScalerType_QuestMoney | ENUM_GlobalScalerType_PersonalDrop
 
----@alias ENUM_SaleTag_None "ENUM_SaleTag_None" # общий
----@alias ENUM_SaleTag_Discount "ENUM_SaleTag_Discount" # скидка
----@alias ENUM_SaleTag_Discount50 "ENUM_SaleTag_Discount50" # скидка 50%
----@alias ENUM_SaleTag_Discount70 "ENUM_SaleTag_Discount70" # скидка 70%
----@alias ENUM_SaleTag_Discount80 "ENUM_SaleTag_Discount80" # скидка 80%
----@alias ENUM_SaleTag_Discount90 "ENUM_SaleTag_Discount90" # скидка 90%
----@alias ENUM_SaleTag_UniqueItem "ENUM_SaleTag_UniqueItem" # уникальный товар
----@alias ENUM_SaleTag ENUM_SaleTag_None | ENUM_SaleTag_Discount | ENUM_SaleTag_Discount50 | ENUM_SaleTag_Discount70 | ENUM_SaleTag_Discount80 | ENUM_SaleTag_Discount90 | ENUM_SaleTag_UniqueItem
+---@alias ENUM_SaleTag
+---| "ENUM_SaleTag_None" # общий
+---| "ENUM_SaleTag_Discount" # скидка
+---| "ENUM_SaleTag_Discount50" # скидка 50%
+---| "ENUM_SaleTag_Discount70" # скидка 70%
+---| "ENUM_SaleTag_Discount80" # скидка 80%
+---| "ENUM_SaleTag_Discount90" # скидка 90%
+---| "ENUM_SaleTag_UniqueItem" # уникальный товар
 
 ---@alias ENUM_CreatureRace_HUMANOID integer | "ENUM_CreatureRace_HUMANOID"
 ---@alias ENUM_CreatureRace_BEAST integer | "ENUM_CreatureRace_BEAST"
@@ -99,17 +99,17 @@
 ---@alias ENUM_ShowItemsInfoReason_XRayLootChest ENUM_ShowItemsInfoReason_XRayLootChest # спец. устройство прислало список предметов в астральном сундуке
 ---@alias ENUM_ShowItemsInfoReason ENUM_ShowItemsInfoReason_Unknown | ENUM_ShowItemsInfoReason_XRayLootChest
 
----@alias ENUM_SLASH_COMMAND_INVITE_FAILED_WRONG_FORMAT "ENUM_SLASH_COMMAND_INVITE_FAILED_WRONG_FORMAT" # неверный формат команды /invite
----@alias ENUM_SLASH_COMMAND_KICK_FAILED_WRONG_FORMAT "ENUM_SLASH_COMMAND_KICK_FAILED_WRONG_FORMAT" # неверный формат команды /kick
----@alias ENUM_SLASH_COMMAND_CUSTOM_EMOTE_FAILED_WRONG_FORMAT "ENUM_SLASH_COMMAND_CUSTOM_EMOTE_FAILED_WRONG_FORMAT" # неверный формат команды /emote
----@alias ENUM_SLASH_COMMAND_TRADE_FAILED_WRONG_FORMAT "ENUM_SLASH_COMMAND_TRADE_FAILED_WRONG_FORMAT" # неверный формат команды /trade
----@alias ENUM_SLASH_COMMAND_GUILD_INVITE_FAILED_WRONG_FORMAT "ENUM_SLASH_COMMAND_GUILD_INVITE_FAILED_WRONG_FORMAT" # неверный формат команды /ginvite
----@alias ENUM_SLASH_COMMAND_GUILD_KICK_FAILED_WRONG_FORMAT "ENUM_SLASH_COMMAND_GUILD_KICK_FAILED_WRONG_FORMAT" # неверный формат команды /gkick
----@alias ENUM_SLASH_COMMAND ENUM_SLASH_COMMAND_INVITE_FAILED_WRONG_FORMAT | ENUM_SLASH_COMMAND_KICK_FAILED_WRONG_FORMAT | ENUM_SLASH_COMMAND_CUSTOM_EMOTE_FAILED_WRONG_FORMAT | ENUM_SLASH_COMMAND_TRADE_FAILED_WRONG_FORMAT | ENUM_SLASH_COMMAND_GUILD_INVITE_FAILED_WRONG_FORMAT | ENUM_SLASH_COMMAND_GUILD_KICK_FAILED_WRONG_FORMAT
+---@alias ENUM_SLASH_COMMAND
+---| "ENUM_SLASH_COMMAND_INVITE_FAILED_WRONG_FORMAT" # неверный формат команды /invite
+---| "ENUM_SLASH_COMMAND_KICK_FAILED_WRONG_FORMAT" # неверный формат команды /kick
+---| "ENUM_SLASH_COMMAND_CUSTOM_EMOTE_FAILED_WRONG_FORMAT" # неверный формат команды /emote
+---| "ENUM_SLASH_COMMAND_TRADE_FAILED_WRONG_FORMAT" # неверный формат команды /trade
+---| "ENUM_SLASH_COMMAND_GUILD_INVITE_FAILED_WRONG_FORMAT" # неверный формат команды /ginvite
+---| "ENUM_SLASH_COMMAND_GUILD_KICK_FAILED_WRONG_FORMAT" # неверный формат команды /gkick
 
----@alias ENUM_RequestAddressByNameFailCause_NotExist "ENUM_RequestAddressByNameFailCause_NotExist"
----@alias ENUM_RequestAddressByNameFailCause_NotLoggedIn "ENUM_RequestAddressByNameFailCause_NotLoggedIn"
----@alias ENUM_EnumRequestAddressByNameFailCause ENUM_RequestAddressByNameFailCause_NotExist | ENUM_RequestAddressByNameFailCause_NotLoggedIn
+---@alias ENUM_EnumRequestAddressByNameFailCause
+---| "ENUM_RequestAddressByNameFailCause_NotExist"
+---| "ENUM_RequestAddressByNameFailCause_NotLoggedIn"
 
 ---@alias ENUM_MoneyChangeReason_Unspecified integer | "ENUM_MoneyChangeReason_Unspecified"
 ---@alias ENUM_MoneyChangeReason_DirectTransfer integer | "ENUM_MoneyChangeReason_DirectTransfer"
@@ -128,27 +128,27 @@
 ---@alias LEARN_ERROR_PREVIOS_TRAINING_UNFINISHED unknown
 ---@alias LEARN_ERROR LEARN_ERROR_LOW_LEVEL | LEARN_ERROR_NO_CASH | LEARN_ERROR_NO_PREVIOS_RANKS | LEARN_ERROR_ALREADY_KNOWN | LEARN_ERROR_PREVIOS_TRAINING_UNFINISHED
 
----@alias ENUM_TakeItemActionType_Loot "ENUM_TakeItemActionType_Loot" - предмет пришёл из лута
----@alias ENUM_TakeItemActionType_Quest "ENUM_TakeItemActionType_Quest" - предмет получен/забран квестом (выдан в начале, забран в конце, ревард)
----@alias ENUM_TakeItemActionType_QuestAbandon "ENUM_TakeItemActionType_QuestAbandon" - итем забрали по причине отказа от квеста
----@alias ENUM_TakeItemActionType_Spell "ENUM_TakeItemActionType_Spell" - итем появился/исчез по причине каста спела
----@alias ENUM_TakeItemActionType_Vendor "ENUM_TakeItemActionType_Vendor" - итем появился/исчез при разговоре с вендором
----@alias ENUM_TakeItemActionType_Craft "ENUM_TakeItemActionType_Craft" - при каком-то крафтинге (итем взят из крафт бега)
----@alias ENUM_TakeItemActionType_Mail "ENUM_TakeItemActionType_Mail" - из почты
----@alias ENUM_TakeItemActionType_Drop "ENUM_TakeItemActionType_Drop" - игрок выкинул итем
----@alias ENUM_TakeItemActionType_SelfAnnihilation "ENUM_TakeItemActionType_SelfAnnihilation" - итем был уничтожен по времени
----@alias ENUM_TakeItemActionType_Money "ENUM_TakeItemActionType_Money" - простая операция с деньгами
----@alias ENUM_TakeItemActionType_Box "ENUM_TakeItemActionType_Box"
----@alias ENUM_TakeItemActionType_RuneCombine "ENUM_TakeItemActionType_RuneCombine"
----@alias ENUM_TakeItemActionType_SkilledItemGeneration "ENUM_TakeItemActionType_SkilledItemGeneration"
----@alias ENUM_TakeItemActionType_AuctionBet "ENUM_TakeItemActionType_AuctionBet" - игрок делает ставку
----@alias ENUM_TakeItemActionType_AuctionCreate "ENUM_TakeItemActionType_AuctionCreate" - игрок выставляет предмет на аукцион и с него берут залог
----@alias ENUM_TakeItemActionType_AuctionBuyout "ENUM_TakeItemActionType_AuctionBuyout" - игрок выкупает предмет на аукционе
----@alias ENUM_TakeItemActionType_Other "ENUM_TakeItemActionType_Other"
----@alias ENUM_TakeItemActionType_CurrencyExchange "ENUM_TakeItemActionType_CurrencyExchange"
----@alias ENUM_TakeItemActionType_Mentor "ENUM_TakeItemActionType_Mentor"
----@alias ENUM_TakeItemActionType_ItemMall "ENUM_TakeItemActionType_ItemMall"
----@alias ENUM_EnumTakeItemActionType ENUM_TakeItemActionType_Loot | ENUM_TakeItemActionType_Quest | ENUM_TakeItemActionType_QuestAbandon | ENUM_TakeItemActionType_Spell | ENUM_TakeItemActionType_Vendor | ENUM_TakeItemActionType_Craft | ENUM_TakeItemActionType_Mail | ENUM_TakeItemActionType_Drop | ENUM_TakeItemActionType_SelfAnnihilation | ENUM_TakeItemActionType_Money | ENUM_TakeItemActionType_Box | ENUM_TakeItemActionType_RuneCombine | ENUM_TakeItemActionType_SkilledItemGeneration | ENUM_TakeItemActionType_AuctionBet | ENUM_TakeItemActionType_AuctionCreate | ENUM_TakeItemActionType_AuctionBuyout | ENUM_TakeItemActionType_Other | ENUM_TakeItemActionType_CurrencyExchange | ENUM_TakeItemActionType_Mentor | ENUM_TakeItemActionType_ItemMall
+---@alias ENUM_EnumTakeItemActionType
+---| "ENUM_TakeItemActionType_Loot" - предмет пришёл из лута
+---| "ENUM_TakeItemActionType_Quest" - предмет получен/забран квестом (выдан в начале, забран в конце, ревард)
+---| "ENUM_TakeItemActionType_QuestAbandon" - итем забрали по причине отказа от квеста
+---| "ENUM_TakeItemActionType_Spell" - итем появился/исчез по причине каста спела
+---| "ENUM_TakeItemActionType_Vendor" - итем появился/исчез при разговоре с вендором
+---| "ENUM_TakeItemActionType_Craft" - при каком-то крафтинге (итем взят из крафт бега)
+---| "ENUM_TakeItemActionType_Mail" - из почты
+---| "ENUM_TakeItemActionType_Drop" - игрок выкинул итем
+---| "ENUM_TakeItemActionType_SelfAnnihilation" - итем был уничтожен по времени
+---| "ENUM_TakeItemActionType_Money" - простая операция с деньгами
+---| "ENUM_TakeItemActionType_Box"
+---| "ENUM_TakeItemActionType_RuneCombine"
+---| "ENUM_TakeItemActionType_SkilledItemGeneration"
+---| "ENUM_TakeItemActionType_AuctionBet" - игрок делает ставку
+---| "ENUM_TakeItemActionType_AuctionCreate" - игрок выставляет предмет на аукцион и с него берут залог
+---| "ENUM_TakeItemActionType_AuctionBuyout" - игрок выкупает предмет на аукционе
+---| "ENUM_TakeItemActionType_Other"
+---| "ENUM_TakeItemActionType_CurrencyExchange"
+---| "ENUM_TakeItemActionType_Mentor"
+---| "ENUM_TakeItemActionType_ItemMall"
 
 ---@alias KBF_NONE integer # нет модификаторов
 ---@alias KBF_SHIFT integer # зажата одна из клавиш "Shift"
@@ -157,13 +157,12 @@
 ---@alias KBF_ANY integer # признак, что модификатор не имеет значения
 ---@alias KBF KBF_NONE | KBF_SHIFT | KBF_ALT | KBF_CTRL | KBF_ANY
 
----@alias ENUM_LOADING_PROGRESS_SYNCHRONIZATION_WITH_SERVER "ENUM_LOADING_PROGRESS_SYNCHRONIZATION_WITH_SERVER"
----@alias ENUM_LOADING_PROGRESS_INITIALIZING_LOGIC "ENUM_LOADING_PROGRESS_INITIALIZING_LOGIC"
----@alias ENUM_LOADING_PROGRESS_STARTING_MISSION "ENUM_LOADING_PROGRESS_STARTING_MISSION"
----@alias ENUM_LOADING_PROGRESS_LOADING_RESOURCES "ENUM_LOADING_PROGRESS_LOADING_RESOURCES"
----@alias ENUM_LOADING_PROGRESS_WAITING_AVATAR "ENUM_LOADING_PROGRESS_WAITING_AVATAR"
----@alias ENUM_LOADING_PROGRESS ENUM_LOADING_PROGRESS_SYNCHRONIZATION_WITH_SERVER | ENUM_LOADING_PROGRESS_INITIALIZING_LOGIC | ENUM_LOADING_PROGRESS_STARTING_MISSION | ENUM_LOADING_PROGRESS_LOADING_RESOURCES | ENUM_LOADING_PROGRESS_WAITING_AVATAR
-
+---@alias ENUM_LOADING_PROGRESS
+---| "ENUM_LOADING_PROGRESS_SYNCHRONIZATION_WITH_SERVER"
+---| "ENUM_LOADING_PROGRESS_INITIALIZING_LOGIC"
+---| "ENUM_LOADING_PROGRESS_STARTING_MISSION"
+---| "ENUM_LOADING_PROGRESS_LOADING_RESOURCES"
+---| "ENUM_LOADING_PROGRESS_WAITING_AVATAR"
 
 ---@alias EFFECT_TYPE_UNKNOWN unknown # не используется
 ---@alias EFFECT_TYPE_COOLDOWN_STARTED unknown # начался кулдаун
