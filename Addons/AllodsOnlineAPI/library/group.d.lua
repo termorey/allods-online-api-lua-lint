@@ -5,19 +5,19 @@ group = {}
 
 --[[ ENUMS --]]
 
----@alias ENUM_GROUP_INVITE_FAILED_NOT_EXIST "ENUM_GROUP_INVITE_FAILED_NOT_EXIST" # игрока с заданным именем не существует
----@alias ENUM_GROUP_INVITE_FAILED_NOT_LOGGED_IN "ENUM_GROUP_INVITE_FAILED_NOT_LOGGED_IN" # игрока с заданным именем нет в игре
----@alias ENUM_GROUP_INVITE_FAILED_CANT_INVITE_SELF "ENUM_GROUP_INVITE_FAILED_CANT_INVITE_SELF" # нельзя приглашать себя
----@alias ENUM_GROUP_INVITE_FAILED_FULL_GROUP "ENUM_GROUP_INVITE_FAILED_FULL_GROUP" # нельзя приглашать игроков в полную группу
----@alias ENUM_GROUP_INVITE_FAILED_ALREADY_IN "ENUM_GROUP_INVITE_FAILED_ALREADY_IN" # указанный игрок уже состоит в группе
----@alias ENUM_GROUP_INVITE_FAILED_ZONE_NOT_ALLOWED "ENUM_GROUP_INVITE_FAILED_ZONE_NOT_ALLOWED" # запрещено приглашение на этой зоне
----@alias ENUM_GROUP_INVITE_FAILED_NOT_LEADER "ENUM_GROUP_INVITE_FAILED_NOT_LEADER" # главный игрок состоит в группе и не лидер. Он не может приглашать в группу
----@alias ENUM_GROUP_INVITE_FAILED ENUM_GROUP_INVITE_FAILED_NOT_EXIST | ENUM_GROUP_INVITE_FAILED_NOT_LOGGED_IN | ENUM_GROUP_INVITE_FAILED_CANT_INVITE_SELF | ENUM_GROUP_INVITE_FAILED_FULL_GROUP | ENUM_GROUP_INVITE_FAILED_ALREADY_IN | ENUM_GROUP_INVITE_FAILED_ZONE_NOT_ALLOWED | ENUM_GROUP_INVITE_FAILED_NOT_LEADER
+---@alias ENUM_GROUP_INVITE_FAILED
+---| "ENUM_GROUP_INVITE_FAILED_NOT_EXIST" # игрока с заданным именем не существует
+---| "ENUM_GROUP_INVITE_FAILED_NOT_LOGGED_IN" # игрока с заданным именем нет в игре
+---| "ENUM_GROUP_INVITE_FAILED_CANT_INVITE_SELF" # нельзя приглашать себя
+---| "ENUM_GROUP_INVITE_FAILED_FULL_GROUP" # нельзя приглашать игроков в полную группу
+---| "ENUM_GROUP_INVITE_FAILED_ALREADY_IN" # указанный игрок уже состоит в группе
+---| "ENUM_GROUP_INVITE_FAILED_ZONE_NOT_ALLOWED" # запрещено приглашение на этой зоне
+---| "ENUM_GROUP_INVITE_FAILED_NOT_LEADER" # главный игрок состоит в группе и не лидер. Он не может приглашать в группу
 
----@alias ENUM_GROUP_KICK_FAILED_NOT_IN_GROUP "ENUM_GROUP_KICK_FAILED_NOT_IN_GROUP" # главный игрок не состоит в группе
----@alias ENUM_GROUP_KICK_FAILED_OTHER_PLAYER_NOT_IN_GROUP "ENUM_GROUP_KICK_FAILED_OTHER_PLAYER_NOT_IN_GROUP" # указанный игрок не состоит в группе главного игрока
----@alias ENUM_GROUP_KICK_FAILED_NOT_LEADER "ENUM_GROUP_KICK_FAILED_NOT_LEADER" # главный игрок не является лидером группы
----@alias ENUM_GROUP_KICK_FAILED ENUM_GROUP_KICK_FAILED_NOT_IN_GROUP | ENUM_GROUP_KICK_FAILED_OTHER_PLAYER_NOT_IN_GROUP | ENUM_GROUP_KICK_FAILED_NOT_LEADER
+---@alias ENUM_GROUP_KICK_FAILED
+---| "ENUM_GROUP_KICK_FAILED_NOT_IN_GROUP" # главный игрок не состоит в группе
+---| "ENUM_GROUP_KICK_FAILED_OTHER_PLAYER_NOT_IN_GROUP" # указанный игрок не состоит в группе главного игрока
+---| "ENUM_GROUP_KICK_FAILED_NOT_LEADER" # главный игрок не является лидером группы
 
 ---@alias GROUP_MEMBER_STATE_OFFLINE unknown # игрок не находится в игре
 ---@alias GROUP_MEMBER_STATE_NEAR unknown # по игроку доступна вся информация
