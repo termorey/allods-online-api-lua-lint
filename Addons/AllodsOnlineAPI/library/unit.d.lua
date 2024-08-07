@@ -1,5 +1,8 @@
 ---@meta
 
+---@class unit
+unit = {}
+
 --[[ ENUMS --]]
 
 ---@alias ENUM_MobWorld_OvertipCustomView_NEVER unknown -- овертип всегда скрыт

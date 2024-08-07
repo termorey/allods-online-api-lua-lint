@@ -1,8 +1,5 @@
 ---@meta
 
----@class unit
-unit = {}
-
 --[[ ENUMS --]]
 
 ---@alias ENUM_ActionFailCause
