@@ -1,6 +1,5 @@
 ---@meta
 
----@alias WidgetSafe userdata #  // TODO: требует уточнения
 ---@alias EditLineSafe userdata # строка ввода // TODO: требует уточнения
 ---@alias Control3DSafe userdata  #  // TODO: требует уточнения
 ---@alias WString userdata # TODO: требует уточнения
