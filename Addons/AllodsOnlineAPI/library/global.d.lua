@@ -41,6 +41,9 @@
 ---@alias UniqueId string # кросс-серверный (постоянный) уникальный идентификатор аватара TODO: требует уточнения
 ---@alias PersistentId number # серверный (постоянный) идентификатор аватара
 ---@alias CharacterClassId integer # идентификатор класса аватара // TODO: требует уточнения
+---@alias RelatedSoundsLua userdata # Объект, представляющий собой группу звуковых ресурсов
+---@alias RelatedTextsLua userdata # Объект, представляющий собой группу текстовых ресурсов
+---@alias RelatedTexturesLua userdata # Объект, представляющий собой группу текстурных ресурсов
 ---@alias UISingleTexture string # иконка // TODO: требует уточнения
 ---@alias GamePosition { posX: number, posY: number, posZ: number } # позиция аватара // TODO: требует уточнения
 ---@alias LuaFullDateTime { y: integer, m: integer, d: integer, h: integer, min: integer, s: integer, ms: integer, wday: integer, month: integer, sysMonth: string, overallMs: integer } # TODO: требует уточнения

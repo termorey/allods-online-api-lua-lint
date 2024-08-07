@@ -61,6 +61,21 @@ function common.GetAddonMainForm (sysAddonName) end
 ---@return string # имя аддона, в котором выполняется скрипт
 function common.GetAddonName () end
 
+---@param sysGroup string
+---@param optional boolean | nil
+---@return RelatedSoundsLua | nil
+function common.GetAddonRelatedSoundGroup( sysGroup, optional ) end
+
+---@param sysGroup string
+---@param optional boolean | nil
+---@return RelatedTextsLua | nil
+function common.GetAddonRelatedTextGroup( sysGroup, optional ) end
+
+---@param sysGroup string
+---@param optional boolean | nil
+---@return RelatedTexturesLua | nil
+function common.GetAddonRelatedTextureGroup( sysGroup, optional ) end
+
 ---GetAllodsGoals
 ---@return table<integer, { goalId: ObjectId, state: integer, locator: nil | { zoneId: ObjectId, position: GamePosition }, stages: nil | table<integer, { goalId: ObjectId, state: integer, locator: nil | { zoneId: ObjectId, position: GamePosition } }> }>
 function common.GetAllodsGoals () end
@@ -163,6 +178,21 @@ function common.GetStateManagedAddons() end
 ---GetStateName
 ---@return string # имя стейта аддона, в котором выполняется скрипт
 function common.GetStateName() end
+
+---@param sysGroup string
+---@param optional boolean | nil
+---@return RelatedSoundsLua | nil
+function common.GetStateRelatedSoundGroup( sysGroup, optional ) end
+
+---@param sysGroup string | nil
+---@param optional boolean | nil
+---@return RelatedTextsLua | nil
+function common.GetStateRelatedTextGroup( sysGroup, optional ) end
+
+---@param sysGroup string
+---@param optional boolean | nil
+---@return RelatedTexturesLua | nil
+function common.GetStateRelatedTextureGroup( sysGroup, optional ) end
 
 ---GetTerritoryInfo
 ---@return { ignoreAutoShard: boolean, showZoneSection: boolean, showRaitingInfo: boolean }

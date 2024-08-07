@@ -205,6 +205,10 @@ function unit.GetFairyInfo( unitId ) end
 function unit.GetFairyPowerBonus( unitId ) end
 
 ---@param unitId ObjectId
+---@return nil | { sysName: string, name: WString, description: WString, image?: TextureId }
+function unit.GetFairyZodiacSignInfo( unitId ) end
+
+---@param unitId ObjectId
 ---@return ObjectId | nil
 function unit.GetFollowerMaster( unitId ) end
 
