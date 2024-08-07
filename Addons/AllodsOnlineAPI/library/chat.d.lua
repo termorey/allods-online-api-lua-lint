@@ -2,13 +2,13 @@
 
 --[[ ENUMS --]]
 
----@alias ENUM_ChatFailedType_Mute "ENUM_ChatFailedType_Mute"
----@alias ENUM_ChatFailedType_InternalError "ENUM_ChatFailedType_InternalError"
----@alias ENUM_ChatFailedType_Silence "ENUM_ChatFailedType_Silence"
----@alias ENUM_ChatFailedType_NoPoints "ENUM_ChatFailedType_NoPoints"
----@alias ENUM_ChatFailedType_EnemyFaction "ENUM_ChatFailedType_EnemyFaction"
----@alias ENUM_ChatFailedType_Ignored "ENUM_ChatFailedType_Ignored"
----@alias ENUM_ChatFailedType ENUM_ChatFailedType_Mute | ENUM_ChatFailedType_InternalError | ENUM_ChatFailedType_Silence | ENUM_ChatFailedType_NoPoints | ENUM_ChatFailedType_EnemyFaction | ENUM_ChatFailedType_Ignored
+---@alias ENUM_ChatFailedType
+---| "ENUM_ChatFailedType_Mute"
+---| "ENUM_ChatFailedType_InternalError"
+---| "ENUM_ChatFailedType_Silence"
+---| "ENUM_ChatFailedType_NoPoints"
+---| "ENUM_ChatFailedType_EnemyFaction"
+---| "ENUM_ChatFailedType_Ignored"
 
 --[[ EVENTS --]]
 
