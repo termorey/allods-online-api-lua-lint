@@ -2,6 +2,7 @@
 
 ---@class customizationLib
 customizationLib = {}
+
 --[[ ENUMS --]]
 
 ---@alias ENUM_BeastType_AE integer | "ENUM_BeastType_AE"
