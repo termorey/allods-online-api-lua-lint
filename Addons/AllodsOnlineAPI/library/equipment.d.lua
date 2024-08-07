@@ -2,24 +2,24 @@
 
 --[[ ENUMS --]]
 
----@alias ENUM_DressResult_Success "ENUM_DressResult_Success"
----@alias ENUM_DressResult_FailureVoid "ENUM_DressResult_FailureVoid"
----@alias ENUM_DressResult_Undressable "ENUM_DressResult_Undressable"
----@alias ENUM_DressResult_WrongSlot "ENUM_DressResult_WrongSlot"
----@alias ENUM_DressResult_WrongCharacterClass "ENUM_DressResult_WrongCharacterClass"
----@alias ENUM_DressResult_WrongCreatureLevel "ENUM_DressResult_WrongCreatureLevel"
----@alias ENUM_DressResult_NoSpace "ENUM_DressResult_NoSpace"
----@alias ENUM_DressResult_TooSmallBag "ENUM_DressResult_TooSmallBag"
----@alias ENUM_DressResult_NotProficient "ENUM_DressResult_NotProficient"
----@alias ENUM_DressResult_InCombat "ENUM_DressResult_InCombat"
----@alias ENUM_DressResult_WrongDress "ENUM_DressResult_WrongDress"
----@alias ENUM_DressResult_SecondaryDressLocked "ENUM_DressResult_SecondaryDressLocked"
----@alias ENUM_DressResult_SlotLocked "ENUM_DressResult_SlotLocked" - предмет нельзя экипировать в заданный слот из-за того, что качество предмета выше, чем разрешено для этого слота
----@alias ENUM_DressResult_SmallerBag "ENUM_DressResult_SmallerBag"
----@alias ENUM_DressResult_SmallerDepositBox "ENUM_DressResult_SmallerDepositBox"
----@alias ENUM_DressResult_EnchantLocked "ENUM_DressResult_EnchantLocked" - предмет нельзя экипировать в заданный слот из-за того, что качество одного или более самоцветов, вставленных в предмет, выше, чем разрешено для этого слота
----@alias ENUM_DressResult_DuplicateItem "ENUM_DressResult_DuplicateItem" - В гардеробе итем уже есть.
----@alias ENUM_DressResult ENUM_DressResult_Success | ENUM_DressResult_FailureVoid | ENUM_DressResult_Undressable | ENUM_DressResult_WrongSlot | ENUM_DressResult_WrongCharacterClass | ENUM_DressResult_WrongCreatureLevel | ENUM_DressResult_NoSpace | ENUM_DressResult_TooSmallBag | ENUM_DressResult_NotProficient | ENUM_DressResult_InCombat | ENUM_DressResult_WrongDress | ENUM_DressResult_SecondaryDressLocked | ENUM_DressResult_SlotLocked | ENUM_DressResult_SmallerBag | ENUM_DressResult_SmallerDepositBox | ENUM_DressResult_EnchantLocked | ENUM_DressResult_DuplicateItem
+---@alias ENUM_DressResult
+---| "ENUM_DressResult_Success"
+---| "ENUM_DressResult_FailureVoid"
+---| "ENUM_DressResult_Undressable"
+---| "ENUM_DressResult_WrongSlot"
+---| "ENUM_DressResult_WrongCharacterClass"
+---| "ENUM_DressResult_WrongCreatureLevel"
+---| "ENUM_DressResult_NoSpace"
+---| "ENUM_DressResult_TooSmallBag"
+---| "ENUM_DressResult_NotProficient"
+---| "ENUM_DressResult_InCombat"
+---| "ENUM_DressResult_WrongDress"
+---| "ENUM_DressResult_SecondaryDressLocked"
+---| "ENUM_DressResult_SlotLocked" - предмет нельзя экипировать в заданный слот из-за того, что качество предмета выше, чем разрешено для этого слота
+---| "ENUM_DressResult_SmallerBag"
+---| "ENUM_DressResult_SmallerDepositBox"
+---| "ENUM_DressResult_EnchantLocked" - предмет нельзя экипировать в заданный слот из-за того, что качество одного или более самоцветов, вставленных в предмет, выше, чем разрешено для этого слота
+---| "ENUM_DressResult_DuplicateItem" - В гардеробе итем уже есть.
 
 ---@alias DRESS_SLOT_HELM integer
 ---@alias DRESS_SLOT_ARMOR integer
