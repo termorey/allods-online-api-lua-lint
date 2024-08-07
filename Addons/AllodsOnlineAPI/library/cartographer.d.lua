@@ -1,8 +1,5 @@
 ---@meta
 
----@class rules
-rules = {}
-
 ---@class cartographer
 cartographer = {}
 
@@ -122,6 +119,3 @@ function cartographer.IsFinalQuestCompleted( zonesMapId ) end
 
 ---@return boolean
 function cartographer.IsOnCommon() end
-
----@return table<integer, ObjectId>
-function rules.GetZonesMaps() end

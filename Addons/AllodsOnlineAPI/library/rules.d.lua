@@ -1,5 +1,8 @@
 ---@meta
 
+---@class rules
+rules = {}
+
 --[[ ENUMS --]]
 
 ---@alias ENUM_MsgGetBonusListResultResult
@@ -100,6 +103,9 @@ function rules.GetWishmaster() end
 
 ---@return table<integer, { name: WString, description: WString, isPreviousStepSuccess: boolean, curentBonusValue: number, stepLeft: integer, stepMultiplier: number, resourceId: WishmasterResourceId, image?: TextureId }>
 function rules.GetWishmasterMultiplyingInfos() end
+
+---@return table<integer, ObjectId>
+function rules.GetZonesMaps() end
 
 ---@param resourceId WishmasterResourceId
 function rules.WishmasterRollMultiplying( resourceId ) end
