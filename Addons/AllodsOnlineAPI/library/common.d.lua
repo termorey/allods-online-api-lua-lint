@@ -1,10 +1,17 @@
 ---@meta
---[[* EVENTS --]]
-
---[[* FUNCTIONS --]]
 
 ---@class common
 common = {}
+
+--[[ ENUMS --]]
+
+
+
+--[[ EVENTS --]]
+
+
+
+--[[ FUNCTIONS --]]
 
 ---CreateValuedObject
 ---@param text WString | ValuedText # текстовое описание, впоследствие может быть получено из ValuedObject методом GetText()
