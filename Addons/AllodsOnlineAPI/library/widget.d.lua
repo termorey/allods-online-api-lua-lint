@@ -32,6 +32,9 @@
 
 ---@class WidgetSafe
 WidgetSafe = {}
+---@param widgetDesc WidgetDesc
+---@return WidgetSafe
+function WidgetSafe:CreateWidgetByDesc ( widgetDesc ) end
 function WidgetSafe:DestroyWidget () end
 ---@param show boolean
 function WidgetSafe:Enable ( show ) end
@@ -203,8 +206,7 @@ function WidgetSafe:SetTransparentInput( transparentInput ) end
 ---@param show boolean
 function WidgetSafe:Show( show ) end
 
----@class mainForm
+--[[ GLOBALS --]]
+
+---@type WidgetSafe
 mainForm = {}
----@param widgetDesc WidgetDesc
----@return WidgetSafe
-function mainForm:CreateWidgetByDesc ( widgetDesc ) end
