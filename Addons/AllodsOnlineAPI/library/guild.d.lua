@@ -112,9 +112,6 @@ guildHallLib = {}
 ---@alias EVENT_CAN_CREATE_GUILD_HERE_RESPONSE "EVENT_CAN_CREATE_GUILD_HERE_RESPONSE"
 ---@alias EVENT_DISBAND_GUILD_REQUEST "EVENT_DISBAND_GUILD_REQUEST"
 ---@alias EVENT_GUILD_ACCEPTED "EVENT_GUILD_ACCEPTED"
----@alias EVENT_GUILD_ALLOD_ATTACK_FAILED "EVENT_GUILD_ALLOD_ATTACK_FAILED"
----@alias EVENT_GUILD_ALLOD_ATTACK_SUCCESSFUL "EVENT_GUILD_ALLOD_ATTACK_SUCCESSFUL"
----@alias EVENT_GUILD_ALLOD_OWNER_CHANGED "EVENT_GUILD_ALLOD_OWNER_CHANGED"
 ---@alias EVENT_GUILD_ALREADY_IN_GUILD "EVENT_GUILD_ALREADY_IN_GUILD"
 ---@alias EVENT_GUILD_APPEARED "EVENT_GUILD_APPEARED"
 ---@alias EVENT_GUILD_AUTHORITY_CHANGED "EVENT_GUILD_AUTHORITY_CHANGED"
@@ -184,9 +181,6 @@ guildHallLib = {}
 ---@overload fun(eventFunction: fun(data: { success: boolean }), sysEventName: EVENT_CAN_CREATE_GUILD_HERE_RESPONSE)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_DISBAND_GUILD_REQUEST)
 ---@overload fun(eventFunction: fun(data: { invitee: WString, inviter: WString, guild: WString }), sysEventName: EVENT_GUILD_ACCEPTED)
----@overload fun(eventFunction: fun(data: { allodId: ObjectId | nil, allod: WString, attacker: WString, deffender: WString }), sysEventName: EVENT_GUILD_ALLOD_ATTACK_FAILED)
----@overload fun(eventFunction: fun(data: { allodId: ObjectId | nil, allod: WString, attacker: WString, deffender: WString }), sysEventName: EVENT_GUILD_ALLOD_ATTACK_SUCCESSFUL)
----@overload fun(eventFunction: fun(data: { allodId: ObjectId | nil, allod: WString, newOwner: WString, oldOwner: WString }), sysEventName: EVENT_GUILD_ALLOD_OWNER_CHANGED)
 ---@overload fun(eventFunction: fun(data: { declinerName: WString }), sysEventName: EVENT_GUILD_ALREADY_IN_GUILD)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_GUILD_APPEARED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_GUILD_AUTHORITY_CHANGED)
