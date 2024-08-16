@@ -1,0 +1,54 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionUnitIsRitualEnabled</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> unit.IsRitualEnabled( unitId )</h2>
+<p></p>
+<p>Возвращает true, если главный или инспектируемый игрок уже может находится в состоянии ритуала (надевать ритуальные вещи, видеть их контейнер).</p>
+<p></p>
+<pre>
+-- библиотека:
+unit
+
+-- объявление:
+function IsRitualEnabled( unitId )
+
+-- параметры:
+unitId: ObjectId - идентификатор игрока
+
+-- возвращаемые значения:
+boolean - true, если ритуал доступен
+
+-- пример:
+if unit.IsRitualEnabled( avatar.GetId() ) then
+  local itemIds = unit.GetEquipmentItemIds( avatar.GetId(), ITEM_CONT_EQUIPMENT_RITUAL )
+end
+</pre>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryRitual"</h4>
+<p></p>
+<a href="CategoryRitual.html">CategoryRitual</a>
+<br><a href="EventEquipmentRitualEnableChanged.html">EventEquipmentRitualEnableChanged</a>
+<br><a href="FunctionUnitIsRitualEnabled.html">FunctionUnitIsRitualEnabled</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryUnit.html">CategoryUnit</a>
+<a href="CategoryRitual.html">CategoryRitual</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

@@ -1,0 +1,107 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionProgressiveDownloadLibGetLatestErrors</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2>progressiveDownloadLib.GetLatestErrors()</h2>
+<p></p>
+<p>Возвращает список последних ошибок работы Игрового Центра (о каждой из которых также сообщается с помощью ивентов EVENT_PROGRESSIVEDOWNLOADING_ERROR_* и EVENT_PROGRESSIVEDOWNLOADING_ERROREVENT_PROGRESSIVEDOWNLOADING_ERROR).</p>
+<p></p>
+<pre>
+-- библиотека:
+progressiveDownloadLib
+
+-- объявление:
+GetLatestErrors()
+
+-- параметры:
+нет
+
+-- возвращаемые значения:
+таблица со структурами следующего вида:
+
+  type: int - тип ошибки. Для каждой из них есть отдельные ивенты. Возможные варианты:
+	ERROR_SIMPLE = 1,
+	ERROR_PROTO = 2,
+	ERROR_FILE_GENERAL = 3,
+	ERROR_FILE_ACCESS_DENIED = 4,
+	ERROR_FILE_DISK_FULL = 5,
+	ERROR_API_MISMATCH = 6,
+	ERROR_NOT_READY = 7,
+	ERROR_CONNECTION_LOST = 8,
+	WARNING_RECONNECTIONS = 9,
+
+  timeStamp: int64 - время ошибки (unix time) в секундах с 1970 года.
+
+  Если type==ERROR_SIMPLE (единичка), то для этой записи добавляются ещё следующие поля:
+    packName: string - название проблемного пака
+    isFatal: bool - является ли ошибка фатальной (неустранимой)
+
+-- пример:
+local errors = progressiveDownloadLib.GetLatestErrors()
+; local error = errors[0]
+; local errorType = error.type
+</pre>
+<p></p>
+<p>См. также</p>
+<p></p>
+<ul><li><p> <a href="EnumProgressiveDownloadActivity.html"> enum PROGRESSIVE_DOWNLOAD_ACTIVITY_...</a></p></li></ul>
+<ul><li><p> <a href="EventProgressivedownloadingStatusChanged.html"> EVENT_PROGRESSIVEDOWNLOADING_STATUS_CHANGED</a></p></li></ul>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryProgressiveDownloadLib"</h4>
+<p></p>
+<a href="CategoryProgressiveDownloadLib.html">CategoryProgressiveDownloadLib</a>
+<br><a href="EnumProgressiveDownloadActivity.html">EnumProgressiveDownloadActivity</a>
+<br><a href="EventProgressiveDownloadingErrorApiMismatch.html">EventProgressiveDownloadingErrorApiMismatch</a>
+<br><a href="EventProgressiveDownloadingErrorConnectionLost.html">EventProgressiveDownloadingErrorConnectionLost</a>
+<br><a href="EventProgressiveDownloadingErrorFileAccessDenied.html">EventProgressiveDownloadingErrorFileAccessDenied</a>
+<br><a href="EventProgressiveDownloadingErrorFileGeneral.html">EventProgressiveDownloadingErrorFileGeneral</a>
+<br><a href="EventProgressiveDownloadingErrorNotReady.html">EventProgressiveDownloadingErrorNotReady</a>
+<br><a href="EventProgressiveDownloadingErrorProto.html">EventProgressiveDownloadingErrorProto</a>
+<br><a href="EventProgressivedownloadingErrorSimple.html">EventProgressivedownloadingErrorSimple</a>
+<br><a href="EventProgressivedownloadingFileDiskFull.html">EventProgressivedownloadingFileDiskFull</a>
+<br><a href="EventProgressivedownloadingHaltedPacksChanged.html">EventProgressivedownloadingHaltedPacksChanged</a>
+<br><a href="EventProgressiveDownloadingLatestMsgsChanged.html">EventProgressiveDownloadingLatestMsgsChanged</a>
+<br><a href="EventProgressiveDownloadingLatestPacksChanged.html">EventProgressiveDownloadingLatestPacksChanged</a>
+<br><a href="EventProgressivedownloadingMapPercentChanged.html">EventProgressivedownloadingMapPercentChanged</a>
+<br><a href="EventProgressiveDownloadingRecheckPacksChanged.html">EventProgressiveDownloadingRecheckPacksChanged</a>
+<br><a href="EventProgressivedownloadingStatusChanged.html">EventProgressivedownloadingStatusChanged</a>
+<br><a href="EventProgressiveDownloadingTopPacksChanged.html">EventProgressiveDownloadingTopPacksChanged</a>
+<br><a href="EventProgressiveDownloadingWarningReconnections.html">EventProgressiveDownloadingWarningReconnections</a>
+<br><a href="EventProgressiveDownloadingWhiteInfoChanged.html">EventProgressiveDownloadingWhiteInfoChanged</a>
+<br><a href="FunctionProgressiveDownloadLibGetDownloadRateLimit.html">FunctionProgressiveDownloadLibGetDownloadRateLimit</a>
+<br><a href="FunctionProgressiveDownloadLibGetHaltedPacks.html">FunctionProgressiveDownloadLibGetHaltedPacks</a>
+<br><a href="FunctionProgressiveDownloadLibGetLatestDownloadedPacks.html">FunctionProgressiveDownloadLibGetLatestDownloadedPacks</a>
+<br><a href="FunctionProgressiveDownloadLibGetLatestErrors.html">FunctionProgressiveDownloadLibGetLatestErrors</a>
+<br><a href="FunctionProgressiveDownloadLibGetMapDownloadedPercent.html">FunctionProgressiveDownloadLibGetMapDownloadedPercent</a>
+<br><a href="FunctionProgressiveDownloadLibGetPackInfoById.html">FunctionProgressiveDownloadLibGetPackInfoById</a>
+<br><a href="FunctionProgressiveDownloadLibGetPriorityGroup.html">FunctionProgressiveDownloadLibGetPriorityGroup</a>
+<br><a href="FunctionProgressiveDownloadLibGetPriorityGroupsCount.html">FunctionProgressiveDownloadLibGetPriorityGroupsCount</a>
+<br><a href="FunctionProgressiveDownloadLibGetRecheckPacks.html">FunctionProgressiveDownloadLibGetRecheckPacks</a>
+<br><a href="FunctionProgressiveDownloadLibGetStatus.html">FunctionProgressiveDownloadLibGetStatus</a>
+<br><a href="FunctionProgressiveDownloadLibGetTopRequestedPacks.html">FunctionProgressiveDownloadLibGetTopRequestedPacks</a>
+<br><a href="FunctionProgressiveDownloadLibGetUploadRateLimit.html">FunctionProgressiveDownloadLibGetUploadRateLimit</a>
+<br><a href="FunctionProgressiveDownloadLibGetWhiteDescr.html">FunctionProgressiveDownloadLibGetWhiteDescr</a>
+<br><a href="FunctionProgressiveDownloadLibSetDownloadRateLimit.html">FunctionProgressiveDownloadLibSetDownloadRateLimit</a>
+<br><a href="FunctionProgressiveDownloadLibSetTopPacksWindow.html">FunctionProgressiveDownloadLibSetTopPacksWindow</a>
+<br><a href="FunctionProgressiveDownloadLibSetUploadRateLimit.html">FunctionProgressiveDownloadLibSetUploadRateLimit</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryProgressiveDownloadLib.html">CategoryProgressiveDownloadLib</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

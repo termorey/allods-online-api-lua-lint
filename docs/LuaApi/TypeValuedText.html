@@ -1,0 +1,122 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - TypeValuedText</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> ValuedText - форматированная строка с подстановочными значениями</h2>
+<p></p>
+<p>Форматированный текст представляет собой</p>
+<ul><li><p> форматную строку с тэгами подстановки. Это WString, содержащий правильно форматированную строку XHTML, возможно, с CSS-тэгами и с тэгами подстановки значений:</p></li></ul>
+<ul><ul><li><p> подстановка текстовых значений &lt;r name="..."/&gt;</p></li></ul></ul>
+<ul><ul><li><p> подстановка CSS-класса &lt;rs class="..."&gt;...&lt;/rs&gt;</p></li></ul></ul>
+<ul><li><p> и какие-либо подстановочные значения, подставляемый в тэги &lt;r/&gt; и &lt;/rs&gt;</p></li></ul>
+<p></p>
+<p>Поддерживаются:</p>
+<ul><li><p> базовые тэги</p></li></ul>
+<ul><ul><li><p> &lt;default/&gt;</p></li></ul></ul>
+<ul><ul><li><p> &lt;span/&gt;</p></li></ul></ul>
+<ul><ul><li><p> &lt;p/&gt;</p></li></ul></ul>
+<ul><li><p> CSS-тэги.</p></li></ul>
+<p>Полный список см. в <a href="FunctionCommonGetCSSList.html"> common.GetCSSList()</a></p>
+<p></p>
+<p>В скриптах <a href="TypeValuedText.html"> ValuedText</a> - это специальный вариант userdata.</p>
+<p></p>
+<p>Перегруженные операции</p>
+<pre>
+# - взятие длины ValuedText. Важно! Считается по числу отображаемых символов, длина тегов оформления не учитывается
+</pre>
+<p></p>
+<h2>Создание</h2>
+<p></p>
+<p><a href="TypeValuedText.html"> ValuedText</a> создаётся с помощью <a href="FunctionCommonCreateValuedText.html">common.CreateValuedText( values )</a></p>
+<p></p>
+<p>Замечание. Lua работает с userdata по ссылке, а не по значению. Поэтому, в частности, для создания отдельной копии ValuedText нужно пользоваться специальной функцией (<a href="FunctionValuedTextCreateCopy.html">CreateCopy</a>).</p>
+<p></p>
+<h2>Подстановка значений</h2>
+<p></p>
+<p>Подставляются новые значения с помощью интерфейсного методов <a href="FunctionValuedTextSetTextValues.html"> SetTextValues( self, values )</a>, <a href="FunctionValuedTextSetVal.html"> SetVal( self, key, value )</a>.</p>
+<p></p>
+<p>Для подстановки используются только тэги &lt;r/&gt; и &lt;rs&gt;...&lt;/rs&gt;.</p>
+<p></p>
+<p>В качестве подстановочных значений для тэга &lt;r/&gt; можно использовать WString, объекты <a href="TypeValuedText.html"> ValuedText</a> или <a href="TypeValuedObject.html"> ValuedObject</a>.</p>
+<p></p>
+<p>В тэг &lt;rs&gt;...&lt;/rs&gt; можно подставлять только имеющиеся CSS-классы (их названия типа string).</p>
+<p></p>
+<p>Поиск тэга подстановки производится по значению аттрибута "name" для тэга &lt;r/&gt; или значению аттрибута "class" тэга &lt;rs&gt;...&lt;/rs&gt;. Эти тэги не должны содержать нетребующихся для форматирования аттрибутов. Если необходимый тэг &lt;r/&gt; не найден, то подстановочное значение сохраняется и потом будет подставлено, если у <a href="TypeValuedText.html"> ValuedText</a> появится такой подстановочный тэг после установки каких-либо других подстановочных значений.</p>
+<p></p>
+<h2>Например</h2>
+<p></p>
+<p>Форматирующий текст, являющийся related-текстом аддона "FormatText":</p>
+<pre>
+&lt;html&gt; &lt;header&gt; text1 &lt;/header&gt; &lt;rs class="class01"&gt; text2 &lt;r name="value01"/&gt; &lt;/rs&gt; &lt;/html&gt;
+</pre>
+<p></p>
+<p>Скрипт:</p>
+<pre>
+local valuedText = common.CreateValuedText{
+    format = common.GetAddonRelatedText( "FormatText" ),
+    value01 = common.FormatInt( 2, "%d" ),
+    class01 = "header"
+}
+</pre>
+<p></p>
+<h2>BlurpSearch: CategoryLuaApi CategoryValuedText</h2>
+<p></p>
+<a href="CategoryValuedText.html">CategoryValuedText</a>
+<br><a href="EventValuedObjectClicked.html">EventValuedObjectClicked</a>
+<br><a href="EventValuedObjectDoubleClicked.html">EventValuedObjectDoubleClicked</a>
+<br><a href="EventValuedObjectMouseOver.html">EventValuedObjectMouseOver</a>
+<br><a href="FunctionAvatarGetAbilityValuedObject.html">FunctionAvatarGetAbilityValuedObject</a>
+<br><a href="FunctionAvatarGetBuffValuedObject.html">FunctionAvatarGetBuffValuedObject</a>
+<br><a href="FunctionCommonCreateValuedObject.html">FunctionCommonCreateValuedObject</a>
+<br><a href="FunctionCommonCreateValuedText.html">FunctionCommonCreateValuedText</a>
+<br><a href="FunctionCommonFormatFloat.html">FunctionCommonFormatFloat</a>
+<br><a href="FunctionCommonFormatInt.html">FunctionCommonFormatInt</a>
+<br><a href="FunctionCommonFormatNumber.html">FunctionCommonFormatNumber</a>
+<br><a href="FunctionCommonIsEmptyValuedText.html">FunctionCommonIsEmptyValuedText</a>
+<br><a href="FunctionCommonIsValuedObject.html">FunctionCommonIsValuedObject</a>
+<br><a href="FunctionCommonIsValuedText.html">FunctionCommonIsValuedText</a>
+<br><a href="FunctionItemLibGetValuedObject.html">FunctionItemLibGetValuedObject</a>
+<br><a href="FunctionMountGetValuedObject.html">FunctionMountGetValuedObject</a>
+<br><a href="FunctionSpellLibGetValuedObject.html">FunctionSpellLibGetValuedObject</a>
+<br><a href="FunctionTextViewSetValuedText.html">FunctionTextViewSetValuedText</a>
+<br><a href="FunctionUnitGetPlayerValuedObject.html">FunctionUnitGetPlayerValuedObject</a>
+<br><a href="FunctionUnitGetUnitValuedObject.html">FunctionUnitGetUnitValuedObject</a>
+<br><a href="FunctionValuedObjectGetId.html">FunctionValuedObjectGetId</a>
+<br><a href="FunctionValuedObjectGetImage.html">FunctionValuedObjectGetImage</a>
+<br><a href="FunctionValuedObjectGetShardName.html">FunctionValuedObjectGetShardName</a>
+<br><a href="FunctionValuedObjectGetText.html">FunctionValuedObjectGetText</a>
+<br><a href="FunctionValuedObjectGetType.html">FunctionValuedObjectGetType</a>
+<br><a href="FunctionValuedTextClearValues.html">FunctionValuedTextClearValues</a>
+<br><a href="FunctionValuedTextCreateCopy.html">FunctionValuedTextCreateCopy</a>
+<br><a href="FunctionValuedTextHasObjects.html">FunctionValuedTextHasObjects</a>
+<br><a href="FunctionValuedTextIsEmpty.html">FunctionValuedTextIsEmpty</a>
+<br><a href="FunctionValuedTextSetClassVal.html">FunctionValuedTextSetClassVal</a>
+<br><a href="FunctionValuedTextSetFormat.html">FunctionValuedTextSetFormat</a>
+<br><a href="FunctionValuedTextSetPlainText.html">FunctionValuedTextSetPlainText</a>
+<br><a href="FunctionValuedTextSetTagAttributes.html">FunctionValuedTextSetTagAttributes</a>
+<br><a href="FunctionValuedTextSetTextValues.html">FunctionValuedTextSetTextValues</a>
+<br><a href="FunctionValuedTextSetVal.html">FunctionValuedTextSetVal</a>
+<br><a href="FunctionValuedTextToWString.html">FunctionValuedTextToWString</a>
+<br><a href="TypeValuedObject.html">TypeValuedObject</a>
+<br><a href="TypeValuedText.html">TypeValuedText</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryTypes.html">CategoryTypes</a>
+<a href="CategoryValuedText.html">CategoryValuedText</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

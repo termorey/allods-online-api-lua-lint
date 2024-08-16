@@ -1,0 +1,70 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionEditLineSetTextColor</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> EditLineSafe:SetTextColor( self, tagName, color, &lt;colorType&gt; )</h2>
+<p></p>
+<p>Используется для установки цвета всего текста или только с именем tagName.</p>
+<p></p>
+<p>DEPRECATED: Функция устарела и помечена к удалению. Используйте global classes (предпочтительно) или  SetTextAttributes (закрытая ссылка)</p>
+<p></p>
+<p></p>
+<pre>
+-- класс
+EditLineSafe
+
+-- семантика
+function SetTextColor( self, tagName, color, [colorType] )
+
+-- входные параметры
+tagName: WString or string - имя тега, если nil, то красится весь текст
+color: integer or string "aarrggbb" or wstring "aarrggbb" or table Color - новый цвет текста. Если nil, то установленный цвет сбрасывается
+colorType: EnumColorType - определяет для чего устанавливается цвет тект/тень/аутлайн. Если данный параметр отсутствует, то цвет применяется для текста.
+
+-- возвращаемое значение
+
+
+-- пример
+wtEditLine:SetTextColor( debugCommon.ToWString( "name1" ), { a = 1, r = 1, g = 1, b = 0 }, ENUM_ColorType_SHADOW )
+</pre>
+<p></p>
+<p>см. [:EnumColorType]</p>
+<p></p>
+<a href="CategoryEditLine.html">CategoryEditLine</a>
+<br><a href="FunctionEditLineBackspaceCharAtCursorPos.html">FunctionEditLineBackspaceCharAtCursorPos</a>
+<br><a href="FunctionEditLineDeleteCharAtCursorPos.html">FunctionEditLineDeleteCharAtCursorPos</a>
+<br><a href="FunctionEditLineGetCursorPos.html">FunctionEditLineGetCursorPos</a>
+<br><a href="FunctionEditLineGetInitialGlobalClass.html">FunctionEditLineGetInitialGlobalClass</a>
+<br><a href="FunctionEditLineGetPosObjectCount.html">FunctionEditLineGetPosObjectCount</a>
+<br><a href="FunctionEditLineGetString.html">FunctionEditLineGetString</a>
+<br><a href="FunctionEditLineGetText.html">FunctionEditLineGetText</a>
+<br><a href="FunctionEditLineInsertTextAtCursorPos.html">FunctionEditLineInsertTextAtCursorPos</a>
+<br><a href="FunctionEditLineSetCursorPos.html">FunctionEditLineSetCursorPos</a>
+<br><a href="FunctionEditLineSetGlobalClasses.html">FunctionEditLineSetGlobalClasses</a>
+<br><a href="FunctionEditLineSetMaxSize.html">FunctionEditLineSetMaxSize</a>
+<br><a href="FunctionEditLineSetText.html">FunctionEditLineSetText</a>
+<br><a href="FunctionEditLineSetTextColor.html">FunctionEditLineSetTextColor</a>
+<br><a href="WidgetEditLine.html">WidgetEditLine</a>
+<p></p>
+<hr>
+<p></p>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryLuaApiDeprecated.html">CategoryLuaApiDeprecated</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryEditLine.html">CategoryEditLine</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

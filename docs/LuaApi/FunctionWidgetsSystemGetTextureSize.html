@@ -1,0 +1,63 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionWidgetsSystemGetTextureSize</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> GetTextureSize( self, texture )</h2>
+<p></p>
+<p>Возвращает размер текстуры в пикселях.</p>
+<p></p>
+<p>DEPRECATED: Функция устарела и помечена к удалению. Используйте аналогичную функцию из библиотеки common <a href="FunctionCommonGetTextureSize.html">common.GetTextureSize( textureId )</a></p>
+<pre>
+-- класс
+WidgetsSystemSafe
+
+-- семантика
+function GetTextureSize( self, texture )
+
+-- входные параметры
+texture: TextureId - идентификатор текстуры
+
+-- возвращаемое значение:
+таблица с полями:
+ sizeX: number (int) - размер текстуры по X
+ sizeY: number (int) - размер текстуры по Y
+
+-- пример
+local textureSize = widgetsSystem:GetTextureSize( texture )
+
+LogInfo( "sizeX: ", textureSize.sizeX )
+LogInfo( "sizeY: ", textureSize.sizeY )
+</pre>
+<p></p>
+<h4>Search: "CategoryWidgetsSystem"</h4>
+<p></p>
+<a href="CategoryWidgetsSystem.html">CategoryWidgetsSystem</a>
+<br><a href="EventUpdateShrinkRatio.html">EventUpdateShrinkRatio</a>
+<br><a href="FunctionWidgetsSystemGetImeSelectorInfo.html">FunctionWidgetsSystemGetImeSelectorInfo</a>
+<br><a href="FunctionWidgetsSystemGetPosConverterParams.html">FunctionWidgetsSystemGetPosConverterParams</a>
+<br><a href="FunctionWidgetsSystemGetStyle.html">FunctionWidgetsSystemGetStyle</a>
+<br><a href="FunctionWidgetsSystemGetTextureSize.html">FunctionWidgetsSystemGetTextureSize</a>
+<br><a href="FunctionWidgetsSystemSelectImeText.html">FunctionWidgetsSystemSelectImeText</a>
+<br><a href="FunctionWidgetsSystemSetShrinkRatio.html">FunctionWidgetsSystemSetShrinkRatio</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryLuaApiDeprecated.html">CategoryLuaApiDeprecated</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryWidgetsSystem.html">CategoryWidgetsSystem</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

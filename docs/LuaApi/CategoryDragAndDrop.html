@@ -1,0 +1,51 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - CategoryDragAndDrop</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h1>CategoryDragAndDrop</h1>
+<p></p>
+<h2>BlurpSearch: CategoryLuaApi CategoryDragAndDrop</h2>
+<p></p>
+<p>Функции и события для работы с drag&drop. Drag&drop поддерживается в скрипте только для миссии.</p>
+<p></p>
+<p>Схема работы:</p>
+<p></p>
+<p>Регистрируются контролы, которые будут обрабатываться механизмом drag&drop. Каждому контролу должен быть назначен уникальный идентификатор, который используется во всех дальнейших операциях. Если при работе с drag&drop нужно вернуть идентификатор, не относящийся ни к одному из зарегистированных окон, то используется неопределенный идентификатор, DND_INVALID_ID. Для упрощения регистрации в базовом скрипте описаны несколько вспомогательных глобальных переменных и функций, позволяющих группировать контролы (экипировка, инвентарь и т.д., список расширяется по необходимости). При необходимости контролы можно разрегистрировать.</p>
+<p></p>
+<p>Система drag&drop отслеживает операции с зарегистрированными контролами и отправляет в скрипт различные уведомления:  события вида EVENT_DND_... В ответ на них скрипт может подтвержать те или иные операции (например, начало или окончание drag&drop), игнорировать их, а также выполнять работу по корректной визуализации текущего состояния (например, перемещать курсор правильного вида в указанную позицию, подсвечивать слоты и т.п.). Возможно досрочное прерывание drag&drop из скрипта.</p>
+<p></p>
+<p>Замечание: процесс drag&drop автоматически прерывается при переходе в невидимое состояние контрола, который инициировал процесс drag&drop.</p>
+<p></p>
+<p>Замечание: при назначении идентификаторов для работы с Drag&drop необходимо использовать только неотрицательные значения.</p>
+<p></p>
+<a href="CategoryDragAndDrop.html">CategoryDragAndDrop</a>
+<br><a href="EventMissionDragAndDropDragCancelled.html">EventMissionDragAndDropDragCancelled</a>
+<br><a href="EventMissionDragAndDropDragOver.html">EventMissionDragAndDropDragOver</a>
+<br><a href="EventMissionDragAndDropDragTo.html">EventMissionDragAndDropDragTo</a>
+<br><a href="EventMissionDragAndDropDropAttempt.html">EventMissionDragAndDropDropAttempt</a>
+<br><a href="EventMissionDragAndDropPickAttempt.html">EventMissionDragAndDropPickAttempt</a>
+<br><a href="FunctionMissionDragAndDropCancelDrag.html">FunctionMissionDragAndDropCancelDrag</a>
+<br><a href="FunctionMissionDragAndDropConfirmDropAttempt.html">FunctionMissionDragAndDropConfirmDropAttempt</a>
+<br><a href="FunctionMissionDragAndDropConfirmPickAttempt.html">FunctionMissionDragAndDropConfirmPickAttempt</a>
+<br><a href="FunctionMissionDragAndDropRegister.html">FunctionMissionDragAndDropRegister</a>
+<br><a href="FunctionMissionDragAndDropUnregister.html">FunctionMissionDragAndDropUnregister</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryMission.html">CategoryMission</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

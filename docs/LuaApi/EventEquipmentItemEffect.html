@@ -1,0 +1,83 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - EventEquipmentItemEffect</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> EVENT_EQUIPMENT_ITEM_EFFECT</h2>
+<p></p>
+<p>Оповещение о начале эффекта для экипированного предмета. '''Устарело, в будущем будет удалено из API. Взамен нужно использовать <a href="EventContainerItemEffect.html"> EVENT_CONTAINER_ITEM_EFFECT</a>'''</p>
+<p></p>
+<p>Типы эффектов: '''<a href="EnumEffectType.html"> EFFECT_TYPE_...</a>'''. Для некоторых из них в сообщении передаются дополнительные поля (см.'''<a href="EnumEffectType.html"> EFFECT_TYPE_...</a>''' ).</p>
+<p></p>
+<p>Тип контейнера в <a href="EnumItemCont.html"> ITEM_CONT_...</a>.</p>
+<p></p>
+<pre>
+-- поля:
+effect: number (enum EFFECT_TYPE_...) - тип начавшегося эффекта
+slot: number (int)  - слот
+slotType: number (enum ITEM_CONT_...) - тип контейнера
+</pre>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryEffect"</h4>
+<p></p>
+<a href="EnumEffectType.html">EnumEffectType</a>
+<br><a href="EventActionPanelElementEffect.html">EventActionPanelElementEffect</a>
+<br><a href="EventAstrolabeSpellEffect.html">EventAstrolabeSpellEffect</a>
+<br><a href="EventBestFriendTeleportSpellEffect.html">EventBestFriendTeleportSpellEffect</a>
+<br><a href="EventContainerItemEffect.html">EventContainerItemEffect</a>
+<br><a href="EventDefaultSpellEffect.html">EventDefaultSpellEffect</a>
+<br><a href="EventDepositeBoxItemEffect.html">EventDepositeBoxItemEffect</a>
+<br><a href="EventEquipmentItemEffect.html">EventEquipmentItemEffect</a>
+<br><a href="EventInventoryItemEffect.html">EventInventoryItemEffect</a>
+<br><a href="EventSpellbookElementEffect.html">EventSpellbookElementEffect</a>
+<br><a href="EventUnstuckSpellEffect.html">EventUnstuckSpellEffect</a>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryEquipment"</h4>
+<p></p>
+<a href="CategoryEquipment.html">CategoryEquipment</a>
+<br><a href="EnumDressResult.html">EnumDressResult</a>
+<br><a href="EnumDressSlot.html">EnumDressSlot</a>
+<br><a href="EnumItemBinding.html">EnumItemBinding</a>
+<br><a href="EnumItemQuality.html">EnumItemQuality</a>
+<br><a href="EventEquipFailed.html">EventEquipFailed</a>
+<br><a href="EventEquipmentItemEffect.html">EventEquipmentItemEffect</a>
+<br><a href="EventEquipmentRitualEnableChanged.html">EventEquipmentRitualEnableChanged</a>
+<br><a href="EventUnequipFailed.html">EventUnequipFailed</a>
+<br><a href="EventUnitEquipmentChanged.html">EventUnitEquipmentChanged</a>
+<br><a href="FunctionAvatarEquipItem.html">FunctionAvatarEquipItem</a>
+<br><a href="FunctionAvatarEquipItemById.html">FunctionAvatarEquipItemById</a>
+<br><a href="FunctionAvatarEquipItemByIdToSlot.html">FunctionAvatarEquipItemByIdToSlot</a>
+<br><a href="FunctionAvatarEquipItemToSlot.html">FunctionAvatarEquipItemToSlot</a>
+<br><a href="FunctionAvatarGetEquipmentItemSlot.html">FunctionAvatarGetEquipmentItemSlot</a>
+<br><a href="FunctionAvatarGetEquipResult.html">FunctionAvatarGetEquipResult</a>
+<br><a href="FunctionAvatarIsItemsStackable.html">FunctionAvatarIsItemsStackable</a>
+<br><a href="FunctionAvatarSheathNext.html">FunctionAvatarSheathNext</a>
+<br><a href="FunctionAvatarUnequipItem.html">FunctionAvatarUnequipItem</a>
+<br><a href="FunctionAvatarUnequipItemToSlot.html">FunctionAvatarUnequipItemToSlot</a>
+<br><a href="FunctionUnitGetEquipmentItemId.html">FunctionUnitGetEquipmentItemId</a>
+<br><a href="FunctionUnitGetEquipmentItemIds.html">FunctionUnitGetEquipmentItemIds</a>
+<br><a href="FunctionUnitGetEquipmentItemSlotUnlockedQualities.html">FunctionUnitGetEquipmentItemSlotUnlockedQualities</a>
+<br><a href="FunctionUnitGetEquipmentSize.html">FunctionUnitGetEquipmentSize</a>
+<br><a href="FunctionUnitGetEquipmentSlotBonus.html">FunctionUnitGetEquipmentSlotBonus</a>
+<br><a href="FunctionUnitHasEquipment.html">FunctionUnitHasEquipment</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryEvent.html">CategoryEvent</a>
+<a href="CategoryEquipment.html">CategoryEquipment</a>
+<a href="CategoryEffect.html">CategoryEffect</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

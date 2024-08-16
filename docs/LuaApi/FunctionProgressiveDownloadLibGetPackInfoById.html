@@ -1,0 +1,101 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionProgressiveDownloadLibGetPackInfoById</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> progressiveDownloadLib.GetPackInfoById( id, mode )</h2>
+<p></p>
+<p>Возвращает таблицу с информацией о запрашиваемом паке, либо nil в случае его отсутствия.</p>
+<p></p>
+<pre>
+-- библиотека:
+progressiveDownloadLib
+
+-- объявление:
+GetPackInfoById( id, mode )
+
+-- параметры:
+id: number (integer) - идентификатор пака
+mode: number (integer) - Необязательный параметр. Битовая маска, указывающая какие группы полей не надо включать в результат. 0x01 - не включать name и id; 0x02 - статическую информацию о паке (archiveSize, isBlack, isHiRes); 0x04 - динамическую (меняющуюся в процессе работы) информацию, т.е. остальные поля.
+
+-- возвращаемые значения:
+id: number (integer) - идентификатор пака
+name: string - имя
+archiveSize: number - размер в байтах
+isBlack: boolean - является ли он паком чёрного сектора (т.е. обязательный для запуска клиента)
+isHiRes: boolean - является ли он паком с текстурами высокого разрешения
+isLoaded: boolean - готов ли для использования
+isReady: boolean - скачен ли на диск (возможно, при этом он ещё не проверен на целостность)
+isRecheck: boolean - находится ли в состоянии перепроверки/восстановления (если проверка целостности пофэйлилась)
+isHalted: boolean - является ли пак битым (если после двух попыток восстановления проверка целостности по прежнему фэйлится, то он признаётся битым). Это неустранимая в рамках текущей игровой сессии ошибка. Требуется закрыть игру, запустить лаунчер и выполнить полную проверку целостности.
+progress: number (float) - процент скаченности пака
+downloadTotal: number - сколько байт (от самого пака, либо патчей для него) необходимо скачать из Интернета в рамках данной игровой сессии
+downloadDone: number - сколько байт (от самого пака, либо патчей для него) уже скачено из Интернета в рамках данной игровой сессии
+downloadLeft: number - ... осталось скачать ...
+calculatedPriority: number (integer) - приоритет пака, который игра хотела бы установить в Игровом Центре
+submitedPriority: number (integer) - приоритет пака, который игре удалось установить в Игровом Центре
+actualPriority: number (integer) - фактический приоритет пака в Игровом Центре
+actualEnabled: boolean - "включён" ли пак фактически в Игровом Центре
+isPriorityInitialized: boolean - удалось ли хоть раз задать приоритет пака в Игровом Центре
+
+-- пример:
+local info = progressiveDownloadLib.GetPackInfoById( id )
+</pre>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryProgressiveDownloadLib"</h4>
+<p></p>
+<a href="CategoryProgressiveDownloadLib.html">CategoryProgressiveDownloadLib</a>
+<br><a href="EnumProgressiveDownloadActivity.html">EnumProgressiveDownloadActivity</a>
+<br><a href="EventProgressiveDownloadingErrorApiMismatch.html">EventProgressiveDownloadingErrorApiMismatch</a>
+<br><a href="EventProgressiveDownloadingErrorConnectionLost.html">EventProgressiveDownloadingErrorConnectionLost</a>
+<br><a href="EventProgressiveDownloadingErrorFileAccessDenied.html">EventProgressiveDownloadingErrorFileAccessDenied</a>
+<br><a href="EventProgressiveDownloadingErrorFileGeneral.html">EventProgressiveDownloadingErrorFileGeneral</a>
+<br><a href="EventProgressiveDownloadingErrorNotReady.html">EventProgressiveDownloadingErrorNotReady</a>
+<br><a href="EventProgressiveDownloadingErrorProto.html">EventProgressiveDownloadingErrorProto</a>
+<br><a href="EventProgressivedownloadingErrorSimple.html">EventProgressivedownloadingErrorSimple</a>
+<br><a href="EventProgressivedownloadingFileDiskFull.html">EventProgressivedownloadingFileDiskFull</a>
+<br><a href="EventProgressivedownloadingHaltedPacksChanged.html">EventProgressivedownloadingHaltedPacksChanged</a>
+<br><a href="EventProgressiveDownloadingLatestMsgsChanged.html">EventProgressiveDownloadingLatestMsgsChanged</a>
+<br><a href="EventProgressiveDownloadingLatestPacksChanged.html">EventProgressiveDownloadingLatestPacksChanged</a>
+<br><a href="EventProgressivedownloadingMapPercentChanged.html">EventProgressivedownloadingMapPercentChanged</a>
+<br><a href="EventProgressiveDownloadingRecheckPacksChanged.html">EventProgressiveDownloadingRecheckPacksChanged</a>
+<br><a href="EventProgressivedownloadingStatusChanged.html">EventProgressivedownloadingStatusChanged</a>
+<br><a href="EventProgressiveDownloadingTopPacksChanged.html">EventProgressiveDownloadingTopPacksChanged</a>
+<br><a href="EventProgressiveDownloadingWarningReconnections.html">EventProgressiveDownloadingWarningReconnections</a>
+<br><a href="EventProgressiveDownloadingWhiteInfoChanged.html">EventProgressiveDownloadingWhiteInfoChanged</a>
+<br><a href="FunctionProgressiveDownloadLibGetDownloadRateLimit.html">FunctionProgressiveDownloadLibGetDownloadRateLimit</a>
+<br><a href="FunctionProgressiveDownloadLibGetHaltedPacks.html">FunctionProgressiveDownloadLibGetHaltedPacks</a>
+<br><a href="FunctionProgressiveDownloadLibGetLatestDownloadedPacks.html">FunctionProgressiveDownloadLibGetLatestDownloadedPacks</a>
+<br><a href="FunctionProgressiveDownloadLibGetLatestErrors.html">FunctionProgressiveDownloadLibGetLatestErrors</a>
+<br><a href="FunctionProgressiveDownloadLibGetMapDownloadedPercent.html">FunctionProgressiveDownloadLibGetMapDownloadedPercent</a>
+<br><a href="FunctionProgressiveDownloadLibGetPackInfoById.html">FunctionProgressiveDownloadLibGetPackInfoById</a>
+<br><a href="FunctionProgressiveDownloadLibGetPriorityGroup.html">FunctionProgressiveDownloadLibGetPriorityGroup</a>
+<br><a href="FunctionProgressiveDownloadLibGetPriorityGroupsCount.html">FunctionProgressiveDownloadLibGetPriorityGroupsCount</a>
+<br><a href="FunctionProgressiveDownloadLibGetRecheckPacks.html">FunctionProgressiveDownloadLibGetRecheckPacks</a>
+<br><a href="FunctionProgressiveDownloadLibGetStatus.html">FunctionProgressiveDownloadLibGetStatus</a>
+<br><a href="FunctionProgressiveDownloadLibGetTopRequestedPacks.html">FunctionProgressiveDownloadLibGetTopRequestedPacks</a>
+<br><a href="FunctionProgressiveDownloadLibGetUploadRateLimit.html">FunctionProgressiveDownloadLibGetUploadRateLimit</a>
+<br><a href="FunctionProgressiveDownloadLibGetWhiteDescr.html">FunctionProgressiveDownloadLibGetWhiteDescr</a>
+<br><a href="FunctionProgressiveDownloadLibSetDownloadRateLimit.html">FunctionProgressiveDownloadLibSetDownloadRateLimit</a>
+<br><a href="FunctionProgressiveDownloadLibSetTopPacksWindow.html">FunctionProgressiveDownloadLibSetTopPacksWindow</a>
+<br><a href="FunctionProgressiveDownloadLibSetUploadRateLimit.html">FunctionProgressiveDownloadLibSetUploadRateLimit</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryProgressiveDownloadLib.html">CategoryProgressiveDownloadLib</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

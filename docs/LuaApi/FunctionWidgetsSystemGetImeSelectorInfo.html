@@ -1,0 +1,80 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionWidgetsSystemGetImeSelectorInfo</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> widgetsSystem:GetImeSelectorInfo( self )</h2>
+<p></p>
+<p>Возвращает информацию о состоянии IME.</p>
+<p></p>
+<p>IME - это компонент операционной системы, позволяющий пользователям вводить символы, которых нет на клавиатуре. Например, при помощи IME есть возможность вводить китайские или японские иероглифы.</p>
+<p></p>
+<p>Данный метод позволяет узнать, в каком состоянии находится компонент, где показывать интерфейс выбора, и сам список выбора.</p>
+<p></p>
+<p>DEPRECATED: Функция устарела и помечена к удалению. Поддержка IME прекращена.</p>
+<p></p>
+<pre>
+-- класс
+WidgetsSystemSafe
+
+-- семантика
+function GetImeSelectorInfo( self )
+
+-- входные параметры
+нет
+
+-- возвращаемое значение:
+table or nil - если сервис IME оступен и в данный момент производится выбор текста, то таблица с полями:
+ cursorPosX: number (int) - положение курсора по X (-1 в случае ошибки)
+ cursorPosY: number (int) - положение курсора по Y (-1 в случае ошибки)
+ highlightIndex: number (int) - индекс подсвеченного элемента (-1 в случае ошибки)
+ texts: table of WString - индексированный с 0 список текстов для выбора
+
+-- пример
+local imeSelectorInfo = widgetsSystem:GetImeSelectorInfo()
+if imeSelectorInfo then
+  LogInfo( "cursorPosX: ", imeSelectorInfo.cursorPosX )
+  LogInfo( "cursorPosY: ", imeSelectorInfo.cursorPosY )
+end
+</pre>
+<p></p>
+<h4>Search: "CategoryWidgetsSystem"</h4>
+<p></p>
+<a href="CategoryWidgetsSystem.html">CategoryWidgetsSystem</a>
+<br><a href="EventUpdateShrinkRatio.html">EventUpdateShrinkRatio</a>
+<br><a href="FunctionWidgetsSystemGetImeSelectorInfo.html">FunctionWidgetsSystemGetImeSelectorInfo</a>
+<br><a href="FunctionWidgetsSystemGetPosConverterParams.html">FunctionWidgetsSystemGetPosConverterParams</a>
+<br><a href="FunctionWidgetsSystemGetStyle.html">FunctionWidgetsSystemGetStyle</a>
+<br><a href="FunctionWidgetsSystemGetTextureSize.html">FunctionWidgetsSystemGetTextureSize</a>
+<br><a href="FunctionWidgetsSystemSelectImeText.html">FunctionWidgetsSystemSelectImeText</a>
+<br><a href="FunctionWidgetsSystemSetShrinkRatio.html">FunctionWidgetsSystemSetShrinkRatio</a>
+<p></p>
+<h4>Search: "CategoryIme"</h4>
+<p></p>
+<a href="CategoryIme.html">CategoryIme</a>
+<br><a href="EventImeSelectFinished.html">EventImeSelectFinished</a>
+<br><a href="EventImeSelectStarted.html">EventImeSelectStarted</a>
+<br><a href="FunctionWidgetsSystemGetImeSelectorInfo.html">FunctionWidgetsSystemGetImeSelectorInfo</a>
+<br><a href="FunctionWidgetsSystemSelectImeText.html">FunctionWidgetsSystemSelectImeText</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryLuaApiDeprecated.html">CategoryLuaApiDeprecated</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryWidgetsSystem.html">CategoryWidgetsSystem</a>
+<a href="CategoryIme.html">CategoryIme</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>
