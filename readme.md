@@ -1,9 +1,9 @@
-## Introducing
-We know about the terrible DX of Allods Online addons. And we want make it better, simplify addons development and updating.
-Can't you track all API changes? And we can't look at projects without typization without pain.
+## Описание
+Мы знаем об ужасном DX в аддонах проекта Аллоды Онлайн. И мы хотели бы чуточку улучшить положение процесса разработки и обновления аддонов.
+Не можете отследить все изменения API? И мы не можем смотреть без боли на проекты без типизации.
 
-## Installation
-- clone repo
-- install IDE plugin from [here](https://luals.github.io/#install)
-- create `/src` folder
-- start working with any `*.lua` files in `/src/**/*`
+## Установка
+- клонировать репозиторий
+- установить IDE плагин [отсюда](https://luals.github.io/#install)
+- создать директорию `/src`
+- начать работу с любым `*.lua` файлом в рамках `/src/**/*`
