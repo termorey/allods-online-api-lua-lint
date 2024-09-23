@@ -32,9 +32,9 @@ MountTalentId  - идентификатор ресурса таланта мау
 table or nil - таблица с полями:
   price: number(int) - стоимость при выборе
   unlock: UnlockId - идентификатор ресурса анлока для получаения данного таланта
-  unlockItems: table of ItemId - предвметы разблокирующий данный талант
-  talentGroups: table of MountTalentGroupId - список групп талантов маунта, к которым относится данный талант
-  conflictGroups: table of MountTalentGroupId - список групп талантов маунта, с которыми конфликтует данный талант
+  unlockItems: table (from 0) of ItemId - предвметы разблокирующий данный талант
+  talentGroups: table (from 0) of MountTalentGroupId - список групп талантов маунта, к которым относится данный талант
+  conflictGroups: table (from 0) of MountTalentGroupId - список групп талантов маунта, с которыми конфликтует данный талант
 
 -- пример:
 local exoMountId = mount.GetExoMount()
@@ -102,6 +102,7 @@ local firstSlotTalentInfo = GetTalentInfo( availableTalents[1][1] )
 <br><a href="FunctionSocialGetBackMount.html">FunctionSocialGetBackMount</a>
 <br><a href="FunctionSocialGiveBackMount.html">FunctionSocialGiveBackMount</a>
 <br><a href="FunctionSocialLendMount.html">FunctionSocialLendMount</a>
+<br><a href="MountTalentGroupId.html">MountTalentGroupId</a>
 <br><a href="MountTalentId.html">MountTalentId</a>
 <p></p>
 <hr>

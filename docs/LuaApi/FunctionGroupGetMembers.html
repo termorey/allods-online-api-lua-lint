@@ -16,7 +16,7 @@
 <p></p>
 <h2>group.GetMembers()</h2>
 <p></p>
-<p>Возвращает упорядоченный список членов группы, включая главного игрока. Главный игрок всегда первый в списке (имеет индекс 0). Если группы нет, возвращается nil.</p>
+<p>Возвращает упорядоченный список членов группы, включая главного игрока. Главный игрок всегда первый в списке (имеет индекс 1). Если группы нет, возвращается nil.</p>
 <p></p>
 <pre>
 -- библиотека:
@@ -30,7 +30,7 @@ function GetMembers()
 
 -- возвращаемое значение
 table or nil:
-  key: number (int) [0..] - индекс персонажа в списке, персонаж главного игрока всегда имеет индекс 0
+  key: number (int) [1..] - индекс персонажа в списке, персонаж главного игрока всегда имеет индекс 1
   value: table - таблица с информацией о персонаже из группы:
     name: WString - имя персонажа
     state: number (enum GROUP_MEMBER_STATE_...) - состояние персонажа
@@ -47,7 +47,7 @@ local members = group.GetMembers()
 <p></p>
 <p>См. также</p>
 <ul><li><p> <a href="EnumGroupMemberState.html"> enum GROUP_MEMBER_STATE_...</a></p></li></ul>
-<ul><li><p> <a href="FunctionGroupGetMemberInfoById.html"> group.GetMemberInfoById( memberId )</a></p></li></ul>
+<ul><li><p>  group.GetMemberInfoById( memberId ) (закрытая ссылка)</p></li></ul>
 <p></p>
 <h4>Search: "CategoryLuaApi" "CategoryGroup" </h4>
 <p></p>
@@ -67,6 +67,7 @@ local members = group.GetMembers()
 <br><a href="EventGroupDeclineIgnored.html">EventGroupDeclineIgnored</a>
 <br><a href="EventGroupDisappeared.html">EventGroupDisappeared</a>
 <br><a href="EventGroupInvite.html">EventGroupInvite</a>
+<br><a href="EventGroupInviteEnd.html">EventGroupInviteEnd</a>
 <br><a href="EventGroupInviteFailed.html">EventGroupInviteFailed</a>
 <br><a href="EventGroupItemQualityChanged.html">EventGroupItemQualityChanged</a>
 <br><a href="EventGroupKickFailed.html">EventGroupKickFailed</a>
@@ -89,11 +90,11 @@ local members = group.GetMembers()
 <br><a href="FunctionGroupCanKickMember.html">FunctionGroupCanKickMember</a>
 <br><a href="FunctionGroupCanLeave.html">FunctionGroupCanLeave</a>
 <br><a href="FunctionGroupDecline.html">FunctionGroupDecline</a>
+<br><a href="FunctionGroupGetInviteInfo.html">FunctionGroupGetInviteInfo</a>
+<br><a href="FunctionGroupGetLeader.html">FunctionGroupGetLeader</a>
 <br><a href="FunctionGroupGetLeaderIndex.html">FunctionGroupGetLeaderIndex</a>
-<br><a href="FunctionGroupGetLeaderUniqueId.html">FunctionGroupGetLeaderUniqueId</a>
-<br><a href="FunctionGroupGetMemberIndexByName.html">FunctionGroupGetMemberIndexByName</a>
-<br><a href="FunctionGroupGetMemberInfoById.html">FunctionGroupGetMemberInfoById</a>
-<br><a href="FunctionGroupGetMemberNameByIndex.html">FunctionGroupGetMemberNameByIndex</a>
+<br><a href="FunctionGroupGetMemberInfo.html">FunctionGroupGetMemberInfo</a>
+<br><a href="FunctionGroupGetMemberInfoByIndex.html">FunctionGroupGetMemberInfoByIndex</a>
 <br><a href="FunctionGroupGetMembers.html">FunctionGroupGetMembers</a>
 <br><a href="FunctionGroupGetReadyCheckInfo.html">FunctionGroupGetReadyCheckInfo</a>
 <br><a href="FunctionGroupInvite.html">FunctionGroupInvite</a>

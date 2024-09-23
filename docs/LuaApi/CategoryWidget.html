@@ -175,7 +175,6 @@
 <br><a href="CategoryWidget.html">CategoryWidget</a> --  Категория Widget <used by: 1) interfaces LuaApi>
 <br><a href="CategoryWidgetEffects.html">CategoryWidgetEffects</a> --  Категория WidgetEffects <used by: 1) interfaces LuaApi>
 <br><a href="CategoryWidgetMembers.html">CategoryWidgetMembers</a> --  Категория WidgetMembers <used by: 1) interfaces LuaApi>
-<br><a href="CategoryWidgetsSystem.html">CategoryWidgetsSystem</a> --  Категория WidgetsSystem <used by: 1) interfaces LuaApi>
 <br><a href="CategoryWorldSecret.html">CategoryWorldSecret</a> --  Категория WorldSecret <used by: 1) interfaces LuaApi>
 <br><a href="CategoryWString.html">CategoryWString</a> --  Категория WString <used by: 1) interfaces LuaApi>
 <br><a href="CharacterClassId.html">CharacterClassId</a> --  Идентификатор класса аватара в LuaApi
@@ -319,6 +318,7 @@
 <br><a href="EnumUsedev.html">EnumUsedev</a> --  USDEV_... (тип корабельного устройства)
 <br><a href="EnumVendor.html">EnumVendor</a> --  enum VENDOR_... (тип торговца)
 <br><a href="EnumVisualizeMode.html">EnumVisualizeMode</a> --  enum ENUM_VisualizeMode_... - режимы отображения валюты
+<br><a href="EnumWidgetDNDState.html">EnumWidgetDNDState</a> --  enum DND_STATE_... - состояние виджета в системе drag&drop
 <br><a href="EnumZoneDanger.html">EnumZoneDanger</a> --  enum "ENUM_ZoneDanger_..." - PvP-опасность зоны
 <br><a href="EnumZoneTierDifficulty.html">EnumZoneTierDifficulty</a> --  enum ZONE_TIER_DIFFICULTY_... - сложность игровой зоны
 <br><a href="EventAbilitiesElementAdded.html">EventAbilitiesElementAdded</a> --  EVENT_ABILITIES_ELEMENT_ADDED
@@ -339,6 +339,7 @@
 <br><a href="EventActiveMountSkinChanged.html">EventActiveMountSkinChanged</a> --  EVENT_ACTIVE_MOUNT_SKIN_CHANGED - у главного игрока поменялся скин ездового животного
 <br><a href="EventActiveMountTimeLeftChanged.html">EventActiveMountTimeLeftChanged</a> --  EVENT_ACTIVE_MOUNT_TIME_LEFT_CHANGED - у главного игрока кардинально поменялось время жизни ездового животного
 <br><a href="EventActivePetChanged.html">EventActivePetChanged</a> --  EVENT_ACTIVE_PET_CHANGED - у главного игрока меняется активный пет
+<br><a href="EventActivePetExistChanged.html">EventActivePetExistChanged</a> --  EVENT_ACTIVE_PET_EXIST_CHANGED - у главного игрока меняется активный пет
 <br><a href="EventActivePetSpellsChanged.html">EventActivePetSpellsChanged</a> --  EVENT_ACTIVE_PET_SPELLS_CHANGED - у пета главного игрока изменились заклинания
 <br><a href="EventActivePetStateChanged.html">EventActivePetStateChanged</a> --  EVENT_ACTIVE_PET_STATE_CHANGED - у пета главного игрока изменилось состояние игрока
 <br><a href="EventAddonHealthChanged.html">EventAddonHealthChanged</a> --  EVENT_ADDON_HEALTH_CHANGED изменились показатели состояния аддона
@@ -463,6 +464,7 @@
 <br><a href="EventBattlegroundCheckpointRemoved.html">EventBattlegroundCheckpointRemoved</a> --  EVENT_BATTLEGROUND_CHECKPOINT_REMOVED - стала недоступной информация о контрольной точке
 <br><a href="EventBattlegroundCheckpointsChanged.html">EventBattlegroundCheckpointsChanged</a> --  EVENT_BATTLEGROUND_CHECKPOINTS_CHANGED - изменилась информация о контрольных точках
 <br><a href="EventBattlegroundCheckpointStateChanged.html">EventBattlegroundCheckpointStateChanged</a> --  EVENT_BATTLEGROUND_CHECKPOINT_STATE_CHANGED - изменилось состояние контрольной точки
+<br><a href="EventBeamCannonShotStarted.html">EventBeamCannonShotStarted</a> --  EVENT_BEAM_CANNON_SHOT_STARTED (произведен выстрел из лучемета)
 <br><a href="EventBestFriendReturnStateChanged.html">EventBestFriendReturnStateChanged</a> --  EVENT_BEST_FRIEND_RETURN_STATE_CHANGED - изменение возможности телепортации обратно от побратима к начальной позиции
 <br><a href="EventBestFriendTeleportSpellChanged.html">EventBestFriendTeleportSpellChanged</a> --  EVENT_BEST_FRIEND_TELEPORT_SPELL_CHANGED - изменилось состояние спелла для телепортации к побратиму
 <br><a href="EventBestFriendTeleportSpellEffect.html">EventBestFriendTeleportSpellEffect</a> --  EVENT_BEST_FRIEND_TELEPORT_SPELL_EFFECT - эффект спелла телепортации к побратиму
@@ -612,6 +614,7 @@
 <br><a href="EventGroupDeclineIgnored.html">EventGroupDeclineIgnored</a> --  EVENT_GROUP_DECLINE_IGNORED (уведомление о невозможности приглашения в группу по причине игнора)
 <br><a href="EventGroupDisappeared.html">EventGroupDisappeared</a> --  EVENT_GROUP_DISAPPEARED (исчезновение группы)
 <br><a href="EventGroupInvite.html">EventGroupInvite</a> --  EVENT_GROUP_INVITE (приглашение в группу)
+<br><a href="EventGroupInviteEnd.html">EventGroupInviteEnd</a> --  EVENT_GROUP_INVITE_END (приглашение в группу утратило силу)
 <br><a href="EventGroupInviteFailed.html">EventGroupInviteFailed</a> --  EVENT_GROUP_INVITE_FAILED (не удалось пригласить игрока в группу)
 <br><a href="EventGroupItemQualityChanged.html">EventGroupItemQualityChanged</a> --  EVENT_GROUP_ITEM_QUALITY_CHANGED - качество итемов для текущей схема дележа лута изменено
 <br><a href="EventGroupKickFailed.html">EventGroupKickFailed</a> --  EVENT_GROUP_KICK_FAILED (не удалось выгнать игрока из группы)
@@ -843,11 +846,6 @@
 <br><a href="EventMetaDialog.html">EventMetaDialog</a> --  EVENT_META_DIALOG - начало улучшения мета-предмета
 <br><a href="EventMetaUpgradeBreak.html">EventMetaUpgradeBreak</a> --  EVENT_META_UPGRADE_BREAK - необходимо закрыть диалог улучшения мета-предметов
 <br><a href="EventMetaUpgradeResult.html">EventMetaUpgradeResult</a> --  EVENT_META_UPGRADE_RESULT - результат улучшения мета-предмета
-<br><a href="EventMissionDragAndDropDragCancelled.html">EventMissionDragAndDropDragCancelled</a> --  EVENT_DND_DRAG_CANCELLED (отмена системой drag&drop)
-<br><a href="EventMissionDragAndDropDragOver.html">EventMissionDragAndDropDragOver</a> --  EVENT_DND_DRAG_OVER (перемещение курсора или изменение контрола под ним в процессе drag&drop)
-<br><a href="EventMissionDragAndDropDragTo.html">EventMissionDragAndDropDragTo</a> --  EVENT_DND_DRAG_TO (перемещение курсора во время drag&drop)
-<br><a href="EventMissionDragAndDropDropAttempt.html">EventMissionDragAndDropDropAttempt</a> --  EVENT_DND_DROP_ATTEMPT - попытка завершить drag&drop
-<br><a href="EventMissionDragAndDropPickAttempt.html">EventMissionDragAndDropPickAttempt</a> --  EVENT_DND_PICK_ATTEMPT (попытка начать drag&drop)
 <br><a href="EventMissionFreePortraitSlot.html">EventMissionFreePortraitSlot</a> --  EVENT_MISSION_FREE_PORTRAIT_SLOT (был освобожден слот с портретом)
 <br><a href="EventMissionInitialized.html">EventMissionInitialized</a> --  EVENT_MISSION_INITIALIZED - миссия инициализирована
 <br><a href="EventMissionLoadingProgress.html">EventMissionLoadingProgress</a> --  EVENT_LOADING_PROGRESS (прогресс экрана загрузки миссии)
@@ -989,7 +987,7 @@
 <br><a href="EventRaidEnterVarsMapWarning.html">EventRaidEnterVarsMapWarning</a> --  EVENT_RAID_ENTER_VARS_MAP_WARNING - прогресс инста не соответствует прогрессу сохранения
 <br><a href="EventRaidFailed.html">EventRaidFailed</a> --  EVENT_RAID_FAILED (ошибка при работе с рейдом)
 <br><a href="EventRaidInvite.html">EventRaidInvite</a> --  EVENT_RAID_INVITE (получено приглашение в рейд)
-<br><a href="EventRaidInviteEnd.html">EventRaidInviteEnd</a> --  EVENT_RAID_INVITE (приглашение в рейд утратило силу)
+<br><a href="EventRaidInviteEnd.html">EventRaidInviteEnd</a> --  EVENT_RAID_INVITE_END (приглашение в рейд утратило силу)
 <br><a href="EventRaidLeaderChanged.html">EventRaidLeaderChanged</a> --  EVENT_RAID_LEADER_CHANGED (рейд-лидер изменен)
 <br><a href="EventRaidLeaderHelperChanged.html">EventRaidLeaderHelperChanged</a> --  EVENT_RAID_LEADER_HELPER_CHANGED (изменился помощник лидера рейда)
 <br><a href="EventRaidLootMasterChanged.html">EventRaidLootMasterChanged</a> --  EVENT_RAID_LOOT_MASTER_CHANGED (изменился ответственный за лут рейда)
@@ -1068,7 +1066,6 @@
 <br><a href="EventStableMountTalentsChanged.html">EventStableMountTalentsChanged</a> --  EVENT_STABLE_MOUNT_TALENTS_CHANGED - изменились активные таланты маунта
 <br><a href="EventStableSlotsCountChanged.html">EventStableSlotsCountChanged</a> --  EVENT_STABLE_SLOTS_COUNT_CHANGED - у главного игрока меняется количество слотов в конюшне
 <br><a href="EventTakeItemsFailed.html">EventTakeItemsFailed</a> --  EVENT_TAKE_ITEMS_FAILED (неудачный результат взятия предмета в инвентори)
-<br><a href="EventTakeOnHandsRequest.html">EventTakeOnHandsRequest</a> --  EVENT_TAKE_ON_HANDS_REQUEST - запрос супруга, можно ли начать ношение на руках
 <br><a href="EventTalentsChanged.html">EventTalentsChanged</a> --  EVENT_TALENTS_CHANGED (изменились таланты)
 <br><a href="EventTalkStarted.html">EventTalkStarted</a> --  EVENT_TALK_STARTED
 <br><a href="EventTalkStopped.html">EventTalkStopped</a> --  EVENT_TALK_STOPPED
@@ -1155,6 +1152,11 @@
 <br><a href="EventWheelOfLootItems.html">EventWheelOfLootItems</a> --  EVENT_WHEELOFLOOT_ITEMS - пришли предметы колеса лута
 <br><a href="EventWheelOfLootRemoved.html">EventWheelOfLootRemoved</a> --  EVENT_WHEELOFLOOT_REMOVED - удалилось колесо лута
 <br><a href="EventWhisperFailed.html">EventWhisperFailed</a> --  EVENT_WHISPER_FAILED (не удалось отослать персональное сообщение)
+<br><a href="EventWidgetDNDDragCancelled.html">EventWidgetDNDDragCancelled</a> --  EVENT_DND_DRAG_CANCELLED (отмена системой drag&drop)
+<br><a href="EventWidgetDNDDragOver.html">EventWidgetDNDDragOver</a> --  EVENT_DND_DRAG_OVER (перемещение курсора или изменение контрола под ним в процессе drag&drop)
+<br><a href="EventWidgetDNDDragTo.html">EventWidgetDNDDragTo</a> --  EVENT_DND_DRAG_TO (перемещение курсора во время drag&drop)
+<br><a href="EventWidgetDNDDropAttempt.html">EventWidgetDNDDropAttempt</a> --  EVENT_DND_DROP_ATTEMPT - попытка завершить drag&drop
+<br><a href="EventWidgetDNDPickAttempt.html">EventWidgetDNDPickAttempt</a> --  EVENT_DND_PICK_ATTEMPT (попытка начать drag&drop)
 <br><a href="EventWidgetShowChanged.html">EventWidgetShowChanged</a> --  EVENT_WIDGET_SHOW_CHANGED (уведомление об изменении видимости контрола)
 <br><a href="EventWishmasterChanged.html">EventWishmasterChanged</a> --  EVENT_WISHMASTER_CHANGED - изменилась информация о Волшебной лампе
 <br><a href="EventWishmasterMultiplying.html">EventWishmasterMultiplying</a> --  EVENT_WISHMASTER_MULTIPLYING - уведомление о результатах и возможностях улучшения Волшебной лампы
@@ -1168,8 +1170,6 @@
 <br><a href="FunctionAstralGetAddons.html">FunctionAstralGetAddons</a> --   function astral.GetAddons() - список идентификаторов всех аддонов в астрале
 <br><a href="FunctionAstralGetAddonSectors.html">FunctionAstralGetAddonSectors</a> --   function astral.GetAddonSectors - список идентификаторов секторов астрального аддона
 <br><a href="FunctionAstralGetAllPOIs.html">FunctionAstralGetAllPOIs</a> --   function astral.GetAllPOIs() - все точки астральных эвентов
-<br><a href="FunctionAstralGetAllSectorsObsolete.html">FunctionAstralGetAllSectorsObsolete</a> --   function astral.GetAllSectorsObsolete() - список идентификаторов всех секторов в астрале
-<br><a href="FunctionAstralGetAllTLsObsolete.html">FunctionAstralGetAllTLsObsolete</a> --   function astral.GetAllTLsObsolete() - список технических уровней слоёв, имеющихся в астрале
 <br><a href="FunctionAstralGetAstrolabeDeniedPlayers.html">FunctionAstralGetAstrolabeDeniedPlayers</a> --  function astral.GetAstrolabeDeniedPlayers - игроки, из-за которых нельзя использовать астролябию
 <br><a href="FunctionAstralGetAstrolabeInfo.html">FunctionAstralGetAstrolabeInfo</a> --   function astral.GetAstrolabeInfo() - информация об астролябии
 <br><a href="FunctionAstralGetAstrolabeInfoEx.html">FunctionAstralGetAstrolabeInfoEx</a> --  function astral.GetAstrolabeInfoEx - возвращает информацию о доступных секторах для прыжка (быстрое путешествие)
@@ -1260,7 +1260,6 @@
 <br><a href="FunctionAvatarEquipItemById.html">FunctionAvatarEquipItemById</a> --  --- function --- avatar.EquipItemById - экипировать из контейнера предмет по идентификатору
 <br><a href="FunctionAvatarEquipItemByIdToSlot.html">FunctionAvatarEquipItemByIdToSlot</a> --  --- function --- avatar.EquipItemByIdToSlot - экипировать предмет с указанным идентификатором из контейнера в указанный слот
 <br><a href="FunctionAvatarEquipItemToSlot.html">FunctionAvatarEquipItemToSlot</a> --  --- function --- avatar.EquipItemToSlot - экипировать предмет из слота в инвентаре
-<br><a href="FunctionAvatarExtractRune.html">FunctionAvatarExtractRune</a> --  --- function --- avatar.InsertRune(вынуть руну из предмета)
 <br><a href="FunctionAvatarFinallyRespawn.html">FunctionAvatarFinallyRespawn</a> --  --- function --- avatar.FinallyRespawn (окончательно оживить аватара из чистилища в мир)
 <br><a href="FunctionAvatarFindNextQuest.html">FunctionAvatarFindNextQuest</a> --  --- function --- avatar.FindNextQuest( mode ) (найти задание)
 <br><a href="FunctionAvatarFindNextSecretComponentQuest.html">FunctionAvatarFindNextSecretComponentQuest</a> --  function avatar.FindNextSecretComponentQuest( secretId, componentIndex ) - найти квест для старта/продолжения этапа тайны мира
@@ -1279,7 +1278,6 @@
 <br><a href="FunctionAvatarGetAlchemyDrumInfo.html">FunctionAvatarGetAlchemyDrumInfo</a> --  --- function --- avatar.GetAlchemyDrumInfo( drum ) (информация о барабане (слоте) умения алхимии)
 <br><a href="FunctionAvatarGetAlchemyInfo.html">FunctionAvatarGetAlchemyInfo</a> --  --- function --- avatar.GetAlchemyInfo() (получить базовую информацию по алхимии)
 <br><a href="FunctionAvatarGetAlchemyMatchedRecipe.html">FunctionAvatarGetAlchemyMatchedRecipe</a> --  --- function --- avatar.GetAlchemyMatchedRecipe( line ) (какой предмет получится в результате алхимии)
-<br><a href="FunctionAvatarGetAttackResult.html">FunctionAvatarGetAttackResult</a> --  --- function --- avatar.GetAttackResult (информация об ошибке)
 <br><a href="FunctionAvatarGetAvailableItemQuests.html">FunctionAvatarGetAvailableItemQuests</a> --  --- function --- avatar.GetAvailableItemQuests (получить у предмета список заданий, которые он может выдать персонажу)
 <br><a href="FunctionAvatarGetAvailableQuests.html">FunctionAvatarGetAvailableQuests</a> --  --- function --- avatar.GetAvailableQuests (получить у собеседника список заданий, которые он может выдать персонажу)
 <br><a href="FunctionAvatarGetBarriersDelay.html">FunctionAvatarGetBarriersDelay</a> --  --- function --- avatar.GetBarriersDelay - длительность барьеров паладина в миллисекундах
@@ -1323,7 +1321,6 @@
 <br><a href="FunctionAvatarGetEmotes.html">FunctionAvatarGetEmotes</a> --  function avatar.GetEmotes() - получить список эмоций
 <br><a href="FunctionAvatarGetEngineerPetCommands.html">FunctionAvatarGetEngineerPetCommands</a> --  function avatar.GetEngineerPetCommands - специальные заклинания для класса инженера
 <br><a href="FunctionAvatarGetEquipmentItemSlot.html">FunctionAvatarGetEquipmentItemSlot</a> --  --- function --- avatar.GetEquipmentItemSlot (возвращает слот предмета, надетого на главного игрока)
-<br><a href="FunctionAvatarGetEquipResult.html">FunctionAvatarGetEquipResult</a> --  --- function --- avatar.GetEquipResult (информация об ошибке одевания)
 <br><a href="FunctionAvatarGetExperience.html">FunctionAvatarGetExperience</a> --  --- function --- avatar.GetExperience (вернуть информация об опыте персонажа)
 <br><a href="FunctionAvatarGetExpToLevel.html">FunctionAvatarGetExpToLevel</a> --  --- function --- avatar.GetExpToLevel (вернуть кол-во требуемого опыта на уровень)
 <br><a href="FunctionAvatarGetFactionInfo.html">FunctionAvatarGetFactionInfo</a> --  --- function --- avatar.GetFactionInfo( factionId ) (получить данные о фракции)
@@ -1404,7 +1401,6 @@
 <br><a href="FunctionAvatarGetResistances.html">FunctionAvatarGetResistances</a> --  --- function --- avatar.GetResistances (получить сопротивляемости аватара)
 <br><a href="FunctionAvatarGetReturnableQuests.html">FunctionAvatarGetReturnableQuests</a> --  function avatar.GetReturnableQuests - получить у собеседника список заданий, которые он может принять
 <br><a href="FunctionAvatarGetRubyStartLevel.html">FunctionAvatarGetRubyStartLevel</a> --  function avatar.GetRubyStartLevel - с какого уровня доступно распределение вех
-<br><a href="FunctionAvatarGetRuneSlotMakerInfo.html">FunctionAvatarGetRuneSlotMakerInfo</a> --  --- function --- avatar.GetRuneSlotMakerInfo (возвращает информацию о инструменте создания слотов под руны)
 <br><a href="FunctionAvatarGetSameBindingStackCount.html">FunctionAvatarGetSameBindingStackCount</a> --  function avatar.GetSameBindingStackCount - сколько таких же предметов в сумке
 <br><a href="FunctionAvatarGetSecondhandList.html">FunctionAvatarGetSecondhandList</a> --  --- function --- avatar.GetSecondhandList (получить список вещей вторичного рынка на продажу у NPC-торговца)
 <br><a href="FunctionAvatarGetSecretComponents.html">FunctionAvatarGetSecretComponents</a> --  --- function --- avatar.GetSecretComponents( secretId ) - компоненты тайны мира, которые начал исследовать игрок
@@ -1456,7 +1452,6 @@
 <br><a href="FunctionAvatarHasPsionicChannel.html">FunctionAvatarHasPsionicChannel</a> --  --- function --- avatar.HasPsionicChannel() (может ли псионик писать в астральный канал чата)
 <br><a href="FunctionAvatarHasUnlock.html">FunctionAvatarHasUnlock</a> --  --- function --- avatar.HasUnlock - проверить, имеется ли у игрока указанная возможность (анлок)
 <br><a href="FunctionAvatarImproveInnateStat.html">FunctionAvatarImproveInnateStat</a> --  function avatar.ImproveInnateStat( stat, amount ) - намечает для распределения пункты характеристик
-<br><a href="FunctionAvatarInsertRune.html">FunctionAvatarInsertRune</a> --  --- function --- avatar.InsertRune(вставить руну в предмет)
 <br><a href="FunctionAvatarInventoryCanPlaceItemToSlot.html">FunctionAvatarInventoryCanPlaceItemToSlot</a> --  --- function --- avatar.InventoryCanPlaceItemToSlot( itemId, slot ) (можно ли положить предмет в данный слот)
 <br><a href="FunctionAvatarInventoryGetBaseBagSlotCount.html">FunctionAvatarInventoryGetBaseBagSlotCount</a> --  --- function --- avatar.InventoryGetBaseBagSlotCount (базовое (без карманов) число слотов в инвентаре игрока)
 <br><a href="FunctionAvatarInventoryGetItemPocket.html">FunctionAvatarInventoryGetItemPocket</a> --  --- function --- avatar.InventoryGetItemPocket( itemId ) (возвращает индекс кармана, в который можно положить предмет)
@@ -1497,7 +1492,6 @@
 <br><a href="FunctionAvatarIsTargetInspected.html">FunctionAvatarIsTargetInspected</a> --  --- function --- avatar.IsTargetInspected() (инспектируется ли цель)
 <br><a href="FunctionAvatarIsTeleportLocationValid.html">FunctionAvatarIsTeleportLocationValid</a> --  --- function --- avatar.IsTeleportLocationValid( locationId ) - проверить валидность locationId
 <br><a href="FunctionAvatarIsWalkMode.html">FunctionAvatarIsWalkMode</a> --  --- function --- avatar.IsWalkMode (находится ли персонаж игрока в режиме ходьбы)
-<br><a href="FunctionAvatarMakeRuneSlot.html">FunctionAvatarMakeRuneSlot</a> --  --- function --- avatar.MakeRuneSlot (сделать слот под руну)
 <br><a href="FunctionAvatarOpenBox.html">FunctionAvatarOpenBox</a> --  --- function --- avatar.OpenBox (открыть сундуки)
 <br><a href="FunctionAvatarPetAttack.html">FunctionAvatarPetAttack</a> --  --- function --- avatar.PetAttack (натравить пета на цель)
 <br><a href="FunctionAvatarPutAlchemyItemToSlot.html">FunctionAvatarPutAlchemyItemToSlot</a> --  --- function --- avatar.PutAlchemyItemToSlot( itemd, slot ) (положить/вынуть предмет в алхимический слот)
@@ -1587,7 +1581,6 @@
 <br><a href="FunctionButtonGetVariantCount.html">FunctionButtonGetVariantCount</a> --  function ButtonSafe:GetVariantCount() - можно сделать кнопку, имеющую два и более вариантов
 <br><a href="FunctionButtonSetClassVal.html">FunctionButtonSetClassVal</a> --  function ButtonSafe:SetClassVal() - задает подстановочное значение для класса для ButtonSafe
 <br><a href="FunctionButtonSetTextAttributes.html">FunctionButtonSetTextAttributes</a> --  function ButtonSafe:SetTextValues - изменить атрибуты тега текста у виджета
-<br><a href="FunctionButtonSetTextColor.html">FunctionButtonSetTextColor</a> --  function ButtonSafe:SetTextColor() - установить цвет текста
 <br><a href="FunctionButtonSetTextValues.html">FunctionButtonSetTextValues</a> --  function ButtonSafe:SetTextValues - заполнить текст кнопки указанными данными
 <br><a href="FunctionButtonSetVal.html">FunctionButtonSetVal</a> --  function ButtonSafe:SetVal() - задает значение для тега
 <br><a href="FunctionButtonSetVariant.html">FunctionButtonSetVariant</a> --  function ButtonSafe:SetVariant() - устанавливает активный вариант кнопки
@@ -1650,7 +1643,7 @@
 <br><a href="FunctionCheckroomLibGetItems.html">FunctionCheckroomLibGetItems</a> --  function checkroomLib.GetItems( collectionId ) - предметы одной коллекции гардероба
 <br><a href="FunctionCheckroomLibGetSortedItemsInfo.html">FunctionCheckroomLibGetSortedItemsInfo</a> --  function checkroomLib.GetSortedItemsInfo( collectionId ) - предметы одной коллекции гардероба
 <br><a href="FunctionCheckroomLibGetSpells.html">FunctionCheckroomLibGetSpells</a> --  function checkroomLib.GetSpells( collectionId ) - заклинания одной коллекции гардероба
-<br><a href="FunctionCheckroomLibIsCheckRoomItem.html">FunctionCheckroomLibIsCheckRoomItem</a> --  function checkroomLib.IsCheckRoomItem( itemId ) - это гардеробный предмет
+<br><a href="FunctionCheckroomLibIsCheckroomItem.html">FunctionCheckroomLibIsCheckroomItem</a> --  function checkroomLib.IsCheckroomItem( itemId ) - это гардеробный предмет
 <br><a href="FunctionCheckroomLibIsHideSpellWhileNotLearned.html">FunctionCheckroomLibIsHideSpellWhileNotLearned</a> --  function checkroomLib.IsHideSpellWhileNotLearned( spellId ) - это заклинание нужно скрывать пока оно не изучено
 <br><a href="FunctionCheckroomLibIsItemEquipped.html">FunctionCheckroomLibIsItemEquipped</a> --  function checkroomLib.IsItemEquipped( itemId ) - надет ли этот гардеробный предмет
 <br><a href="FunctionCheckroomLibIsItemInCheckRoom.html">FunctionCheckroomLibIsItemInCheckRoom</a> --  function checkroomLib.IsItemInCheckroom( itemId ) - есть ли этот предмет в гардеробе
@@ -1683,7 +1676,6 @@
 <br><a href="FunctionCommonGetEmptyWstring.html">FunctionCommonGetEmptyWstring</a> --  --- function --- common.GetEmptyWString (вернуть пустую локализованную строку)
 <br><a href="FunctionCommonGetFatalityPhraseLimits.html">FunctionCommonGetFatalityPhraseLimits</a> --  function common.GetFatalityPhraseLimits - ограничения на длинну фразы для добивания
 <br><a href="FunctionCommonGetFirstPaymentBonusInfo.html">FunctionCommonGetFirstPaymentBonusInfo</a> --  function common.GetFirstPaymentBonusInfo - информация о бонусе за платёж
-<br><a href="FunctionCommonGetInstanceIdByInteger.html">FunctionCommonGetInstanceIdByInteger</a> --  function common.GetInstanceIdByInteger (вернуть ассоциированный уникальный идентификатор по целому числу)
 <br><a href="FunctionCommonGetLocalDateTime.html">FunctionCommonGetLocalDateTime</a> --  function common.GetLocalDateTime - клиентская дата
 <br><a href="FunctionCommonGetLocalDateTimeMs.html">FunctionCommonGetLocalDateTimeMs</a> --  function common.GetLocalDateTimeMs - клиентское время в Unix time
 <br><a href="FunctionCommonGetLocale.html">FunctionCommonGetLocale</a> --  function common.GetLocale() - возвращает локаль, раскладку клавиатуры
@@ -1730,7 +1722,6 @@
 <br><a href="FunctionCommonQuitGame.html">FunctionCommonQuitGame</a> --  --- function --- common.QuitGame (немедленный выход из игры)
 <br><a href="FunctionCommonRegisterEventHandler.html">FunctionCommonRegisterEventHandler</a> --  function common.RegisterEventHandler - подписать обработчик аддона на событие
 <br><a href="FunctionCommonRegisterReactionHandler.html">FunctionCommonRegisterReactionHandler</a> --  --- function --- common.RegisterReactionHandler (подписать обработчик аддона на реакцию)
-<br><a href="FunctionCommonRequestIntegerByInstanceId.html">FunctionCommonRequestIntegerByInstanceId</a> --  function common.RequestIntegerByInstanceId (вернуть ассоциированное значение для уникального идентификатора)
 <br><a href="FunctionCommonSetCursor.html">FunctionCommonSetCursor</a> --  function common.SetCursor - задает текущий курсор
 <br><a href="FunctionCommonSetIconFlash.html">FunctionCommonSetIconFlash</a> --  function common.SetIconFlash - вызывает мигание иконкой в панели задач.
 <br><a href="FunctionCommonSetLocale.html">FunctionCommonSetLocale</a> --  function common.SetLocale() - установить выбранную локаль(раскладку клавиатуры)
@@ -1864,6 +1855,7 @@
 <br><a href="FunctionEditLineDeleteCharAtCursorPos.html">FunctionEditLineDeleteCharAtCursorPos</a> --  function DeleteCharAtCursorPos (удаляет символ после курсора)
 <br><a href="FunctionEditLineGetCursorPos.html">FunctionEditLineGetCursorPos</a> --  function GetCursorPos (вернуть позицию курсора)
 <br><a href="FunctionEditLineGetInitialGlobalClass.html">FunctionEditLineGetInitialGlobalClass</a> --  function GetInitialGlobalClass (исходное оформление текста)
+<br><a href="FunctionEditLineGetInitialSelectionClass.html">FunctionEditLineGetInitialSelectionClass</a> --  function GetInitialSelectionClass (исходное оформление выделенного текста)
 <br><a href="FunctionEditLineGetPosObjectCount.html">FunctionEditLineGetPosObjectCount</a> --  function GetPosObjectCount (вернуть количество объектов для задания позиции курсора)
 <br><a href="FunctionEditLineGetString.html">FunctionEditLineGetString</a> --  function EditLineSafe:GetString - получение текста в виде обычной строки(не WString)
 <br><a href="FunctionEditLineGetText.html">FunctionEditLineGetText</a> --  function EditLineSafe:GetText - получение текста
@@ -1871,8 +1863,9 @@
 <br><a href="FunctionEditLineSetCursorPos.html">FunctionEditLineSetCursorPos</a> --  function EditLine:SetCursorPos - задать позицию курсора
 <br><a href="FunctionEditLineSetGlobalClasses.html">FunctionEditLineSetGlobalClasses</a> --  function SetGlobalClasses (задать глобальное оформление для строки ввода)
 <br><a href="FunctionEditLineSetMaxSize.html">FunctionEditLineSetMaxSize</a> --  function EditLine:SetMaxSize - задать максимальное количество символов для строки ввода
+<br><a href="FunctionEditLineSetSelectionClass.html">FunctionEditLineSetSelectionClass</a> --  function SetSelectionClass (задать оформление выделения для строки ввода)
 <br><a href="FunctionEditLineSetText.html">FunctionEditLineSetText</a> --  function SetText (установка текста)
-<br><a href="FunctionEditLineSetTextColor.html">FunctionEditLineSetTextColor</a> --  function EditLineSafe:SetTextColor() - установить цвет текста
+<br><a href="FunctionEditLineSetTextAttributes.html">FunctionEditLineSetTextAttributes</a> --  function EditLineSafe:SetTextAttributes - изменить атрибуты тега текста у виджета
 <br><a href="FunctionEnchantCanInsertEnchant.html">FunctionEnchantCanInsertEnchant</a> --  --- function --- enchant.CanInsertEnchant( enchantItemId, itemId ) - можно ли вставить энчант в предмет
 <br><a href="FunctionEnchantCanInsertEnchants.html">FunctionEnchantCanInsertEnchants</a> --  --- function --- enchant.CanInsertEnchants( itemId ) - могут ли в предмет вставлятся какие-либо энчанты
 <br><a href="FunctionEnchantEnchantExtract.html">FunctionEnchantEnchantExtract</a> --  --- function --- enchant.EnchantExtract( itemId, slot ) - извлечь самоцвет из предмета
@@ -1889,7 +1882,6 @@
 <br><a href="FunctionFamilyGetSpouseName.html">FunctionFamilyGetSpouseName</a> --  function family.GetSpouseName( unitId ) - имя супруга
 <br><a href="FunctionFamilyIsExist.html">FunctionFamilyIsExist</a> --  function family.IsExist( unitId ) - имеется ли у игрока семья
 <br><a href="FunctionFamilyIsSpouse.html">FunctionFamilyIsSpouse</a> --  function family.IsSpouse( unitId ) - проверяет является ли игрок супругом
-<br><a href="FunctionFamilyTakeOnHandsResponse.html">FunctionFamilyTakeOnHandsResponse</a> --  function family.TakeOnHandsResponse( takeOnHands ) - согласится или отказаться от ношения на руках
 <br><a href="FunctionFormCreateWidgetByDesc.html">FunctionFormCreateWidgetByDesc</a> --  function CreateWidgetByDesc - создание виджета по описателю
 <br><a href="FunctionFormGetWidgetCoreTree.html">FunctionFormGetWidgetCoreTree</a> --  function GetWidgetCoreTree- Построение и обновление дерева виджетов widgetcore
 <br><a href="FunctionGlobal.html">FunctionGlobal</a> --  --- function --- Global (объявить глобальную переменную)
@@ -1899,11 +1891,11 @@
 <br><a href="FunctionGroupCanKickMember.html">FunctionGroupCanKickMember</a> --  function group.CanKickMember - можем ли исключать игрока из группы
 <br><a href="FunctionGroupCanLeave.html">FunctionGroupCanLeave</a> --  --- function --- group.CanLeave (можно ли покинуть группу)
 <br><a href="FunctionGroupDecline.html">FunctionGroupDecline</a> --  --- function --- group.Decline (отказ от вступления в группу)
+<br><a href="FunctionGroupGetInviteInfo.html">FunctionGroupGetInviteInfo</a> --  function group.GetInviteInfo - информация о приглашении в группу
+<br><a href="FunctionGroupGetLeader.html">FunctionGroupGetLeader</a> --  --- function --- group.GetLeader (вернуть уникальный идентификатор лидера группы)
 <br><a href="FunctionGroupGetLeaderIndex.html">FunctionGroupGetLeaderIndex</a> --  --- function --- group.GetLeaderIndex (вернуть индекс лидера группы)
-<br><a href="FunctionGroupGetLeaderUniqueId.html">FunctionGroupGetLeaderUniqueId</a> --  --- function --- group.GetLeaderUniqueId (вернуть уникальный идентификатор лидера группы)
-<br><a href="FunctionGroupGetMemberIndexByName.html">FunctionGroupGetMemberIndexByName</a> --  --- function --- group.GetMemberIndexByName (вернуть индекс игрока в группе по его имени)
-<br><a href="FunctionGroupGetMemberInfoById.html">FunctionGroupGetMemberInfoById</a> --  --- function --- GetMemberInfoById (информация о члене группы)
-<br><a href="FunctionGroupGetMemberNameByIndex.html">FunctionGroupGetMemberNameByIndex</a> --  --- function --- group.GetMemberNameByIndex (вернуть имя игрока по его индексу в группе)
+<br><a href="FunctionGroupGetMemberInfo.html">FunctionGroupGetMemberInfo</a> --  --- function --- GetMemberInfo (информация о члене группы)
+<br><a href="FunctionGroupGetMemberInfoByIndex.html">FunctionGroupGetMemberInfoByIndex</a> --  --- function --- GetMemberInfoByIndex (информация о члене группы)
 <br><a href="FunctionGroupGetMembers.html">FunctionGroupGetMembers</a> --  --- function --- group.GetMembers (вернуть состав группы)
 <br><a href="FunctionGroupGetReadyCheckInfo.html">FunctionGroupGetReadyCheckInfo</a> --  function group.GetReadyCheckInfo - информация о состоянии проверки готовности группы
 <br><a href="FunctionGroupInvite.html">FunctionGroupInvite</a> --  function group.Invite - приглашение указанного персонажа в группу
@@ -1911,7 +1903,7 @@
 <br><a href="FunctionGroupIsAutomatic.html">FunctionGroupIsAutomatic</a> --  function group.IsAutomatic - является ли группа автоматически собранной
 <br><a href="FunctionGroupIsCreatureInGroup.html">FunctionGroupIsCreatureInGroup</a> --  function group.IsCreatureInGroup - игрок или NPC в группе главного игрока
 <br><a href="FunctionGroupIsExist.html">FunctionGroupIsExist</a> --  --- function --- group.IsExist (существует ли группа)
-<br><a href="FunctionGroupIsLeader.html">FunctionGroupIsLeader</a> --  function group.IsLeader - является ли главный игрок лидером группы
+<br><a href="FunctionGroupIsLeader.html">FunctionGroupIsLeader</a> --  function group.IsLeader - является ли игрок лидером группы
 <br><a href="FunctionGroupKickMember.html">FunctionGroupKickMember</a> --  --- function --- group.KickMember (исключение игрока из группы)
 <br><a href="FunctionGroupKickMerc.html">FunctionGroupKickMerc</a> --  function group.KickMerc - исключение наемника из группы
 <br><a href="FunctionGroupLeave.html">FunctionGroupLeave</a> --  --- function --- group.Leave (выход из группы)
@@ -2123,6 +2115,7 @@
 <br><a href="FunctionItemLibGetIncludedMob.html">FunctionItemLibGetIncludedMob</a> --  function itemLib.GetIncludedMob() - моб, заключенный в предмете
 <br><a href="FunctionItemLibGetIncludedMountSkin.html">FunctionItemLibGetIncludedMountSkin</a> --  --- function --- itemLib.GetIncludedMountSkin - скин маунта
 <br><a href="FunctionItemLibGetItemInfo.html">FunctionItemLibGetItemInfo</a> --  --- function --- itemLib.GetItemInfo - общая информация
+<br><a href="FunctionItemLibGetLevel.html">FunctionItemLibGetLevel</a> --  --- function --- itemLib.GetLevel - уровень предмета
 <br><a href="FunctionItemLibGetMetaInfo.html">FunctionItemLibGetMetaInfo</a> --  function itemLib.GetMetaInfo - возвращает информацию о мета-свойствах предмета
 <br><a href="FunctionItemLibGetName.html">FunctionItemLibGetName</a> --  --- function --- itemLib.GetName - Название предмета
 <br><a href="FunctionItemLibGetOverallCount.html">FunctionItemLibGetOverallCount</a> --  --- function --- itemLib.GetOverallCount - количество "зарядов" всех подобных предметов
@@ -2298,11 +2291,6 @@
 <br><a href="FunctionMissionCancelLogout.html">FunctionMissionCancelLogout</a> --  function mission.CancelLogout (попытаться отменить завершение миссии)
 <br><a href="FunctionMissionClearCharacterScene.html">FunctionMissionClearCharacterScene</a> --  function mission.ClearCharacterScene - удалить всех персонажей со сцены
 <br><a href="FunctionMissionClearChatInput.html">FunctionMissionClearChatInput</a> --  function mission.ClearChatInput - очистить строку ввода чата с префиксами/слеш-командами
-<br><a href="FunctionMissionDragAndDropCancelDrag.html">FunctionMissionDragAndDropCancelDrag</a> --  function mission.DNDCancelDrag (прекратить drag&drop)
-<br><a href="FunctionMissionDragAndDropConfirmDropAttempt.html">FunctionMissionDragAndDropConfirmDropAttempt</a> --  function mission.DNDConfirmDropAttempt (подтвердить окончание drag&drop)
-<br><a href="FunctionMissionDragAndDropConfirmPickAttempt.html">FunctionMissionDragAndDropConfirmPickAttempt</a> --  function mission.DNDConfirmPickAttempt (подтвердить начало drag&drop для контрола)
-<br><a href="FunctionMissionDragAndDropRegister.html">FunctionMissionDragAndDropRegister</a> --  function mission.DNDRegister - зарегистрировать контрол для drag&drop
-<br><a href="FunctionMissionDragAndDropUnregister.html">FunctionMissionDragAndDropUnregister</a> --  function mission.DNDUnregister (разрегистрировать контрол для drag&drop)
 <br><a href="FunctionMissionDressCharacterScene.html">FunctionMissionDressCharacterScene</a> --  function mission.DressCharacterScene (примерить вещи на персонаже в сцене)
 <br><a href="FunctionMissionFreePortrait.html">FunctionMissionFreePortrait</a> --  function mission.FreePortrait (вывести портрет в указанный виджет)
 <br><a href="FunctionMissionGetCameraDirection.html">FunctionMissionGetCameraDirection</a> --  --- function --- mission.GetCameraDirection (состояние строки ввода чата с префиксами/слеш-командами)
@@ -2555,7 +2543,7 @@
 <br><a href="FunctionRaidInviteByName.html">FunctionRaidInviteByName</a> --  function raid.InviteByName - приглашение указанного персонажа в рейд по его имени
 <br><a href="FunctionRaidIsAutomatic.html">FunctionRaidIsAutomatic</a> --  function raid.IsAutomatic - отряд собран автоматически
 <br><a href="FunctionRaidIsExist.html">FunctionRaidIsExist</a> --  --- function --- raid.IsExist (существует ли рейд)
-<br><a href="FunctionRaidIsLeader.html">FunctionRaidIsLeader</a> --  --- function --- raid.IsLeader (является ли аватар лидером рейда)
+<br><a href="FunctionRaidIsLeader.html">FunctionRaidIsLeader</a> --  --- function --- raid.IsLeader - является ли игрок лидером рейда
 <br><a href="FunctionRaidIsolateMember.html">FunctionRaidIsolateMember</a> --  function raid.IsolateMember (переместить члена рейда в отдельную группу)
 <br><a href="FunctionRaidIsPlayerInAvatarsRaid.html">FunctionRaidIsPlayerInAvatarsRaid</a> --  --- function --- raid.IsPlayerInAvatarsRaid (находится ли игрок в том же рейде что и аватар)
 <br><a href="FunctionRaidIsPlayerInAvatarsRaidGroup.html">FunctionRaidIsPlayerInAvatarsRaidGroup</a> --  function raid.IsPlayerInAvatarsRaidGroup (находится ли игрок в той же группе рейда, что и аватар)
@@ -2673,6 +2661,7 @@
 <br><a href="FunctionSocialGetTeleportSpell.html">FunctionSocialGetTeleportSpell</a> --  function social.GetTeleportSpell() - спелл для перемещения к побратиму
 <br><a href="FunctionSocialGiveBackMount.html">FunctionSocialGiveBackMount</a> --  function social.GiveBackMount( mountId ) - отдать ездовое животное побратима
 <br><a href="FunctionSocialIsFriendListLoaded.html">FunctionSocialIsFriendListLoaded</a> --  function social.IsFriendListLoaded() - список друзей загрузился
+<br><a href="FunctionSocialIsIgnored.html">FunctionSocialIsIgnored</a> --  function social.IsIgnored - находится ли персонаж в списке игнора
 <br><a href="FunctionSocialIsIgnoreListLoaded.html">FunctionSocialIsIgnoreListLoaded</a> --  function social.IsIgnoreListLoaded() - список игнора загрузился
 <br><a href="FunctionSocialLendMount.html">FunctionSocialLendMount</a> --  function social.LendMount( friendId, mountId ) - дать побратиму попользоваться ездовым животным
 <br><a href="FunctionSocialRemoveFriend.html">FunctionSocialRemoveFriend</a> --  --- function --- social.RemoveFriend (удалить персонажа из списка друзей)
@@ -2755,7 +2744,6 @@
 <br><a href="FunctionTextViewSetLinespacing.html">FunctionTextViewSetLinespacing</a> --  function TextViewSafe:SetLinespacing - ставить ли многоточие при выходе текста за границу
 <br><a href="FunctionTextViewSetMultiline.html">FunctionTextViewSetMultiline</a> --  function TextViewSafe:SetMultiline - многострочный текст
 <br><a href="FunctionTextViewSetTextAttributes.html">FunctionTextViewSetTextAttributes</a> --  function TextViewSafe:SetTextValues - изменить атрибуты тега текста у виджета
-<br><a href="FunctionTextViewSetTextColor.html">FunctionTextViewSetTextColor</a> --  function ButtonSafe:SetTextColor() - установить цвет текста
 <br><a href="FunctionTextViewSetTextScale.html">FunctionTextViewSetTextScale</a> --  function SetTextScale (масштабирование текста внутри контрола)
 <br><a href="FunctionTextViewSetTextValues.html">FunctionTextViewSetTextValues</a> --  function TextViewSafe:SetTextValues - заполнить текст виджета указанными данными
 <br><a href="FunctionTextViewSetVal.html">FunctionTextViewSetVal</a> --  function TextViewSafe:SetVal - задает значение для тега
@@ -2804,7 +2792,6 @@
 <br><a href="FunctionUnitGetGearScore.html">FunctionUnitGetGearScore</a> --  function unit.GetGearScore - текущий рейтинг экипировки персонажа
 <br><a href="FunctionUnitGetGuildInfo.html">FunctionUnitGetGuildInfo</a> --  function unit.GetGuildInfo - получить информацию о гильдии произвольного игрока
 <br><a href="FunctionUnitGetHealAbsorbPoolInfo.html">FunctionUnitGetHealAbsorbPoolInfo</a> --   function unit.GetHealAbsorbPoolInfo (вернуть информацию о пуле анти-хила)
-<br><a href="FunctionUnitGetLastPetType.html">FunctionUnitGetLastPetType</a> --  --- function --- unit.GetLastPetType( unitId ) (возвращает Id пета)
 <br><a href="FunctionUnitGetLevel.html">FunctionUnitGetLevel</a> --  --- function --- unit.GetLevel (получить текущий уровень юнита)
 <br><a href="FunctionUnitGetMana.html">FunctionUnitGetMana</a> --   function unit.GetMana (вернуть информацию о мане юнита)
 <br><a href="FunctionUnitGetManaPercentage.html">FunctionUnitGetManaPercentage</a> --   function unit.GetManaPercentage (вернуть информацию о мане юнита в процентах)
@@ -2837,7 +2824,7 @@
 <br><a href="FunctionUnitGetVeteranRank.html">FunctionUnitGetVeteranRank</a> --   function unit.GetVeteranRank() - информация о ветеранском ранге
 <br><a href="FunctionUnitGetWill.html">FunctionUnitGetWill</a> --  function unit.GetWill - количество Воли
 <br><a href="FunctionUnitGetZonePvPDanger.html">FunctionUnitGetZonePvPDanger</a> --  function unit.GetZonePvPDanger( id ) - PvP-опасность зоны для персонажа
-<br><a href="FunctionUnitGetZonePvPType.html">FunctionUnitGetZonePvPType</a> --  --- function --- unit.GetZonePvPType(id) (PvP-тип зоны для персонажа)
+<br><a href="FunctionUnitGetZonePvPType.html">FunctionUnitGetZonePvPType</a> --  --- function --- unit.GetZonePvPType( id ) (PvP-тип зоны для персонажа)
 <br><a href="FunctionUnitGetZonesMapId.html">FunctionUnitGetZonesMapId</a> --  --- function --- unit.GetZonesMapId (получить Id интерфейсной карты на которой находится игрок)
 <br><a href="FunctionUnitHasBossPlate.html">FunctionUnitHasBossPlate</a> --  function unit.HasBossPlate - требуется ли показ особой плашки с внутренним состоянием моба
 <br><a href="FunctionUnitHasEquipment.html">FunctionUnitHasEquipment</a> --  --- function --- unit.HasEquipment (информация о наличии экипировки у юнита)
@@ -2888,6 +2875,14 @@
 <br><a href="FunctionWidgetAddChild.html">FunctionWidgetAddChild</a> --  function AddChild - определить текущий виджет родительским по отношению к указанному
 <br><a href="FunctionWidgetCreateChildByDesc.html">FunctionWidgetCreateChildByDesc</a> --  function CreateChildByDesc - Создание дочернего виджета по описателю
 <br><a href="FunctionWidgetDestroyWidget.html">FunctionWidgetDestroyWidget</a> --  function DestroyWidget - Уничтожить виджет
+<br><a href="FunctionWidgetDNDCancelDrag.html">FunctionWidgetDNDCancelDrag</a> --  function DNDCancelDrag (прекратить drag&drop)
+<br><a href="FunctionWidgetDNDConfirmDropAttempt.html">FunctionWidgetDNDConfirmDropAttempt</a> --  function DNDConfirmDropAttempt (подтвердить окончание drag&drop)
+<br><a href="FunctionWidgetDNDConfirmPickAttempt.html">FunctionWidgetDNDConfirmPickAttempt</a> --  function DNDConfirmPickAttempt - подтвердить начало drag&drop для виджета
+<br><a href="FunctionWidgetDNDEnable.html">FunctionWidgetDNDEnable</a> --  function DNDEnable - изменить статус активации drag&drop
+<br><a href="FunctionWidgetDNDGetState.html">FunctionWidgetDNDGetState</a> --  function DNDGetState - состояние виджета в системе drag&drop
+<br><a href="FunctionWidgetDNDRegister.html">FunctionWidgetDNDRegister</a> --  function DNDRegister - зарегистрировать виджет для drag&drop
+<br><a href="FunctionWidgetDNDRegisterGeneric.html">FunctionWidgetDNDRegisterGeneric</a> --  function DNDRegisterGeneric - зарегистрировать виджет для drag&drop
+<br><a href="FunctionWidgetDNDUnregister.html">FunctionWidgetDNDUnregister</a> --  function DNDUnregister - разрегистрировать виджет для drag&drop
 <br><a href="FunctionWidgetEnable.html">FunctionWidgetEnable</a> --  function Enable (активировать/деактивировать контрол)
 <br><a href="FunctionWidgetFinishAllEffects.html">FunctionWidgetFinishAllEffects</a> --  function FinishAllEffects - Прерывает эффекты всех типов
 <br><a href="FunctionWidgetFinishFadeEffect.html">FunctionWidgetFinishFadeEffect</a> --  function FinishFadeEffect - Прерывает эффект изменения прозрачности
@@ -2904,6 +2899,7 @@
 <br><a href="FunctionWidgetGetFade.html">FunctionWidgetGetFade</a> --  function WidgetSafe:GetFade (вернуть прозрачность виджета)
 <br><a href="FunctionWidgetGetForegroundColor.html">FunctionWidgetGetForegroundColor</a> --  function WidgetSafe:GetForegroundColor (вернуть цвет для переднего слоя контрола)
 <br><a href="FunctionWidgetGetForegroundTexture.html">FunctionWidgetGetForegroundTexture</a> --  function GetForegroundTexture - Получить фоновую текстуру для контрола
+<br><a href="FunctionWidgetGetId.html">FunctionWidgetGetId</a> --  function WidgetSafe:GetId - идентификатор виджета
 <br><a href="FunctionWidgetGetName.html">FunctionWidgetGetName</a> --  function WidgetSafe:GetName - вернуть имя контрола
 <br><a href="FunctionWidgetGetNamedChildren.html">FunctionWidgetGetNamedChildren</a> --  function GetNamedChildren (получение списка именованных дочерних контролов)
 <br><a href="FunctionWidgetGetParent.html">FunctionWidgetGetParent</a> --  function GetParent (получение родительского виджета)
@@ -2960,12 +2956,6 @@
 <br><a href="FunctionWidgetSetTabOrder.html">FunctionWidgetSetTabOrder</a> --  function SetTabOrder устанавливает порядок обхода виджетов
 <br><a href="FunctionWidgetSetTransparentInput.html">FunctionWidgetSetTransparentInput</a> --  function FunctionWidgetSetTransparentInput (Устанавливает, является ли виджет прозрачным для ввода.)
 <br><a href="FunctionWidgetShow.html">FunctionWidgetShow</a> --  function Show (задать видимость контрола)
-<br><a href="FunctionWidgetsSystemGetImeSelectorInfo.html">FunctionWidgetsSystemGetImeSelectorInfo</a> --  function widgetsSystem:GetImeSelectorInfo - информация о состоянии IME
-<br><a href="FunctionWidgetsSystemGetPosConverterParams.html">FunctionWidgetsSystemGetPosConverterParams</a> --  function widgetsSystem:GetPosConverterParams (вернуть параметры окна игры)
-<br><a href="FunctionWidgetsSystemGetStyle.html">FunctionWidgetsSystemGetStyle</a> --  function widgetsSystem:GetStyle (возвращает информацию о стиле)
-<br><a href="FunctionWidgetsSystemGetTextureSize.html">FunctionWidgetsSystemGetTextureSize</a> --  function widgetsSystem:GetTextureSize (вернуть размер текстуры)
-<br><a href="FunctionWidgetsSystemSelectImeText.html">FunctionWidgetsSystemSelectImeText</a> --  function widgetsSystem:SelectImeText - произвести выбор текста в IME
-<br><a href="FunctionWidgetsSystemSetShrinkRatio.html">FunctionWidgetsSystemSetShrinkRatio</a> --  function SetShrinkRatio (задает коэффициент масштабирования GUI)
 <br><a href="FunctionWStringCompare.html">FunctionWStringCompare</a> --  function WString:Compare( self, other, ignoreRegistry ) - сравнить WString
 <br><a href="FunctionWStringIsContain.html">FunctionWStringIsContain</a> --  --- function --- WString:IsContain - содержит ли WString подстроку
 <br><a href="FunctionWStringIsEmpty.html">FunctionWStringIsEmpty</a> --  function WString:IsEmpty( self ) - является ли строка пустой
@@ -2998,6 +2988,7 @@
 <br><a href="MapModifierId.html">MapModifierId</a> --  Идентификатор модификатора карты в LuaApi
 <br><a href="MedalId.html">MedalId</a> --  Идентификатор ресурса достижения в LuaApi
 <br><a href="MedalRankId.html">MedalRankId</a> --  Идентификатор ресурса ранга достижения в LuaApi
+<br><a href="MountTalentGroupId.html">MountTalentGroupId</a> --  Идентификатор группы талантов маунта в LuaApi
 <br><a href="MountTalentId.html">MountTalentId</a> --  Идентификатор таланта маунта в LuaApi
 <br><a href="MutationInfo.html">MutationInfo</a> --  Информация о мутации
 <br><a href="ObjectId.html">ObjectId</a> --  Идентификатор объекта в Lua API

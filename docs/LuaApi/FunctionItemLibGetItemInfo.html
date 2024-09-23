@@ -36,6 +36,7 @@ table или nil - таблица с полями:
   dressSlot: number (enum) - слот одежды или оружия, если предмет надевается: DRESS_SLOT_XXXX
   sysName: string - специальные интерфейсные особенности предмета.
   level: number (integer) - уровень предмета
+  forceShowLevel: boolean - нужно ли показывать уровень на иконке предмета (поле в ресурсе forceShowLevel = false)
   requiredLevel: number (integer) - уровень персонажа, необходимый для ношения предмета
   requiredReputationLevel: number (enum REPUTATION_LEVEL_...) - уровнь репутации, необходимый для покупки предмета
   requiredReputationQuantity: number (integer) - минимальное значение репутации, необходимое для покупки предмета
@@ -113,6 +114,7 @@ local itemInfo = itemLib.GetItemInfo( itemId )
 <br><a href="FunctionItemLibGetIncludedMob.html">FunctionItemLibGetIncludedMob</a>
 <br><a href="FunctionItemLibGetIncludedMountSkin.html">FunctionItemLibGetIncludedMountSkin</a>
 <br><a href="FunctionItemLibGetItemInfo.html">FunctionItemLibGetItemInfo</a>
+<br><a href="FunctionItemLibGetLevel.html">FunctionItemLibGetLevel</a>
 <br><a href="FunctionItemLibGetMetaInfo.html">FunctionItemLibGetMetaInfo</a>
 <br><a href="FunctionItemLibGetName.html">FunctionItemLibGetName</a>
 <br><a href="FunctionItemLibGetOverallCount.html">FunctionItemLibGetOverallCount</a>
