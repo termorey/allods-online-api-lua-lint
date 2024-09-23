@@ -153,15 +153,16 @@ function group.InviteByName( name ) end
 ---@return boolean # true, если группа собрана автоматически
 function group.IsAutomatic() end
 
----@param id ObjectId # Id игрока или наемника
+---@param id ObjectId | WString | UniqueId # Id игрока или наемника
 ---@return boolean # true, если в группе
 function group.IsCreatureInGroup( id ) end
 
 ---@return boolean # есть ли группа
 function group.IsExist() end
 
+---@param id nil | ObjectId | UniqueId | WString
 ---@return boolean # true, если главный игрок является лидером группы
-function group.IsLeader() end
+function group.IsLeader( id ) end
 
 ---@param name WString # имя игрока в группе
 function group.KickMember( name ) end

@@ -111,7 +111,7 @@ function raid.GetLootMaster() end
 ---@return number | nil # количество групп или nil если рейда не существует
 function raid.GetMaxGroupCount() end
 
----@param memberId UniqueId
+---@param memberId UniqueId | WString | ObjectId
 ---@return { id: ObjectId, uniqueId: UniqueId, name: WString, className: string, classLocalName: WString, level: integer | nil, state: RAID_MEMBER_STATE, isInCombat: boolean }
 function raid.GetMemberInfo( memberId ) end
 
@@ -138,13 +138,14 @@ function raid.IsAutomatic() end
 ---@return boolean # есть ли рейд
 function raid.IsExist() end
 
+---@param id nil | ObjectId | UniqueId | WString
 ---@return boolean # является ли аватар лидером рейда
-function raid.IsLeader() end
+function raid.IsLeader( id ) end
 
 ---@param memberId UniqueId
 function raid.IsolateMember( memberId ) end
 
----@param playerName WString # имя игрока
+---@param playerName WString | ObjectId | UniqueId # имя игрока
 ---@return boolean # находится ли игрок в том же рейде что и аватар
 function raid.IsPlayerInAvatarsRaid( playerName ) end
 

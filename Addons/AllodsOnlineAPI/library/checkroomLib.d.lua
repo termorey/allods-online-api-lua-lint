@@ -60,11 +60,6 @@ function checkroomLib.GetSpells( collectionId ) end
 ---@return boolean
 function checkroomLib.IsCheckroomItem( itemId ) end
 
----@param itemId ObjectId
----@return boolean
----@deprecated Метод устарел. ; удалён 15.0.02 x64rc1
-function checkroomLib.IsCheckRoomItem( itemId ) end
-
 ---@param spellId SpellId
 ---@return boolean
 function checkroomLib.IsHideSpellWhileNotLearned( spellId ) end

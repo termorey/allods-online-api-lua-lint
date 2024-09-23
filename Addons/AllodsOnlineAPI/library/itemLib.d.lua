@@ -218,15 +218,13 @@ function itemLib.GetIncludedMob( itemId ) end
 function itemLib.GetIncludedMountSkin( itemId ) end
 
 ---@param itemId ObjectId
----@return nil | { id: ObjectId, name: WString, description: ValuedText | nil, dressSlot: DRESS_SLOT, sysName: string, level: integer, requiredLevel: integer, requiredReputationLevel: REPUTATION_LEVEL, requiredReputationQuantity: integer, isRitual: boolean, debugName: string, icon: TextureId, isDoubleHands: boolean, isIgnoreDressSlotLevel: boolean, isDressable: boolean, isUsable: boolean, isWeapon: boolean, isGuildItem: boolean, buyConfirmationRequired: boolean, needCheckPredicates: boolean, showOnlyIconInLink: boolean }
+---@return nil | { id: ObjectId, name: WString, description: ValuedText | nil, dressSlot: DRESS_SLOT, sysName: string, level: integer, forceShowLevel: boolean, requiredLevel: integer, requiredReputationLevel: REPUTATION_LEVEL, requiredReputationQuantity: integer, isRitual: boolean, debugName: string, icon: TextureId, isDoubleHands: boolean, isIgnoreDressSlotLevel: boolean, isDressable: boolean, isUsable: boolean, isWeapon: boolean, isGuildItem: boolean, buyConfirmationRequired: boolean, needCheckPredicates: boolean, showOnlyIconInLink: boolean }
 function itemLib.GetItemInfo( itemId ) end
 
 ---@param itemId ObjectId
 ---@return integer?
 ---@return boolean?
 function itemLib.GetLevel( itemId ) end
-
-local level, show = itemLib.GetLevel(5);
 
 ---@param itemId ObjectId
 ---@return nil | { isInactive: boolean, hasMetaState: boolean, isMetaEnchancer: boolean, isUniversalMetaEnchancer: boolean, isUpgradeAgent: boolean, isSingleUpgradeAgent: boolean, improvement: number }

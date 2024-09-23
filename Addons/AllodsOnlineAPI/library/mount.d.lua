@@ -87,7 +87,6 @@ function mount.GetMounts() end
 
 ---@param mountId ObjectId
 ---@return table<integer, ObjectId>
---- TODO: docs missed argument
 function mount.GetMountSkins( mountId ) end
 
 ---@param mountId ObjectId

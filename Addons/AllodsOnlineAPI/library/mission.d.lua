@@ -176,8 +176,8 @@ function mission.SetChatInputArg( arg ) end
 ---@param wtEditLine EditLineSafe
 function mission.SetChatInputData( wtEditLine ) end
 
----@param wtEditLine integer # максимальное количество записей
-function mission.SetChatInputHistoryMaxSize( wtEditLine ) end
+---@param limit integer # максимальное количество записей
+function mission.SetChatInputHistoryMaxSize( limit ) end
 
 ---@param wtEditLine EditLineSafe
 function mission.SetChatInputNextData( wtEditLine ) end

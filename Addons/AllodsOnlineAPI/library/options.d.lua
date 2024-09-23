@@ -43,7 +43,7 @@ function options.CancelPreview( optionBaseId ) end
 function options.GetBlockIds( groupId ) end
 
 ---@param collectionId ObjectId
----@return { isEnabled: boolean, isNeedPreview: boolean, isPreview: boolean, sysCustomType: string, name: unknown, description: unknown }
+---@return { isEnabled: boolean, isNeedPreview: boolean, isPreview: boolean, sysCustomType: string, name: WString, description: WString }
 function options.GetCollectionInfo( collectionId ) end
 
 ---@param pageId ObjectId

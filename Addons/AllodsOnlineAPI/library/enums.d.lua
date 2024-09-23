@@ -73,12 +73,11 @@
 ---@alias ENUM_CreatureRace_SPIRIT integer | "ENUM_CreatureRace_SPIRIT"
 ---@alias ENUM_CreatureRace ENUM_CreatureRace_HUMANOID | ENUM_CreatureRace_BEAST | ENUM_CreatureRace_UNDEAD | ENUM_CreatureRace_GIANT | ENUM_CreatureRace_DRAGON | ENUM_CreatureRace_ELEMENTAL | ENUM_CreatureRace_DEMON | ENUM_CreatureRace_ABERRATION | ENUM_CreatureRace_MECHANICAL | ENUM_CreatureRace_GOBLIN | ENUM_CreatureRace_DIVINE | ENUM_CreatureRace_KOBOLD | ENUM_CreatureRace_SPIRIT
 
----@alias ATTACK_FAILED number
 ---@alias ATTACK_RESULT_UNKNOWN number
 ---@alias ATTACK_FAILED_DISTANCE number
 ---@alias ATTACK_FAILED_IN_FRONT number
 ---@alias ATTACK_FAILED_NO_LOS number
----@alias ATTACK ATTACK_FAILED | ATTACK_RESULT_UNKNOWN | ATTACK_FAILED_DISTANCE | ATTACK_FAILED_IN_FRONT | ATTACK_FAILED_NO_LOS
+---@alias ATTACK ATTACK_RESULT_UNKNOWN | ATTACK_FAILED_DISTANCE | ATTACK_FAILED_IN_FRONT | ATTACK_FAILED_NO_LOS
 
 ---@alias CLIENT_DATA_PARAM_MONEY integer # надо показать в денежном формате
 ---@alias CLIENT_DATA_DRESS_SLOT integer # надо показать имя слота на персонаже (щит, шлем, костюм...)

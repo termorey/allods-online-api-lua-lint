@@ -140,7 +140,6 @@ function unit.CanHaveEnemy( unitId ) end
 
 ---@param unitId ObjectId
 ---@return boolean
---- TODO: check dosc return type
 function unit.CanSelectTarget( unitId ) end
 
 ---@param unitId ObjectId
@@ -370,8 +369,7 @@ function unit.GetZonePvPDanger( id ) end
 
 ---@param id ObjectId
 ---@return ZONE_TYPE
---- TODO: check return enum
-function unit.GetZonePvPType(id) end
+function unit.GetZonePvPType( id ) end
 
 ---@param unitId ObjectId
 ---@return ObjectId | nil
