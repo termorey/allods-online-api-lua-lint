@@ -222,6 +222,13 @@ function itemLib.GetIncludedMountSkin( itemId ) end
 function itemLib.GetItemInfo( itemId ) end
 
 ---@param itemId ObjectId
+---@return integer?
+---@return boolean?
+function itemLib.GetLevel( itemId ) end
+
+local level, show = itemLib.GetLevel(5);
+
+---@param itemId ObjectId
 ---@return nil | { isInactive: boolean, hasMetaState: boolean, isMetaEnchancer: boolean, isUniversalMetaEnchancer: boolean, isUpgradeAgent: boolean, isSingleUpgradeAgent: boolean, improvement: number }
 function itemLib.GetMetaInfo( itemId ) end
 

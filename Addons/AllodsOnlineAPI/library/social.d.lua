@@ -137,6 +137,10 @@ function social.GetTeleportSpell() end
 ---@param mountId ObjectId
 function social.GiveBackMount( mountId ) end
 
+---@param player WString | ObjectId
+---@return boolean
+function social.IsIgnored( player ) end
+
 ---@return boolean
 function social.IsFriendListLoaded() end
 

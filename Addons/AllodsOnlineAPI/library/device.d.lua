@@ -38,6 +38,7 @@ device = {}
 
 --[[ EVENTS --]]
 
+---@alias EVENT_BEAM_CANNON_SHOT_STARTED "EVENT_BEAM_CANNON_SHOT_STARTED"
 ---@alias EVENT_CANNON_SHOT_FINISHED "EVENT_CANNON_SHOT_FINISHED"
 ---@alias EVENT_CANNON_SHOT_PREPARATION_STARTED "EVENT_CANNON_SHOT_PREPARATION_STARTED"
 ---@alias EVENT_CANNON_SHOT_STARTED "EVENT_CANNON_SHOT_STARTED"
@@ -64,6 +65,7 @@ device = {}
 ---@alias EVENT_SHIELD_STRENGTH_CHANGED "EVENT_SHIELD_STRENGTH_CHANGED"
 ---@alias EVENT_USABLE_DEVICES_CHANGED "EVENT_USABLE_DEVICES_CHANGED"
 
+---@overload fun(eventFunction: fun(data: { id: ObjectId, targets: table<integer, ObjectId> | nil }), sysEventName: EVENT_BEAM_CANNON_SHOT_STARTED)
 ---@overload fun(eventFunction: fun(data: { id: ObjectId, target: ObjectId | nil }), sysEventName: EVENT_CANNON_SHOT_FINISHED)
 ---@overload fun(eventFunction: fun(data: { id: ObjectId, preparationTimeMs: integer }), sysEventName: EVENT_CANNON_SHOT_PREPARATION_STARTED)
 ---@overload fun(eventFunction: fun(data: { id: ObjectId, target: ObjectId | nil }), sysEventName: EVENT_CANNON_SHOT_STARTED)

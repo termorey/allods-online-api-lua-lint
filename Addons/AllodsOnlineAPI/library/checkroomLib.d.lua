@@ -58,6 +58,10 @@ function checkroomLib.GetSpells( collectionId ) end
 
 ---@param itemId ObjectId
 ---@return boolean
+function checkroomLib.IsCheckroomItem( itemId ) end
+
+---@param itemId ObjectId
+---@return boolean
 ---@deprecated Метод устарел. ; удалён 15.0.02 x64rc1
 function checkroomLib.IsCheckRoomItem( itemId ) end
 

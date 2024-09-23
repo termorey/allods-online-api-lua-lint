@@ -100,8 +100,14 @@ function group.CanLeave() end
 
 function group.Decline() end
 
+---@return { invited: boolean, inviterName: WString, inviterShardName: WString }
+function group.GetInviteInfo() end
+
 ---@return -1 | integer # индекс [0..] лидера в группе или -1, если группы нет или лидер еще неизвестен
 function group.GetLeaderIndex() end
+
+---@return UniqueId
+function group.GetLeader() end
 
 ---@return UniqueId
 ---@deprecated Метод устарел. ; удалён 15.0.02 x64rc1
@@ -112,10 +118,19 @@ function group.GetLeaderUniqueId() end
 ---@deprecated Метод устарел. ; удалён 15.0.02 x64rc1
 function group.GetMemberIndexByName( name ) end
 
+---@param id WString | UniqueId | ObjectId
+---@return nil | GroupMemberInfo
+function group.GetMemberInfo( id ) end
+---@alias GroupMemberInfo { name: WString, state: GROUP_MEMBER_STATE, isInCombat: boolean, id: ObjectId | nil, uniqueId: UniqueId, level: integer | nil, className: string | nil, classLocalName: WString | nil }
+
 ---@param memberId UniqueId
 ---@return nil | { name: WString, state: GROUP_MEMBER_STATE, isInCombat: boolean, id: ObjectId, uniqueId: UniqueId, level: integer | nil, className: string | nil, classLocalName: WString | nil }
 ---@deprecated Метод устарел. ; удалён 15.0.02 x64rc1
 function group.GetMemberInfoById( memberId ) end
+
+---@param index integer
+---@return nil | GroupMemberInfo
+function group.GetMemberInfoByIndex( index ) end
 
 ---@param index integer # индекс [0..] игрока в группе
 ---@return WString | nil # имя игрока или nil, если оно не найдено (ошибочный индекс или имя еще неизвестно)

@@ -206,6 +206,39 @@ function WidgetSafe:SetTransparentInput( transparentInput ) end
 ---@param show boolean
 function WidgetSafe:Show( show ) end
 
+---@class EditLineSafe
+EditLineSafe = {}
+function EditLineSafe:BackspaceCharAtCursorPos() end
+function EditLineSafe:DeleteCharAtCursorPos() end
+---@return integer
+function EditLineSafe:GetCursorPos() end
+---@return WString
+function EditLineSafe:GetInitialGlobalClass() end
+---@return WString
+function EditLineSafe:GetInitialSelectionClass() end
+---@return integer
+function EditLineSafe:GetPosObjectCount() end
+---@return string
+function EditLineSafe:GetString() end
+---@return WString
+function EditLineSafe:GetText() end
+---@param text WString
+function EditLineSafe:InsertTextAtCursorPos( text ) end
+---@param index integer
+function EditLineSafe:SetCursorPos( index ) end
+---@param classNames table<integer, string | WString>
+function EditLineSafe:SetGlobalClasses( classNames ) end
+---@param maxSize integer | nil
+function EditLineSafe:SetMaxSize( maxSize ) end
+---@param className string | WString
+function EditLineSafe:SetSelectionClass( className ) end
+---@param text WString
+function EditLineSafe:SetText( text ) end
+---@param isRTag boolean
+---@param tagName WString
+---@param tagAttributes table<WString, false | string | WString>
+function EditLineSafe:SetTextAttributes( isRTag, tagName, tagAttributes ) end
+
 --[[ GLOBALS --]]
 
 ---@type WidgetSafe
