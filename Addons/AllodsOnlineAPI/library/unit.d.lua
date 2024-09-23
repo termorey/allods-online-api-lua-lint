@@ -231,11 +231,6 @@ function unit.GetGuildInfo( unitId ) end
 function unit.GetHealAbsorbPoolInfo( unitId ) end
 
 ---@param unitId ObjectId
----@return PET_TYPE
----@deprecated Метод устарел. ; удалён 15.0.02 x64rc1
-function unit.GetLastPetType( unitId ) end
-
----@param unitId ObjectId
 ---@return integer
 function unit.GetLevel( unitId ) end
 

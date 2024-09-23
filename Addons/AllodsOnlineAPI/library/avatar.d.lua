@@ -566,11 +566,6 @@ function avatar.EquipItemByIdToSlot( itemId, equipSlot ) end
 ---@param equipSlot DRESS_SLOT # индекс слота в экипировке
 function avatar.EquipItemToSlot( slot, equipSlot ) end
 
----@param sourceId ObjectId # идентификатор предмета в контейнере
----@param instrumentId ObjectId # идентификатор инструмента в контейнере
----@deprecated Метод устарел. ; удалён 15.0.02 x64rc1
-function avatar.ExtractRune( sourceId, instrumentId ) end
-
 function avatar.FinallyRespawn() end
 
 ---@param mode QUEST_FIND_NEXT_QUEST_MODE # где искать следующий квест (зона, в которой находится аватар или весь игровой мир)
@@ -637,11 +632,6 @@ function avatar.GetAlchemyInfo() end
 ---@param line integer # строка в которой необходимо узнать результат
 ---@return nil | { recipeId: RecipeId, perfectRecipe: boolean }
 function avatar.GetAlchemyMatchedRecipe( line ) end
-
----@param code ATTACK # код ошибки ATTACK_FAILED_XXX/ATTACK_RESULT_UNKNOWN
----@return WString
----@deprecated Метод устарел. ; удалён 15.0.02 x64rc1
-function avatar.GetAttackResult( code ) end
 
 ---@param itemId ObjectId # id предмета; предмет должен находиться в слоте какого-либо контейнера (сумка, переполненная сумка, банковская ячейка)
 ---@return table<integer, QuestId> # список идентификаторов квестов
@@ -799,11 +789,6 @@ function avatar.GetEngineerPetCommands() end
 ---@param itemId ObjectId # идентификатор предмета
 ---@return nil | DRESS_SLOT # индекс ячейки в экипировке
 function avatar.GetEquipmentItemSlot( itemId ) end
-
----@param code integer # код ошибки
----@return WString # описание ошибки
----@deprecated Метод устарел. ; удалён 15.0.02 x64rc1
-function avatar.GetEquipResult( code ) end
 
 ---@return { currentExp: integer, currentLevelExp: integer, nextLevelExp: integer, extraExp: integer, extraExpCap: integer, bonus: integer, pvpExp: integer }
 function avatar.GetExperience() end
@@ -1088,11 +1073,6 @@ function avatar.GetReturnableQuests() end
 function avatar.GetRubyStartLevel() end
 
 ---@param itemId ObjectId # идентификатор предмета
----@return nil | table<integer, { slot: nil | { minLevel: integer, maxLevel: integer }, requiredSlot: nil | { minLevel: integer, maxLevel: integer }, isDisposable: boolean }>
----@deprecated Метод устарел. ; удалён 15.0.02 x64rc1
-function avatar.GetRuneSlotMakerInfo( itemId ) end
-
----@param itemId ObjectId # идентификатор предмета
 ---@return integer # общее количество предметов в инвентаре с описанными условиями
 function avatar.GetSameBindingStackCount( itemId ) end
 
@@ -1265,11 +1245,6 @@ function avatar.HasUnlock( unlockId ) end
 ---@param amount integer
 function avatar.ImproveInnateStat( stat, amount ) end
 
----@param runeId ObjectId # идентификатор руны в контейнере
----@param itemId ObjectId # идентификатор предмета в контейнере
----@deprecated Метод устарел. ; удалён 15.0.02 x64rc1
-function avatar.InsertRune( runeId, itemId ) end
-
 ---@param itemId ObjectId # идентификатор предмета
 ---@param slot integer # индекс слота
 ---@return boolean # true, если предмет подходит по типу для этого слота
@@ -1412,11 +1387,6 @@ function avatar.IsTeleportLocationValid( locationId ) end
 
 ---@return boolean # находится ли персонаж игрока в режиме ходьбы
 function avatar.IsWalkMode() end
-
----@param itemId ObjectId # идентификатор предмета, в котором будет делаться слот
----@param instrumentId ObjectId # идентификатор инструмента, которым будет делаться слот
----@deprecated Метод устарел. ; удалён 15.0.02 x64rc1
-function avatar.MakeRuneSlot( itemId, instrumentId ) end
 
 ---@param boxId ObjectId # item id сундучка, сундучок должен находиться в одном из контейнеров (например в инвентаре или переполненной сумке)
 ---@param quantity? integer # необязательный параметр, количество открываемых сундуков; по умолчанию 1

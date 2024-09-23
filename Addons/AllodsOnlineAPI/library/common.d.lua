@@ -121,12 +121,6 @@ function common.GetFatalityPhraseLimits () end
 ---@return table<integer, { min: integer, bonus: integer, background: TextureId, items: table<integer, ResourceId> }> # список бонусов
 function common.GetFirstPaymentBonusInfo () end
 
----GetInstanceIdByInteger
----@param integerId integer # целое число, ассоциированное с ресурсом
----@return nil | lightuserdata # ассоциированный уникальный идентификатор или nil, если соответствие не найдено
----@deprecated Метод устарел. ; удалён 15.0.02 x64rc1
-function common.GetInstanceIdByInteger (integerId) end
-
 ---GetIntFromWString
 ---@param text WString # локализуемый текст
 ---@return integer | nil # результат (nil при невозможности конвертации)
@@ -334,12 +328,6 @@ function common.RegisterEventHandler( eventFunction, sysEventName, params, requi
 ---@param requireMainThread? boolean # необязательный параметр, указывает клиенту на то, что при обработке реакции будет вызван "непотокобезопасный" код и реакцию нужно обработать в основном потоке; для аддонов разработчиков по умолчанию false; для аддонов пользователей всегда true
 function common.RegisterReactionHandler( reactionFunction, sysReactionName, requireMainThread ) end
 
----RequestIntegerByInstanceId
----@param instanceId lightuserdata # уникальный идентификатор
----@return integer # ассоциированное значение
----@deprecated Метод устарел. ; удалён 15.0.02 x64rc1
-function common.RequestIntegerByInstanceId( instanceId ) end
-
 ---SetCursor
 ---@param name string # псевдоним (alias) курсора
 function common.SetCursor( name ) end
@@ -351,12 +339,6 @@ function common.SetIconFlash( flashCount ) end
 ---SetLocale
 ---@param locale string | integer # короткое имя или индекс локали из списка полученного из GetLocaleList
 function common.SetLocale( locale ) end
-
----SetTextValues
----@deprecated
----@param object ValuedText | ButtonSafe | TextViewSafe # объект для установки текстовых переменных
----@param textValues table # таблица с именованными полями переменных для подстановки в текст пары название поля - имя тэга <r/> в тексте, значение поля - новое текст для подстановки в соответствующий тэг. В качестве форматирующего текста используется поле format
-function common.SetTextValues( object, textValues ) end
 
 ---StateLoadManagedAddon
 ---@param name string # имя аддона

@@ -44,8 +44,3 @@ function family.IsExist( unitId ) end
 ---@param unitId ObjectId
 ---@return boolean
 function family.IsSpouse( unitId ) end
-
----@param takeOnHands boolean
----@return WString | nil
----@deprecated Метод устарел. ; удалён 15.0.02 x64rc1
-function family.TakeOnHandsResponse( takeOnHands ) end

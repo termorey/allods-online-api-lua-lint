@@ -35,25 +35,6 @@ function mission.ClearCharacterScene( index ) end
 
 function mission.ClearChatInput() end
 
----@deprecated Метод устарел. ; удалён 15.0.02 x64rc1
-function mission.DNDCancelDrag() end
-
----@deprecated Метод устарел. ; удалён 15.0.02 x64rc1
-function mission.DNDConfirmDropAttempt() end
-
----@deprecated Метод устарел. ; удалён 15.0.02 x64rc1
-function mission.DNDConfirmPickAttempt() end
-
----@param wtSrc WidgetSafe # контрол, для которого будет обрабатываться drag&drop
----@param id integer # уникальный идентификатор, связанный с контролом wtSrc
----@param isDragOnly boolean # drag&drop  включается либо только на перетаскивание, либо как на перетаскивание, так и на клик
----@deprecated Метод устарел. ; удалён 15.0.02 x64rc1
-function mission.DNDRegister( wtSrc, id, isDragOnly ) end
-
----@param wtSrc WidgetSafe # контрол, зарегистрированный ранее для drag&drop
----@deprecated Метод устарел. ; удалён 15.0.02 x64rc1
-function mission.DNDUnregister( wtSrc ) end
-
 ---@param index integer # индекс сцены, [0..GetMaxCharacterSceneCount() - 1]
 ---@param items nil | table<integer, ObjectId> # индексированный с 0 идентификатор вещей. Если nil, то ничего не примериваем.
 function mission.DressCharacterScene( index, items ) end

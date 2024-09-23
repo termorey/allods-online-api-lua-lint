@@ -75,14 +75,6 @@ function astral.GetAddonSectors( addonId ) end
 ---@return table<integer, ObjectId> # индексированный с 0 список идентификаторов точек астральных эвентов в этом секторе
 function astral.GetAllPOIs() end
 
----@return table<integer, ObjectId> # список идентификаторов секторов
----@deprecated Метод устарел. ; удалён 15.0.02 x64rc1
-function astral.GetAllSectorsObsolete() end
-
----@return table<integer, integer> # индексированный с 0 список возможных технических уровней слоёв астрала
----@deprecated Метод устарел. ; удалён 15.0.02 x64rc1
-function astral.GetAllTLsObsolete() end
-
 ---@return { withoutCoins: table<integer, WString>, withoutFairies: table<integer, WString> }
 function astral.GetAstrolabeDeniedPlayers() end
 

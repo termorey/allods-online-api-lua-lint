@@ -61,11 +61,6 @@ function ButtonSafe:GetVariantCount(  ) end
 ---@param tag string | WString
 ---@param value string | WString
 function ButtonSafe:SetClassVal( tag, value ) end
----@param tagName string | WString
----@param color integer | string | WString | Color
----@param colorType? EnumColorType
----@deprecated Метод устарел. ; удалён 15.0.02 x64rc1
-function ButtonSafe:SetTextColor( tagName, color, colorType ) end
 ---@param textValues string | WString
 function ButtonSafe:SetTextValues( textValues ) end
 ---@param tag string | WString
