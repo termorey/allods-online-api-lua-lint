@@ -104,18 +104,22 @@ function group.Decline() end
 function group.GetLeaderIndex() end
 
 ---@return UniqueId
+---@deprecated Метод устарел. ; удалён 15.0.02 x64rc1
 function group.GetLeaderUniqueId() end
 
 ---@param name WString # имя игрока
 ---@return -1 | integer # индекс [0..] игрока в группе или -1, если такого игрока в группе нет
+---@deprecated Метод устарел. ; удалён 15.0.02 x64rc1
 function group.GetMemberIndexByName( name ) end
 
 ---@param memberId UniqueId
 ---@return nil | { name: WString, state: GROUP_MEMBER_STATE, isInCombat: boolean, id: ObjectId, uniqueId: UniqueId, level: integer | nil, className: string | nil, classLocalName: WString | nil }
+---@deprecated Метод устарел. ; удалён 15.0.02 x64rc1
 function group.GetMemberInfoById( memberId ) end
 
 ---@param index integer # индекс [0..] игрока в группе
 ---@return WString | nil # имя игрока или nil, если оно не найдено (ошибочный индекс или имя еще неизвестно)
+---@deprecated Метод устарел. ; удалён 15.0.02 x64rc1
 function group.GetMemberNameByIndex( index ) end
 
 ---@return nil | table<integer, { name: WString, state: GROUP_MEMBER_STATE, isInCombat: boolean, id: ObjectId, uniqueId: UniqueId, level: integer | nil, className: string | nil, classLocalName: WString | nil }>

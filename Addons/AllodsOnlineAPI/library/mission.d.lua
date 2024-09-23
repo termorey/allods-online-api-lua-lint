@@ -11,11 +11,6 @@ mission = {}
 
 ---@alias EVENT_CAMERA_DIRECTION_CHANGED "EVENT_CAMERA_DIRECTION_CHANGED"
 ---@alias EVENT_CANT_LEAVE_GAME_IN_COMBAT "EVENT_CANT_LEAVE_GAME_IN_COMBAT"
----@alias EVENT_DND_DRAG_CANCELLED "EVENT_DND_DRAG_CANCELLED"
----@alias EVENT_DND_DRAG_OVER "EVENT_DND_DRAG_OVER"
----@alias EVENT_DND_DRAG_TO "EVENT_DND_DRAG_TO"
----@alias EVENT_DND_DROP_ATTEMPT "EVENT_DND_DROP_ATTEMPT"
----@alias EVENT_DND_PICK_ATTEMPT "EVENT_DND_PICK_ATTEMPT"
 ---@alias EVENT_MISSION_FREE_PORTRAIT_SLOT "EVENT_MISSION_FREE_PORTRAIT_SLOT"
 ---@alias EVENT_MISSION_INITIALIZED "EVENT_MISSION_INITIALIZED"
 ---@alias EVENT_LOADING_PROGRESS "EVENT_LOADING_PROGRESS"
@@ -24,11 +19,6 @@ mission = {}
 
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_CAMERA_DIRECTION_CHANGED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_CANT_LEAVE_GAME_IN_COMBAT)
----@overload fun(eventFunction: fun(), sysEventName: EVENT_DND_DRAG_CANCELLED)
----@overload fun(eventFunction: fun(data: { targetWidget: WidgetSafe, targetId: integer, enter: boolean }), sysEventName: EVENT_DND_DRAG_OVER)
----@overload fun(eventFunction: fun(data: { posX: integer, posY: integer, outside: boolean, kbFlags: KBF }), sysEventName: EVENT_DND_DRAG_TO)
----@overload fun(eventFunction: fun(data: { targetWidget: WidgetSafe | nil, targetId: integer, kbFlags: KBF }), sysEventName: EVENT_DND_DROP_ATTEMPT)
----@overload fun(eventFunction: fun(data: { srcWidget: WidgetSafe, srcId: integer, posx: integer, posY: integer, kbFlags: KBF }), sysEventName: EVENT_DND_PICK_ATTEMPT)
 ---@overload fun(eventFunction: fun(data: { slot: integer }), sysEventName: EVENT_MISSION_FREE_PORTRAIT_SLOT)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_MISSION_INITIALIZED)
 ---@overload fun(eventFunction: fun(data: { sysStage: ENUM_LOADING_PROGRESS, current: integer, total: integer, firstTime: boolean, finished: boolean, fraction: number, mapName: WString, mapDescription: WString, mapImage: TextureId }), sysEventName: EVENT_LOADING_PROGRESS)
@@ -45,18 +35,23 @@ function mission.ClearCharacterScene( index ) end
 
 function mission.ClearChatInput() end
 
+---@deprecated Метод устарел. ; удалён 15.0.02 x64rc1
 function mission.DNDCancelDrag() end
 
+---@deprecated Метод устарел. ; удалён 15.0.02 x64rc1
 function mission.DNDConfirmDropAttempt() end
 
+---@deprecated Метод устарел. ; удалён 15.0.02 x64rc1
 function mission.DNDConfirmPickAttempt() end
 
 ---@param wtSrc WidgetSafe # контрол, для которого будет обрабатываться drag&drop
 ---@param id integer # уникальный идентификатор, связанный с контролом wtSrc
 ---@param isDragOnly boolean # drag&drop  включается либо только на перетаскивание, либо как на перетаскивание, так и на клик
+---@deprecated Метод устарел. ; удалён 15.0.02 x64rc1
 function mission.DNDRegister( wtSrc, id, isDragOnly ) end
 
 ---@param wtSrc WidgetSafe # контрол, зарегистрированный ранее для drag&drop
+---@deprecated Метод устарел. ; удалён 15.0.02 x64rc1
 function mission.DNDUnregister( wtSrc ) end
 
 ---@param index integer # индекс сцены, [0..GetMaxCharacterSceneCount() - 1]

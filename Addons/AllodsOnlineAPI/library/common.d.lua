@@ -124,6 +124,7 @@ function common.GetFirstPaymentBonusInfo () end
 ---GetInstanceIdByInteger
 ---@param integerId integer # целое число, ассоциированное с ресурсом
 ---@return nil | lightuserdata # ассоциированный уникальный идентификатор или nil, если соответствие не найдено
+---@deprecated Метод устарел. ; удалён 15.0.02 x64rc1
 function common.GetInstanceIdByInteger (integerId) end
 
 ---GetIntFromWString
@@ -336,6 +337,7 @@ function common.RegisterReactionHandler( reactionFunction, sysReactionName, requ
 ---RequestIntegerByInstanceId
 ---@param instanceId lightuserdata # уникальный идентификатор
 ---@return integer # ассоциированное значение
+---@deprecated Метод устарел. ; удалён 15.0.02 x64rc1
 function common.RequestIntegerByInstanceId( instanceId ) end
 
 ---SetCursor
