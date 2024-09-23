@@ -304,7 +304,6 @@ function guild.ChangeRank( memberId, rank ) end
 ---@param memberId ObjectId
 ---@param changeSum integer
 ---@param comment WString
---- TODO: non correct docs title
 function guild.CorrectMemberBalance( memberId, changeSum, comment ) end
 
 ---@param inventorySlot integer
@@ -546,5 +545,4 @@ function guild.SetMinimumTransaction( minimumTransaction ) end
 ---@param changeReason ENUM_MoneyChangeReason
 ---@param direction ENUM_TransferMoneyOperationDirection
 ---@param comment WString
---- TODO: non correct docs title args
 function guild.TransferMoney( sum, changeReason, direction, comment ) end

@@ -85,10 +85,8 @@ function progressiveDownloadLib.GetRecheckPacks() end
 ---@return nil | { activityLevel: PROGRESSIVE_DOWNLOAD_ACTIVITY, isHiResRequired: boolean, isActivityRequired: boolean, topPacksCount: number, netDownSpeed: number, netUpSpeed: number, netConnectionsCount: number, isGameCenterConnected: boolean, gameCenterReconnectionsCount: number, baseDataStatus: table, hiResDataStatus: table, fullDataStatus: table, fastCheckQueueInfo: nil | { count: number, size: number }, forcedHiResPacksinfo: table }
 function progressiveDownloadLib.GetStatus() end
 
----@param start unknown
----@param size unknown
----@return integer[]
---- TODO: missed docs arguments type
+---@param start integer
+---@param size integer
 function progressiveDownloadLib.SetTopPacksWindow( start, size ) end
 
 ---@return integer

@@ -33,7 +33,6 @@ function poweredLSWeaponsLib.GetItems() end
 ---@param itemId ObjectId
 ---@param itemClass ItemClassId
 ---@return ObjectId | nil
---- TODO: missed docs argument
 function poweredLSWeaponsLib.GetItemToReplace( itemId, itemClass ) end
 
 ---@param itemId ObjectId

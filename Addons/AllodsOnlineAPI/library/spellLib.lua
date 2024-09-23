@@ -35,7 +35,6 @@ function spellLib.BuffsCanDispel ( UnitId ) end
 ---@param SpellId SpellId
 ---@param ignoreCasterResources boolean | nil
 ---@return boolean
---- TODO: missed docs argument
 function spellLib.CanRunAvatar( SpellId, ignoreCasterResources ) end
 
 ---@param SpellId SpellId

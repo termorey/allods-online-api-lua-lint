@@ -291,7 +291,6 @@ function unit.GetPrimaryTarget( unitId ) end
 
 ---@param id ObjectId
 ---@return { isOn: boolean, serverFlag: boolean | nil, playerFlag: boolean | nil, timeLeft: nil | { h: integer, m: integer, s: integer, overallMs: number } }
---- TODO: incorrect docs timeLeft type
 function unit.GetPvPFlagInfo(id) end
 
 ---@param unitId ObjectId

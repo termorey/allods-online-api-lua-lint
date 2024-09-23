@@ -63,7 +63,6 @@ function rules.BillingInfoGetBonuses() end
 
 ---@param bonusId BillingBonusId
 ---@return nil | { name: WString, description: WString, currency: ENUM_ItemMallCurrency, limitTotal: integer, bonusPercent: number, isSinglePayment: boolean, limitUsed: integer | nil, loyalPart: integer, updateTime: nil | { year: integer, month: integer, day: ENUM_Month, day: integer, wday: integer, hour: integer, minute: integer, second: integer, msec: integer }, removeTime: nil | { year: integer, month: integer, day: ENUM_Month, day: integer, wday: integer, hour: integer, minute: integer, second: integer, msec: integer }, image?: TextureId }
---- TODO: docs hasn't arguments
 function rules.BillingInfoGetBonusInfo( bonusId ) end
 
 function rules.BillingInfoUpdate() end

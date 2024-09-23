@@ -1628,7 +1628,6 @@ function guild.GetTalentsByGroup( groupName ) end
 ---@param row integer # номер строки
 ---@param column integer # номер столбца
 ---@return boolean # выбран ли талант
---- TODO: check docs type
 function guild.IsStoredTalent( field, row, column ) end
 
 ---@param field integer # номер поля
