@@ -1,0 +1,198 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - Changelistnext_version_preview</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<br>
+<h2>Список изменений</h2>
+<br>
+<br>
+<h3>Удалены документы</h3>
+avatar.GetAbilityReplacementSpell( abilityId )<br>
+avatar.GetActiveUsableDeviceActionInfo( index )<br>
+avatar.GetUsableDeviceInfo( deviceId )<br>
+changeRoom.GetCosts()<br>
+device.GetScanerHubInfo()<br>
+device.GetScanerPvEInfo()<br>
+device.GetScanerPvPInfo()<br>
+device.GetScanerTrailInfo( trailId )<br>
+device.GetScanerTrails()<br>
+device.IsScanerScanning()<br>
+device.SetScanerDestinationDevice()<br>
+device.SetScanerDestinationTrail( trailId )<br>
+EVENT_NEWS_POST_LOADED<br>
+EVENT_NEWS_POST_SELECTED<br>
+EVENT_UNIT_MANA_CHANGED<br>
+EVENT_UNIT_MANA_PERCENTAGE_CHANGED<br>
+matchMaking.CanJoinInstancedEvents( eventId )<br>
+options.GetOptionByCustomId( sysCustomId )<br>
+options.GetOptionsByCustomType( sysCustomType )<br>
+options.SetOptionCurrentIndex( optionId, index )<br>
+SetEllipsis( self, ellipsis )<br>
+SetFormat( self, align )<br>
+SetLinespacing( self, spacing )<br>
+SetMultiline( self, multiline )<br>
+SetWrapText( self, wrapText )<br>
+ShowClippedLine( self, show )<br>
+ShowClippedSymbol( self, show )<br>
+spellLib.GetDurationBuff( spellId )<br>
+spellLib.HasDurationBuff( spellId )<br>
+unit.GetMana( unitId )<br>
+unit.GetManaPercentage( unitId )<br>
+userMods.SendEvent( eventName, eventParams )<br>
+<br>
+<h3>Добавлены документы</h3>
+<a href="../LuaApi/FunctionAvatarClearActionPanel.html">avatar.ClearActionPanel()</a><br>
+<a href="../LuaApi/FunctionAvatarGetLinkedTalents.html">avatar.GetLinkedTalents( object )</a><br>
+<a href="../LuaApi/FunctionButtonGetValuedText.html">ButtonSafe:GetValuedText( self )</a><br>
+<a href="../LuaApi/FunctionButtonGetWString.html">ButtonSafe:GetWString( self )</a><br>
+<a href="../LuaApi/FunctionChangeRoomGetTicketCurrencyId.html">changeRoom.GetTicketCurrencyId()</a><br>
+<a href="../LuaApi/FunctionCommonCallTooltip.html">common.CallTooltip( isActive, tooltipData )</a><br>
+<a href="../LuaApi/FunctionCommonCancelDelayedCall.html">common.CancelDelayedCall( functionRef )</a><br>
+<a href="../LuaApi/FunctionCommonDelayedCall.html">common.DelayedCall( delayMs, function, ... )</a><br>
+<a href="../LuaApi/FunctionCommonGetDelayedCalls.html">common.GetDelayedCalls()</a><br>
+<a href="../LuaApi/FunctionDeviceGetUsableDeviceActionInfo.html">device.GetUsableDeviceActionInfo( usableDeviceId, actionIndex )</a><br>
+<a href="../LuaApi/FunctionDeviceGetUsableDeviceActionsInfo.html">device.GetUsableDeviceActionsInfo( usableDeviceId )</a><br>
+<a href="../LuaApi/FunctionDeviceGetUsableDeviceInfo.html">device.GetUsableDeviceInfo( usableDeviceId )</a><br>
+<a href="../LuaApi/FunctionDeviceHasRelatedQuestObjectives.html">device.HasRelatedQuestObjectives( deviceId )</a><br>
+<a href="../LuaApi/FunctionButtonGetTextStyle.html">GetTextStyle( self )</a><br>
+<a href="../LuaApi/FunctionTextViewGetTextStyle.html">GetTextStyle( self )</a><br>
+<a href="../LuaApi/FunctionGlobalConst.html">GlobalConst( name, value )</a><br>
+<a href="../LuaApi/FunctionHasGlobalConst.html">HasGlobalConst( name )</a><br>
+<a href="../LuaApi/FunctionItemLibHasRelatedQuestObjectives.html">itemLib.HasRelatedQuestObjectives( itemId )</a><br>
+<a href="../LuaApi/FunctionMatchMakingCanJoinInstancedEvent.html">matchMaking.CanJoinInstancedEvent( eventId )</a><br>
+<a href="../LuaApi/FunctionObjectGetBuffProducer.html">object.GetBuffProducer( id )</a><br>
+<a href="../LuaApi/FunctionObjectGetManaType.html">object.GetManaType( objectId )</a><br>
+<a href="../LuaApi/FunctionObjectIsMob.html">object.IsMob( objectId )</a><br>
+<a href="../LuaApi/FunctionObjectIsPlayer.html">object.IsPlayer( objectId )</a><br>
+<a href="../LuaApi/FunctionOptionsGetOptionIndex.html">options.GetOptionIndex( id )</a><br>
+<a href="../LuaApi/FunctionOptionsGetOptionValue.html">options.GetOptionValue( id )</a><br>
+<a href="../LuaApi/FunctionOptionsIsOptionEnabled.html">options.IsOptionEnabled( id )</a><br>
+<a href="../LuaApi/FunctionOptionsSetOptionEnabled.html">options.SetOptionEnabled( id, value, apply )</a><br>
+<a href="../LuaApi/FunctionOptionsSetOptionIndex.html">options.SetOptionIndex( id, index, apply )</a><br>
+<a href="../LuaApi/FunctionScrollableContainerMoveElement.html">ScrollableContainerSafe:MoveElement( oldPos, newPos )</a><br>
+<a href="../LuaApi/FunctionScrollableContainerSwapElements.html">ScrollableContainerSafe:SwapElements( pos1, pos2 )</a><br>
+<a href="../LuaApi/FunctionButtonSetTextStyle.html">SetTextStyle( self, styleTable )</a><br>
+<a href="../LuaApi/FunctionTextViewSetTextStyle.html">SetTextStyle( self, styleTable )</a><br>
+<a href="../LuaApi/FunctionControl3DSetWidget3DVisibleUnattached.html">SetWidget3DVisibleUnattached( self, widget, isVisible )</a><br>
+<a href="../LuaApi/FunctionSpellLibGetDurationBuffId.html">spellLib.GetDurationBuffId( spellId )</a><br>
+<a href="../LuaApi/FunctionSpellLibGetSysName.html">spellLib.GetSysName( SpellId )</a><br>
+<a href="../LuaApi/FunctionUnitGetSysRace.html">unit.GetSysRace(id)</a><br>
+<a href="../LuaApi/FunctionUnitHasRelatedQuestObjectives.html">unit.HasRelatedQuestObjectives( unitId )</a><br>
+<br>
+<h3>Изменены документы</h3>
+<a href="../LuaApi/FunctionWidgetAddChild.html">AddChild( self, widget, noReposition )</a><br>
+<a href="../LuaApi/FunctionAvatarGetAbilities.html">avatar.GetAbilities()</a><br>
+<a href="../LuaApi/FunctionAvatarGetAvailableItemQuests.html">avatar.GetAvailableItemQuests( itemId )</a><br>
+<a href="../LuaApi/FunctionAvatarGetBaseTalentInfo.html">avatar.GetBaseTalentInfo( layer, line )</a><br>
+<a href="../LuaApi/FunctionAvatarGetInteractorTeleportLocations.html">avatar.GetInteractorTeleportLocations()</a><br>
+<a href="../LuaApi/FunctionAvatarGetQuestBook.html">avatar.GetQuestBook()</a><br>
+<a href="../LuaApi/FunctionAvatarGetQuestHistory.html">avatar.GetQuestHistory()</a><br>
+<a href="../LuaApi/FunctionAvatarGetQuestShareInvitations.html">avatar.GetQuestShareInvitations()</a><br>
+<a href="../LuaApi/FunctionAvatarGetQuestsLimit.html">avatar.GetQuestsLimit()</a><br>
+<a href="../LuaApi/FunctionAvatarGetReturnableQuests.html">avatar.GetReturnableQuests()</a><br>
+<a href="../LuaApi/FunctionAvatarGetSecretComponents.html">avatar.GetSecretComponents( secretId )</a><br>
+<a href="../LuaApi/FunctionAvatarGetSecrets.html">avatar.GetSecrets()</a><br>
+<a href="../LuaApi/FunctionAvatarGetTeleportLocationInfo.html">avatar.GetTeleportLocationInfo( locationId )</a><br>
+<a href="../LuaApi/FunctionAvatarGetTeleportLocations.html">avatar.GetTeleportLocations()</a><br>
+<a href="../LuaApi/FunctionAvatarGetVariableInfo.html">avatar.GetVariableInfo( variableId )</a><br>
+<a href="../LuaApi/FunctionAvatarIsTeleportLocationValid.html">avatar.IsTeleportLocationValid( locationId )</a><br>
+<a href="../LuaApi/FunctionAvatarRunUsableDeviceAction.html">avatar.RunUsableDeviceAction( index )</a><br>
+<a href="../LuaApi/FunctionAvatarRunUsableDeviceActionPoint.html">avatar.RunUsableDeviceActionPoint( index, pos )</a><br>
+<a href="../LuaApi/FunctionAvatarTeleportToLocation.html">avatar.TeleportToLocation( locationId )</a><br>
+<a href="../LuaApi/FunctionAvatarUseHearthStoneToLocation.html">avatar.UseHearthStoneToLocation()</a><br>
+<a href="../LuaApi/FunctionButtonSetTextAttributes.html">ButtonSafe:SetTextAttributes( self, isRTag, tagName, tagAttributes )</a><br>
+<a href="../LuaApi/FunctionCartographerGetCurrentZoneInfo.html">cartographer.GetCurrentZoneInfo()</a><br>
+<a href="../LuaApi/FunctionCartographerGetZonesMapLowQuests.html">cartographer.GetZonesMapLowQuests( zonesMapId )</a><br>
+<a href="../LuaApi/FunctionCartographerGetZonesMapQuests.html">cartographer.GetZonesMapQuests( zonesMapId )</a><br>
+<a href="../LuaApi/CategoryLuaApi.html">CategoryLuaApi</a><br>
+<a href="../LuaApi/CategoryWidget.html">CategoryWidget</a><br>
+<a href="../LuaApi/CategoryWidgetEffects.html">CategoryWidgetEffects</a><br>
+<a href="../LuaApi/FunctionChangeRoomGetPlayerIndexes.html">changeRoom.GetPlayerIndexes()</a><br>
+<a href="../LuaApi/FunctionCommonEnablePersonalEvent.html">common.EnablePersonalEvent( sysEventName, object )</a><br>
+<a href="../LuaApi/FunctionCommonGetAllodsGoalsOnLoadingScreen.html">common.GetAllodsGoalsOnLoadingScreen()</a><br>
+<a href="../LuaApi/FunctionContainerLibGetResourceItemStackCount.html">containerLib.GetResourceItemStackCount( id, slotType )</a><br>
+<a href="../LuaApi/FunctionContainerLibGetSimilarItemStackCount.html">containerLib.GetSimilarItemStackCount( id, slotType )</a><br>
+<a href="../LuaApi/FunctionWidgetCreateChildByDesc.html">CreateChildByDesc( self, widgetDesc, noReposition )</a><br>
+<a href="../LuaApi/FunctionDeviceGetCannonTarget.html">device.GetCannonTarget( cannonDeviceId )</a><br>
+<a href="../LuaApi/FunctionDeviceGetCooldown.html">device.GetCooldown( usableDeviceId, actionIndex )</a><br>
+<a href="../LuaApi/FunctionDeviceGetItemInstalled.html">device.GetItemInstalled( usableDeviceId )</a><br>
+<a href="../LuaApi/FunctionDeviceGetMass.html">device.GetMass( usableDeviceId )</a><br>
+<a href="../LuaApi/FunctionDeviceGetNavigatorTargetChests.html">device.GetNavigatorTargetChests()</a><br>
+<a href="../LuaApi/FunctionDeviceGetRelatedQuestObjectives.html">device.GetRelatedQuestObjectives( deviceId )</a><br>
+<a href="../LuaApi/FunctionDeviceGetShieldStrength.html">device.GetShieldStrength( shieldDeviceId )</a><br>
+<a href="../LuaApi/FunctionDeviceGetShipSlotInfo.html">device.GetShipSlotInfo( deviceId )</a><br>
+<a href="../LuaApi/FunctionDeviceGetTransport.html">device.GetTransport( usableDeviceId )</a><br>
+<a href="../LuaApi/FunctionDeviceGetUsableDeviceType.html">device.GetUsableDeviceType( usableDeviceId )</a><br>
+<a href="../LuaApi/FunctionDeviceIsOffline.html">device.IsOffline( usableDeviceId )</a><br>
+<a href="../LuaApi/FunctionDeviceIsShieldRegenInProgress.html">device.IsShieldRegenInProgress( shieldDeviceId )</a><br>
+<a href="../LuaApi/FunctionDeviceIsUsable.html">device.IsUsable( deviceId )</a><br>
+<a href="../LuaApi/FunctionDeviceNavigatorSetTarget.html">device.NavigatorSetTarget( objectId )</a><br>
+<a href="../LuaApi/FunctionDeviceNavigatorZoom.html">device.NavigatorZoom( objectId )</a><br>
+<a href="../LuaApi/EventDeviceCooldownsEnableChanged.html">EVENT_DEVICE_COOLDOWNS_ENABLE_CHANGED</a><br>
+<a href="../LuaApi/EventGuildMemberAdded.html">EVENT_GUILD_MEMBER_ADDED</a><br>
+<a href="../LuaApi/EventGuildMemberChanged.html">EVENT_GUILD_MEMBER_CHANGED</a><br>
+<a href="../LuaApi/EventGuildMemberOnlineStatusChanged.html">EVENT_GUILD_MEMBER_ONLINE_STATUS_CHANGED</a><br>
+<a href="../LuaApi/EventGuildMemberRankChanged.html">EVENT_GUILD_MEMBER_RANK_CHANGED</a><br>
+<a href="../LuaApi/EventGuildMemberRemoved.html">EVENT_GUILD_MEMBER_REMOVED</a><br>
+<a href="../LuaApi/EventGuildMemberTabardChanged.html">EVENT_GUILD_MEMBER_TABARD_CHANGED</a><br>
+<a href="../LuaApi/EventHealingReceived.html">EVENT_HEALING_RECEIVED</a><br>
+<a href="../LuaApi/WidgetFactoryCache.html">FactoryCache. Описание специального кэширующего виджета.</a><br>
+<a href="../LuaApi/FunctionItemLibGetCouponInfo.html">itemLib.GetCouponInfo( itemResourceId )</a><br>
+<a href="../LuaApi/FunctionItemLibGetRelatedQuestObjectives.html">itemLib.GetRelatedQuestObjectives( itemId )</a><br>
+<a href="../LuaApi/FunctionItemLibGetUsagesOnItemInfo.html">itemLib.GetUsagesOnItemInfo( itemId, targetItemId )</a><br>
+<a href="../LuaApi/FunctionObjectGetBuffInfo.html">object.GetBuffInfo( id, includeResourceInfo, onlyResourceInfo )</a><br>
+<a href="../LuaApi/FunctionObjectGetManaInfo.html">object.GetManaInfo( objectId )</a><br>
+<a href="../LuaApi/FunctionObjectGetWorldSecrets.html">object.GetWorldSecrets( objectId )</a><br>
+<a href="../LuaApi/FunctionOptionsGetBlockIds.html">options.GetBlockIds( groupId )</a><br>
+<a href="../LuaApi/FunctionOptionsGetGroupIds.html">options.GetGroupIds( pageId )</a><br>
+<a href="../LuaApi/FunctionOptionsGetOptionIds.html">options.GetOptionIds( blockId )</a><br>
+<a href="../LuaApi/FunctionOptionsGetOptionInfo.html">options.GetOptionInfo( id )</a><br>
+<a href="../LuaApi/FunctionOptionsGetPageIds.html">options.GetPageIds()</a><br>
+<a href="../LuaApi/FunctionScrollableContainerAt.html">ScrollableContainerSafe:At( pos )</a><br>
+<a href="../LuaApi/FunctionScrollableContainerEnsureVisible.html">ScrollableContainerSafe:EnsureVisible( widget )</a><br>
+<a href="../LuaApi/FunctionScrollableContainerForceReposition.html">ScrollableContainerSafe:ForceReposition( force )</a><br>
+<a href="../LuaApi/FunctionScrollableContainerGetContainerOffset.html">ScrollableContainerSafe:GetContainerOffset()</a><br>
+<a href="../LuaApi/FunctionScrollableContainerGetElementCount.html">ScrollableContainerSafe:GetElementCount()</a><br>
+<a href="../LuaApi/FunctionScrollableContainerGetElementLimit.html">ScrollableContainerSafe:GetElementLimit()</a><br>
+<a href="../LuaApi/FunctionScrollableContainerGetMaxContainerOffset.html">ScrollableContainerSafe:GetMaxContainerOffset()</a><br>
+<a href="../LuaApi/FunctionScrollableContainerInsert.html">ScrollableContainerSafe:Insert( pos, widget )</a><br>
+<a href="../LuaApi/FunctionScrollableContainerIsContain.html">ScrollableContainerSafe:IsContain( widget )</a><br>
+<a href="../LuaApi/FunctionScrollableContainerIsSliderMax.html">ScrollableContainerSafe:IsSliderMax()</a><br>
+<a href="../LuaApi/FunctionScrollableContainerIsSliderMin.html">ScrollableContainerSafe:IsSliderMin()</a><br>
+<a href="../LuaApi/FunctionScrollableContainerPopBack.html">ScrollableContainerSafe:PopBack()</a><br>
+<a href="../LuaApi/FunctionScrollableContainerPopFront.html">ScrollableContainerSafe:PopFront()</a><br>
+<a href="../LuaApi/FunctionScrollableContainerPushBack.html">ScrollableContainerSafe:PushBack( widget )</a><br>
+<a href="../LuaApi/FunctionScrollableContainerPushFront.html">ScrollableContainerSafe:PushFront( widget )</a><br>
+<a href="../LuaApi/FunctionScrollableContainerRemove.html">ScrollableContainerSafe:Remove( widget )</a><br>
+<a href="../LuaApi/FunctionScrollableContainerRemoveAt.html">ScrollableContainerSafe:RemoveAt( pos )</a><br>
+<a href="../LuaApi/FunctionScrollableContainerRemoveItems.html">ScrollableContainerSafe:RemoveItems()</a><br>
+<a href="../LuaApi/FunctionScrollableContainerSetContainerOffset.html">ScrollableContainerSafe:SetContainerOffset( offset )</a><br>
+<a href="../LuaApi/FunctionTextViewGetWString.html">TextViewSafe:GetWString( self )</a><br>
+<a href="../LuaApi/FunctionTransportGetAcceleratorNominalMass.html">transport.GetAcceleratorNominalMass( transportId )</a><br>
+<a href="../LuaApi/FunctionTransportGetDevices.html">transport.GetDevices( transportId )</a><br>
+<a href="../LuaApi/FunctionTransportGetDirection.html">transport.GetDirection( transportId )</a><br>
+<a href="../LuaApi/FunctionTransportGetEnergy.html">transport.GetEnergy( transportId )</a><br>
+<a href="../LuaApi/FunctionTransportGetHealthMaximum.html">transport.GetHealthMaximum( transportId )</a><br>
+<a href="../LuaApi/FunctionTransportGetInsight.html">transport.GetInsight( transportId )</a><br>
+<a href="../LuaApi/FunctionTransportGetMass.html">transport.GetMass( transportId )</a><br>
+<a href="../LuaApi/FunctionTransportGetPosition.html">transport.GetPosition( id )</a><br>
+<a href="../LuaApi/FunctionTransportGetShieldStrength.html">transport.GetShieldStrength( transportId, side )</a><br>
+<a href="../LuaApi/FunctionTransportGetVelocities.html">transport.GetVelocities( transportId )</a><br>
+<a href="../LuaApi/FunctionUnitIsPlayer.html">unit.IsPlayer( unitId )</a><br>
+<a href="../LuaApi/WidgetTextStyle.html">WidgetTextStyle. Стиль текста</a><br>
+<br>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>
