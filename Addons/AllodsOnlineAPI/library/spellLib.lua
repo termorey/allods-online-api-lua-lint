@@ -57,6 +57,14 @@ function spellLib.GetCurrentValues( SpellId ) end
 ---@return nil | { name: WString, description: WString, sysName: string, objectId: ObjectId | nil, debugName?: string | nil }
 function spellLib.GetDescription( SpellId ) end
 
+---@param id SpellId # Id умения
+---@return nil | table<integer, table<WString, ValuedText | number>>
+function spellLib.GetDescriptionParams( SpellId ) end
+
+---@param id SpellId # Id умения
+---@return BuffId | nil # идентификатор бафа, если такой баф есть у спелла
+function spellLib.GetDurationBuffId( spellId ) end
+
 ---@param id SpellId
 ---@return table<integer, { sysName: string, name: WString, image: TextureId | nil }>
 function spellLib.GetGroups( id ) end
@@ -93,6 +101,10 @@ function spellLib.GetRequirements( id ) end
 ---@param SpellId SpellId
 ---@return nil | { enabled: boolean, autocastOn: boolean, prepared: boolean, isActive: boolean }
 function spellLib.GetState( SpellId ) end
+
+---@param id SpellId # Id умения
+---@return any # TODO: should be confirmed
+function spellLib.GetSysName( SpellId ) end
 
 ---@param spellId SpellId
 ---@return ValuedObject
