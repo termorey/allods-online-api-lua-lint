@@ -421,3 +421,7 @@ function itemLib.IsUserChoice( itemId ) end
 ---@param itemId ObjectId
 ---@return boolean
 function itemLib.IsWeapon( itemId ) end
+
+---@param itemId ObjectId # идентификатор предмета
+---@return boolean # true если гильдейский компонент есть
+function itemLib.HasGuildComponent( itemId ) end
