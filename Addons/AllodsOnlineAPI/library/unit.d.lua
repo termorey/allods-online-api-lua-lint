@@ -376,6 +376,11 @@ function unit.HasBossPlate( unitId ) end
 ---@return boolean
 function unit.HasEquipment( unitId ) end
 
+---@param unitId ObjectId # идентификатор юнита
+---@param nil | QuestId | ObjectId
+---@return boolean # true, если такие цели задании имеются у игрока
+function unit.HasRelatedQuestObjectives( unitId ) end
+
 ---@param id ObjectId
 ---@return boolean
 function unit.IsAfk(id) end
