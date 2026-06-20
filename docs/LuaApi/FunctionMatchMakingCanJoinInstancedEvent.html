@@ -6,7 +6,7 @@
 <meta content="text/html; charset=UTF-8" http-equiv="content-type">
             
 <head>
-<title>Пользовательские дополнения - Lua API - CategoryMatchMaking</title>
+<title>Пользовательские дополнения - Lua API - FunctionMatchMakingCanJoinInstancedEvent</title>
 <link href="LuaApi.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -14,9 +14,31 @@
 <p><a href="../Index.html">На главную</a></p>
 <hr>
 <p></p>
-<h1>CategoryMatchMaking</h1>
+<h2> matchMaking.CanJoinInstancedEvent( eventId )</h2>
 <p></p>
-<p>События и функции Lua API, относящиеся к инстанс-ивентам.</p>
+<p>Проверяет, может ли аватар в данный момент принять участие в указанном эвенте. Если конкретный эвент не задан, то проверяет наличие возможности принять участие в каком-либо эвенте.</p>
+<p></p>
+<pre>
+-- библиотека:
+matchMaking
+
+-- объявление:
+function CanJoinInstancedEvent( eventId )
+
+-- параметры:
+eventId: ObjectId or InstancedEventResourceId or nil - id инстанс-ивента, если нужно проверить возможность вставания на конкретный эвент, nil для общей проверки возможности вступления
+
+-- возвращаемое значение:
+boolean - true если аватар в данный момент может встать в очередь на инстанс-ивент (не приглашён, не участвует в инстанс-ивенте и тп), иначе false.
+</pre>
+<p></p>
+<p>Пример:</p>
+<p></p>
+<pre>
+if matchMaking.CanJoinInstancedEvent( eventId ) then
+  ...
+end
+</pre>
 <p></p>
 <h4>Связанные страницы: "CategoryLuaApi" "CategoryMatchMaking"</h4>
 <p></p>
@@ -89,6 +111,8 @@
 <p></p>
 <hr>
 <a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryMatchMaking.html">CategoryMatchMaking</a>
 <hr>
 <p><a href="../Index.html">На главную</a></p>
 </body>

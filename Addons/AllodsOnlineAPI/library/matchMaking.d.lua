@@ -85,6 +85,10 @@ function matchMaking.AwayBattleEvent() end
 ---@return boolean
 function matchMaking.CanAwayBattleEvent() end
 
+---@param eventId ObjectId | InstancedEventResourceId | nil # id инстанс-ивента, если нужно проверить возможность вставания на конкретный эвент, nil для общей проверки возможности вступления
+---@return boolean # true если аватар в данный момент может встать в очередь на инстанс-ивент (не приглашён, не участвует в инстанс-ивенте и тп), иначе false.
+function matchMaking.CanJoinInstancedEvent( eventId ) end
+
 ---@param eventResourceId InstancedEventResourceId
 ---@return boolean
 function matchMaking.CanJoinInstancedEventById( eventResourceId ) end
