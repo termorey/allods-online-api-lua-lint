@@ -42,6 +42,9 @@ function changeRoom.GetPlayerIndexes() end
 ---@return nil | { primaryId: ObjectId | nil, trio2Id: ObjectId | nil, trio3Id: ObjectId | nil, petId: ObjectId | nil }
 function changeRoom.GetSceneAvatarInfo() end
 
+---@return nil | CurrencyId # если нет ошибки, то идентификатор ресурса альтернативной валюты
+function changeRoom.GetTicketCurrencyId() end
+
 ---@return boolean
 function changeRoom.IsZoomEnabled() end
 

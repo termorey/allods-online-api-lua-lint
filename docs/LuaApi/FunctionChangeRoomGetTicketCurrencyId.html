@@ -6,7 +6,7 @@
 <meta content="text/html; charset=UTF-8" http-equiv="content-type">
             
 <head>
-<title>Пользовательские дополнения - Lua API - CategoryChangeRoom</title>
+<title>Пользовательские дополнения - Lua API - FunctionChangeRoomGetTicketCurrencyId</title>
 <link href="LuaApi.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -14,11 +14,31 @@
 <p><a href="../Index.html">На главную</a></p>
 <hr>
 <p></p>
-<h1>CategoryChangeRoom</h1>
+<h2> changeRoom.GetTicketCurrencyId()</h2>
 <p></p>
-<p>Функции и события Lua API библиотеки changeRoom, предназначенный для работы с парикмахерской.</p>
+<p>Получить идентификатор валюты которой оплачиваются услуги комнаты перемен</p>
 <p></p>
-<h4>Связанные страницы: CategoryLuaApi CategoryChangeRoom</h4>
+<pre>
+-- система
+функция реализована в UI
+
+-- библиотека:
+changeRoom
+
+-- объявление:
+function GetTicketCurrencyId()
+
+-- параметры:
+нет
+
+-- возвращаемые значения:
+CurrencyId or nil - если нет ошибки, то идентификатор ресурса альтернативной валюты
+
+-- примеры:
+local ticketId = changeRoom.GetTicketCurrencyId()
+</pre>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryChangeRoom" </h4>
 <p></p>
 <a href="CategoryChangeRoom.html">CategoryChangeRoom</a>
 <br><a href="EventChangeRoomCharacterSceneCameraReady.html">EventChangeRoomCharacterSceneCameraReady</a>
@@ -48,6 +68,8 @@
 <p></p>
 <hr>
 <a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryChangeRoom.html">CategoryChangeRoom</a>
 <hr>
 <p><a href="../Index.html">На главную</a></p>
 </body>
