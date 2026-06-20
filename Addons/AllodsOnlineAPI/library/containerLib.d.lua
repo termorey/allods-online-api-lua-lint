@@ -32,8 +32,43 @@ function common.RegisterEventHandler( eventFunction, sysEventName, params, requi
 
 --[[ FUNCTIONS --]]
 
+---@param itemId ObjectId # идентификатор предмета
+---@param slotType ITEM_CONT_EQUIPMENT # тип контейнера места назначения
+---@param slot integer | nil # номер слота в контейнере. Если указан nil, то слот подберётся автоматически
+---@param count integer | nil # количество перемещаемых предметов. Если указан nil, то не проверяется
+---@return boolean | nil
+function containerLib.CheckMoveItem( itemId, slotType, slot, count ) end
+
+---@param slotTypeFrom ITEM_CONT_EQUIPMENT # тип контейнера места источника
+---@param slotFrom integer # номер слота в контейнере источнике
+---@param slotTypeTo ITEM_CONT_EQUIPMENT # тип контейнера места назначения
+---@param slotTo integer | nil # номер слота в контейнере назначения. Если указан nil, то слот подберётся автоматически
+---@param count integer | nil # количество перемещаемых предметов. Если указан nil, то не проверяется
+---@return boolean | nil
+function containerLib.CheckMoveSlotItem( slotTypeFrom, slotFrom, slotTypeTo, slotTo, count ) end
+
 ---@param slotType ITEM_CONT
 function containerLib.Close( slotType ) end
+
+---@param slotType number ITEM_CONT_EQUIPMENT - тип контейнера с предметами
+---@param id ObjectId | ItemId - идентификатор предмета
+---@return nil | table<integer, ObjectId>
+function containerLib.GetAllResourceItemIds( slotType, id ) end
+
+---@param slotType ITEM_CONT_EQUIPMENT # тип контейнера с предметами
+---@param id ObjectId # идентификатор предмета
+---@return nil | table<integer, ObjectId>
+function containerLib.GetAllSimilarItemIds( slotType, id ) end
+
+---@param slotType ITEM_CONT_EQUIPMENT # тип контейнера с предметами
+---@param id ObjectId # идентификатор предмета
+---@return nil | ObjectId
+function containerLib.GetFirstResourceItemId( slotType, id ) end
+
+---@param slotType ITEM_CONT_EQUIPMENT # тип контейнера с предметами
+---@param id ObjectId # идентификатор предмета
+---@return nil | ObjectId
+function containerLib.GetFirstSimilarItemId( slotType, id ) end
 
 ---@param slotType ITEM_CONT
 ---@param slot number
@@ -47,6 +82,16 @@ function containerLib.GetItems( slotType ) end
 ---@return nil | { slotType: ITEM_CONT, slot: integer }
 function containerLib.GetItemSlot( itemId ) end
 
+---@param id ObjectId | ItemId # идентификатор предмета
+---@param slotType ITEM_CONT_EQUIPMENT # тип контейнера с предметами
+---@return integer # количество предметов
+function containerLib.GetResourceItemStackCount( id, slotType ) end
+
+---@param id ObjectId # идентификатор предмета
+---@param slotType ITEM_CONT_EQUIPMENT # тип контейнера с предметами
+---@return integer # количество предметов
+function containerLib.GetSimilarItemStackCount( id, slotType ) end
+
 ---@param slotType ITEM_CONT
 ---@return integer
 function containerLib.GetSize( slotType ) end
@@ -54,6 +99,15 @@ function containerLib.GetSize( slotType ) end
 ---@param slotType ITEM_CONT
 ---@return boolean
 function containerLib.IsInteracting( slotType ) end
+
+---@param itemId ObjectId # идентификатор экземпляра предмета
+---@return boolean # true - если активных транзакций с данным предметом нет и можно выполнять операции, в противном случае false
+function containerLib.IsItemEnabled( itemId ) end
+
+---@param slotType ITEM_CONT_EQUIPMENT # тип контейнера с предметами
+---@param slot number # номер слота в контейнере
+---@return boolean # true - если активных транзакций с данным слотом нет и можно выполнять операции, в противном случае false
+function containerLib.IsItemSlotEnabled( slotType, slot ) end
 
 ---@param slotType ITEM_CONT
 ---@return boolean
@@ -64,6 +118,13 @@ function containerLib.IsOpen( slotType ) end
 ---@param slot integer | nil
 ---@param count integer | nil
 function containerLib.MoveItem( itemId, slotType, slot, count ) end
+
+---@pram slotTypeFrom ITEM_CONT_EQUIPMENT # тип контейнера места источника
+---@pram slotFrom integer # номер слота в контейнере источнике
+---@pram slotTypeTo ITEM_CONT_EQUIPMENT # тип контейнера места назначения
+---@pram slotTo integer or nil # номер слота в контейнере назначения. Если указан nil, то слот подберётся автоматически
+---@pram count integer or nil # количество перемещаемых предметов. Если указан nil, то переместится весь слот
+function containerLib.MoveSlotItem( slotTypeFrom, slotFrom, slotTypeTo, slotTo, count ) end
 
 ---@param slotType ITEM_CONT
 function containerLib.Open( slotType ) end

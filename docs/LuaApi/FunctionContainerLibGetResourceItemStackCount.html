@@ -6,7 +6,7 @@
 <meta content="text/html; charset=UTF-8" http-equiv="content-type">
             
 <head>
-<title>Пользовательские дополнения - Lua API - CategoryContainerLib</title>
+<title>Пользовательские дополнения - Lua API - FunctionContainerLibGetResourceItemStackCount</title>
 <link href="LuaApi.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -14,11 +14,35 @@
 <p><a href="../Index.html">На главную</a></p>
 <hr>
 <p></p>
-<h1>CategoryContainerLib</h1>
+<h2> containerLib.GetResourceItemStackCount( id, slotType )</h2>
 <p></p>
-<p>Различные методы и события по работе с контейнерами главного игрока.</p>
+<p>Возвращает количество предметов в контейнере с тем же ресурсом что и у данного.</p>
 <p></p>
-<h2>BlurpSearch: CategoryLuaApi CategoryContainerLib</h2>
+<p>Типы контейнеров: <a href="EnumItemCont.html"> ITEM_CONT_...</a>.</p>
+<p></p>
+<pre>
+-- библиотека:
+containerLib
+
+-- объявление:
+GetResourceItemStackCount( id, slotType )
+
+-- параметры:
+id: number (ObjectId) or ItemId (ResourceId) - идентификатор предмета
+slotType: number (enum ITEM_CONT_...) - тип контейнера с предметами
+
+
+-- возвращаемые значения:
+number - количество предметов
+</pre>
+<p></p>
+<p>Пример:</p>
+<p></p>
+<pre>
+local count = containerLib.GetResourceItemStackCount( itemId, ITEM_CONT_INVENTORY )
+</pre>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryContainerLib"</h4>
 <p></p>
 <a href="CategoryContainerLib.html">CategoryContainerLib</a>
 <br><a href="EnumItemCont.html">EnumItemCont</a>
@@ -50,6 +74,8 @@
 <p></p>
 <hr>
 <a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryContainerLib.html">CategoryContainerLib</a>
 <hr>
 <p><a href="../Index.html">На главную</a></p>
 </body>

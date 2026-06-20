@@ -6,7 +6,7 @@
 <meta content="text/html; charset=UTF-8" http-equiv="content-type">
             
 <head>
-<title>Пользовательские дополнения - Lua API - CategoryContainerLib</title>
+<title>Пользовательские дополнения - Lua API - FunctionContainerLibGetFirstResourceItemId</title>
 <link href="LuaApi.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -14,11 +14,35 @@
 <p><a href="../Index.html">На главную</a></p>
 <hr>
 <p></p>
-<h1>CategoryContainerLib</h1>
+<h2> containerLib.GetFirstResourceItemId( slotType, id )</h2>
 <p></p>
-<p>Различные методы и события по работе с контейнерами главного игрока.</p>
+<p>Возвращает идентификатор первого предмета в контейнере с тем же ресурсом что и у данного. Если такового предмета в контейнере нет - вернет nil.</p>
 <p></p>
-<h2>BlurpSearch: CategoryLuaApi CategoryContainerLib</h2>
+<p>Типы контейнеров: <a href="EnumItemCont.html"> ITEM_CONT_...</a>.</p>
+<p></p>
+<pre>
+-- библиотека:
+containerLib
+
+-- объявление:
+GetFirstResourceItemId( slotType, id )
+
+-- параметры:
+slotType: number (enum ITEM_CONT_...) - тип контейнера с предметами
+id: number (ObjectId) or ItemId (ResourceId) - идентификатор предмета
+
+
+-- возвращаемые значения:
+ObjectId or nil - идентификатор предмета или nil если подходящих предметов не нашлось
+</pre>
+<p></p>
+<p>Пример:</p>
+<p></p>
+<pre>
+local itemId = containerLib.GetFirstResourceItemId( ITEM_CONT_INVENTORY, itemResourceId )
+</pre>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryContainerLib"</h4>
 <p></p>
 <a href="CategoryContainerLib.html">CategoryContainerLib</a>
 <br><a href="EnumItemCont.html">EnumItemCont</a>
@@ -50,6 +74,8 @@
 <p></p>
 <hr>
 <a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryContainerLib.html">CategoryContainerLib</a>
 <hr>
 <p><a href="../Index.html">На главную</a></p>
 </body>
