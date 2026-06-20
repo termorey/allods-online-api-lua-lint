@@ -22,6 +22,10 @@
 <p></p>
 <p>Всё остальное, что не касается эффектов, при изменении присылает <a href="EventActionPanelElementChanged.html">EVENT_ACTION_PANEL_ELEMENT_CHANGED</a>.</p>
 <p></p>
+<p>Событие ГКД: <a href="EventGlobalCooldown.html"> EVENT_GLOBAL_COOLDOWN</a></p>
+<p></p>
+<p>'''Внимание! Для событий COOLDOWN учитывается только КД самого спелла и КД группы спеллов (разные ранги, умения за слезы и тп). ГКД не учитывается! При начале и окончании ГКД данное событие не приходит'''</p>
+<p></p>
 <pre>
 -- поля:
 effect: number (enum EFFECT_TYPE_...) - тип начавшегося эффекта
@@ -46,9 +50,7 @@ index: number (int)  - индекс элемента на панели упра�
 <br><a href="EventBestFriendTeleportSpellEffect.html">EventBestFriendTeleportSpellEffect</a>
 <br><a href="EventContainerItemEffect.html">EventContainerItemEffect</a>
 <br><a href="EventDefaultSpellEffect.html">EventDefaultSpellEffect</a>
-<br><a href="EventDepositeBoxItemEffect.html">EventDepositeBoxItemEffect</a>
-<br><a href="EventEquipmentItemEffect.html">EventEquipmentItemEffect</a>
-<br><a href="EventInventoryItemEffect.html">EventInventoryItemEffect</a>
+<br><a href="EventGlobalCooldown.html">EventGlobalCooldown</a>
 <br><a href="EventSpellbookElementEffect.html">EventSpellbookElementEffect</a>
 <br><a href="EventUnstuckSpellEffect.html">EventUnstuckSpellEffect</a>
 <p></p>
@@ -94,13 +96,16 @@ index: number (int)  - индекс элемента на панели упра�
 <br><a href="FunctionAvatarBindMountSkinToActionPanel.html">FunctionAvatarBindMountSkinToActionPanel</a>
 <br><a href="FunctionAvatarBindMountToActionPanel.html">FunctionAvatarBindMountToActionPanel</a>
 <br><a href="FunctionAvatarBindSpellToActionPanel.html">FunctionAvatarBindSpellToActionPanel</a>
+<br><a href="FunctionAvatarClearActionPanel.html">FunctionAvatarClearActionPanel</a>
 <br><a href="FunctionAvatarGetActionInfo.html">FunctionAvatarGetActionInfo</a>
 <br><a href="FunctionAvatarGetContextActions.html">FunctionAvatarGetContextActions</a>
 <br><a href="FunctionAvatarGetMaxActionCount.html">FunctionAvatarGetMaxActionCount</a>
 <br><a href="FunctionAvatarGetPetAggroMode.html">FunctionAvatarGetPetAggroMode</a>
 <br><a href="FunctionAvatarGetPetMoveMode.html">FunctionAvatarGetPetMoveMode</a>
 <br><a href="FunctionAvatarIsPetInCombat.html">FunctionAvatarIsPetInCombat</a>
+<br><a href="FunctionAvatarLoadActionPanel.html">FunctionAvatarLoadActionPanel</a>
 <br><a href="FunctionAvatarPetAttack.html">FunctionAvatarPetAttack</a>
+<br><a href="FunctionAvatarSaveActionPanel.html">FunctionAvatarSaveActionPanel</a>
 <br><a href="FunctionAvatarSetPetAggroMode.html">FunctionAvatarSetPetAggroMode</a>
 <br><a href="FunctionAvatarSetPetMoveMode.html">FunctionAvatarSetPetMoveMode</a>
 <br><a href="FunctionAvatarStopCasting.html">FunctionAvatarStopCasting</a>

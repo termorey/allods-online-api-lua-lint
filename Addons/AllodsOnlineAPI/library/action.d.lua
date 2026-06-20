@@ -316,8 +316,8 @@
 ---@overload fun(eventFunction: fun(data: { id: ObjectId }), sysEventName: EVENT_CONTEXT_ACTION_POINT_STARTED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_CONTEXT_ACTIONS_CHANGED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_DO_WARP)
----@overload fun(eventFunction: fun(data: { unitId: ObjectId, healerId: ObjectId | nil, heal: integer, healthLevel: integer, isCritical: boolean, isGlancing: boolean, resisted: integer, runeResisted: integer, absorbed: integer, overload: integer, lethality: number, spellId?: SpellId, abilityId?: AbilityId, buffId?: BuffId, isFall?: boolean; }), sysEventName: EVENT_HEALING_RECEIVED, ObjectId)
----@overload fun(eventFunction: fun(data: { hide: boolean, hideCursor: boolean, toggleTarget: ENUM_InterfaceToggle_Target }), sysEventName: EVENT_INTERFACE_TOGGLE)
+---@overload fun(eventFunction: fun(data: { unitId: ObjectId, healerId: ObjectId | nil, heal: integer, healthLevel: integer, isCritical: boolean, isGlancing: boolean, isLifeSteal: boolean, resisted: integer, runeResisted: integer, absorbed: integer, overload: integer, lethality: number, spellId?: SpellId, abilityId?: AbilityId, buffId?: BuffId, isFall?: boolean; }), sysEventName: EVENT_HEALING_RECEIVED, ObjectId)
+---@overload fun(eventFunction: fun(data: { hide: boolean, hideCursor: boolean, lockInfut: boolean, useCinemaStripes: boolean, toggleTarget: ENUM_InterfaceToggle_Target }), sysEventName: EVENT_INTERFACE_TOGGLE)
 ---@overload fun(eventFunction: fun(data: { sysId: string, text: WString, sysChatChannel: string | nil, values: table<integer, { name: string, viewType: CLIENT_DATA_PARAM | nil, int?: integer, text?: WString }> }), sysEventName: EVENT_LOBBY_CLIENT_MESSAGE)
 --- TODO: ↑ add sysId type
 ---@overload fun(eventFunction: fun(data: { unitId: ObjectId, enabled: boolean }), sysEventName: EVENT_LOOT_MARK)

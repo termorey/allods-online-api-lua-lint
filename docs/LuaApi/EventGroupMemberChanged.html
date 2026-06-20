@@ -21,7 +21,7 @@
 <pre>
 -- поля:
 name: WString - имя персонажа
-uniqueId: UniqueId или nil - постоянный идентификатор аватара (не меняется при релогинах), чьё состояние изменилось (см. group.GetMembers() и group.GetMemberInfoById(uniqueId), поле uniqueId в обоих случаях); nil если это наёмник-моб
+uniqueId: UniqueId или nil - постоянный идентификатор аватара (не меняется при релогинах), чьё состояние изменилось (см. group.GetMembers() и group.GetMemberInfo(id), поле uniqueId в обоих случаях); nil если это наёмник-моб
 id: ObjectId или nil - идентификатор члена группы; nil, если его нет поблизости (порвалась связь, в другой зоне и т.д.)
 </pre>
 <p></p>
@@ -74,7 +74,6 @@ id: ObjectId или nil - идентификатор члена группы; ni
 <br><a href="FunctionGroupDecline.html">FunctionGroupDecline</a>
 <br><a href="FunctionGroupGetInviteInfo.html">FunctionGroupGetInviteInfo</a>
 <br><a href="FunctionGroupGetLeader.html">FunctionGroupGetLeader</a>
-<br><a href="FunctionGroupGetLeaderIndex.html">FunctionGroupGetLeaderIndex</a>
 <br><a href="FunctionGroupGetMemberInfo.html">FunctionGroupGetMemberInfo</a>
 <br><a href="FunctionGroupGetMemberInfoByIndex.html">FunctionGroupGetMemberInfoByIndex</a>
 <br><a href="FunctionGroupGetMembers.html">FunctionGroupGetMembers</a>

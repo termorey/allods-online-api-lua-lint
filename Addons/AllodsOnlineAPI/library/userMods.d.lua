@@ -12,8 +12,8 @@
 ---@alias EVENT_ADDON_HEALTH_CHANGED "EVENT_ADDON_HEALTH_CHANGED"
 ---@alias EVENT_ADDON_REDUCE_PERFOMANCE "EVENT_ADDON_REDUCE_PERFOMANCE"
 
----@overload fun(eventFunction: fun(data: { name: string, status: ENUM_ADDON_HEALTH_STATUS }), sysEventName: EVENT_ADDON_HEALTH_CHANGED)
----@overload fun(eventFunction: fun(data: { name: WString, sysName: string, deltaFps: number, maxDeltaFps: number }), sysEventName: EVENT_ADDON_REDUCE_PERFOMANCE)
+---@overload fun(eventFunction: fun(data: { sysName: string, status: ENUM_ADDON_HEALTH_STATUS }), sysEventName: EVENT_ADDON_HEALTH_CHANGED)
+---@overload fun(eventFunction: fun(data: { sysName: WString, timeMs: string, deltaFps: number, maxDeltaFps: number }), sysEventName: EVENT_ADDON_REDUCE_PERFOMANCE)
 function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
 
 --[[ FUNCTIONS ]]
