@@ -116,6 +116,14 @@ function BattlegroundMarkId:GetInstanceId() end
 ---@return boolean
 function BattlegroundMarkId:IsEqual( resourceId ) end
 
+---@class GlossaryId
+GlossaryId = {}
+---@return { name: WString, image: TextureId }
+function LifestyleCategoryId:GetInfo() end
+
+---@class UITextureId
+UITextureId = {}
+
 ---@class LifestyleCategoryId
 LifestyleCategoryId = {}
 ---@return { name: WString, description: string }
