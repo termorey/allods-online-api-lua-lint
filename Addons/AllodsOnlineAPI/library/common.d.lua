@@ -111,6 +111,11 @@ function common.GetAddonRelatedTextGroup( sysGroup, optional ) end
 ---@return RelatedTexturesLua | nil
 function common.GetAddonRelatedTextureGroup( sysGroup, optional ) end
 
+---@param sysGroup string # идентификатор группы
+---@param optional boolean | nil # если true, то отсутствие искомой группы не считается ошибкой (по умолчанию false)
+---@return RelatedWidgetsLua | nil # группа шаблонов виджетов или nil в случае если группа не найдена
+function common.GetAddonRelatedWidgetGroup( sysGroup, optional ) end
+
 ---GetAllodsGoals
 ---@return table<integer, { goalId: ObjectId, state: integer, locator: nil | { zoneId: ObjectId, position: GamePosition }, stages: nil | table<integer, { goalId: ObjectId, state: integer, locator: nil | { zoneId: ObjectId, position: GamePosition } }> }>
 function common.GetAllodsGoals () end
@@ -243,6 +248,11 @@ function common.GetStateRelatedTextGroup( sysGroup, optional ) end
 ---@param optional boolean | nil
 ---@return RelatedTexturesLua | nil
 function common.GetStateRelatedTextureGroup( sysGroup, optional ) end
+
+---@param sysGroup string
+---@param optional boolean | nil
+---@return RelatedTexturesLua | nil
+function common.GetStateRelatedWidgetGroup( sysGroup, optional ) end
 
 ---GetTerritoryInfo
 ---@return { ignoreAutoShard: boolean, showZoneSection: boolean, showRaitingInfo: boolean }

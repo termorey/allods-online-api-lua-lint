@@ -52,6 +52,18 @@
 ---@alias TimeEntry table
 ---@alias Locale "ru" | "en" | "de" | string
 ---@alias Localization "rus" | string
+---@alias RelatedWidgetsLua any
+
+---@class RelatedWidgetsLua
+RelatedWidgetsLua = {}
+---@return table<integer, string>
+function RelatedWidgetsLua:GetList() end
+---@param sysName string
+---@return WidgetDesc | nil
+function RelatedWidgetsLua:GetWidget( sysName ) end
+---@param sysName string
+---@return boolean
+function RelatedWidgetsLua:HasWidget( sysName ) end
 
 ---@class ButtonSafe
 ButtonSafe = {}
