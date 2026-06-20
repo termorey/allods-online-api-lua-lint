@@ -541,6 +541,9 @@ function avatar.DiscardQuest( questId ) end
 
 function avatar.DistributeStatPoints() end
 
+---@param spellId SpellId # идентификатор заклинания
+function avatar.DropSpell( spellId ) end
+
 ---@param itemId ObjectId # идентификатор конвертируемого метапредмета в контейнере; должен быть метапредметом-улучшителем (иное считается ошибкой и команда игнорируется), проверяется с помощью avatar.GetItemMetaInfo( itemId ) по флагу isMetaEnchancer
 ---@param instrumentId ObjectId # идентификатор инструмента в контейнере; должен быть специализированным преметом-дубликатором, иное считается ошибкой (иное считается ошибкой и команда игнорируется), проверяется с помощью avatar.IsMetaEnhancerDuplicator( itemId )
 function avatar.DuplicateMetaEnhancerItem( itemId, instrumentId ) end
@@ -1354,6 +1357,9 @@ function avatar.LoadActionPanel( sysClass, buildIndex, data ) end
 function avatar.OpenBox( boxId, quantity ) end
 
 function avatar.PetAttack() end
+
+---@param spellId SpellId # идентификатор заклинания
+function avatar.PrepareSpell( spellId ) end
 
 ---@param itemId nil | ObjectId # идентификатор ингридиента (предмета из инвентаря). nil - очистить слот
 ---@param slot integer # номер барабана (слота)

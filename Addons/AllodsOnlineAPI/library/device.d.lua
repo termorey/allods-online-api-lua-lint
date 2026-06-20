@@ -168,8 +168,8 @@ function device.NavigatorGetTarget() end
 ---@return ObjectId | nil
 function device.NavigatorGetZoomedObject() end
 
----@param objectId ObjectId | nil
+---@param objectId ObjectId | nil # идентификатор транспорта или астрального юнита, или nil, если надо сбросить цель
 function device.NavigatorSetTarget( objectId ) end
 
----@param objectId ObjectId | nil
+---@param objectId ObjectId | nil # идентификатор корабля или астрального юнита, или nil, если надо отзумиться
 function device.NavigatorZoom( objectId ) end

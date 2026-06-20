@@ -16,7 +16,7 @@
 <p></p>
 <h2> avatar.RunUsableDeviceActionPoint( index, pos )</h2>
 <p></p>
-<p>Попытка выполнить одно из действий устройства на точку местности. Список действий можно узнать через функцию <a href="FunctionAvatarGetUsableDeviceInfo.html"> GetUsableDeviceInfo</a>.</p>
+<p>Попытка выполнить одно из действий устройства на точку местности. Список действий можно узнать через функцию  GetUsableDeviceInfo (закрытая ссылка).</p>
 <p></p>
 <p>ВНИМАНИЕ! В пользовательских аддонах есть ограничение: этот метод будет работать только в обработчиках реакции на действия (не перемещение) мыши. То есть на нажатие кнопки.</p>
 <p></p>
@@ -262,6 +262,7 @@ avatar.RunUsableDeviceActionPoint( index, pos )
 <br><a href="FunctionAvatarChangeFairyBonus.html">FunctionAvatarChangeFairyBonus</a>
 <br><a href="FunctionAvatarCheckCanUseItem.html">FunctionAvatarCheckCanUseItem</a>
 <br><a href="FunctionAvatarCheckCanUseItemOnPoint.html">FunctionAvatarCheckCanUseItemOnPoint</a>
+<br><a href="FunctionAvatarClearActionPanel.html">FunctionAvatarClearActionPanel</a>
 <br><a href="FunctionAvatarClearMood.html">FunctionAvatarClearMood</a>
 <br><a href="FunctionAvatarClearStoredTalents.html">FunctionAvatarClearStoredTalents</a>
 <br><a href="FunctionAvatarCloseLootBag.html">FunctionAvatarCloseLootBag</a>
@@ -273,16 +274,14 @@ avatar.RunUsableDeviceActionPoint( index, pos )
 <br><a href="FunctionAvatarEnableClientDetector.html">FunctionAvatarEnableClientDetector</a>
 <br><a href="FunctionAvatarEnableFreeKeys.html">FunctionAvatarEnableFreeKeys</a>
 <br><a href="FunctionAvatarEndInspect.html">FunctionAvatarEndInspect</a>
-<br><a href="FunctionAvatarEquipItem.html">FunctionAvatarEquipItem</a>
 <br><a href="FunctionAvatarEquipItemById.html">FunctionAvatarEquipItemById</a>
 <br><a href="FunctionAvatarEquipItemByIdToSlot.html">FunctionAvatarEquipItemByIdToSlot</a>
-<br><a href="FunctionAvatarEquipItemToSlot.html">FunctionAvatarEquipItemToSlot</a>
 <br><a href="FunctionAvatarFinallyRespawn.html">FunctionAvatarFinallyRespawn</a>
+<br><a href="FunctionAvatarFindCurrentSecretComponentQuest.html">FunctionAvatarFindCurrentSecretComponentQuest</a>
 <br><a href="FunctionAvatarFindNextQuest.html">FunctionAvatarFindNextQuest</a>
 <br><a href="FunctionAvatarFindNextSecretComponentQuest.html">FunctionAvatarFindNextSecretComponentQuest</a>
 <br><a href="FunctionAvatarGetAbilities.html">FunctionAvatarGetAbilities</a>
 <br><a href="FunctionAvatarGetAbilityInfo.html">FunctionAvatarGetAbilityInfo</a>
-<br><a href="FunctionAvatarGetAbilityReplacementSpell.html">FunctionAvatarGetAbilityReplacementSpell</a>
 <br><a href="FunctionAvatarGetAbilityReplacementSpells.html">FunctionAvatarGetAbilityReplacementSpells</a>
 <br><a href="FunctionAvatarGetAbilityValuedObject.html">FunctionAvatarGetAbilityValuedObject</a>
 <br><a href="FunctionAvatarGetAchievementValue.html">FunctionAvatarGetAchievementValue</a>
@@ -302,20 +301,20 @@ avatar.RunUsableDeviceActionPoint( index, pos )
 <br><a href="FunctionAvatarGetBaseTalentInfo.html">FunctionAvatarGetBaseTalentInfo</a>
 <br><a href="FunctionAvatarGetBaseTalentTableSize.html">FunctionAvatarGetBaseTalentTableSize</a>
 <br><a href="FunctionAvatarGetBindedTransport.html">FunctionAvatarGetBindedTransport</a>
-<br><a href="FunctionAvatarGetBuffInfoById.html">FunctionAvatarGetBuffInfoById</a>
 <br><a href="FunctionAvatarGetBuffValuedObject.html">FunctionAvatarGetBuffValuedObject</a>
 <br><a href="FunctionAvatarGetBuildsCount.html">FunctionAvatarGetBuildsCount</a>
+<br><a href="FunctionAvatarGetBuildsUnlockedCount.html">FunctionAvatarGetBuildsUnlockedCount</a>
 <br><a href="FunctionAvatarGetBuildSwitchSpell.html">FunctionAvatarGetBuildSwitchSpell</a>
 <br><a href="FunctionAvatarGetCategoryCurrencies.html">FunctionAvatarGetCategoryCurrencies</a>
 <br><a href="FunctionAvatarGetChannelsInfo.html">FunctionAvatarGetChannelsInfo</a>
 <br><a href="FunctionAvatarGetClass.html">FunctionAvatarGetClass</a>
+<br><a href="FunctionAvatarGetClassChangeData.html">FunctionAvatarGetClassChangeData</a>
 <br><a href="FunctionAvatarGetClassChangerBonusStats.html">FunctionAvatarGetClassChangerBonusStats</a>
 <br><a href="FunctionAvatarGetClassChangerInfo.html">FunctionAvatarGetClassChangerInfo</a>
 <br><a href="FunctionAvatarGetClassChangerRangeBonusStats.html">FunctionAvatarGetClassChangerRangeBonusStats</a>
 <br><a href="FunctionAvatarGetClassId.html">FunctionAvatarGetClassId</a>
 <br><a href="FunctionAvatarGetCommonFieldTalentInfo.html">FunctionAvatarGetCommonFieldTalentInfo</a>
 <br><a href="FunctionAvatarGetComponentInfo.html">FunctionAvatarGetComponentInfo</a>
-<br><a href="FunctionAvatarGetContainerItem.html">FunctionAvatarGetContainerItem</a>
 <br><a href="FunctionAvatarGetContextActionCooldown.html">FunctionAvatarGetContextActionCooldown</a>
 <br><a href="FunctionAvatarGetContextActionInfo.html">FunctionAvatarGetContextActionInfo</a>
 <br><a href="FunctionAvatarGetContextActions.html">FunctionAvatarGetContextActions</a>
@@ -336,7 +335,6 @@ avatar.RunUsableDeviceActionPoint( index, pos )
 <br><a href="FunctionAvatarGetEmoteInfo.html">FunctionAvatarGetEmoteInfo</a>
 <br><a href="FunctionAvatarGetEmotes.html">FunctionAvatarGetEmotes</a>
 <br><a href="FunctionAvatarGetEngineerPetCommands.html">FunctionAvatarGetEngineerPetCommands</a>
-<br><a href="FunctionAvatarGetEquipmentItemSlot.html">FunctionAvatarGetEquipmentItemSlot</a>
 <br><a href="FunctionAvatarGetExperience.html">FunctionAvatarGetExperience</a>
 <br><a href="FunctionAvatarGetExpToLevel.html">FunctionAvatarGetExpToLevel</a>
 <br><a href="FunctionAvatarGetFactionInfo.html">FunctionAvatarGetFactionInfo</a>
@@ -344,12 +342,16 @@ avatar.RunUsableDeviceActionPoint( index, pos )
 <br><a href="FunctionAvatarGetFieldTalentInfo.html">FunctionAvatarGetFieldTalentInfo</a>
 <br><a href="FunctionAvatarGetFieldTalentTableSize.html">FunctionAvatarGetFieldTalentTableSize</a>
 <br><a href="FunctionAvatarGetGearScoreInfo.html">FunctionAvatarGetGearScoreInfo</a>
+<br><a href="FunctionAvatarGetGlobalCooldown.html">FunctionAvatarGetGlobalCooldown</a>
+<br><a href="FunctionAvatarGetGlossaryDescription.html">FunctionAvatarGetGlossaryDescription</a>
 <br><a href="FunctionAvatarGetHealthRegen.html">FunctionAvatarGetHealthRegen</a>
 <br><a href="FunctionAvatarGetHearthStoneCooldown.html">FunctionAvatarGetHearthStoneCooldown</a>
 <br><a href="FunctionAvatarGetHearthStoneLocator.html">FunctionAvatarGetHearthStoneLocator</a>
 <br><a href="FunctionAvatarGetHearthStoneSpell.html">FunctionAvatarGetHearthStoneSpell</a>
 <br><a href="FunctionAvatarGetId.html">FunctionAvatarGetId</a>
+<br><a href="FunctionAvatarGetInfiniteUnlockCategories.html">FunctionAvatarGetInfiniteUnlockCategories</a>
 <br><a href="FunctionAvatarGetInfiniteUnlocks.html">FunctionAvatarGetInfiniteUnlocks</a>
+<br><a href="FunctionAvatarGetInfiniteUnlocksInCategory.html">FunctionAvatarGetInfiniteUnlocksInCategory</a>
 <br><a href="FunctionAvatarGetInnateStatDescription.html">FunctionAvatarGetInnateStatDescription</a>
 <br><a href="FunctionAvatarGetInnateStats.html">FunctionAvatarGetInnateStats</a>
 <br><a href="FunctionAvatarGetInspectInfo.html">FunctionAvatarGetInspectInfo</a>
@@ -359,16 +361,9 @@ avatar.RunUsableDeviceActionPoint( index, pos )
 <br><a href="FunctionAvatarGetInteractorNextCues.html">FunctionAvatarGetInteractorNextCues</a>
 <br><a href="FunctionAvatarGetInteractorTeleportLocations.html">FunctionAvatarGetInteractorTeleportLocations</a>
 <br><a href="FunctionAvatarGetInterlocutor.html">FunctionAvatarGetInterlocutor</a>
-<br><a href="FunctionAvatarGetInventoryBagItemId.html">FunctionAvatarGetInventoryBagItemId</a>
-<br><a href="FunctionAvatarGetInventoryItemId.html">FunctionAvatarGetInventoryItemId</a>
-<br><a href="FunctionAvatarGetInventoryItemIds.html">FunctionAvatarGetInventoryItemIds</a>
-<br><a href="FunctionAvatarGetInventoryItemSlot.html">FunctionAvatarGetInventoryItemSlot</a>
-<br><a href="FunctionAvatarGetInventoryOverflowItemIds.html">FunctionAvatarGetInventoryOverflowItemIds</a>
-<br><a href="FunctionAvatarGetInventoryOverflowSize.html">FunctionAvatarGetInventoryOverflowSize</a>
-<br><a href="FunctionAvatarGetInventorySize.html">FunctionAvatarGetInventorySize</a>
 <br><a href="FunctionAvatarGetItemClassList.html">FunctionAvatarGetItemClassList</a>
 <br><a href="FunctionAvatarGetKills.html">FunctionAvatarGetKills</a>
-<br><a href="FunctionAvatarGetLayerRelatedSpells.html">FunctionAvatarGetLayerRelatedSpells</a>
+<br><a href="FunctionAvatarGetLinkedTalents.html">FunctionAvatarGetLinkedTalents</a>
 <br><a href="FunctionAvatarGetLootBagSlotCount.html">FunctionAvatarGetLootBagSlotCount</a>
 <br><a href="FunctionAvatarGetLootBagSlots.html">FunctionAvatarGetLootBagSlots</a>
 <br><a href="FunctionAvatarGetMainhandSpeed.html">FunctionAvatarGetMainhandSpeed</a>
@@ -413,13 +408,14 @@ avatar.RunUsableDeviceActionPoint( index, pos )
 <br><a href="FunctionAvatarGetReputationValue.html">FunctionAvatarGetReputationValue</a>
 <br><a href="FunctionAvatarGetResistances.html">FunctionAvatarGetResistances</a>
 <br><a href="FunctionAvatarGetReturnableQuests.html">FunctionAvatarGetReturnableQuests</a>
+<br><a href="FunctionAvatarGetRitualActivePreset.html">FunctionAvatarGetRitualActivePreset</a>
 <br><a href="FunctionAvatarGetRubyStartLevel.html">FunctionAvatarGetRubyStartLevel</a>
-<br><a href="FunctionAvatarGetSameBindingStackCount.html">FunctionAvatarGetSameBindingStackCount</a>
 <br><a href="FunctionAvatarGetSecondhandList.html">FunctionAvatarGetSecondhandList</a>
 <br><a href="FunctionAvatarGetSecretComponents.html">FunctionAvatarGetSecretComponents</a>
 <br><a href="FunctionAvatarGetSecretInfo.html">FunctionAvatarGetSecretInfo</a>
 <br><a href="FunctionAvatarGetSecrets.html">FunctionAvatarGetSecrets</a>
 <br><a href="FunctionAvatarGetServerId.html">FunctionAvatarGetServerId</a>
+<br><a href="FunctionAvatarGetShardLevelCap.html">FunctionAvatarGetShardLevelCap</a>
 <br><a href="FunctionAvatarGetSkillInfo.html">FunctionAvatarGetSkillInfo</a>
 <br><a href="FunctionAvatarGetSkills.html">FunctionAvatarGetSkills</a>
 <br><a href="FunctionAvatarGetSparkCost.html">FunctionAvatarGetSparkCost</a>
@@ -435,7 +431,9 @@ avatar.RunUsableDeviceActionPoint( index, pos )
 <br><a href="FunctionAvatarGetTalentSelectMinLevel.html">FunctionAvatarGetTalentSelectMinLevel</a>
 <br><a href="FunctionAvatarGetTeleportLocationInfo.html">FunctionAvatarGetTeleportLocationInfo</a>
 <br><a href="FunctionAvatarGetTeleportLocations.html">FunctionAvatarGetTeleportLocations</a>
+<br><a href="FunctionAvatarGetTemporaryUnlockCategories.html">FunctionAvatarGetTemporaryUnlockCategories</a>
 <br><a href="FunctionAvatarGetTemporaryUnlocks.html">FunctionAvatarGetTemporaryUnlocks</a>
+<br><a href="FunctionAvatarGetTemporaryUnlocksInCategory.html">FunctionAvatarGetTemporaryUnlocksInCategory</a>
 <br><a href="FunctionAvatarGetTimeAfterRespawn.html">FunctionAvatarGetTimeAfterRespawn</a>
 <br><a href="FunctionAvatarGetTransportList.html">FunctionAvatarGetTransportList</a>
 <br><a href="FunctionAvatarGetUniqueId.html">FunctionAvatarGetUniqueId</a>
@@ -444,7 +442,6 @@ avatar.RunUsableDeviceActionPoint( index, pos )
 <br><a href="FunctionAvatarGetUnlockInfo.html">FunctionAvatarGetUnlockInfo</a>
 <br><a href="FunctionAvatarGetUnlocks.html">FunctionAvatarGetUnlocks</a>
 <br><a href="FunctionAvatarGetUnlocksInCategory.html">FunctionAvatarGetUnlocksInCategory</a>
-<br><a href="FunctionAvatarGetUsableDeviceInfo.html">FunctionAvatarGetUsableDeviceInfo</a>
 <br><a href="FunctionAvatarGetVariableInfo.html">FunctionAvatarGetVariableInfo</a>
 <br><a href="FunctionAvatarGetVariables.html">FunctionAvatarGetVariables</a>
 <br><a href="FunctionAvatarGetVendorBuyback.html">FunctionAvatarGetVendorBuyback</a>
@@ -459,8 +456,8 @@ avatar.RunUsableDeviceActionPoint( index, pos )
 <br><a href="FunctionAvatarHasHearthStone.html">FunctionAvatarHasHearthStone</a>
 <br><a href="FunctionAvatarHasInteractorCue.html">FunctionAvatarHasInteractorCue</a>
 <br><a href="FunctionAvatarHasInteractorQuest.html">FunctionAvatarHasInteractorQuest</a>
-<br><a href="FunctionAvatarHasItemGuildComponent.html">FunctionAvatarHasItemGuildComponent</a>
 <br><a href="FunctionAvatarHasPsionicChannel.html">FunctionAvatarHasPsionicChannel</a>
+<br><a href="FunctionAvatarHasSpell.html">FunctionAvatarHasSpell</a>
 <br><a href="FunctionAvatarHasUnlock.html">FunctionAvatarHasUnlock</a>
 <br><a href="FunctionAvatarInventoryCanPlaceItemToSlot.html">FunctionAvatarInventoryCanPlaceItemToSlot</a>
 <br><a href="FunctionAvatarInventoryGetBaseBagSlotCount.html">FunctionAvatarInventoryGetBaseBagSlotCount</a>
@@ -468,25 +465,19 @@ avatar.RunUsableDeviceActionPoint( index, pos )
 <br><a href="FunctionAvatarInventoryGetPocketIndexBySlot.html">FunctionAvatarInventoryGetPocketIndexBySlot</a>
 <br><a href="FunctionAvatarInventoryGetPocketInfo.html">FunctionAvatarInventoryGetPocketInfo</a>
 <br><a href="FunctionAvatarInventoryGetPocketsCount.html">FunctionAvatarInventoryGetPocketsCount</a>
-<br><a href="FunctionAvatarInventoryMoveItem.html">FunctionAvatarInventoryMoveItem</a>
-<br><a href="FunctionAvatarInventorySplitItem.html">FunctionAvatarInventorySplitItem</a>
 <br><a href="FunctionAvatarIsAbleToMove.html">FunctionAvatarIsAbleToMove</a>
 <br><a href="FunctionAvatarIsAlchemyComponentsReady.html">FunctionAvatarIsAlchemyComponentsReady</a>
 <br><a href="FunctionAvatarIsAlchemyLineAvailable.html">FunctionAvatarIsAlchemyLineAvailable</a>
 <br><a href="FunctionAvatarIsAlive.html">FunctionAvatarIsAlive</a>
-<br><a href="FunctionAvatarIsBuffDisease.html">FunctionAvatarIsBuffDisease</a>
-<br><a href="FunctionAvatarIsBuffMagic.html">FunctionAvatarIsBuffMagic</a>
-<br><a href="FunctionAvatarIsBuffPoison.html">FunctionAvatarIsBuffPoison</a>
 <br><a href="FunctionAvatarIsClientDetectorEnabled.html">FunctionAvatarIsClientDetectorEnabled</a>
 <br><a href="FunctionAvatarIsConditionValid.html">FunctionAvatarIsConditionValid</a>
 <br><a href="FunctionAvatarIsExist.html">FunctionAvatarIsExist</a>
+<br><a href="FunctionAvatarIsFastLevelUpAvailable.html">FunctionAvatarIsFastLevelUpAvailable</a>
 <br><a href="FunctionAvatarIsInRespawn.html">FunctionAvatarIsInRespawn</a>
 <br><a href="FunctionAvatarIsInspectAllowed.html">FunctionAvatarIsInspectAllowed</a>
 <br><a href="FunctionAvatarIsInteractorRootCue.html">FunctionAvatarIsInteractorRootCue</a>
 <br><a href="FunctionAvatarIsInteractorTrainer.html">FunctionAvatarIsInteractorTrainer</a>
 <br><a href="FunctionAvatarIsInteractorVendor.html">FunctionAvatarIsInteractorVendor</a>
-<br><a href="FunctionAvatarIsInventoryMoveItemModified.html">FunctionAvatarIsInventoryMoveItemModified</a>
-<br><a href="FunctionAvatarIsItemEnabledForActions.html">FunctionAvatarIsItemEnabledForActions</a>
 <br><a href="FunctionAvatarIsItemsStackable.html">FunctionAvatarIsItemsStackable</a>
 <br><a href="FunctionAvatarIsLootBagOpen.html">FunctionAvatarIsLootBagOpen</a>
 <br><a href="FunctionAvatarIsMetaEnhancerDuplicator.html">FunctionAvatarIsMetaEnhancerDuplicator</a>
@@ -501,6 +492,7 @@ avatar.RunUsableDeviceActionPoint( index, pos )
 <br><a href="FunctionAvatarIsTargetInspected.html">FunctionAvatarIsTargetInspected</a>
 <br><a href="FunctionAvatarIsTeleportLocationValid.html">FunctionAvatarIsTeleportLocationValid</a>
 <br><a href="FunctionAvatarIsWalkMode.html">FunctionAvatarIsWalkMode</a>
+<br><a href="FunctionAvatarLoadActionPanel.html">FunctionAvatarLoadActionPanel</a>
 <br><a href="FunctionAvatarOpenBox.html">FunctionAvatarOpenBox</a>
 <br><a href="FunctionAvatarPutAlchemyItemToSlot.html">FunctionAvatarPutAlchemyItemToSlot</a>
 <br><a href="FunctionAvatarRequestInteractions.html">FunctionAvatarRequestInteractions</a>
@@ -512,6 +504,7 @@ avatar.RunUsableDeviceActionPoint( index, pos )
 <br><a href="FunctionAvatarReturnToStartCue.html">FunctionAvatarReturnToStartCue</a>
 <br><a href="FunctionAvatarRunUsableDeviceAction.html">FunctionAvatarRunUsableDeviceAction</a>
 <br><a href="FunctionAvatarRunUsableDeviceActionPoint.html">FunctionAvatarRunUsableDeviceActionPoint</a>
+<br><a href="FunctionAvatarSaveActionPanel.html">FunctionAvatarSaveActionPanel</a>
 <br><a href="FunctionAvatarSelectInteractorCue.html">FunctionAvatarSelectInteractorCue</a>
 <br><a href="FunctionAvatarSelectTarget.html">FunctionAvatarSelectTarget</a>
 <br><a href="FunctionAvatarSetActiveBuild.html">FunctionAvatarSetActiveBuild</a>
@@ -521,6 +514,7 @@ avatar.RunUsableDeviceActionPoint( index, pos )
 <br><a href="FunctionAvatarSetFollowTarget.html">FunctionAvatarSetFollowTarget</a>
 <br><a href="FunctionAvatarSetPetActiveSpell.html">FunctionAvatarSetPetActiveSpell</a>
 <br><a href="FunctionAvatarSetPetAggroMode.html">FunctionAvatarSetPetAggroMode</a>
+<br><a href="FunctionAvatarSetRitualActivePreset.html">FunctionAvatarSetRitualActivePreset</a>
 <br><a href="FunctionAvatarSetViewedBuild.html">FunctionAvatarSetViewedBuild</a>
 <br><a href="FunctionAvatarSetWalkMode.html">FunctionAvatarSetWalkMode</a>
 <br><a href="FunctionAvatarShareQuest.html">FunctionAvatarShareQuest</a>
@@ -558,7 +552,6 @@ avatar.RunUsableDeviceActionPoint( index, pos )
 <br><a href="FunctionGuildApplyStoredTalents.html">FunctionGuildApplyStoredTalents</a>
 <br><a href="FunctionGuildCanDropTalent.html">FunctionGuildCanDropTalent</a>
 <br><a href="FunctionGuildCanLearnTalent.html">FunctionGuildCanLearnTalent</a>
-<br><a href="FunctionGuildCanUpdateTalent.html">FunctionGuildCanUpdateTalent</a>
 <br><a href="FunctionGuildClearStoredTalents.html">FunctionGuildClearStoredTalents</a>
 <br><a href="FunctionGuildDropTalent.html">FunctionGuildDropTalent</a>
 <br><a href="FunctionGuildGetCommonTalentsInfo.html">FunctionGuildGetCommonTalentsInfo</a>
