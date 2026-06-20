@@ -156,6 +156,9 @@ function astral.GetSectorRelatedQuests( sectorId ) end
 ---@return table<integer, ObjectId> # список идентификаторов астральных юнитов (индексирован с 1)
 function astral.GetUnits() end
 
+---@return boolean # true, если игрок в астральном хабе
+function astral.IsInHub() end
+
 ---@param playerId ObjectId # идентификатор игрока
 ---@param sectorId ObjectId # идентификатор астрального сектора
 ---@return boolean # исследован ли сектор

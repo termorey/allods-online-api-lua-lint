@@ -6,7 +6,7 @@
 <meta content="text/html; charset=UTF-8" http-equiv="content-type">
             
 <head>
-<title>Пользовательские дополнения - Lua API - CategoryAstralLua</title>
+<title>Пользовательские дополнения - Lua API - FunctionAstralIsInHub</title>
 <link href="LuaApi.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -14,9 +14,26 @@
 <p><a href="../Index.html">На главную</a></p>
 <hr>
 <p></p>
-<h1>CategoryAstralLua</h1>
+<h2> astral.IsInHub()</h2>
 <p></p>
-<p>Методы и события для работы с астральными объектами и пр., связанным с астралом.</p>
+<p>Проверяет находится ли игрок в астральном хабе</p>
+<p></p>
+<pre>
+-- библиотека:
+astral
+
+-- объявление:
+function IsInHub()
+
+-- параметры:
+нет
+
+-- возвращаемые значения:
+boolean - true, если игрок в астральном хабе.
+
+-- пример:
+local inHub = astral.IsInHub()
+</pre>
 <p></p>
 <h4>Search: "CategoryLuaApi" "CategoryAstralLua"</h4>
 <p></p>
@@ -69,6 +86,9 @@
 <br><a href="FunctionAstralIsSectorKnownForPlayer.html">FunctionAstralIsSectorKnownForPlayer</a>
 <p></p>
 <hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryAstralLua.html">CategoryAstralLua</a>
 <hr>
 <p><a href="../Index.html">На главную</a></p>
 </body>
