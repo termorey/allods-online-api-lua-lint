@@ -324,6 +324,10 @@ function unit.GetRuneWoundsComplexity( unitId ) end
 ---@return nil | { sex: SEX, name: WString, raceSexName: WString }
 function unit.GetSex(id) end
 
+---@param unitId ObjectId # идентификатор юнита
+---@return ENUM_CreatureRace # раса существа
+function unit.GetSysRace(id) end
+
 ---@param unitId ObjectId
 ---@return ObjectId | nil
 function unit.GetTarget( unitId ) end

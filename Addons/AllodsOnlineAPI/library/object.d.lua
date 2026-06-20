@@ -232,6 +232,14 @@ function object.IsInCombat( objectId ) end
 ---@return boolean # если находится в радиусе взаимодействия - true, иначе - false
 function object.IsInUsageRange( objectId ) end
 
+---@param objectId ObjectId # идентификатор объекта
+---@return boolean # true - объект является ммобом, false - объект не является мобом
+function object.IsMob( objectId ) end
+
+---@param objectId ObjectId # идентификатор объекта
+---@return boolean # объект является игроком, false - объект не является игроком
+function object.IsPlayer( objectId ) end
+
 ---@param id ObjectId
 ---@return boolean # true, если объект является транспортом
 function object.IsTransport( id ) end
