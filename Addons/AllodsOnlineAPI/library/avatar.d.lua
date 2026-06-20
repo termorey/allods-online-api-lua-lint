@@ -519,6 +519,8 @@ function avatar.CheckCanUseItem( itemId, isSendEvent ) end
 --- TODO: check position type
 function avatar.CheckCanUseItemOnPoint( itemId, position, isSendEvent )  end
 
+function avatar.ClearActionPanel() end
+
 function avatar.ClearMood() end
 
 function avatar.ClearStoredTalents() end
@@ -560,6 +562,11 @@ function avatar.EquipItemById( itemId ) end
 function avatar.EquipItemByIdToSlot( itemId, equipSlot ) end
 
 function avatar.FinallyRespawn() end
+
+---@param secretId # QuestId - id основного квеста тайны мира
+---@param componentIndex # num - порядковый номер интересующей компоненты (берется из avatar.GetSecretComponents( secretId ))
+---@return QuestId | nil # id текущего квеста для выбранного этапа. nil в случае отсутствия у аватара такового.
+function  avatar.FindCurrentSecretComponentQuest( secretId, componentIndex ) end
 
 ---@param mode QUEST_FIND_NEXT_QUEST_MODE # где искать следующий квест (зона, в которой находится аватар или весь игровой мир)
 ---@return boolean # TODO: check
@@ -658,6 +665,9 @@ function avatar.GetBuffValuedObject( buffId ) end
 ---@return nil | integer # количество доступных специализации аватара; если ошибка, то nil
 function avatar.GetBuildsCount() end
 
+---@return integer # количество доступных специализации аватара
+function avatar.GetBuildsUnlockedCount() end
+
 ---@return QuestId # id спелла, переключающего специализацию аватара
 --- TODO: not a SpellId ?
 function avatar.GetBuildSwitchSpell() end
@@ -671,6 +681,9 @@ function avatar.GetChannelsInfo() end
 
 ---@return string
 function avatar.GetClass() end
+
+---@return { freeClassChangeSpell: SpellId }
+function avatar.GetClassChangeData() end
 
 ---@param changeList table
 ---@return unknown
@@ -795,6 +808,13 @@ function avatar.GetFreeStatPointsToDistribute() end
 ---@return nil | { currentValue: number, levelPass: table<integer, number>, levelsRecipe: table<integer, number> }
 function avatar.GetGearScoreInfo() end
 
+---@return { duration: integer, remaining: integer }
+function avatar.GetGlobalCooldown() end
+
+---@param glossaryId GlossaryId # идентификатор ресурса глоссария
+---@return ValuedText # описание с подставленными значениями descVars
+function avatar.GetGlossaryDescription( glossaryId ) end
+
 ---@return table<integer, { isCustom: boolean, type: ENUM_GlobalScalerType | nil, sysType: ENUM_GlobalScalerType | nil, title: string | nil, description: string | nil, value: number, remainingMs: integer | nil }>
 function avatar.GetGlobalRates() end
 
@@ -816,8 +836,15 @@ function avatar.GetId() end
 ---@return nil | table<integer, InnateStats>
 function avatar.GetImprovedInnateStats() end
 
+---@return table<integer, UnlockCategoryId>
+function avatar.GetInfiniteUnlockCategories() end
+
 ---@return nil | table<integer, ObjectId> # nil если анлоков нет; индексированная с 1 таблица с идентификаторами возможностей
 function avatar.GetInfiniteUnlocks() end
+
+---@param unlockCategoryId UnlockCategoryId # идентификатор типа категории возможностей (анлоков)
+---@return table<integer, ObjectId> # индексированная с 1 таблица с идентификаторами постоянных возможностей (анлоков)
+function  avatar.GetInfiniteUnlocksInCategory( unlockCategoryId ) end
 
 ---@param sysName ENUM_InnateStats # служебное имя характеристики
 ---@return nil | ValuedText # описание с подставленными текущими значениями параметров
@@ -858,6 +885,10 @@ function avatar.GetItemClassList() end
 
 ---@return nil | integer # nil если нет информации; иначе число PvP-убийств, совершённых аватаром за всю карьеру
 function avatar.GetKills() end
+
+---@param object SpellId | AbilityId # идентификатор спелла или абилки
+---@return table<integer, SpellId | AbilityId> # таблица (индексирована с 1) идентификаторов связанных спеллов и абилок
+function  avatar.GetLinkedTalents( object ) end
 
 ---@return integer # число слотов в сумке
 function avatar.GetLootBagSlotCount() end
@@ -1018,6 +1049,9 @@ function avatar.GetResistances() end
 ---@return table<integer, QuestId> # список идентификаторов заданий
 function avatar.GetReturnableQuests() end
 
+---@return DUMMY_TYPE # идентификатор активного набора ритуальных вещей
+function avatar.GetRitualActivePreset() end
+
 ---@return integer # уровень главного игрока, с которого доступно распределение вех
 function avatar.GetRubyStartLevel() end
 
@@ -1039,6 +1073,9 @@ function avatar.GetSecrets() end
 
 ---@return PersistentId
 function avatar.GetServerId() end
+
+---@return integer
+function avatar.GetShardLevelCap() end
 
 ---@param id SkillId
 ---@return nil | { id: SkillId, score: nil | integer, exp: nil | integer }
@@ -1095,8 +1132,15 @@ function avatar.GetTeleportLocationInfo( locationId ) end
 ---@return table<integer, ObjectId> # индексированный с 0 список идентификаторов точек телепортации
 function avatar.GetTeleportLocations() end
 
+---@return table<integer, UnlockCategoryId> # таблица (индексированная с 1) UnlockCategoryId временных анлоков имеющихся у аватара. Если анлоков нет - пустая таблица
+function avatar.GetTemporaryUnlockCategories() end
+
 ---@return nil | table<integer, ObjectId> # nil если анлоков нет; индексированная с 0 таблица с идентификаторами возможностей
 function avatar.GetTemporaryUnlocks() end
+
+---@param unlockCategoryId UnlockCategoryId # идентификатор типа категории возможностей (анлоков)
+---@return table<integer, ObjectId> # индексированная с 1 таблица с идентификаторами временных возможностей (анлоков)
+function avatar.GetTemporaryUnlocksInCategory( unlockCategoryId ) end
 
 ---@return nil | integer # время в миллисекундах после появления игрока на кладбище. Если игрок не в состоянии воскрешения, то nil
 function avatar.GetTimeAfterRespawn() end
@@ -1172,6 +1216,10 @@ function avatar.HasInteractorQuest() end
 ---@return boolean # есть доступ к каналу
 function avatar.HasPsionicChannel() end
 
+---@param spellId SpellId # id ресурса спелла
+---@return boolean # true если у аватара есть такой спелл
+function avatar.HasSpell( spellId ) end
+
 ---@param unlockId UnlockId | ResourceId
 ---@return boolean # имеется ли у аватара данный анлок
 function avatar.HasUnlock( unlockId ) end
@@ -1226,6 +1274,9 @@ function avatar.IsConditionValid( alias ) end
 
 ---@return boolean # true, если главный игрок уже существует
 function avatar.IsExist() end
+
+---@return boolean # true, если быстрая прокачка доступна
+function avatar.IsFastLevelUpAvailable() end
 
 ---@return boolean # true, если игрок в состоянии воскрешения
 function avatar.IsInRespawn() end
@@ -1293,6 +1344,11 @@ function avatar.IsTeleportLocationValid( locationId ) end
 ---@return boolean # находится ли персонаж игрока в режиме ходьбы
 function avatar.IsWalkMode() end
 
+---@param sysClass SpellId # системное имя класса
+---@param buildIndex integer # индекс билда от 0 до 9
+---@param data string | table # данные о раскладке полученные из SaveActionPanel. Модификация не допускается, имеется контрольная сумма
+function avatar.LoadActionPanel( sysClass, buildIndex, data ) end
+
 ---@param boxId ObjectId # item id сундучка, сундучок должен находиться в одном из контейнеров (например в инвентаре или переполненной сумке)
 ---@param quantity? integer # необязательный параметр, количество открываемых сундуков; по умолчанию 1
 function avatar.OpenBox( boxId, quantity ) end
@@ -1335,6 +1391,11 @@ function avatar.RunUsableDeviceAction( index ) end
 ---@param pos GamePosition # точка применения действия
 function avatar.RunUsableDeviceActionPoint( index, pos ) end
 
+---@param sysClass SpellId # системное имя класса
+---@param buildIndex integer # индекс билда от 0 до 9
+---@return nil | string | table # данные конфигурации панели действий
+function avatar.SaveActionPanel( sysClass, buildIndex ) end
+
 ---@param index integer # индекс ответа
 function avatar.SelectInteractorCue( index ) end
 
@@ -1365,6 +1426,9 @@ function avatar.SetPetActiveSpell( index ) end
 
 ---@param mode PET_AGGRO
 function avatar.SetPetAggroMode( mode ) end
+
+---@param preset DUMMY_TYPE - набор
+function avatar.SetRitualActivePreset( preset ) end
 
 ---@param index integer # номер специализации аватара; доступный диапазон - от 0 до величины, на 1 меньшей результата avatar.GetBuildsCount()
 function avatar.SetViewedBuild( index ) end

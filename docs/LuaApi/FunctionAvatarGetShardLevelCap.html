@@ -6,7 +6,7 @@
 <meta content="text/html; charset=UTF-8" http-equiv="content-type">
             
 <head>
-<title>Пользовательские дополнения - Lua API - CategoryAvatar</title>
+<title>Пользовательские дополнения - Lua API - FunctionAvatarGetShardLevelCap</title>
 <link href="LuaApi.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -14,11 +14,28 @@
 <p><a href="../Index.html">На главную</a></p>
 <hr>
 <p></p>
-<h1>CategoryAvatar</h1>
+<h2> avatar.GetShardLevelCap()</h2>
 <p></p>
-<p>События и функции Lua API, относящиеся к персонажу игрока (аватару).</p>
+<p>Возвращает левелкап текущего шарда.</p>
 <p></p>
-<h2>Связанные функции: CategoryLuaApi CategoryAvatar</h2>
+<pre>
+-- библиотека:
+avatar
+
+-- объявление:
+function GetShardLevelCap()
+
+-- параметры:
+нет
+
+-- возвращаемые значения:
+number (int) or 1 - левелкап текущего шарда
+
+-- пример:
+local levelCap = avatar.GetShardLevelCap()
+</pre>
+<p></p>
+<h4>Search: "CategoryLuaApi" "CategoryAvatar" </h4>
 <p></p>
 <a href="CategoryAvatar.html">CategoryAvatar</a>
 <br><a href="CharacterFormId.html">CharacterFormId</a>
@@ -543,7 +560,10 @@
 <br><a href="TalentCurrency.html">TalentCurrency</a>
 <p></p>
 <hr>
+<p></p>
 <a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryAvatar.html">CategoryAvatar</a>
 <hr>
 <p><a href="../Index.html">На главную</a></p>
 </body>
