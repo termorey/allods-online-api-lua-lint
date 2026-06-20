@@ -312,6 +312,10 @@ function unit.GetRelatedQuestObjectives( unitId ) end
 ---@return REPUTATION_LEVEL
 function unit.GetReputationLevel( mobId ) end
 
+---@param unitId ObjectId # идентификатор игрока
+---@return DUMMY_TYPE # идентификатор активного набора ритуальных вещей
+function unit.GetRitualActivePreset( unitId ) end
+
 ---@param unitId ObjectId
 ---@return integer
 function unit.GetRuneWoundsComplexity( unitId ) end

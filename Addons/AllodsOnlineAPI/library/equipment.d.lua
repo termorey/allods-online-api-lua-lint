@@ -101,6 +101,8 @@
 
 ---@alias EVENT_EQUIP_FAILED "EVENT_EQUIP_FAILED"
 ---@alias EVENT_UNIT_EQUIPMENT_CHANGED "EVENT_UNIT_EQUIPMENT_CHANGED"
+---@alias EVENT_EQUIPMENT_ACTIVE_PRESET_CHANGED "EVENT_EQUIPMENT_ACTIVE_PRESET_CHANGED"
+---@alias EVENT_EQUIPMENT_DRESS_ENABLE_CHANGED "EVENT_EQUIPMENT_DRESS_ENABLE_CHANGED"
 
 ---@overload fun(eventFunction: fun(data: { sysCode: ENUM_DressResult, itemId: ObjectId | nil, slot: integer | nil, slotType: ITEM_CONT }), sysEventName: EVENT_EQUIP_FAILED)
 ---@overload fun(eventFunction: fun(data: { effect: EFFECT_TYPE, slot: integer, slotType: ITEM_CONT }), sysEventName: EVENT_EQUIPMENT_ITEM_EFFECT)
