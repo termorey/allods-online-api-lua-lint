@@ -125,6 +125,12 @@ function object.GetDetectors( objectId ) end
 ---@return table<ENUM_DiminishingGroup, number> # таблица в которой ключом является группа ENUM_DiminishingGroup, а значением уровень диминишинга(от 0 до 3)
 function object.GetDiminishingState( objectId ) end
 
+---@param objectId ObjectId # идентификатор объекта
+---@param is2D boolean | nil # считать расстояние в 2D, игнорировать разницу по высоте. По умолчанию false
+---@param isInternal boolean | nil # игнорировать фильтр детектируемости объекта. По умолчанию false. Для пользовательских дополнений всегда false.
+---@return number | nil # дистанция между аватаром и объектом (в метрах) или nil если получить таковую не удалось.
+function object.GetDistance( objectId, is2D, isInternal ) end
+
 ---@param id unknown # произвольное значение
 ---@return boolean # true, если объект может иметь бафы
 function object.HasBuffManager( id ) end
@@ -162,6 +168,10 @@ function object.GetProjectedInfo( objectId ) end
 ---@param objectId ObjectId
 ---@return table<integer, ObjectId> # индексированный с 0 список идентификаторов тайн мира
 function object.GetWorldSecrets( objectId ) end
+
+---@param objectId ObjectId # идентификатор объекта
+---@return MANA_TYPE # тип маны объекта
+function object.GetManaType( objectId ) end
 
 ---@param id ObjectId
 ---@return boolean # true, если объект выглядит как моб
