@@ -139,12 +139,30 @@ function device.GetTitle( deviceId ) end
 ---@return ObjectId | nil
 function device.GetTransport( deviceId ) end
 
+---@param usableDeviceId ObjectId # идентификатор устройства
+---@param actionIndex integer # номер действия (должен попадать в диапазон [0:actionsCount-1]
+---@return nil | { name: WString, description: ValuedText | nil, image: TextureId, enabled: boolean, active: boolean, cost: integer | nil, isPointed: boolean, cooldown: nil | { predictedCooldown: integer, durationMs: integer, remainingMs: integer } }
+function device.GetUsableDeviceActionInfo( usableDeviceId, actionIndex ) end
+
+---@param usableDeviceId ObjectId # идентификатор устройства
+---@return nil | table<integer, any>
+function device.GetUsableDeviceActionsInfo( usableDeviceId ) end
+
+---@param usableDeviceId ObjectId # идентификатор устройства
+---@return nil | { id: ObjectId, type: USDEV, name: WString, hasCrosshair: boolean, actionsCount: integer }
+function device.GetUsableDeviceInfo( usableDeviceId ) end
+
 ---@param deviceId ObjectId
 ---@return USDEV
 function device.GetUsableDeviceType( deviceId ) end
 
 ---@return boolean | nil
 function device.HasNavigatorFollowedMarker() end
+
+---@param deviceId ObjectId # идентификатор устройства
+---@param nil | QuestId | ObjectId
+---@return boolean # true, если такие цели задании имеются у игрока
+function device.HasRelatedQuestObjectives( deviceId ) end
 
 ---@param deviceId ObjectId
 ---@return boolean

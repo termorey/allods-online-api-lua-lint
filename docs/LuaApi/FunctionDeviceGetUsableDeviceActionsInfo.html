@@ -6,19 +6,55 @@
 <meta content="text/html; charset=UTF-8" http-equiv="content-type">
             
 <head>
-<title>Пользовательские дополнения - Lua API - CategoryDevice</title>
+<title>Пользовательские дополнения - Lua API - FunctionDeviceGetUsableDeviceActionsInfo</title>
 <link href="LuaApi.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <h1>Пользовательские дополнения</h1>
 <p><a href="../Index.html">На главную</a></p>
 <hr>
+<p>## page was renamed from FunctionAvatarGetActiveUsableDeviceActionsInfo</p>
 <p></p>
-<h1>CategoryDevice</h1>
+<h2> device.GetUsableDeviceActionsInfo( usableDeviceId )</h2>
 <p></p>
-<h2>BlurpSearch: CategoryLuaApi CategoryDevice</h2>
+<p>Возвращает информацию обо всех действиях устройства.</p>
 <p></p>
-<p>Функции Lua API библиотеки device.</p>
+<p>Описание таблицы с информацией о действии смотри в <a href="FunctionDeviceGetUsableDeviceActionInfo.html"> device.GetUsableDeviceActionInfo( usableDeviceId, actionIndex )</a>.</p>
+<p></p>
+<pre>
+-- система:
+GameState
+
+-- библиотека:
+device
+
+-- объявление:
+function GetUsableDeviceActionsInfo( usableDeviceId )
+
+-- параметры:
+usableDeviceId: ObjectId (not nil) - идентификатор устройства
+
+-- возвращаемое значение:
+table of tables or nil: таблица с информацией о действиях устройстве или nil, если ошибка.
+ ключ - индекс действия (начинается с 0)
+ значение - таблица с информацией о действии
+
+-- пример:
+local info = device.GetUsableDeviceInfo( usableDeviceId )
+
+if info and info.actionsCount &gt; 0 then
+  LogInfo( "Action list: )
+  local actions = device.GetUsableDeviceActionsInfo( usableDeviceId )
+
+  for i = 0, info.actionsCount do
+    LogInfo( actions[i].name )
+  end
+else
+  LogInfo( "No actions" )
+end
+</pre>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryDevice"</h4>
 <p></p>
 <a href="EnumTurnReason.html">EnumTurnReason</a>
 <br><a href="EnumUsedev.html">EnumUsedev</a>
@@ -77,6 +113,9 @@
 <br><a href="FunctionTransportGetDevices.html">FunctionTransportGetDevices</a>
 <p></p>
 <hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryDevice.html">CategoryDevice</a>
 <hr>
 <p><a href="../Index.html">На главную</a></p>
 </body>
