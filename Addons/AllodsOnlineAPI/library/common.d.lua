@@ -173,6 +173,9 @@ function common.GetScriptCfgVar( name ) end
 ---@return nil | WString # сокращённая строка или nil, если строка-аргумент была пустой
 function common.GetShortString( text ) end
 
+---@param specialStatId SpecialStatId # идентификатор Special-стата
+function common.GetSpecialStatInfo( specialStatId ) end
+
 ---GetStateManagedAddons
 ---@return table<integer, { name: string, isLoaded: boolean }> # таблица (индексированная c 1) содержащая таблицы с информацией по аддонам
 function common.GetStateManagedAddons() end
