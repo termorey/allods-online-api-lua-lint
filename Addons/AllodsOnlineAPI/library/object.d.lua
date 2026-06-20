@@ -87,6 +87,14 @@ function object.GetBuffInfo( Id ) end
 ---@return table<integer, ObjectId> # индексированный с 0 список идентификаторов бафов с таким ресурсом на объекте
 function object.GetBuffInstances ( objectId, buffId ) end
 
+---@param id ObjectId # Идентификатор экземпляра (должен быть валидным) буфа
+---@return nil | { casterId: ObjectId | nil, spellId: SpellId | nil, abilityId: AbilityId | nil, buffId: BuffId | nil, mapModifierId" MapModifierId | nil }
+function object.GetBuffProducer( id ) end
+
+---@param buffId BuffId - идентификатор ресурса бафа.
+---@return table<integer, BuffId> # TODO: possibly incorrect
+function object.GetBuffRanks( buffId ) end
+
 ---@param objectId ObjectId
 ---@return table<integer, ObjectId> # индексированный с 1 список идентификаторов бафов на объекте
 function object.GetBuffs( objectId ) end
@@ -101,9 +109,13 @@ function object.GetBuffsInfo( table ) end
 ---@return table<integer, ObjectId> # индексированный с 1 список идентификаторов бафов на объекте
 function object.GetBuffsWithProperties( objectId, isPositive, isNeedVisualize ) end
 
----@param Id ObjectId | BuffInfo # идентификатор или объекта или ресурса баффа
+---@param id ObjectId | BuffInfo # идентификатор или объекта или ресурса баффа
 ---@return string | nil # внутреннее имя баффа (может быть использовано для специальной обработки), соответствующее поле в базе для баффа - "sysUIScriptName"
-function object.GetBuffSysName( Id ) end
+function object.GetBuffSysName( id ) end
+
+---@param id ObjectId | BuffId # Идентификатор экземпляра (должен быть валидным) или ресурса буфа
+---@return nil | { name: WString, texture: TextureId, description: WString | ValuedText, ownerId: nil | ObjectId, isNeedVisualizeDuration: nil | boolean, stackCount: nil | integer, durationMs: nil | integer, remainingMs: nil | integer  }
+function object.GetBuffTooltipInfo( id ) end
 
 ---@param objectId ObjectId # идентификатор интерактивного объекта
 ---@return table<integer, string> # список уникальных строковых имен детекторов. Строка прописана в данных детектора
@@ -112,6 +124,10 @@ function object.GetDetectors( objectId ) end
 ---@param objectId ObjectId # идентификатор объекта
 ---@return table<ENUM_DiminishingGroup, number> # таблица в которой ключом является группа ENUM_DiminishingGroup, а значением уровень диминишинга(от 0 до 3)
 function object.GetDiminishingState( objectId ) end
+
+---@param id unknown # произвольное значение
+---@return boolean # true, если объект может иметь бафы
+function object.HasBuffManager( id ) end
 
 ---@param objectId ObjectId # идентификатор объекта
 ---@return nil | { value: nil | integer, limit: nil | integer, valuePercents: nil | integer, additionalValue: integer | nil, additionalPercents: integer | nil, isInvulnerable: boolean }
@@ -219,10 +235,10 @@ function object.IsUnit( id ) end
 function object.IsUsable( objectId ) end
 
 ---@param id ObjectId
----@return boolean # true, если объект является валидным бафом
+---@return boolean # true, если аргумент является id валидного бафа
 function object.IsValidBuff( id ) end
 
----@param id ObjectId
+---@param id unknown # произвольное значение
 ---@return boolean # true, если интерактивный объект является торговцем
 function object.IsVendor( id ) end
 

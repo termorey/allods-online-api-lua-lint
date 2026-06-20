@@ -18,7 +18,7 @@
 ---@alias ItemClassId integer # идентификатор класса предмета // TODO: требует уточнения
 ---@alias ComponetPropertyId integer # Id ресурсов компонент крафтинг // TODO: требует уточнения
 ---@alias ZodiacSignId unknown # id знака зодиака руны // TODO: требует уточнения
----@alias SpecialStatId ResourceId # TODO: требует уточнения
+---@alias SpecialStatId ResourceId
 ---@alias GuildAbilityId integer # TODO: требует уточнения
 ---@alias ComponentId integer # TODO: требует уточнения
 ---@alias VariableId string # идентификатор ресурса переменной // TODO: требует уточнения
@@ -510,7 +510,7 @@ function TutorialCategoryId:GetInstanceId() end
 ---@return boolean
 function TutorialCategoryId:IsEqual( resourceId ) end
 
----@class BuffId # Идентификатор бафа
+---@class BuffId # Идентификатор бафа (TODO: ResourceId)
 BuffId = {}
 ---@return unknown
 function BuffId:GetInfo() end

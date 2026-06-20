@@ -6,7 +6,7 @@
 <meta content="text/html; charset=UTF-8" http-equiv="content-type">
             
 <head>
-<title>Пользовательские дополнения - Lua API - CategoryBuff</title>
+<title>Пользовательские дополнения - Lua API - FunctionObjectGetBuffProducer</title>
 <link href="LuaApi.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -14,9 +14,34 @@
 <p><a href="../Index.html">На главную</a></p>
 <hr>
 <p></p>
-<h1>CategoryBuff</h1>
+<h2> object.GetBuffProducer( id )</h2>
 <p></p>
-<p>События и функции Lua API, относящиеся к буфам.</p>
+<p>Возвращает информацию об источнике бафа.</p>
+<p></p>
+<pre>
+-- система:
+UIState/GameState
+
+-- библиотека:
+object
+
+-- объявление:
+function GetBuffProducer( Id )
+
+-- параметры:
+Id: ObjectId - Идентификатор экземпляра (должен быть валидным) буфа
+
+-- возвращаемые значения: table or nil (только при ошибке), поля:
+casterId: ObjectId or nil - идентификатор кастера, повесившего баф, если его можно получить
+spellId: SpellId or nil - Id спелла, если баф повесили спеллом.
+abilityId: AbilityId or nil - Id абилки, если баф повесили абилкой.
+buffId: BuffId or nil - Id буффа, если баф повесили бафом.
+mapModifierId: MapModifierId or nil - Id модификатора карты, если баф повесили модификатором карты.
+
+-- пример:
+local sourceInfo = object.GetBuffProducer( buffId )
+
+</pre>
 <p></p>
 <h4>Связанные страницы: "CategoryLuaApi" "CategoryBuff"</h4>
 <p></p>
@@ -57,6 +82,9 @@
 <p></p>
 <hr>
 <a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryObject.html">CategoryObject</a>
+<a href="CategoryBuff.html">CategoryBuff</a>
 <hr>
 <p><a href="../Index.html">На главную</a></p>
 </body>
