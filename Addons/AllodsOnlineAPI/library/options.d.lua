@@ -54,12 +54,34 @@ function options.GetGroupIds( pageId ) end
 ---@return table<integer, ObjectId>
 function options.GetOptionIds( blockId ) end
 
+---@param id ObjectId | string # идентификатор опции
+---@return integer #  номер варианта опции
+function options.GetOptionIndex( id ) end
+
 ---@param optionId ObjectId
 ---@return { isEnabled: boolean, isNeedPreview: boolean, isPreview: boolean, dataType: UI_OPTION_DATA, viewType: UI_OPTION_VIEW, sysCustomId: string, sysCustomType: string, name: WString, description: WString, useAttemptWarning: WString, minName: WString, minDescription: WString, maxName: WString, maxDescription: WString, currentIndex: integer, defaultIndex: integer, baseIndex: integer, values: {} | { name: WString, description: WString, stringValue: string, floatValue: number }, valueCount: integer, isRestartToApply: boolean }
 function options.GetOptionInfo( optionId ) end
 
+---@param id ObjectId | string # идентификатор опции
+---@return number | string
+function options.GetOptionValue( id ) end
+
 ---@return table<integer, ObjectId>
 function options.GetPageIds() end
+
+---@param id ObjectId | string # идентификатор опции
+---@return boolean # значение опции
+function options.IsOptionEnabled( id ) end
+
+---@param id ObjectId | string # идентификатор опции
+---@param value boolean # новое значение для опции
+---@param apply boolean | nil # если true, то значение применяется немедленно
+function options.SetOptionEnabled( id, value, apply ) end
+
+---@param id ObjectId | string # идентификатор опции
+---@param index integer # новое значение для опции
+---@param apply boolean | nil # если true, то значение применяется немедленно
+function options.SetOptionIndex( id, index, apply ) end
 
 ---@param optionBaseId ObjectId
 function options.Preview( optionBaseId ) end
