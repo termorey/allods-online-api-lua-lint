@@ -28,10 +28,6 @@ function common.RegisterEventHandler( eventFunction, sysEventName, params, requi
 
 --[[ FUNCTIONS --]]
 
----@param UnitId ObjectId
----@return boolean
-function spellLib.BuffsCanDispel ( UnitId ) end
-
 ---@param SpellId SpellId
 ---@param ignoreCasterResources boolean | nil
 ---@return boolean
@@ -60,10 +56,6 @@ function spellLib.GetCurrentValues( SpellId ) end
 ---@param SpellId SpellId
 ---@return nil | { name: WString, description: WString, sysName: string, objectId: ObjectId | nil, debugName?: string | nil }
 function spellLib.GetDescription( SpellId ) end
-
----@param spellId SpellId
----@return nil | ObjectId
-function spellLib.GetDurationBuff( spellId ) end
 
 ---@param id SpellId
 ---@return table<integer, { sysName: string, name: WString, image: TextureId | nil }>
@@ -105,7 +97,3 @@ function spellLib.GetState( SpellId ) end
 ---@param spellId SpellId
 ---@return ValuedObject
 function spellLib.GetValuedObject( spellId ) end
-
----@param spellId SpellId
----@return boolean
-function spellLib.HasDurationBuff( spellId ) end

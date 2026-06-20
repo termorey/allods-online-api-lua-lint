@@ -47,13 +47,6 @@ function order.GetBonusVoitingList() end
 ---@return number | nil
 function order.GetMainPlayerOrder() end
 
----@return number
---- TODO: is it correct in docs (title: order.GetMainPlayerVoteWeigh; named once and exist: order.GetMainPlayerVoteWeight)
-function order.GetMainPlayerVoteWeight() end
-
----@return nil | number
-function order.GetMainPlayerVoteWeight() end
-
 ---@return nil | number
 function order.GetMaxAvatarVotesCount() end
 
@@ -101,13 +94,6 @@ function order.RequestOrderInfo() end
 function order.RequestPrestigeAchivements() end
 
 function order.RequestRatingAchivements() end
-
----@param bonusIds OrderBonusId[]
---- TODO: incorrect dosc title
-function order.SendBonusVotes( bonusIds )end
-
----@param bonusIds OrderBonusId[]
-function order.SendBonusVotes( bonusIds ) end
 
 ---@param orderNumber number
 function order.SetMainPlayerOrder( orderNumber ) end

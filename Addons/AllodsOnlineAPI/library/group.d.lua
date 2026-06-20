@@ -103,9 +103,6 @@ function group.Decline() end
 ---@return { invited: boolean, inviterName: WString, inviterShardName: WString }
 function group.GetInviteInfo() end
 
----@return -1 | integer # индекс [0..] лидера в группе или -1, если группы нет или лидер еще неизвестен
-function group.GetLeaderIndex() end
-
 ---@return UniqueId
 function group.GetLeader() end
 

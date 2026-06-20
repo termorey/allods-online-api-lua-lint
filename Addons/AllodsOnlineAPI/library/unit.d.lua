@@ -234,14 +234,6 @@ function unit.GetHealAbsorbPoolInfo( unitId ) end
 ---@return integer
 function unit.GetLevel( unitId ) end
 
----@param unitId ObjectId
----@return { mana: integer | nil, maxMana: integer | nil, percents: integer | nil }
-function unit.GetMana( unitId ) end
-
----@param unitId ObjectId
----@return integer | nil
-function unit.GetManaPercentage( unitId ) end
-
 ---@param unitId ObjectId # идентификатор юнита
 ---@return nil | { duration: integer, progress: integer, name: WString, spellId: SpellId | nil, isPrecast: boolean | nil, isChannel: boolean | nil }
 function unit.GetMobActionProgress( unitId ) end

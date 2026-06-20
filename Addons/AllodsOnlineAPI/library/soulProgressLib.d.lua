@@ -24,11 +24,6 @@ function common.RegisterEventHandler( eventFunction, sysEventName, params, requi
 
 --[[ FUNCTIONS --]]
 
----@param socketId SocketId
----@param objectId ObjectId
----@return boolean
-function soulProgressLib.CanInsertGem( socketId, objectId ) end
-
 ---@return number
 function soulProgressLib.GetCurrentExperience() end
 

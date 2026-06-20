@@ -89,10 +89,6 @@ function matchMaking.CanAwayBattleEvent() end
 ---@return boolean
 function matchMaking.CanJoinInstancedEventById( eventResourceId ) end
 
----@param eventId ObjectId | nil
----@return boolean
-function matchMaking.CanJoinInstancedEvents( eventId ) end
-
 ---@return boolean
 function matchMaking.CanReturnToBattle() end
 
@@ -153,10 +149,6 @@ function matchMaking.GetRatingPvPScoreByUnitId( arenaType, unitId ) end
 ---@return WString | nil
 function matchMaking.GetRatingURL( arenaType ) end
 
----@param accept boolean
---- TODO: lost dosc argument
-function matchMaking.InstancedEventTeleportReply( accept ) end
-
 ---@return boolean
 function matchMaking.IsAvatarInMatchMakingEvent() end
 
@@ -198,9 +190,6 @@ function matchMaking.LeaveInstancedEventQueue( eventId ) end
 
 ---@param eventResourceId InstancedEventResourceId
 function matchMaking.LeaveInstancedEventQueueById( eventResourceId ) end
-
----@param needListen boolean
-function matchMaking.ListenEventProgress( needListen ) end
 
 ---@param needListen boolean
 function matchMaking.ListenEvents( needListen ) end

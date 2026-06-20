@@ -81,10 +81,6 @@ function itemLib.CanUseOnItem( sourceId, targerId ) end
 function itemLib.CanUseOnMount( itemId, mountId ) end
 
 ---@param itemId ObjectId
----@return integer
-function itemLib.CountSimilarItemInBag( itemId ) end
-
----@param itemId ObjectId
 ---@return nil | table<integer, { actionGroupId: ActionGroupId | nil, statBonuses: table<ENUM_InnateStats, number | nil> }>
 function itemLib.GetActionGroupsInfo( itemId ) end
 
@@ -151,10 +147,6 @@ function itemLib.GetClassInfo( itemClassId ) end
 function itemLib.GetCompatibleSlots( itemId ) end
 
 ---@param itemId ObjectId
----@return nil | { slot: integer, slotType: ITEM_CONT }
-function itemLib.GetContainerInfo( itemId ) end
-
----@param itemId ObjectId
 ---@return nil | { count: integer, limit: integer }
 function itemLib.GetCountInfo( itemId ) end
 
@@ -206,10 +198,6 @@ function itemLib.GetExtraDescsRatings( itemId ) end
 function itemLib.GetGearScore( itemId ) end
 
 ---@param itemId ObjectId
----@return integer
-function itemLib.GetInBagStackCount( itemId ) end
-
----@param itemId ObjectId
 ---@return nil | { type: ENUM_BeastType, sysType: ENUM_BeastType, mob: { name: WString, title: WString, description: WString, kind: { race: ENUM_CreatureRace, sysRace: ENUM_CreatureRace } } }
 function itemLib.GetIncludedMob( itemId ) end
 
@@ -237,10 +225,6 @@ function itemLib.GetName( itemId ) end
 ---@param itemId ObjectId
 ---@return integer
 function itemLib.GetOverallCount( itemId ) end
-
----@param itemId ItemId
----@return table<integer, ObjectId>
-function itemLib.GetOverallItemsByResource( itemId ) end
 
 ---@param itemId ObjectId
 ---@return integer

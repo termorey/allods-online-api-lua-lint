@@ -136,14 +136,6 @@ function astral.GetSectorDirectPOI( sectorId ) end
 ---@return table<integer, ObjectId> # список идентификаторов секторов, связанных с данным
 function astral.GetSectorEdges( sectorId )end
 
----@param astralSectorId AstralSectorId
----@return nil | table<integer, AstralSectorId> # nil если нет информации; иначе список идентификаторов секторов (индексация начинается с 0), связанных с данным
-function astral.GetSectorEdgesById( astralSectorId ) end
-
----@param sectorId ObjectId # идентификатор сектора
----@return table<integer, ObjectId> # список идентификаторов секторов, связанных с данным
-function astral.GetSectorEdgesObsolete( sectorId ) end
-
 ---@param sectorId ObjectId # идентификатор сектора
 ---@return nil | SectorInfo
 function astral.GetSectorInfo( sectorId ) end

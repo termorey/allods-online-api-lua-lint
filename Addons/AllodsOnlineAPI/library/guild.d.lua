@@ -337,10 +337,6 @@ function guild.GetBankInfo() end
 ---@return nil | { hasBoss: boolean, experience: integer, gearScore: integer, name: WString | nil, maxAvailableAbilities: nil | integer, currentState: nil | integer, states: nil | table<integer, { experienceRequired: integer, maxAvailableAbilities: integer }> }
 function guild.GetBossInfo() end
 
----@param Id ObjectId | BuffId
----@return BuffInfo
-function guild.GetBuffInfo( Id ) end
-
 ---@return table<integer, ObjectId>
 function guild.GetBuffs() end
 

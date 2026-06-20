@@ -344,17 +344,9 @@ function common.SetLocale( locale ) end
 ---@param name string # имя аддона
 function common.StateLoadManagedAddon( name ) end
 
----StateLoadManagedAddonGroup
----@param groupName string # имя группы аддонов
-function common.StateLoadManagedAddonGroup( groupName ) end
-
 ---StateUnloadManagedAddon
 ---@param name string # имя аддона
 function common.StateUnloadManagedAddon( name ) end
-
----StateUnloadManagedAddonGroup
----@param groupName string # имя группы аддонов
-function common.StateUnloadManagedAddonGroup( groupName ) end
 
 ---UnRegisterEvent
 ---@param sysEventName string # название события

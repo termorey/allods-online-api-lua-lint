@@ -22,7 +22,6 @@ containerLib = {}
 ---@alias EVENT_CONTAINER_ITEM_CHANGED "EVENT_CONTAINER_ITEM_CHANGED"
 ---@alias EVENT_CONTAINER_ITEM_EFFECT "EVENT_CONTAINER_ITEM_EFFECT"
 ---@alias EVENT_CONTAINER_ITEM_REMOVED "EVENT_CONTAINER_ITEM_REMOVED"
----@alias EVENT_EQUIPMENT_ACTIVATE "EVENT_EQUIPMENT_ACTIVATE"
 
 ---@overload fun(eventFunction: fun(data: { slotType: ITEM_CONT }), sysEventName: EVENT_CONTAINER_CHANGED)
 ---@overload fun(eventFunction: fun(data: { ownerId: ObjectId, slotType: ITEM_CONT, slot: integer, itemId: ObjectId }), sysEventName: EVENT_CONTAINER_ITEM_CHANGED)
@@ -47,11 +46,6 @@ function containerLib.GetItems( slotType ) end
 ---@param itemId ObjectId
 ---@return nil | { slotType: ITEM_CONT, slot: integer }
 function containerLib.GetItemSlot( itemId ) end
-
----@param slotType ITEM_CONT
----@param itemId ObjectId
----@return number
-function containerLib.GetItemStackCount( slotType, itemId ) end
 
 ---@param slotType ITEM_CONT
 ---@return integer

@@ -552,19 +552,12 @@ function avatar.EnableFreeKeys( enable ) end
 
 function avatar.EndInspect() end
 
----@param slot integer # индекс слота в инвентаре [0..GetInventorySize() - 1]
-function avatar.EquipItem( slot ) end
-
 ---@param itemId ObjectId # идентификатор предмета
 function avatar.EquipItemById( itemId ) end
 
 ---@param itemId ObjectId # идентификатор предмета
 ---@param equipSlot DRESS_SLOT # индекс слота в экипировке
 function avatar.EquipItemByIdToSlot( itemId, equipSlot ) end
-
----@param slot integer # индекс слота в инвентаре [0..GetInventorySize() - 1]
----@param equipSlot DRESS_SLOT # индекс слота в экипировке
-function avatar.EquipItemToSlot( slot, equipSlot ) end
 
 function avatar.FinallyRespawn() end
 
@@ -583,10 +576,6 @@ function avatar.GetAbilities() end
 ---@param abilityId AbilityId # Id ресурса умения
 ---@return nil | { id: AbilityId, name: WString, description: nil | ValuedText, level: integer, rank: integer, sysInfo: string, hasReplacementSpell: boolean, texture: TextureId }
 function avatar.GetAbilityInfo( abilityId ) end
-
----@param abilityId AbilityId # идентификатор ресурса умения
----@return nil | SpellId
-function avatar.GetAbilityReplacementSpell( abilityId ) end
 
 ---@param abilityId AbilityId # идентификатор ресурса умения
 ---@return nil | table<integer, SpellId> # список идентификаторов ресурсов заклинания или nil если его нет, индексация с 1
@@ -662,10 +651,6 @@ function avatar.GetBindedTransport() end
 ---@return table<integer, { type: ENUM_DevelopmentTrack, sysType: ENUM_DevelopmentTrack, total: integer, left: integer }>
 function avatar.GetBonusPools() end
 
----@param resourceId BuffId # Id умения
----@return nil | { id: ObjectId, buffId: BuffId, ownerId: nil | ObjectId, name: WString, description: nil | ValuedText, debugName: nil | string, sysName: string, durationMs: integer, remainingMs: integer, isStockable: boolean, stackCount: integer, stackLimit: integer, isPositibe: boolean, isGradual: boolean, canDetach: boolean, isNeedVisualize: boolean, isNeedVisualizeDuration: boolean, interfaceHighPriority: boolean, gainSpells: nil | table<integer, SpellId>, groups: table<number, string>, producer: { casterId: nil | ObjectId, spellId: nil | SpellId, abilityId: nil | AbilityId, buffId: nil | BuffId }, texture: nil | TextureId, debugGroup: nil | table<number, string> }
-function avatar.GetBuffInfoById( resourceId ) end
-
 ---@param buffId BuffId # Id ресурса бафа
 ---@return ValuedObject # экземпляр ValuedObject
 function avatar.GetBuffValuedObject( buffId ) end
@@ -710,11 +695,6 @@ function avatar.GetCommonFieldTalentInfo( field ) end
 ---@param id ComponentPropertyId
 ---@return nil | { id: ComponentPropertyId, name: WString, description: WString, image: nil | TextureId }
 function avatar.GetComponentInfo( id ) end
-
----@param itemSlot integer # индекс слота предмета в контейнере
----@param itemSlotType ITEM_CONT # тип контейнера
----@return nil | ObjectId # идентификатор предмета, если найден
-function avatar.GetContainerItem( itemSlot, itemSlotType ) end
 
 ---@param id ObjectId # идентификатор контекстного действия
 ---@return nil | { durationMs: integer, remainingMs: integer } # если действие есть, то информация по кулдауну
@@ -785,10 +765,6 @@ function avatar.GetEmotes() end
 
 ---@return table<integer, SpellId> # индексированный с 1 список идентификаторов ресурсов спеллов
 function avatar.GetEngineerPetCommands() end
-
----@param itemId ObjectId # идентификатор предмета
----@return nil | DRESS_SLOT # индекс ячейки в экипировке
-function avatar.GetEquipmentItemSlot( itemId ) end
 
 ---@return { currentExp: integer, currentLevelExp: integer, nextLevelExp: integer, extraExp: integer, extraExpCap: integer, bonus: integer, pvpExp: integer }
 function avatar.GetExperience() end
@@ -876,39 +852,12 @@ function avatar.GetInteractorTeleportLocations() end
 ---@return nil | ObjectId # идентификатор собеседника или nil, если его нет
 function avatar.GetInterlocutor() end
 
----@return nil | ObjectId # идентификатор предмета-сумки или nil
-function avatar.GetInventoryBagItemId() end
-
----@param index integer # индекс слота в инвентаре (0..)
----@return nil | ObjectId # идентификатор предмета или nil, если слот пустой
-function avatar.GetInventoryItemId( index ) end
-
----@return table<integer, nil | ObjectId> # таблица с идентификаторами предметов, индексация [0..avatar.GetInventorySize() - 1], элементы - ObjectId - идентификатор предмета или nil, если слот пустой
-function avatar.GetInventoryItemIds() end
-
----@param itemId ObjectId # идентификатор предмета
----@return nil | integer # индекс слота в инвентаре [0..], если предмет найден
-function avatar.GetInventoryItemSlot( itemId ) end
-
----@return table<integer, nil | ObjectId> # таблица с идентификаторами предметов, индексация от 0, элементы - ObjectId - идентификатор предмета или nil, если слот пустой
-function avatar.GetInventoryOverflowItemIds() end
-
----@return integer # число слотов в инвентаре
-function avatar.GetInventoryOverflowSize() end
-
----@return integer # число слотов в инвентаре
-function avatar.GetInventorySize() end
-
 ---@return table<integer, unknown> # таблица со значениями типа ItemClass, индексированная [0..]
 --- TODO: change unknown class
 function avatar.GetItemClassList() end
 
 ---@return nil | integer # nil если нет информации; иначе число PvP-убийств, совершённых аватаром за всю карьеру
 function avatar.GetKills() end
-
----@param layer integer # номер строки
----@return table<integer, SpellId> # таблица с Id ресурсами спелов
-function avatar.GetLayerRelatedSpells( layer ) end
 
 ---@return integer # число слотов в сумке
 function avatar.GetLootBagSlotCount() end
@@ -1072,10 +1021,6 @@ function avatar.GetReturnableQuests() end
 ---@return integer # уровень главного игрока, с которого доступно распределение вех
 function avatar.GetRubyStartLevel() end
 
----@param itemId ObjectId # идентификатор предмета
----@return integer # общее количество предметов в инвентаре с описанными условиями
-function avatar.GetSameBindingStackCount( itemId ) end
-
 ---@return table<integer, VendorItems>
 function avatar.GetSecondhandList() end
 ---@alias VendorItems { id: ObjectId, quantity: integer, counter: integer, isBound: integer, isSecondhand: boolean, price: integer, requiredUnlocks: nil | table<integer, UnlockId>, requiredAchivements: nil | table<integer, { ruleId: RuleId, achivement: integer }>, alternativePrices: nil | table<integer, { currencyId: CurrencyId, value: integer }> }
@@ -1180,12 +1125,6 @@ function avatar.GetUnlocks() end
 ---@return nil | table<integer, ObjectId> # nil если анлоков нет; иначе индексированная с 0 таблица с идентификаторами возможностей(анлоков)
 function avatar.GetUnlocksInCategory( unlockCategoryId ) end
 
----@param deviceId unknown
----@return nil | UsableDeviceInfo
---- TODO: is deviceId needed?
-function avatar.GetUsableDeviceInfo( deviceId ) end
----@alias UsableDeviceInfo { id: ObjectId, name: WString, hasCrosshaie: boolean, activeAction: nil | integer, action: table<integer, { name: WString, description: nil | ValuedText, image?: TextureId, enable: boolean, active: boolean, cost: nil | integer, isPointed: boolean, radius?: number, range?: number, minRange?: number }> }
-
 ---@param variableId VariableId | string # идентификатор ресурса переменной или алиас
 ---@return nil | table<integer, VariableInfo>
 function avatar.GetVariableInfo( variableId ) end
@@ -1230,10 +1169,6 @@ function avatar.HasInteractorCue() end
 ---@return boolean # true, если собеседник имеет активные квесты на выдачу или принятие
 function avatar.HasInteractorQuest() end
 
----@param itemId ObjectId # идентификатор предмета
----@return boolean # true если гильдейский компонент есть
-function avatar.HasItemGuildComponent( itemId ) end
-
 ---@return boolean # есть доступ к каналу
 function avatar.HasPsionicChannel() end
 
@@ -1268,15 +1203,6 @@ function avatar.InventoryGetPocketInfo( pocketIndex ) end
 ---@return integer # число карманов в инвентаре
 function avatar.InventoryGetPocketsCount() end
 
----@param slotFrom integer # индекс исходной ячейки в инвентаре [0..GetInventorySize() - 1]
----@param slotTo integer # индекс целевой ячейки в инвентаре [0..GetInventorySize() - 1]
-function avatar.InventoryMoveItem( slotFrom, slotTo ) end
-
----@param slotFrom integer # индекс исходной ячейки в инвентаре [0..GetInventorySize() - 1]
----@param slotTo integer # индекс целевой ячейки в инвентаре [0..GetInventorySize() - 1]
----@param count integer # количество отделяемых предметов в стопке
-function avatar.InventorySplitItem( slotFrom, slotTo, count ) end
-
 ---@return boolean # false - управление клиентским перемещением аватара блокировано (как, например, при charge)
 function avatar.IsAbleToMove() end
 
@@ -1289,18 +1215,6 @@ function avatar.IsAlchemyLineAvailable( line ) end
 
 ---@return boolean # возвращает жив ли аватар (умер или находится в чистилище)
 function avatar.IsAlive() end
-
----@param buffId ObjectId # Id буффа
----@return boolean # true, если в группах баффа есть Disease
-function avatar.IsBuffDisease( buffId ) end
-
----@param buffId ObjectId # Id буффа
----@return boolean # true, если в группах баффа есть Magic
-function avatar.IsBuffMagic( buffId ) end
-
----@param buffId ObjectId # Id буффа
----@return boolean # true, если в группах баффа есть Poison
-function avatar.IsBuffPoison( buffId ) end
 
 ---@param type CLIENT_DETECTOR
 ---@return boolean # true - включен / false выключен
@@ -1327,15 +1241,6 @@ function avatar.IsInteractorTrainer() end
 
 ---@return boolean # true, если собеседник является торговцем
 function avatar.IsInteractorVendor() end
-
----@param slotFrom integer # индекс исходной ячейки в инвентаре [0..GetInventorySize() - 1]
----@param slotTo integer # индекс целевой ячейки в инвентаре [0..GetInventorySize() - 1]
----@return boolean # изменятся ли предметы
-function avatar.IsInventoryMoveItemModified( slotFrom, slotTo ) end
-
----@param slot ObjectId # идентификатор предмета
----@return boolean # предмет готов к действиям
-function avatar.IsItemEnabledForActions( slot ) end
 
 ---@param itemFromId ObjectId # перемещаемый предмет (должен находиться в одном из контейнеров)
 ---@param itemToId ObjectId # предмет, находящийся в слоте, куда предполагается переместить предмет itemFromId
@@ -1583,12 +1488,6 @@ function guild.CanDropTalent( field, row, column ) end
 ---@param talentType nil | ENUM_TalentType # тип таланата, по-умолчанию ENUM_TalentType_GUILD
 ---@return nil | { result: boolean, requirements: nil | { nearFieldClosed: boolean, talentsPoint: integer, talentsPointRequired: integer, experience: integer, experienceRequired: integer, requiredCurrency: nil | CurrencyId } }
 function guild.CanLearnTalent( field, row, column, talentType ) end
-
----@param field integer # номер поля
----@param row integer # номер строки
----@param column integer # номер столбца
----@return boolean # можно ли проапдейтить (или выучить) талант гильдии
-function guild.CanUpdateTalent( field, row, column ) end
 
 ---@param field integer # номер поля
 ---@param row integer # номер строки

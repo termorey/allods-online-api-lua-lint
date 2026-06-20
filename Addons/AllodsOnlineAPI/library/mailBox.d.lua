@@ -77,10 +77,6 @@ function common.RegisterEventHandler( eventFunction, sysEventName, params, requi
 function mailBox.Close() end
 
 ---@param mailId ObjectId
----@return boolean
-function mailBox.DeleteMail( mailId ) end
-
----@param mailId ObjectId
 ---@param slot integer | nil
 ---@return boolean
 function mailBox.ExtractMailItems( mailId, slot ) end
@@ -88,8 +84,6 @@ function mailBox.ExtractMailItems( mailId, slot ) end
 ---@param mailId ObjectId
 ---@return boolean
 function mailBox.ExtractMailMoney( mailId ) end
-
-function mailBox.FirstPage() end
 
 ---@return { totalMessages: integer, unreadMessages: integer }
 function mailBox.GetInfo() end
@@ -114,28 +108,11 @@ function mailBox.IsInteracting() end
 ---@return boolean
 function mailBox.IsReady() end
 
-function mailBox.NextPage() end
-
 function mailBox.Open() end
-
-function mailBox.PrevPage() end
-
----@param mailId ObjectId
-function mailBox.ReadMail( mailId ) end
-
----@param mailId ObjectId
-function mailBox.RequestMail( mailId ) end
 
 ---@param operation CmdMailGroupOperationOperationType
 ---@param mailList table<integer, ObjectId>
 function mailBox.RequestMailGroupOperation( operation, mailList ) end
-
----@return table<integer, ObjectId>
-function mailBox.RequestMailIds() end
-
----@param mailId ObjectId
----@return nil | { header: nil | { participantName: WString, subject: WString, hasMoney: boolean, hasItems: boolean, isReturned: boolean, isReturnAllowed: boolean, isReadByRecipient: boolean, isReadByOwner: boolean, isFromSystem: boolean, remainingTime: { d: integer, h: integer, m: integer, s: integer }, body: nil | { text: WString, money: number, itemSlotCount: integer, items: table<integer, ObjectId | nil> }, mailTemplate: nil | { sysName: string, subject: WString, from: WString, body: WString, denyRemoveMailWithItems: boolean, clientDataParams: table } } }
-function mailBox.RequestMailInfo( mailId ) end
 
 ---@param startIndex integer
 ---@param count integer

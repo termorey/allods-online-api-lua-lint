@@ -20,7 +20,6 @@ object = {}
 ---@alias EVENT_OBJECT_NAME_CHANGED "EVENT_OBJECT_NAME_CHANGED"
 ---@alias EVENT_OBJECT_SELECTABLE_CHANGED "EVENT_OBJECT_SELECTABLE_CHANGED"
 ---@alias EVENT_OBJECTS_HEALTH_CHANGED "EVENT_OBJECTS_HEALTH_CHANGED"
----@alias EVENT_OBJECT_UIINFO_CHANGED "EVENT_OBJECT_UIINFO_CHANGED"
 ---@alias EVENT_OBJECT_UIINFO_REMOVED "EVENT_OBJECT_UIINFO_REMOVED"
 ---@alias EVENT_PICK_OBJECT "EVENT_PICK_OBJECT"
 ---@alias EVENT_PROJECTED_OBJECTS_CHANGED "EVENT_PROJECTED_OBJECTS_CHANGED"
@@ -107,10 +106,6 @@ function object.GetBuffsWithProperties( objectId, isPositive, isNeedVisualize ) 
 function object.GetBuffSysName( Id ) end
 
 ---@param objectId ObjectId # идентификатор интерактивного объекта
----@return number # корпуленс юнита
-function object.GetCorpulence( objectId )end
-
----@param objectId ObjectId # идентификатор интерактивного объекта
 ---@return table<integer, string> # список уникальных строковых имен детекторов. Строка прописана в данных детектора
 function object.GetDetectors( objectId ) end
 
@@ -147,10 +142,6 @@ function object.GetPos( objectId ) end
 ---@return nil | ProjectedInfo
 function object.GetProjectedInfo( objectId ) end
 ---@alias ProjectedInfo { posX: number, posY: number, playerDistance: number, cameraDistance: number, isLos: boolean, canProject: boolean }
-
----@param unitId ObjectId
----@return { hasPremiumBubble: boolean, isOnTransportParking: boolean }
-function object.GetUIInfo( unitId ) end
 
 ---@param objectId ObjectId
 ---@return table<integer, ObjectId> # индексированный с 0 список идентификаторов тайн мира

@@ -50,11 +50,6 @@ function userMods.GetCallStack() end
 ---@return nil | table # таблица с данными или nil, если секция не найдена
 function userMods.GetGlobalConfigSection( sysName ) end
 
----SendEvent
----@param eventName string # идентификатор события
----@param eventParams table # таблица с параметрами события, у каждого события свой набор параметров
-function userMods.SendEvent( eventName, eventParams ) end
-
 ---SendSelfChatMessage
 ---@param message WString # текст сообщения
 ---@param messageLevel? string #имя канала, по умолчанию message

@@ -123,23 +123,6 @@ function device.GetNavigatorTargetChests() end
 ---@return nil | table<integer, ObjectId>
 function device.GetRelatedQuestObjectives( deviceId ) end
 
----@return nil | { hasMajorAllods: boolean, mobDensity: number, mobDifficulty: number }
-function device.GetScanerHubInfo() end
-
----@return nil | { islandCount: integer, wreckCount: integer }
-function device.GetScanerPvEInfo() end
-
----@return nil | { shipCount: integer }
-function device.GetScanerPvPInfo() end
-
----@param trailId ObjectId
----@return nil | { strength: number }
-function device.GetScanerTrailInfo( trailId ) end
-
----@return table<integer, unknown>
---- TODO: check return type
-function device.GetScanerTrails() end
-
 ---@param deviceId ObjectId
 ---@return nil | { value: integer, maxValue: integer }
 function device.GetShieldStrength( deviceId ) end
@@ -171,9 +154,6 @@ function device.IsInUse( deviceId ) end
 ---@return boolean
 function device.IsOffline( deviceId ) end
 
----@return boolean
-function device.IsScanerScanning() end
-
 ---@param deviceId ObjectId
 ---@return boolean
 function device.IsShieldRegenInProgress( deviceId ) end
@@ -193,8 +173,3 @@ function device.NavigatorSetTarget( objectId ) end
 
 ---@param objectId ObjectId | nil
 function device.NavigatorZoom( objectId ) end
-
-function device.SetScanerDestinationDevice() end
-
----@param trailId ObjectId
-function device.SetScanerDestinationTrail( trailId ) end

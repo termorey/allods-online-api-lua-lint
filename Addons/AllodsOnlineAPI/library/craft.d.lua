@@ -104,13 +104,6 @@ function craft.FinishReforge( choice ) end
 ---@return nil | { defaultItemId: ObjectId, results: table<integer, { diceValue: integer, itemId: ObjectId, resultQuantity: integer, bonusQuantity: integer }> }
 function craft.GetDiceCraftRecipeResults( recipeId ) end
 
----@param slot integer
----@return ObjectId | nil
-function craft.GetForgeComponent( slot ) end
-
----@return ForgeRecipeId | nil
-function craft.GetForgeRecipe() end
-
 ---@param recipeId ForgeRecipeId
 ---@return nil | { name: WString, price: integer, description: ValuedText | nil, tierResource: ForgeResourceId | nil, result: ObjectId | nil, resources: table<integer, ObjectId>, available: boolean, requirements: RequirementsTable | nil, altCurrencies: table<integer, { currency: CurrencyId, count: integer }> }
 function craft.GetForgeRecipeInfo( recipeId ) end
@@ -155,16 +148,7 @@ function craft.MakeReforge() end
 ---@param slot integer
 ---@param itemId ObjectId | nil
 ---@return boolean
-function craft.PutForgeComponent( slot, itemId ) end
-
----@param slot integer
----@param itemId ObjectId | nil
----@return boolean
 function craft.PutReforgeComponent( slot, itemId ) end
-
----@param recipeId ForgeCraftRecipeId
----@return boolean
-function craft.SetForgeRecipe( recipeId ) end
 
 ---@param resorceId ReforgeResourceId
 ---@param itemId ObjectId

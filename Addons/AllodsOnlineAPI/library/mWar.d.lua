@@ -32,10 +32,6 @@ function mwar.GetCommonMatchMakingInfo() end
 ---@return TimeEntry[]
 function mwar.GetEventStartTimeEntries( eventResourceId ) end
 
----@return nil | table<integer, unknown>
---- TODO: check return type
-function mwar.GetFlagCosts() end
-
 ---@return nil | { combats: table<integer, { time: LuaFullDateTime, winnerId: ObjectId, winnerScore: integer, winLeadName: WString, loserId: ObjectId, loserScore: integer, lossLeadName: WString, isRatingBattle: boolean }> }
 function mwar.GetGuildHistory() end
 

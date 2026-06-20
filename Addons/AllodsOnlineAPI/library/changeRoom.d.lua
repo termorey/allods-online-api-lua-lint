@@ -35,10 +35,6 @@ function changeRoom.ChargenShowHelm( show ) end
 function changeRoom.GetAvatarTemplate( isMale ) end
 ---@alias AvatarVariationTemplateInfo { skins: table<integer, table<integer, boolean>>, skinColors:  table<integer, table<integer, boolean>>, hairs:  table<integer, table<integer, boolean>>, hairColors: table<integer, table<integer, boolean>>, faces: table<integer, table<integer, boolean>>, facials: table<integer, table<integer, boolean>>, additionals: table<integer, table<integer, boolean>>, morphPresets: table<integer, table<integer, boolean>> }
 
----@return nil | { ticketCurrencyId: nil | CurrencyId, sexChangeCost: integer, petChangeCost: integer, petNameChangeCost: integer, petFacialChangeCost: integer, whiteList: CostsVariationsTable, greyList: CostsVariationsTable }
-function changeRoom.GetCosts() end
----@alias CostsVariationsTable { skin: integer, skinColors: integer, petColor: integer, hairColor: integer, hair: integer, facial: integer, face: integer, body: integer, additional: integer }
-
 ---@return nil | { primary: PlayerIndexesVariationsTable, trio2: nil | PlayerIndexesVariationsTable, trio3: nil | PlayerIndexesVariationsTable, pet: nil | PlayerIndexesVariationsTable, petIndex: integer | nil }
 function changeRoom.GetPlayerIndexes() end
 ---@alias PlayerIndexesVariationsTable { name: WString, sexId: SEX, variations: { skin: integer, skinColor: integer, hair: integer, hairColor: integer, face: integer, facial: integer, additional: integer, body: integer } }

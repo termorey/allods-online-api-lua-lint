@@ -50,10 +50,6 @@ function options.GetCollectionInfo( collectionId ) end
 ---@return table<integer, ObjectId>
 function options.GetGroupIds( pageId ) end
 
----@param sysCustomId string
----@return nil | ObjectId
-function options.GetOptionByCustomId( sysCustomId ) end
-
 ---@param blockId ObjectId
 ---@return table<integer, ObjectId>
 function options.GetOptionIds( blockId ) end
@@ -61,10 +57,6 @@ function options.GetOptionIds( blockId ) end
 ---@param optionId ObjectId
 ---@return { isEnabled: boolean, isNeedPreview: boolean, isPreview: boolean, dataType: UI_OPTION_DATA, viewType: UI_OPTION_VIEW, sysCustomId: string, sysCustomType: string, name: WString, description: WString, useAttemptWarning: WString, minName: WString, minDescription: WString, maxName: WString, maxDescription: WString, currentIndex: integer, defaultIndex: integer, baseIndex: integer, values: {} | { name: WString, description: WString, stringValue: string, floatValue: number }, valueCount: integer, isRestartToApply: boolean }
 function options.GetOptionInfo( optionId ) end
-
----@param sysCustomType string
----@return table<integer, ObjectId>
-function options.GetOptionsByCustomType( sysCustomType ) end
 
 ---@return table<integer, ObjectId>
 function options.GetPageIds() end
@@ -74,9 +66,5 @@ function options.Preview( optionBaseId ) end
 
 ---@param optionBaseId ObjectId
 function options.ResetToDefault( optionBaseId ) end
-
----@param optionId ObjectId
----@param index integer
-function options.SetOptionCurrentIndex( optionId, index ) end
 
 function options.Update() end
