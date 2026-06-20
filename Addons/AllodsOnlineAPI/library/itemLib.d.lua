@@ -253,6 +253,13 @@ function itemLib.GetResourceId( itemId ) end
 ---@return table<integer, ItemCategoryId>
 function itemLib.GetRootCategories() end
 
+---@return nil | { hasSetBonus: boolean, name: nil | WString, description: nil | ValuedText, loreDescription: nil | WString, sourceDescription: nil | GlossaryId }
+function itemLib.GetSetBonusInfo( itemId ) end
+
+---@param itemId ObjectId # идентификатор предмета
+---@return nil | { name: WString, description: ValuedText, loreDescription: WString, sourceDescription: GlossaryId }
+function itemLib.GetSetBonusRoot() end
+
 ---@param itemId ObjectId
 ---@return nil | { level: integer, zodiacSignId: ZodiacSignId, offensiveBonus: number, defensiveBonus: number, upgradedRuneItem: nil | ObjectId }
 function itemLib.GetRuneInfo( itemId ) end
