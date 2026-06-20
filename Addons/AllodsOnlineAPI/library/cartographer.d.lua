@@ -46,6 +46,10 @@ function cartographer.GetMapBlockInfo( mapBlockId ) end
 ---@return table<integer, ObjectId>
 function cartographer.GetMapBlocks() end
 
+---@param zonesMapId ObjectId # идентификатор интерфейсной карты зоны, для которой надо получить геодату
+---@return Geodata
+function cartographer.GetMapGeodata( zonesMapId ) end
+
 ---@param zonesMapId ObjectId
 ---@param markerId InterfaceMapMarkerId
 ---@return table<integer, { pos: GamePosition, geodata: nil | { x: integer, y: integer, height: integer, width: integer } }>
