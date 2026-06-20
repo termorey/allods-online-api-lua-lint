@@ -91,6 +91,9 @@ function mission.GetWeakFactionBonus() end
 ---@return nil | FactionId # если есть на сервере информация о более слабой фракции, которой выдаются дополнительные бонусы, то FactionId
 function mission.GetWeakFactionId() end
 
+---@return number # Серверное время в формате unixTimeMs
+function mission.GetWorldTimeMs() end
+
 ---@param currencyId CurrencyId | ResourceId # идентификатор валюты, служащей счётчиком полученных призов (см. mission.LoginLotteryReceivePrizes( currencyId ), поля counter)
 ---@return nil | { comboCounter: CurrencyId | ResourceId, prizes: table<integer, { daysToReceive: integer, counter: CurrencyId | ResourceId, prizes: table<integer, ItemId> }> }
 function mission.LoginLotteryReceivePrizes( currencyId ) end
