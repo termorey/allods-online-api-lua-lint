@@ -6,43 +6,52 @@
 <meta content="text/html; charset=UTF-8" http-equiv="content-type">
             
 <head>
-<title>Пользовательские дополнения - Lua API - FunctionCommonGetTextureSize</title>
+<title>Пользовательские дополнения - Lua API - FunctionCommonRegisterFrameHandler</title>
 <link href="LuaApi.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <h1>Пользовательские дополнения</h1>
 <p><a href="../Index.html">На главную</a></p>
 <hr>
-<p>## page was renamed from FunctionCommonGetTextureSize</p>
 <p></p>
-<h2> common.GetTextureSize( textureId )</h2>
+<h2> common.RegisterFrameHandler( handlerFunction, needHit )</h2>
 <p></p>
-<p>Возвращает размер текстуры, информация берется из ресурса (поля realWidth, realHeight)</p>
+<p>Подписывает обработчик аддона на событие кадра. У аддона может быть только один обработчик события кадра. Функция-обработчик обязана соответствовать <a href="FunctionCommonOnFrame.html"> шаблону</a></p>
+<p></p>
+<p>Обработчик можно подписать двумя способами:</p>
+<ul><li><p> Безусловно (needHit == false) - обработчик будет вызываться каждый кадр</p></li></ul>
+<ul><li><p> С требованием активации (needHit == true) - обработчик будет вызван только если ранее аддон вызвал <a href="FunctionCommonHitFrameHandler.html"> common.HitFrameHandler</a> и взвел флаг hit (будет сброшен при вызове обработчика). Примечание: в некоторых специальных случаях это может отложить вызов на 1 кадр.</p></li></ul>
+<p></p>
+<p>Для обработчиков событий кадра действуют строгие ограничения:</p>
+<ul><li><p> Из обработчика нельзя работать с конфигами</p></li></ul>
+<ul><li><p> Из обработчика нельзя вызвать <a href="FunctionCommonHitFrameHandler.html"> common.HitFrameHandler</a></p></li></ul>
+<ul><li><p> (Для пользовательских аддонов) Из обработчика нельзя отправлять события</p></li></ul>
+<ul><li><p> (Для пользовательских аддонов) Из обработчика нельзя писать в лог (common.Log*)</p></li></ul>
+<ul><li><p> (Для пользовательских аддонов)(Только при needHit == false) Обработчик обязан выполниться за 3 миллисекунды. Если это требование будет нарушено 100 раз, то обработчик будет удален а подписка на событие кадра заблокирована для аддона до перезапуска.</p></li></ul>
+<p></p>
+<p>Для отказа от обработчика надлежит использовать <a href="FunctionCommonUnRegisterFrameHandler.html"> common.UnRegisterFrameHandler</a>. Перезапись существующего обработчика запрещена. Для изменения обработчика нужно отказаться от старого и затем зарегистрировать новый.</p>
 <p></p>
 <pre>
 -- библиотека:
 common
 
 -- объявление:
-function GetTextureSize( textureId )
+function RegisterFrameHandler( handlerFunction, needHit )
 
 -- параметры:
-textureId: TextureId - идентификатор ресурса текстуры
+handlerFunction: function - функция-обработчик соответствующая шаблону
+needHit: bool - требуется ли взводить флаг для вызова обработчика
 
 -- возвращаемые значения:
-Таблица с полями:
-sizeX - int - реальная ширина текстуры
-sizeY - int - реальная высота текстуры
+нет
 
 -- примеры:
-local spellInfo = avatar.GetSpellInfo( spellId )
-local textureId = spellInfo and spellInfo.texture
-local size = textureId and common.GetTextureSize( textureId )
-if size then
-  LogInfo( size )
+function OnFrame( elapsedMs, timeMs )
+  LogInfo( "Frame time:", elapsedMs )
 end
+
+common.RegisterFrameHandler( OnFrame, false )
 </pre>
-<p></p>
 <p></p>
 <h4>Search: "CategoryLuaApi" "CategoryCommon"</h4>
 <p></p>
@@ -157,7 +166,6 @@ end
 <br><a href="FunctionHasGlobalConst.html">FunctionHasGlobalConst</a>
 <br><a href="FunctionIsIndexableUdata.html">FunctionIsIndexableUdata</a>
 <br><a href="GoalId.html">GoalId</a>
-<p></p>
 <p></p>
 <hr>
 <a href="CategoryLuaApi.html">CategoryLuaApi</a>

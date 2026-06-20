@@ -10,8 +10,8 @@ itemLib = {}
 ---@alias ENUM_FloatingBudgetType_OffenceBudget unknown
 ---@alias ENUM_FloatingBudgetType ENUM_FloatingBudgetType_MainBudget | ENUM_FloatingBudgetType_DefenceBudget | ENUM_FloatingBudgetType_OffenceBudget
 
----@alias ENUM_SpecialStatType_Offence unknown -- атакующие
----@alias ENUM_SpecialStatType_Defence unknown -- защитные
+---@alias ENUM_SpecialStatType_Offence number -- атакующие
+---@alias ENUM_SpecialStatType_Defence number -- защитные
 ---@alias ENUM_SpecialStatType ENUM_SpecialStatType_Offence | ENUM_SpecialStatType_Defence
 
 ---@alias ENUM_ToolProperty

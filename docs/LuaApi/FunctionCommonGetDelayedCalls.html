@@ -6,43 +6,54 @@
 <meta content="text/html; charset=UTF-8" http-equiv="content-type">
             
 <head>
-<title>Пользовательские дополнения - Lua API - FunctionCommonGetTextureSize</title>
+<title>Пользовательские дополнения - Lua API - FunctionCommonGetDelayedCalls</title>
 <link href="LuaApi.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <h1>Пользовательские дополнения</h1>
 <p><a href="../Index.html">На главную</a></p>
 <hr>
-<p>## page was renamed from FunctionCommonGetTextureSize</p>
 <p></p>
-<h2> common.GetTextureSize( textureId )</h2>
+<h2> common.GetDelayedCalls()</h2>
 <p></p>
-<p>Возвращает размер текстуры, информация берется из ресурса (поля realWidth, realHeight)</p>
+<p>Получить информацию о запланированных вызовах для текущего аддона. Планирование вызова смотри <a href="FunctionCommonDelayedCall.html"> common.DelayedCall( delayMs, func, ... )</a></p>
 <p></p>
 <pre>
 -- библиотека:
 common
 
 -- объявление:
-function GetTextureSize( textureId )
+function GetDelayedCalls()
 
 -- параметры:
-textureId: TextureId - идентификатор ресурса текстуры
+нет
 
 -- возвращаемые значения:
-Таблица с полями:
-sizeX - int - реальная ширина текстуры
-sizeY - int - реальная высота текстуры
+table (index from 1) of tables - список запланированных вызовов, каждый элемент - таблица с полями:
+  executeTimestamp: number (int64) - отметка времени когда произойдет вызов (не ранее, позже на время до 2 кадров)
+  function: function - запланированная к вызову функция
+  functionRef: number (int) - ссылка на функцию, по ней можно отменить вызов
+  arguments: table (index [1:10]) of any - список аргументов запланированного вызова (от 0 до 10 штук)
 
--- примеры:
-local spellInfo = avatar.GetSpellInfo( spellId )
-local textureId = spellInfo and spellInfo.texture
-local size = textureId and common.GetTextureSize( textureId )
-if size then
-  LogInfo( size )
+-- пример:
+function LogDeferredFunctions()
+  LogInfo( "----------------------------------------------------------------------------" )
+  LogInfo( "---------------------[advEvent deferred function calls]---------------------" )
+  local list = common.GetDelayedCalls()
+  local ts = common.GetAbsTimeMs()
+  if next( list ) then
+    for _, record in ipairs( list ) do
+      LogInfo( string.format( "Handler %s (ref %d) will launch on [%d] (remaining %d ms)",
+        record["function"], record.functionRef, record.executeTimestamp, record.executeTimestamp - ts ) )
+    end
+    LogInfo( "----------------------------------------------------------------------------" )
+    LogInfo( string.format( "Current time: %d", ts ) )
+  else
+    LogInfo( "Empty list" )
+  end
+  LogInfo( "----------------------------------------------------------------------------" )
 end
 </pre>
-<p></p>
 <p></p>
 <h4>Search: "CategoryLuaApi" "CategoryCommon"</h4>
 <p></p>
@@ -157,7 +168,6 @@ end
 <br><a href="FunctionHasGlobalConst.html">FunctionHasGlobalConst</a>
 <br><a href="FunctionIsIndexableUdata.html">FunctionIsIndexableUdata</a>
 <br><a href="GoalId.html">GoalId</a>
-<p></p>
 <p></p>
 <hr>
 <a href="CategoryLuaApi.html">CategoryLuaApi</a>

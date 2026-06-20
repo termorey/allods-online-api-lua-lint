@@ -6,45 +6,47 @@
 <meta content="text/html; charset=UTF-8" http-equiv="content-type">
             
 <head>
-<title>Пользовательские дополнения - Lua API - FunctionCommonGetTextureSize</title>
+<title>Пользовательские дополнения - Lua API - FunctionCommonSendEvent</title>
 <link href="LuaApi.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <h1>Пользовательские дополнения</h1>
 <p><a href="../Index.html">На главную</a></p>
 <hr>
-<p>## page was renamed from FunctionCommonGetTextureSize</p>
 <p></p>
-<h2> common.GetTextureSize( textureId )</h2>
+<h2> common.SendEvent( eventName, eventData )</h2>
 <p></p>
-<p>Возвращает размер текстуры, информация берется из ресурса (поля realWidth, realHeight)</p>
+<p>Посылка события с данным именем и параметрами. Если функция вызвана из встроенного аддона - событие будет отправлено только встроенным аддонам, из пользовательского - только пользовательским.</p>
+<p></p>
+<p>Для имени события настоятельно рекомендуется использовать формат SCRIPT_[A-Z_]*. Имя не должно быть пустым.</p>
+<p></p>
+<p>Для таблицы eventData имеются следующие ограничения:</p>
+<ul><li><p> Допустимые типы ключей: int32_t, string (непустые, длинной не более 512)</p></li></ul>
+<ul><li><p> Допустимые типы значений: bool, number, string, userdata (любого зарегистрированного типа), table (применяются ограничения)</p></li></ul>
+<ul><li><p> Таблицы не должны содержать метатаблиц (будут утрачены)</p></li></ul>
+<ul><li><p> Циклические ссылки запрещены</p></li></ul>
+<ul><li><p> Максимальная глубина вложенности таблиц - 8</p></li></ul>
+<ul><li><p> Максимальное суммарное число ключей в таблице и вложенных таблицах - 1024.</p></li></ul>
 <p></p>
 <pre>
 -- библиотека:
 common
 
 -- объявление:
-function GetTextureSize( textureId )
+function SendEvent( eventName, eventParams )
 
 -- параметры:
-textureId: TextureId - идентификатор ресурса текстуры
+eventName: string - идентификатор события, непустая строка
+eventParams: table - таблица с параметрами события, произвольная с учетом ограничений перечисленных выше
 
 -- возвращаемые значения:
-Таблица с полями:
-sizeX - int - реальная ширина текстуры
-sizeY - int - реальная высота текстуры
+нет
 
 -- примеры:
-local spellInfo = avatar.GetSpellInfo( spellId )
-local textureId = spellInfo and spellInfo.texture
-local size = textureId and common.GetTextureSize( textureId )
-if size then
-  LogInfo( size )
-end
+common.SendEvent( "SCRIPT_SAMPLE_EVENT", { eventParam1 = value1, eventParam2 = value2 } )
 </pre>
 <p></p>
-<p></p>
-<h4>Search: "CategoryLuaApi" "CategoryCommon"</h4>
+<h4>Связанные страницы: CategoryLuaApi CategoryCommon</h4>
 <p></p>
 <a href="CategoryCommon.html">CategoryCommon</a>
 <br><a href="EnumAddonState.html">EnumAddonState</a>
@@ -157,7 +159,6 @@ end
 <br><a href="FunctionHasGlobalConst.html">FunctionHasGlobalConst</a>
 <br><a href="FunctionIsIndexableUdata.html">FunctionIsIndexableUdata</a>
 <br><a href="GoalId.html">GoalId</a>
-<p></p>
 <p></p>
 <hr>
 <a href="CategoryLuaApi.html">CategoryLuaApi</a>

@@ -6,43 +6,39 @@
 <meta content="text/html; charset=UTF-8" http-equiv="content-type">
             
 <head>
-<title>Пользовательские дополнения - Lua API - FunctionCommonGetTextureSize</title>
+<title>Пользовательские дополнения - Lua API - FunctionCommonOnFrame</title>
 <link href="LuaApi.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <h1>Пользовательские дополнения</h1>
 <p><a href="../Index.html">На главную</a></p>
 <hr>
-<p>## page was renamed from FunctionCommonGetTextureSize</p>
 <p></p>
-<h2> common.GetTextureSize( textureId )</h2>
+<h2> FunctionName( elapsedMs, timeMs )</h2>
 <p></p>
-<p>Возвращает размер текстуры, информация берется из ресурса (поля realWidth, realHeight)</p>
+<p>Шаблон функции, обрабатывающей событие кадра. Функции регистрируемые через <a href="FunctionCommonRegisterFrameHandler.html"> common.RegisterFrameHandler</a> обязаны соответствовать данному шаблону.</p>
 <p></p>
 <pre>
--- библиотека:
-common
+-- объявление:
+объявляются непосредственно в скрипте
 
 -- объявление:
-function GetTextureSize( textureId )
+function FunctionName( elapsedMs, timeMs )
 
 -- параметры:
-textureId: TextureId - идентификатор ресурса текстуры
+elapsedMs: int64 - Время (в миллисекундах) прошедшее с предыдущего отсчета глобального таймера (== с предыдущего кадра)
+timeMs: int64 - текущий отсчет глобального таймера
 
 -- возвращаемые значения:
-Таблица с полями:
-sizeX - int - реальная ширина текстуры
-sizeY - int - реальная высота текстуры
+нет
 
 -- примеры:
-local spellInfo = avatar.GetSpellInfo( spellId )
-local textureId = spellInfo and spellInfo.texture
-local size = textureId and common.GetTextureSize( textureId )
-if size then
-  LogInfo( size )
+function OnFrame( elapsedMs, timeMs )
+  LogInfo( "Frame time:", elapsedMs )
 end
+
+common.RegisterFrameHandler( OnFrame, false )
 </pre>
-<p></p>
 <p></p>
 <h4>Search: "CategoryLuaApi" "CategoryCommon"</h4>
 <p></p>
@@ -157,7 +153,6 @@ end
 <br><a href="FunctionHasGlobalConst.html">FunctionHasGlobalConst</a>
 <br><a href="FunctionIsIndexableUdata.html">FunctionIsIndexableUdata</a>
 <br><a href="GoalId.html">GoalId</a>
-<p></p>
 <p></p>
 <hr>
 <a href="CategoryLuaApi.html">CategoryLuaApi</a>

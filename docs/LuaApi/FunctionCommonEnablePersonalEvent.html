@@ -6,43 +6,56 @@
 <meta content="text/html; charset=UTF-8" http-equiv="content-type">
             
 <head>
-<title>Пользовательские дополнения - Lua API - FunctionCommonGetTextureSize</title>
+<title>Пользовательские дополнения - Lua API - FunctionCommonEnablePersonalEvent</title>
 <link href="LuaApi.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <h1>Пользовательские дополнения</h1>
 <p><a href="../Index.html">На главную</a></p>
 <hr>
-<p>## page was renamed from FunctionCommonGetTextureSize</p>
 <p></p>
-<h2> common.GetTextureSize( textureId )</h2>
+<h2> common.EnablePersonalEvent( sysEventName, object )</h2>
 <p></p>
-<p>Возвращает размер текстуры, информация берется из ресурса (поля realWidth, realHeight)</p>
+<p>Включает обработку персонального события для конкретной пары (событие : объект). Применимо только к некоторым специальным событиям:</p>
+<ul><li><p> <a href="EventHealingReceived.html"> EVENT_HEALING_RECEIVED</a></p></li></ul>
+<ul><li><p> <a href="EventUnitDamageReceived.html"> EVENT_UNIT_DAMAGE_RECEIVED</a></p></li></ul>
+<ul><li><p> <a href="EventDeviceDamageReceived.html"> EVENT_DEVICE_DAMAGE_RECEIVED</a></p></li></ul>
+<ul><li><p> <a href="EventDeviceDamageReceived.html"> EVENT_DEVICE_DAMAGE_RECEIVED</a></p></li></ul>
+<ul><li><p> <a href="EventManaReceived.html"> EVENT_MANA_RECEIVED</a></p></li></ul>
+<ul><li><p> <a href="EventObjectBuffsChanged.html"> EVENT_OBJECT_BUFFS_CHANGED</a></p></li></ul>
+<ul><li><p> <a href="EventObjectBuffAdded.html"> EVENT_OBJECT_BUFF_ADDED</a></p></li></ul>
+<ul><li><p> <a href="EventObjectBuffRemoved.html"> EVENT_OBJECT_BUFF_REMOVED</a></p></li></ul>
+<ul><li><p> <a href="EventObjectBuffChanged.html"> EVENT_OBJECT_BUFF_CHANGED</a></p></li></ul>
+<ul><li><p> <a href="EventObjectHealthChanged.html"> EVENT_OBJECT_HEALTH_CHANGED</a></p></li></ul>
+<ul><li><p> <a href="EventObjectManaChanged.html"> EVENT_OBJECT_MANA_CHANGED</a></p></li></ul>
+<p></p>
+<p>Данные события формируются клиентом только для тех объектов, для которых хотя-бы один аддон включил персональное событие на конкретную пару (событие : объект)</p>
+<p></p>
+<p>ВНИМАНИЕ! Ручное управление персональными событиями может привести к неожиданным эффектам. Допускается только в хорошо протестированном коде в  целях оптимизации для  случаев с  высокой степенью покрытия события фильтрами. Например если аддон отслеживает бафы на всех объектах вокруг, то можно зарегистрировать EVENT_OBJECT_BUFF_ADDED без фильтров, через данную функцию добавить все соответствующие объекты и иметь единую точку входа.</p>
+<p></p>
+<p>ВНИМАНИЕ! Таблица персональных событий является глобальной (общей для всего интерфейса) и при регистрации события из списка выше без фильтров оно может приходить для объектов которые данный аддон не активировал (но активировал кто-то другой).</p>
+<p></p>
+<p>ВНИМАНИЕ! На один аддон для одной пары (событие : объект) счетчик персональных событий должен находиться в диапазоне 0-5, глобально 0-250.</p>
+<p></p>
+<p>Для данной функции есть обратный метод <a href="FunctionCommonDisablePersonalEvent.html"> common.DisablePersonalEvent()</a>.</p>
 <p></p>
 <pre>
 -- библиотека:
 common
 
 -- объявление:
-function GetTextureSize( textureId )
+function EnablePersonalEvent( sysEventName, object )
 
 -- параметры:
-textureId: TextureId - идентификатор ресурса текстуры
+sysEventName: string - название события
+object: ObjectId (int) - идентификатор объекта для которого включается персональное событие
 
 -- возвращаемые значения:
-Таблица с полями:
-sizeX - int - реальная ширина текстуры
-sizeY - int - реальная высота текстуры
+нет
 
 -- примеры:
-local spellInfo = avatar.GetSpellInfo( spellId )
-local textureId = spellInfo and spellInfo.texture
-local size = textureId and common.GetTextureSize( textureId )
-if size then
-  LogInfo( size )
-end
+common.EnablePersonalEvent( "EVENT_OBJECT_BUFF_ADDED", avatar.GetId() ) -- Включить отправку EVENT_OBJECT_BUFF_ADDED для аватара
 </pre>
-<p></p>
 <p></p>
 <h4>Search: "CategoryLuaApi" "CategoryCommon"</h4>
 <p></p>
@@ -157,7 +170,6 @@ end
 <br><a href="FunctionHasGlobalConst.html">FunctionHasGlobalConst</a>
 <br><a href="FunctionIsIndexableUdata.html">FunctionIsIndexableUdata</a>
 <br><a href="GoalId.html">GoalId</a>
-<p></p>
 <p></p>
 <hr>
 <a href="CategoryLuaApi.html">CategoryLuaApi</a>

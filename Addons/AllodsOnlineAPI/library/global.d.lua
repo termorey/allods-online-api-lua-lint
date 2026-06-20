@@ -19,6 +19,8 @@
 ---@alias ComponetPropertyId integer # Id ресурсов компонент крафтинг // TODO: требует уточнения
 ---@alias ZodiacSignId unknown # id знака зодиака руны // TODO: требует уточнения
 ---@alias SpecialStatId ResourceId
+---@alias SetBonusId ResourceId # идентификатор бонуса комплектной экипировки
+---@alias GlossaryId unknown # идентификатор ресурса для описания источника получения
 ---@alias GuildAbilityId integer # TODO: требует уточнения
 ---@alias ComponentId integer # TODO: требует уточнения
 ---@alias VariableId string # идентификатор ресурса переменной // TODO: требует уточнения

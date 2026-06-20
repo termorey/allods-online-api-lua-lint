@@ -6,43 +6,34 @@
 <meta content="text/html; charset=UTF-8" http-equiv="content-type">
             
 <head>
-<title>Пользовательские дополнения - Lua API - FunctionCommonGetTextureSize</title>
+<title>Пользовательские дополнения - Lua API - FunctionCommonStateReloadManagedAddon</title>
 <link href="LuaApi.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <h1>Пользовательские дополнения</h1>
 <p><a href="../Index.html">На главную</a></p>
 <hr>
-<p>## page was renamed from FunctionCommonGetTextureSize</p>
 <p></p>
-<h2> common.GetTextureSize( textureId )</h2>
+<h2>common.StateReloadManagedAddon( name )</h2>
 <p></p>
-<p>Возвращает размер текстуры, информация берется из ресурса (поля realWidth, realHeight)</p>
+<p>Перезагружает указанный аддон. Можно перезагружать только managed аддоны в состоянии LOADED.</p>
 <p></p>
 <pre>
 -- библиотека:
 common
 
 -- объявление:
-function GetTextureSize( textureId )
+function StateReloadManagedAddon( name )
 
 -- параметры:
-textureId: TextureId - идентификатор ресурса текстуры
+name: string - имя аддона
 
 -- возвращаемые значения:
-Таблица с полями:
-sizeX - int - реальная ширина текстуры
-sizeY - int - реальная высота текстуры
+нет
 
 -- примеры:
-local spellInfo = avatar.GetSpellInfo( spellId )
-local textureId = spellInfo and spellInfo.texture
-local size = textureId and common.GetTextureSize( textureId )
-if size then
-  LogInfo( size )
-end
+common.StateReloadManagedAddon( "Cartographer" )
 </pre>
-<p></p>
 <p></p>
 <h4>Search: "CategoryLuaApi" "CategoryCommon"</h4>
 <p></p>
@@ -157,7 +148,6 @@ end
 <br><a href="FunctionHasGlobalConst.html">FunctionHasGlobalConst</a>
 <br><a href="FunctionIsIndexableUdata.html">FunctionIsIndexableUdata</a>
 <br><a href="GoalId.html">GoalId</a>
-<p></p>
 <p></p>
 <hr>
 <a href="CategoryLuaApi.html">CategoryLuaApi</a>

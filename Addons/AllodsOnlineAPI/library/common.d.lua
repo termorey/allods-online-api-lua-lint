@@ -13,6 +13,14 @@ common = {}
 
 --[[ FUNCTIONS --]]
 
+---@param isActive boolean # true, если нужно показать тултип, false - скрыть
+---@param tooltipData nil | table # если isActive == true, то должна быть передана таблица параметров, подробнее смотри в разделе "Описание tooltipData"
+function common.CallTooltip( isActive, tooltipData ) end
+
+---@param functionRef integer # ссылка на функцию полученная из common.DelayedCall( delayMs, function, ... )
+---@return boolean # true, если вызов был отменен, false если по ссылке вызов не найден
+function common.CancelDelayedCall( functionRef ) end
+
 ---CreateValuedObject
 ---@param text WString | ValuedText # текстовое описание, впоследствие может быть получено из ValuedObject методом GetText()
 ---@param table table<string, boolean | number | string | WString | table> # таблица произвольного вида, содержащая элементы простых типов (boolean, number, string, WString, table); впоследствие может быть получено из ValuedObject методом GetId()
@@ -25,6 +33,20 @@ function common.CreateValuedObject( text, table, handledMouseButtons, handledMou
 ---@param textValues? table # если задано, то будет использовано для заполнения нового ValuedText через SetTextValues
 ---@return ValuedText # новый экземпляр ValuedText
 function common.CreateValuedText(textValues) end
+
+---@param delayMs integer # задержка вызова в миллисекундах, должна быть больше 0
+---@param fn function # функция которая будет выполнена
+---@param ... any # от 0 до 10 произвольных аргументов функции. Захват upvalues/closure произойдет в момент вызова данной API
+---@return integer # ссылка на функцию, для отмены вызова через common.CancelDelayedCall
+function common.DelayedCall( delayMs, fn, ... ) end
+
+---@param sysEventName string # название события
+---@param object ObjectId # идентификатор объекта для которого отключается персональное событие
+function common.DisablePersonalEvent( sysEventName, object ) end
+
+---@param sysEventName string # название события
+---@param object ObjectId # идентификатор объекта для которого включается персональное событие
+function common.EnablePersonalEvent( sysEventName, object ) end
 
 ---EnableUIRender
 ---@param enable boolean # true включает отображение пользовательского интерфейса, false выключает
@@ -55,6 +77,9 @@ function common.FormatInt (value, format, separator) end
 ---@return WString # текстовое представление исходного числа в указанном формате
 function common.FormatNumber (value, format) end
 
+---@return integer # Текущий отсчет таймера в миллисекундах
+function common.GetAbsTimeMs() end
+
 ---GetAddonInfo
 ---@return {sysName: string , sysFullName: string, name: WString, description: WString } # таблица с полями
 function common.GetAddonInfo () end
@@ -67,6 +92,9 @@ function common.GetAddonMainForm (sysAddonName) end
 ---GetAddonName
 ---@return string # имя аддона, в котором выполняется скрипт
 function common.GetAddonName () end
+
+---@return string # имя аддона, в котором выполняется скрипт
+function common.GetAddonSysName() end
 
 ---@param sysGroup string
 ---@param optional boolean | nil
@@ -109,6 +137,9 @@ function common.getCSSList () end
 ---@return nil | LuaFullDateTime # если нет ошибки, то таблица в формате LuaFullDateTime
 function common.GetDateTimeFromMs (timeMs) end
 
+---@return table<integer, { executeTimestamp: integer, function: function, functionRef: integer, arguments: table<integer, any> }>
+function common.GetDelayedCalls() end
+
 ---GetEmptyWString
 ---@return WString # пустая локализуемая строка
 function common.GetEmptyWString () end
@@ -120,6 +151,9 @@ function common.GetFatalityPhraseLimits () end
 ---GetFirstPaymentBonusInfo
 ---@return table<integer, { min: integer, bonus: integer, background: TextureId, items: table<integer, ResourceId> }> # список бонусов
 function common.GetFirstPaymentBonusInfo () end
+
+---@return { min: number, max: number, avg: number, instant: number }
+function common.GetFPSData() end
 
 ---GetIntFromWString
 ---@param text WString # локализуемый текст
@@ -146,6 +180,9 @@ function common.GetLocaleList () end
 ---@return Localization # локализация
 function common.GetLocalization () end
 
+---@return integer # количество микросекунд (1/1000 миллисекунды) с момента старта системы
+function common.GetMks() end
+
 ---GetMsFromDateTime
 ---@param timeTable { y: integer, m: integer, d: integer, h?: integer, min?: integer, s?: integer, ms?: integer }
 ---@return integer # Unix time (время в миллисекундах прошедшее с 1-го января 1970 года)
@@ -168,10 +205,18 @@ function common.GetRandInt( min, max ) end
 ---@return nil | boolean | number | string # значение переменной или nil, если переменная не определена
 function common.GetScriptCfgVar( name ) end
 
+---@param setBonusId SetBonusId # идентификатор бонуса комплектной экипировки
+---@return nil | { name: WString, description: ValuedText, loreDescription: WString, sourceDescription: GlossaryId }
+function common.GetSetBonusInfo( setBonusId ) end
+
 ---GetShortString
 ---@param text WString # строка
 ---@return nil | WString # сокращённая строка или nil, если строка-аргумент была пустой
 function common.GetShortString( text ) end
+
+---@param specialStatId SpecialStatId # идентификатор Special-стата
+---@return nil | { name: WString, tooltipName: WString, shortDescription: WString, type: ENUM_SpecialStatType }
+function common.GetSpecialStatInfo( specialStatId ) end
 
 ---@param specialStatId SpecialStatId # идентификатор Special-стата
 function common.GetSpecialStatInfo( specialStatId ) end
@@ -202,6 +247,20 @@ function common.GetStateRelatedTextureGroup( sysGroup, optional ) end
 ---GetTerritoryInfo
 ---@return { ignoreAutoShard: boolean, showZoneSection: boolean, showRaitingInfo: boolean }
 function common.GetTerritoryInfo() end
+
+---@param textureId TextureId # идентификатор ресурса текстуры
+---@return { xdbFile: string, binaryFile: string, type: 0 | 1 | 2, realWidth: integer, realHeight: integer }
+function common.GetTextureInfo( textureId ) end
+
+---@param textureId TextureId # идентификатор ресурса текстуры
+---@return { sizeX: integer, sizeY: integer }
+function common.GetTextureSize( textureId ) end
+
+function common.HitFrameHandler() end
+
+---@param name WString # проверяемое значение
+---@return boolean # true если имя валидно
+function common.IsAvatarNameValid( name ) end
 
 ---GetTexturePath
 ---@param textureId TextureId # идентификатор ресурса текстуры
@@ -313,6 +372,8 @@ function common.MakeUserScreenshot( postpone ) end
 
 -- FunctionCommonOnEvent
 
+-- FunctionName
+
 -- FunctionCommonOnReaction
 
 ---QuitGame
@@ -325,11 +386,23 @@ function common.QuitGame() end
 ---@param requireMainThread? boolean # необязательный параметр, указывает клиенту на то, что при обработке события будет вызван "непотокобезопасный" код и событие нужно обработать в основном потоке; для аддонов разработчиков по умолчанию false; для аддонов пользователей всегда true
 function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
 
+---@param handlerFunction function # функция-обработчик соответствующая шаблону
+---@param needHit boolean # требуется ли взводить флаг для вызова обработчика
+function common.RegisterFrameHandler( handlerFunction, needHit ) end
+
 ---RegisterReactionHandler
 ---@param reactionFunction function # функция-обработчик
 ---@param sysReactionName string # название реакции
 ---@param requireMainThread? boolean # необязательный параметр, указывает клиенту на то, что при обработке реакции будет вызван "непотокобезопасный" код и реакцию нужно обработать в основном потоке; для аддонов разработчиков по умолчанию false; для аддонов пользователей всегда true
 function common.RegisterReactionHandler( reactionFunction, sysReactionName, requireMainThread ) end
+
+---@param eventName string # идентификатор события, непустая строка
+---@param eventParams table # таблица с параметрами события, произвольная с учетом ограничений перечисленных выше
+function common.SendEvent( eventName, eventData ) end
+
+---@param eventName string
+---@param eventData any
+function common.SendUserModsEvent( eventName, eventData ) end
 
 ---SetCursor
 ---@param name string # псевдоним (alias) курсора
@@ -347,6 +420,9 @@ function common.SetLocale( locale ) end
 ---@param name string # имя аддона
 function common.StateLoadManagedAddon( name ) end
 
+---@param name string # имя аддона
+function common.StateReloadManagedAddon( name ) end
+
 ---StateUnloadManagedAddon
 ---@param name string # имя аддона
 function common.StateUnloadManagedAddon( name ) end
@@ -360,6 +436,11 @@ function common.UnRegisterEvent( sysEventName ) end
 ---@param sysEventName string # название события
 ---@param params? (table | ObjectId) # необязательный параметр (может быть опущен), описывающий фильтр сообщения
 function common.UnRegisterEventHandler( eventHandler, sysEventName, params ) end
+
+function common.UnRegisterFrameHandler() end
+
+---@param sysReactionName string # название реакции
+function common.UnRegisterReaction( sysReactionName ) end
 
 ---UnRegisterReactionHandler
 ---@param reactionFunction function # функция-обработчик
@@ -394,6 +475,14 @@ function common.GetWStringLength ( str ) end
 ---@param name string # имя регистрируемой глобальной переменной
 ---@param initialValue any # начальное значение глобальной переменной, может быть использовано любое значение любого типа
 function Global( name, initialValue ) end
+
+---@param name string # имя регистрируемой общей глобальной константы
+---@param initialValue integer # значение общей глобальной константы, должно быть целым числом
+function GlobalConst( name, value ) end
+
+---@param name string # проверяемое имя
+---@return boolean # true, если имя занято
+function HasGlobalConst( name ) end
 
 ---TruncateWString
 ---@param str WString # исходная строка

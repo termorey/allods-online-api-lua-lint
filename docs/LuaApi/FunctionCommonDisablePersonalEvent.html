@@ -6,43 +6,37 @@
 <meta content="text/html; charset=UTF-8" http-equiv="content-type">
             
 <head>
-<title>Пользовательские дополнения - Lua API - FunctionCommonGetTextureSize</title>
+<title>Пользовательские дополнения - Lua API - FunctionCommonDisablePersonalEvent</title>
 <link href="LuaApi.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <h1>Пользовательские дополнения</h1>
 <p><a href="../Index.html">На главную</a></p>
 <hr>
-<p>## page was renamed from FunctionCommonGetTextureSize</p>
 <p></p>
-<h2> common.GetTextureSize( textureId )</h2>
+<h2> common.DisablePersonalEvent( sysEventName, object )</h2>
 <p></p>
-<p>Возвращает размер текстуры, информация берется из ресурса (поля realWidth, realHeight)</p>
+<p>Является обратной для <a href="FunctionCommonEnablePersonalEvent.html"> common.EnablePersonalEvent()</a>. Подробности применения и параметры смотреть там.</p>
 <p></p>
 <pre>
 -- библиотека:
 common
 
 -- объявление:
-function GetTextureSize( textureId )
+function DisablePersonalEvent( sysEventName, object )
 
 -- параметры:
-textureId: TextureId - идентификатор ресурса текстуры
+sysEventName: string - название события
+object: ObjectId (int) - идентификатор объекта для которого отключается персональное событие
 
 -- возвращаемые значения:
-Таблица с полями:
-sizeX - int - реальная ширина текстуры
-sizeY - int - реальная высота текстуры
+нет
 
 -- примеры:
-local spellInfo = avatar.GetSpellInfo( spellId )
-local textureId = spellInfo and spellInfo.texture
-local size = textureId and common.GetTextureSize( textureId )
-if size then
-  LogInfo( size )
-end
+-- Отключить отправку EVENT_OBJECT_BUFF_ADDED для аватара
+-- Будет ли она реально отключена определяется наличием аналогичных подписок в других местах. Для отключения глобальный счетчик должен дойти до 0.
+common.DisablePersonalEvent( "EVENT_OBJECT_BUFF_ADDED", avatar.GetId() )
 </pre>
-<p></p>
 <p></p>
 <h4>Search: "CategoryLuaApi" "CategoryCommon"</h4>
 <p></p>
@@ -157,7 +151,6 @@ end
 <br><a href="FunctionHasGlobalConst.html">FunctionHasGlobalConst</a>
 <br><a href="FunctionIsIndexableUdata.html">FunctionIsIndexableUdata</a>
 <br><a href="GoalId.html">GoalId</a>
-<p></p>
 <p></p>
 <hr>
 <a href="CategoryLuaApi.html">CategoryLuaApi</a>
