@@ -171,6 +171,10 @@ function itemLib.GetDestroyValue( itemId ) end
 ---@return { sysFirstCondition: ENUM_DressResult, failedConditions: table<ENUM_DressResult, true> }
 function itemLib.GetDressConditions( itemId, ignoredConditions ) end
 
+---@param objectId integer # идентификатор предмета
+---@return DRESS_SLOT # номер слота экипировки
+function itemLib.GetDressSlot( objectId ) end
+
 ---@param itemId ObjectId
 ---@param dressSlot integer
 ---@param ignoredConditions? ENUM_DressResult[]
@@ -432,3 +436,7 @@ function itemLib.IsWeapon( itemId ) end
 ---@param itemId ObjectId # идентификатор предмета
 ---@return boolean # true если гильдейский компонент есть
 function itemLib.HasGuildComponent( itemId ) end
+
+---@param itemId ObjectId # идентификатор предмета
+---@return nil | QuestId | ObjectId
+function itemLib.HasRelatedQuestObjectives( itemId ) end

@@ -6,7 +6,7 @@
 <meta content="text/html; charset=UTF-8" http-equiv="content-type">
             
 <head>
-<title>Пользовательские дополнения - Lua API - CategoryItemLib</title>
+<title>Пользовательские дополнения - Lua API - FunctionItemLibGetDressSlot</title>
 <link href="LuaApi.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -14,13 +14,28 @@
 <p><a href="../Index.html">На главную</a></p>
 <hr>
 <p></p>
-<h1>CategoryItemLib</h1>
+<h2> itemLib.GetDressSlot( objectId )</h2>
 <p></p>
-<p>События и функции Lua API, относящиеся к предметам.</p>
+<p>Возвращает слот к которому относится данный предмет. Список доступных слотов: <a href="EnumDressSlot.html"> DRESS_SLOT_...</a></p>
 <p></p>
-<p>Изначально образовалась в результате раздела на более мелкие части функции avatar.GetItemInfo( itemId ).</p>
+<pre>
+-- библиотека:
+itemLib
+
+-- объявление:
+function GetDressSlot( objectId )
+
+-- параметры:
+objectId: int - идентификатор предмета
+
+-- возвращаемые значения:
+int (enum DRESS_SLOT_...) - номер слота экипировки
+
+Пример:
+LogInfo( "Информация о слоте: ", itemLib.GetDressSlot( itemId ) )
+</pre>
 <p></p>
-<h2>Связанные функции: CategoryItemLib</h2>
+<h4>Search: "CategoryLuaApi" "CategoryItemLib" </h4>
 <p></p>
 <a href="CategoryItemLib.html">CategoryItemLib</a>
 <br><a href="EnumFloatingBudgetType.html">EnumFloatingBudgetType</a>
@@ -127,7 +142,8 @@
 <p></p>
 <hr>
 <a href="CategoryLuaApi.html">CategoryLuaApi</a>
-<a href="CategoryItemInfo.html">CategoryItemInfo</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryItemLib.html">CategoryItemLib</a>
 <hr>
 <p><a href="../Index.html">На главную</a></p>
 </body>
