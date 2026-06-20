@@ -174,9 +174,10 @@
 ---@alias EFFECT_TYPE_UNKNOWN unknown # не используется
 ---@alias EFFECT_TYPE_COOLDOWN_STARTED unknown # начался кулдаун
 ---@alias EFFECT_TYPE_COOLDOWN_FINISHED unknown # кулдаун закончился
+---@alias EFFECT_TYPE_COOLDOWN_CHANGED unknown # активный кулдаун изменил время неестественным образом. Например был уменьшен или увеличен эффектом и тп
 ---@alias EFFECT_TYPE_SPELL_PREPARED unknown # заклинание приготовлено к использованию
 ---@alias EFFECT_TYPE_SPELL_ACTIVE_STATE_CHANGED unknown # у заклинания изменено состояние активности
----@alias EFFECT_TYPE EFFECT_TYPE_UNKNOWN | EFFECT_TYPE_COOLDOWN_STARTED | EFFECT_TYPE_COOLDOWN_FINISHED | EFFECT_TYPE_SPELL_PREPARED | EFFECT_TYPE_SPELL_ACTIVE_STATE_CHANGED
+---@alias EFFECT_TYPE EFFECT_TYPE_UNKNOWN | EFFECT_TYPE_COOLDOWN_STARTED | EFFECT_TYPE_COOLDOWN_FINISHED | EFFECT_TYPE_COOLDOWN_CHANGED | EFFECT_TYPE_SPELL_PREPARED | EFFECT_TYPE_SPELL_ACTIVE_STATE_CHANGED
 
 ---@alias CHAR_SCENE_CHARACTER integer
 ---@alias CHAR_SCENE_ITEMMALL integer

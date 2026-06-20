@@ -7,6 +7,9 @@ containerLib = {}
 
 ---@alias ITEM_CONT_EQUIPMENT integer # одежда и руны
 ---@alias ITEM_CONT_EQUIPMENT_RITUAL integer # одежда ("драконий облик")
+---@alias ITEM_CONT_EQUIPMENT_RITUAL_1 integer # Экипировка 2 слой ("драконий облик") - первый набор
+---@alias ITEM_CONT_EQUIPMENT_RITUAL_2 integer # Экипировка 2 слой ("драконий облик") - второй набор
+---@alias ITEM_CONT_EQUIPMENT_RITUAL_3 integer # Экипировка 2 слой ("драконий облик") - третий набор
 ---@alias ITEM_CONT_INVENTORY integer # сумка
 ---@alias ITEM_CONT_DEPOSITE integer # банковская ячейка
 ---@alias ITEM_CONT_INVENTORY_OVERFLOW integer # переполненная сумка
@@ -14,7 +17,7 @@ containerLib = {}
 ---@alias ITEM_CONT_CHECKROOM integer # Гардероб
 ---@alias ITEM_CONT_POWEREDLSWEAPON integer # прокаченое оружие
 ---@alias ITEM_CONT_GEMS integer # предметы для дерева талантов души
----@alias ITEM_CONT ITEM_CONT_EQUIPMENT | ITEM_CONT_EQUIPMENT_RITUAL | ITEM_CONT_INVENTORY | ITEM_CONT_DEPOSITE | ITEM_CONT_INVENTORY_OVERFLOW | ITEM_CONT_BESTIARY | ITEM_CONT_CHECKROOM | ITEM_CONT_POWEREDLSWEAPON | ITEM_CONT_GEMS
+---@alias ITEM_CONT ITEM_CONT_EQUIPMENT | ITEM_CONT_EQUIPMENT_RITUAL | ITEM_CONT_EQUIPMENT_RITUAL_1 | ITEM_CONT_EQUIPMENT_RITUAL_2 | ITEM_CONT_EQUIPMENT_RITUAL_3 | ITEM_CONT_INVENTORY | ITEM_CONT_DEPOSITE | ITEM_CONT_INVENTORY_OVERFLOW | ITEM_CONT_BESTIARY | ITEM_CONT_CHECKROOM | ITEM_CONT_POWEREDLSWEAPON | ITEM_CONT_GEMS
 
 --[[ EVENTS --]]
 
