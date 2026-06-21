@@ -14,7 +14,7 @@
 <p><a href="../Index.html">На главную</a></p>
 <hr>
 <p></p>
-<h2> Insert( self )</h2>
+<h2> ScrollableContainerSafe:Insert( pos, widget )</h2>
 <p></p>
 <p>Добавляет элемент в заданную позицию контейнера.</p>
 <p></p>
@@ -22,23 +22,25 @@
 <ul><li><p> Добавляемый дочерний виджет является внутренним</p></li></ul>
 <ul><li><p> Добавляемый дочерний виджет является формой</p></li></ul>
 <ul><li><p> Добавляемый дочерний виджет в данный момент находится в контейнере или добавлен в сцену как Widget3D</p></li></ul>
+<ul><li><p> Контейнер переполнен</p></li></ul>
 <p></p>
 <pre>
 -- класс
 ScrollableContainerSafe
 
 -- семантика
-function Insert( self )
+function Insert( self, pos, widget )
 
 -- входные параметры:
-position: Number(int) - позиция в которую добавляется элемент (счет начинается с нуля)
+pos: number (int) - позиция в которую добавляется элемент
+  Позиции отсчитываются от 1, PushFront( widget ) == Insert( 1, widget ), PushBack( widget ) == Insert( GetElementCount() + 1, widget )
 widget: WidgetSafe - добавляемый элемент
 
 -- возвращаемое значение:
 нет
 
 -- пример
-wtScrollableContainer:Insert( 4, wtButton ) -- вставка элемента на 5-ю позицию
+wtScrollableContainer:Insert( 4, wtButton ) -- вставка элемента на 4-ю позицию
 </pre>
 <p></p>
 <h4>Связанные страницы: "CategoryLuaApi" "CategoryScrollableContainer"</h4>
@@ -55,6 +57,7 @@ wtScrollableContainer:Insert( 4, wtButton ) -- вставка элемента �
 <br><a href="FunctionScrollableContainerIsContain.html">FunctionScrollableContainerIsContain</a>
 <br><a href="FunctionScrollableContainerIsSliderMax.html">FunctionScrollableContainerIsSliderMax</a>
 <br><a href="FunctionScrollableContainerIsSliderMin.html">FunctionScrollableContainerIsSliderMin</a>
+<br><a href="FunctionScrollableContainerMoveElement.html">FunctionScrollableContainerMoveElement</a>
 <br><a href="FunctionScrollableContainerPopBack.html">FunctionScrollableContainerPopBack</a>
 <br><a href="FunctionScrollableContainerPopFront.html">FunctionScrollableContainerPopFront</a>
 <br><a href="FunctionScrollableContainerPushBack.html">FunctionScrollableContainerPushBack</a>
@@ -63,6 +66,7 @@ wtScrollableContainer:Insert( 4, wtButton ) -- вставка элемента �
 <br><a href="FunctionScrollableContainerRemoveAt.html">FunctionScrollableContainerRemoveAt</a>
 <br><a href="FunctionScrollableContainerRemoveItems.html">FunctionScrollableContainerRemoveItems</a>
 <br><a href="FunctionScrollableContainerSetContainerOffset.html">FunctionScrollableContainerSetContainerOffset</a>
+<br><a href="FunctionScrollableContainerSwapElements.html">FunctionScrollableContainerSwapElements</a>
 <br><a href="WidgetContainer.html">WidgetContainer</a>
 <br><a href="WidgetScrollableContainer.html">WidgetScrollableContainer</a>
 <p></p>
