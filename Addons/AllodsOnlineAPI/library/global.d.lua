@@ -49,7 +49,11 @@
 ---@alias ItemTable { name: WString, type: WString?, special: string? }
 ---@alias LuaSexInfoPart { sex: SEX, name: WString, raceSexName: WString }
 ---@alias LuaRaceClassInfoPart { sysName: WString, name: WString, description: WString, sysClassName: WString, className: WString, sysRaceName: WString, raceName: WString }
----@alias MutationInfo { difficulty: ZONE_TIER_DIFFICULTY, population: number, buff: BuffId }
+---@alias MutationInfo {
+--- difficulty: ZONE_TIER_DIFFICULTY,
+--- population: number,
+--- buffId: BuffId,
+--- }
 ---@alias TimeEntry table
 ---@alias Locale "ru" | "en" | "de" | string
 ---@alias Localization "rus" | string
