@@ -159,7 +159,7 @@ function CurrencyCategoryId:GetPath() end
 function CurrencyCategoryId:GetInstanceId() end
 ---@param resourceId WidgetSafe | ResourceId
 ---@return boolean
-function CurrencyCategoryId:IsEqual( resourceId ) end
+function CurrencyCategoryId:IsEqual(resourceId) end
 
 ---@class CurrencyId # идентификатор ресурса валюты
 CurrencyId = {}

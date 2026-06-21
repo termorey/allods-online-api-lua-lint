@@ -46,4 +46,8 @@ function wtControl3D:SetWidget3DPos( widget, pos ) end
 
 ---@param widget WidgetSafe
 ---@param size { sizeX: number, sizeY: number }
-function wtControl3D:SetWidget3DSize( widget, size ) end
+function wtControl3D:SetWidget3DSize(widget, size) end
+
+---@param widget WidgetSafe
+---@param isVisible boolean
+function wtControl3D:SetWidget3DVisibleUnattached( widget, isVisible ) end
