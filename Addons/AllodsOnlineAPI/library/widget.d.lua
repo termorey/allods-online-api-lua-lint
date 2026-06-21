@@ -237,9 +237,14 @@ function EditLineSafe:SetText( text ) end
 ---@param isRTag boolean
 ---@param tagName WString
 ---@param tagAttributes table<WString, false | string | WString>
-function EditLineSafe:SetTextAttributes( isRTag, tagName, tagAttributes ) end
+function EditLineSafe:SetTextAttributes(isRTag, tagName, tagAttributes) end
+
+---@class FormSafe
+FormSafe = {}
+---@return unknown
+function FormSafe:GetFactoryCache() end
 
 --[[ GLOBALS --]]
 
----@type WidgetSafe
+---@type WidgetSafe | FormSafe
 mainForm = {}
