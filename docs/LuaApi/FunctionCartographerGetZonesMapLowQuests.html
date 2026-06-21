@@ -37,15 +37,15 @@ table or nil - если такая карта есть, то таблица с �
   totalCount: number (integer) - общее количество заданий, относящихся к локации
   currentCount: number (integer) - количество заданий активных в данный момент
   completedCount: number (integer) -  количество завершённых заданий
-  currentQuests: table of QuestId - список идентификаторов ресурсов активных заданий, относящихся к карте
-  completedQuests: table of QuestId - список идентификаторов ресурсов завершённых заданий, относящихся к карте
+  currentQuests: table of QuestId - список (индексирован с 1) идентификаторов ресурсов активных заданий, относящихся к карте
+  completedQuests: table of QuestId - список (индексирован с 1) идентификаторов ресурсов завершённых заданий, относящихся к карте
 </pre>
 <p></p>
 <p>Пример:</p>
 <pre>
 local zoneLowQuests = cartographer.GetZonesMapLowQuests( zonesMapId )
 if zoneLowQuests then
-  local firstCurrentQuest = zoneLowQuests.currentQuests[ 0 ]
+  local firstCurrentQuest = zoneLowQuests.currentQuests[ 1 ]
   if firstCurrentQuest then
     local questInfo = avatar.GetQuestInfo( firstCurrentQuest )
   end
@@ -68,6 +68,7 @@ end
 <br><a href="FunctionCartographerGetCurrentZoneInfo.html">FunctionCartographerGetCurrentZoneInfo</a>
 <br><a href="FunctionCartographerGetMapBlockInfo.html">FunctionCartographerGetMapBlockInfo</a>
 <br><a href="FunctionCartographerGetMapBlocks.html">FunctionCartographerGetMapBlocks</a>
+<br><a href="FunctionCartographerGetMapGeodata.html">FunctionCartographerGetMapGeodata</a>
 <br><a href="FunctionCartographerGetMapMarkerObjects.html">FunctionCartographerGetMapMarkerObjects</a>
 <br><a href="FunctionCartographerGetMapMarkers.html">FunctionCartographerGetMapMarkers</a>
 <br><a href="FunctionCartographerGetMapModifierInfo.html">FunctionCartographerGetMapModifierInfo</a>

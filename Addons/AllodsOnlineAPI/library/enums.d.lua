@@ -197,6 +197,11 @@
 ---@alias ENUM_ColorType_OUTLINE integer
 ---@alias EnumColorType ENUM_ColorType_TEXT | ENUM_ColorType_SHADOW | ENUM_ColorType_OUTLINE
 
+---@alias ENUM_PriorityType_Default integer
+---@alias ENUM_PriorityType_Recommended integer
+---@alias ENUM_PriorityType_Suggested integer
+---@alias ENUM_PriorityType ENUM_PriorityType_Default | ENUM_PriorityType_Recommended | ENUM_PriorityType_Suggested
+
 ---@alias HT_NONE unknown
 ---@alias HT_UNKNOWN unknown
 ---@alias HT_OUR unknown

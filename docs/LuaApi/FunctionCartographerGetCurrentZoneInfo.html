@@ -42,9 +42,9 @@ zonesMapId: ObjectId or nil - идентификатор интерфейсно�
 <p>Пример:</p>
 <pre>
 local zoneInfo = cartographer.GetCurrentZoneInfo()
-LogInfo( debugCommon.FromWString( zoneInfo.allod ) )
-LogInfo( debugCommon.FromWString( zoneInfo.zoneName ) )
-LogInfo( debugCommon.FromWString( zoneInfo.subZoneName ) )
+LogInfo( FromWs( zoneInfo.allod ) )
+LogInfo( FromWs( zoneInfo.zoneName ) )
+LogInfo( FromWs( zoneInfo.subZoneName ) )
 
 if zoneInfo.zonesMapId then
   local zonesMapInfo = cartographer.GetZonesMapInfo( zoneInfo.zonesMapId )
@@ -67,6 +67,7 @@ end
 <br><a href="FunctionCartographerGetCurrentZoneInfo.html">FunctionCartographerGetCurrentZoneInfo</a>
 <br><a href="FunctionCartographerGetMapBlockInfo.html">FunctionCartographerGetMapBlockInfo</a>
 <br><a href="FunctionCartographerGetMapBlocks.html">FunctionCartographerGetMapBlocks</a>
+<br><a href="FunctionCartographerGetMapGeodata.html">FunctionCartographerGetMapGeodata</a>
 <br><a href="FunctionCartographerGetMapMarkerObjects.html">FunctionCartographerGetMapMarkerObjects</a>
 <br><a href="FunctionCartographerGetMapMarkers.html">FunctionCartographerGetMapMarkers</a>
 <br><a href="FunctionCartographerGetMapModifierInfo.html">FunctionCartographerGetMapModifierInfo</a>

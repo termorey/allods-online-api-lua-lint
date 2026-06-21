@@ -49,7 +49,7 @@ function checkroomLib.GetItemCategories( itemId ) end
 function checkroomLib.GetItems( collectionId ) end
 
 ---@param collectionId CheckRoomCollectionId
----@return table<integer, { is: ObjectId, name: WString, icon: TextureId, quality: ITEM_QUALITY, dressSlot: DRESS_SLOT, hideNotLearned: boolean }>
+---@return table<integer, { id: ObjectId, resourceId: ItemId, name: WString, icon: TextureId, quality: ITEM_QUALITY, dressSlot: DRESS_SLOT, hideNotLearned: boolean }>
 function checkroomLib.GetSortedItemsInfo( collectionId ) end
 
 ---@param collectionId CheckRoomCollectionId

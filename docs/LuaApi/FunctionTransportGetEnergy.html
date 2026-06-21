@@ -16,7 +16,7 @@
 <p></p>
 <h2>transport.GetEnergy( transportId )</h2>
 <p></p>
-<p>Возвращает информацию об энергии транспортного средства. Если транспорт не найден, то возвращает nil.</p>
+<p>Возвращает информацию об энергии транспортного средства. Если транспорт не найден, то бросает исключение и возвращает таблицу с нулевыми значениями.</p>
 <p></p>
 <pre>
 -- библиотека:
@@ -29,7 +29,7 @@ function GetEnergy( transportId )
 transportId: ObjectId (not nil) -- идентификатор транспортного средства
 
 -- возвращаемые значения -
-table or nil - Если транспортное средство найдено, то возвращается таблица информации об энергии, поля:
+table - Таблица информации об энергии, поля:
   value: number( int ) - текущее значение энергии
   limit: number( int ) - значение предела энергии
   changeRate: number ( float ) - скорость изменения нагрева. Если больше 0 - нагреваемся, иначе остываем.
@@ -38,9 +38,7 @@ table or nil - Если транспортное средство найдено
 local transportId = unit.GetTransport( avatar.GetId() )
 if transportId then
   local energy = transport.GetEnergy( transportId )
-  if energy then
-    local value = energy.value
-  end
+  local value = energy.value
 end
 </pre>
 <p></p>

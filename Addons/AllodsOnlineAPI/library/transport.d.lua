@@ -83,7 +83,7 @@ function transport.GetDevices( transportId ) end
 function transport.GetDirection( transportId ) end
 
 ---@param transportId ObjectId
----@return nil | { value: integer, limit: integer, changeRate: number }
+---@return { value: integer, limit: integer, changeRate: number }
 function transport.GetEnergy( transportId ) end
 
 ---@param transportId ObjectId
@@ -112,5 +112,9 @@ function transport.GetShieldStrength( transportId, side ) end
 function transport.GetShipInfo( id ) end
 
 ---@param transportId ObjectId
----@return nil | { horizontal: number, vertical: number, angular: number }
+---@return {
+--- horizontal: number,
+--- vertical: number,
+--- angular: number,
+--- }
 function transport.GetVelocities( transportId ) end

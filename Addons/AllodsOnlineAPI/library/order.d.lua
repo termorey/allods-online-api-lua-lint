@@ -56,8 +56,14 @@ function order.GetOrderBonus() end
 ---@return nil | { id: OrderBonusId, name: WString, description: WString, image: TextureId }
 function order.GetOrderBonusInfo() end
 
----@param orderNumber number
----@return nil | { orderNumber: number, image: TextureId, description: WString | nil, sysName: string, isAvailable: boolean }
+---@param orderNumber number # порядковый номер ордена
+---@return nil | {
+--- image: TextureId,
+--- description: WString | nil,
+--- name: WString,
+--- isAvailable: boolean,
+--- sysName: string,
+--- }
 function order.GetOrderInfo( orderNumber ) end
 
 ---@return nil | table
@@ -78,7 +84,12 @@ function order.GetPreviousAchievementTop( objectId ) end
 ---@return nil | { name: WString, raitingEventId: ObjectId }
 function order.GetRatingSections() end
 
----@return nil | { y: integer, m: integer, d: integer }
+---@return nil | {
+--- y: number,
+--- m: number,
+--- d: number,
+--- sysMonth: string,
+--- }
 function order.GetSeasonStartDate() end
 
 --- TODO: dosc is empty

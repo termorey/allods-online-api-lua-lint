@@ -46,7 +46,12 @@ function spellLib.GetActionGroups( id ) end
 function spellLib.GetAESectorProps( SpellId ) end
 
 ---@param SpellId SpellId
----@return nil | { durationMs: integer, remainingMs: integer, debugName: string | nil }
+---@return nil | {
+--- durationMs: integer,
+--- remainingMs: integer,
+--- ignoreGlobalCooldown: boolean,
+--- debugName: string | nil,
+--- }
 function spellLib.GetCooldown( SpellId ) end
 
 ---@param SpellId SpellId
@@ -87,7 +92,10 @@ function spellLib.GetObjectSpell( objectId ) end
 function spellLib.GetProperties( SpellId ) end
 
 ---@param SpellId SpellId
----@return nil | table<ObjectId, number>
+---@return table<integer, {
+--- buffId: BuffId,
+--- stackCount: integer,
+--- }>
 function spellLib.GetRequiredBuffs( SpellId ) end
 
 ---@param spellId SpellId

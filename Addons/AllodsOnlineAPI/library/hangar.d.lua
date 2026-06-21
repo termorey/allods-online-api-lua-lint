@@ -82,7 +82,7 @@ function hangar.GetActiveShipHull() end
 ---@return nil | ShipSkinId
 function hangar.GetActiveShipSkin() end
 
----@return table<integer, { type: USDEV, soldDevice: table<integer, { deviceId: ObjectId, currencyId: CurrencyId | nil, amount: integer }> }>
+---@return table<integer, { deviceId: ObjectId, currencyId: CurrencyId | nil, amount: integer }>
 function hangar.GetAllowedDeviceTypes() end
 
 ---@return nil | table<integer, VisualShipId>
@@ -116,7 +116,7 @@ function hangar.GetCustomizationSlots() end
 ---@return nil | { id: ObjectId, name: WString, description: ValuedText | nil, sysDebugName: string | nil, image?: TextureId, mass: number, count: integer, quality: ITEM_QUALITY, type: USDEV, techLevel: integer, category: WString | nil, sysCategoryName: string | nil }
 function hangar.GetDeviceInfo( deviceId ) end
 
----@return nil | table<integer, ObjectId>
+---@return table<integer, ObjectId>
 function hangar.GetDevices() end
 
 ---@param hullId VisualShipId
@@ -139,7 +139,7 @@ function hangar.GetReturnLendedShipSpellId() end
 ---@return nil | { id: ObjectId, name: WString, sysDebugName: string | nil, markers: nil | table<ENUM_ShipInfoMarker, boolean>, image?: TextureId, isSummoned: boolean, mass: number }
 function hangar.GetShipInfo( shipId ) end
 
----@return nil | table<integer, ObjectId>
+---@return table<integer, ObjectId>
 function hangar.GetShips() end
 
 ---@param skinId ShipSkinId

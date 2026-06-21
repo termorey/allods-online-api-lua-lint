@@ -122,7 +122,7 @@ function matchMaking.GetEventJoinTimeEstimate( eventId ) end
 function matchMaking.GetEventProgressInfo() end
 
 ---@param eventId ObjectId
----@return nil | { money: integer, experience: integer, loyalty: integer, authority: integer, mandatoryItems: table<integer, ObjectId>, mandatoryItemsCount: integer, alternativeItems: table<integer, ObjectId>, reputations: table<integer, { faction: WString, value: integer }>, currencies: table<integer, { currencyId: CurrencyId, value: integer }>, unlocks: table<integer, ObjectId> }
+---@return nil | { money: integer, experience: integer, loyalty: integer, authority: integer, mandatoryItems: table<integer, ObjectId>, mandatoryItemsCount: integer, alternativeItems: table<integer, ObjectId>, reputations: table<integer, { faction: WString, value: integer }>, currencies: table<integer, { currencyId: CurrencyId, value: integer }>, unlocks: table<integer, UnlockId> }
 function matchMaking.GetEventReward( eventId ) end
 
 ---@return nil | table<integer, unknown>

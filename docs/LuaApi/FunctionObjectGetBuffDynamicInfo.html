@@ -16,7 +16,9 @@
 <p></p>
 <h2> object.GetBuffDynamicInfo( Id )</h2>
 <p></p>
-<p>Возвращает динамические параметры баффа: его длительность, оставшееся время действия и количество стаков</p>
+<p>Возвращает динамические параметры баффа: его длительность, оставшееся время действия и количество стаков.</p>
+<p></p>
+<p>Примечание: Только эти параметры бафа могут изменится после его создания.</p>
 <p></p>
 <pre>
 -- библиотека:
@@ -26,7 +28,7 @@ object
 function GetBuffDynamicInfo( Id )
 
 -- параметры:
-Id: ObjectId or BuffId - идентификатор или объекта или ресурса буфа
+Id: ObjectId - идентификатор экземпляра бафа
 
 -- возвращаемые значения: table or nil, поля:
 durationMs: number (int) - полное время действия буфа
@@ -34,7 +36,21 @@ remainingMs: number (int) - время до окончания действия 
 stackCount: number (int) - количество уровней эффекта
 
 -- пример:
-object.GetBuffDynamicInfo( Id )
+function buffManager:OnBuffsChanged( eventData )
+  for objectId, changedBuffs in pairs( eventData.objects )
+    if self.trackedObjects[ objectId ] then
+      for buffId in pairs( changedBuffs ) do
+        if self:GetBuffIfo( buffId ) then
+          if object.IsValidBuff( buffId ) then
+            self:UpdateBuff( objectId, buffId, object.GetBuffDynamicInfo( buffId ) )
+          else
+            self:RemoveBuff( objectId, buffId )
+          end
+        end
+      end
+    end
+  end
+end
 </pre>
 <p></p>
 <h4>Search: "CategoryLuaApi" "CategoryBuff"</h4>
@@ -42,33 +58,36 @@ object.GetBuffDynamicInfo( Id )
 <a href="BuffId.html">BuffId</a>
 <br><a href="CategoryBuff.html">CategoryBuff</a>
 <br><a href="EnumDiminishingGroup.html">EnumDiminishingGroup</a>
+<br><a href="EnumUIBuffPriority.html">EnumUIBuffPriority</a>
 <br><a href="EventAvatarBuffRemovingFailed.html">EventAvatarBuffRemovingFailed</a>
 <br><a href="EventGuildBuffAdded.html">EventGuildBuffAdded</a>
 <br><a href="EventGuildBuffsChanged.html">EventGuildBuffsChanged</a>
 <br><a href="EventObjectBuffAdded.html">EventObjectBuffAdded</a>
+<br><a href="EventObjectBuffChanged.html">EventObjectBuffChanged</a>
 <br><a href="EventObjectBuffProgressAdded.html">EventObjectBuffProgressAdded</a>
+<br><a href="EventObjectBuffProgressChanged.html">EventObjectBuffProgressChanged</a>
 <br><a href="EventObjectBuffProgressRemoved.html">EventObjectBuffProgressRemoved</a>
 <br><a href="EventObjectBuffRemoved.html">EventObjectBuffRemoved</a>
 <br><a href="EventObjectBuffsChanged.html">EventObjectBuffsChanged</a>
 <br><a href="EventObjectBuffsElementChanged.html">EventObjectBuffsElementChanged</a>
 <br><a href="EventObjectDiminishingChanged.html">EventObjectDiminishingChanged</a>
 <br><a href="EventObjectDiminishingGroupChanged.html">EventObjectDiminishingGroupChanged</a>
-<br><a href="FunctionAvatarGetBuffInfoById.html">FunctionAvatarGetBuffInfoById</a>
-<br><a href="FunctionAvatarIsBuffDisease.html">FunctionAvatarIsBuffDisease</a>
-<br><a href="FunctionAvatarIsBuffMagic.html">FunctionAvatarIsBuffMagic</a>
-<br><a href="FunctionAvatarIsBuffPoison.html">FunctionAvatarIsBuffPoison</a>
-<br><a href="FunctionGuildGetBuffInfo.html">FunctionGuildGetBuffInfo</a>
 <br><a href="FunctionGuildGetBuffs.html">FunctionGuildGetBuffs</a>
 <br><a href="FunctionObjectGetBuffBySysName.html">FunctionObjectGetBuffBySysName</a>
 <br><a href="FunctionObjectGetBuffCount.html">FunctionObjectGetBuffCount</a>
 <br><a href="FunctionObjectGetBuffDynamicInfo.html">FunctionObjectGetBuffDynamicInfo</a>
 <br><a href="FunctionObjectGetBuffInfo.html">FunctionObjectGetBuffInfo</a>
 <br><a href="FunctionObjectGetBuffInstances.html">FunctionObjectGetBuffInstances</a>
+<br><a href="FunctionObjectGetBuffProducer.html">FunctionObjectGetBuffProducer</a>
+<br><a href="FunctionObjectGetBuffRanks.html">FunctionObjectGetBuffRanks</a>
 <br><a href="FunctionObjectGetBuffs.html">FunctionObjectGetBuffs</a>
 <br><a href="FunctionObjectGetBuffsInfo.html">FunctionObjectGetBuffsInfo</a>
 <br><a href="FunctionObjectGetBuffsWithProperties.html">FunctionObjectGetBuffsWithProperties</a>
 <br><a href="FunctionObjectGetBuffSysName.html">FunctionObjectGetBuffSysName</a>
+<br><a href="FunctionObjectGetBuffTooltipInfo.html">FunctionObjectGetBuffTooltipInfo</a>
 <br><a href="FunctionObjectGetDiminishingState.html">FunctionObjectGetDiminishingState</a>
+<br><a href="FunctionObjectHasBuffManager.html">FunctionObjectHasBuffManager</a>
+<br><a href="FunctionObjectIsValidBuff.html">FunctionObjectIsValidBuff</a>
 <br><a href="FunctionObjectRemoveBuff.html">FunctionObjectRemoveBuff</a>
 <p></p>
 <hr>

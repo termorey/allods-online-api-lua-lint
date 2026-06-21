@@ -81,8 +81,9 @@ function common.FormatNumber (value, format) end
 function common.GetAbsTimeMs() end
 
 ---GetAddonInfo
----@return {sysName: string , sysFullName: string, name: WString, description: WString } # таблица с полями
-function common.GetAddonInfo () end
+---@param addonName string # действительное системное имя аддона (common.GetAddonSysName)
+---@return false | {state: ADDON_STATE, rawSysName: string, sysName: string, userAddon: boolean, managed: boolean, autoStart: boolean, userCommonScripts: boolean, name: WString, description: WString, license: WString, sourceUrl: WString, supportUrl: WString, author: string, version: string, apiVersion: number, buildTime: number } # таблица с полями
+function common.GetAddonInfo ( addonName ) end
 
 ---GetAddonMainForm
 ---@param sysAddonName string # имя аддона
@@ -121,7 +122,7 @@ function common.GetAddonRelatedWidgetGroup( sysGroup, optional ) end
 function common.GetAllodsGoals () end
 
 ---GetAllodsGoalsOnLoadingScreen
----@return table<integer, { avatarName: WString, avatarId: integer, goals: table<integer, { goalId: ObjectId, state: integer, stages: nil | table<integer, { goalId: ObjectId, state: integer }> }> }>
+---@return table<integer, GoalId | nil>
 function common.GetAllodsGoalsOnLoadingScreen () end
 
 ---GetApiType
@@ -227,7 +228,7 @@ function common.GetSpecialStatInfo( specialStatId ) end
 function common.GetSpecialStatInfo( specialStatId ) end
 
 ---GetStateManagedAddons
----@return table<integer, { name: string, isLoaded: boolean }> # таблица (индексированная c 1) содержащая таблицы с информацией по аддонам
+---@return table<integer, { name: string, state: ADDON_STATE }> # таблица (индексированная c 1) содержащая таблицы с информацией по аддонам
 function common.GetStateManagedAddons() end
 
 ---GetStateName
@@ -439,6 +440,7 @@ function common.StateUnloadManagedAddon( name ) end
 
 ---UnRegisterEvent
 ---@param sysEventName string # название события
+---@deprecated
 function common.UnRegisterEvent( sysEventName ) end
 
 ---UnRegisterEventHandler

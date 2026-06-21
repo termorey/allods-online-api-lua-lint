@@ -151,7 +151,7 @@ function itemLib.GetCompatibleSlots( itemId ) end
 function itemLib.GetCountInfo( itemId ) end
 
 ---@param itemResourceId ItemId
----@return { isCoupon: boolean, items: nil | table<integer, ItemId> }
+---@return { isCoupon: false, items: nil } | { isCoupon: true, items: table<integer, ItemId> }
 function itemLib.GetCouponInfo( itemResourceId ) end
 
 ---@param itemId ObjectId
@@ -210,7 +210,7 @@ function itemLib.GetIncludedMob( itemId ) end
 function itemLib.GetIncludedMountSkin( itemId ) end
 
 ---@param itemId ObjectId
----@return nil | { id: ObjectId, name: WString, description: ValuedText | nil, dressSlot: DRESS_SLOT, sysName: string, level: integer, forceShowLevel: boolean, requiredLevel: integer, requiredReputationLevel: REPUTATION_LEVEL, requiredReputationQuantity: integer, isRitual: boolean, debugName: string, icon: TextureId, isDoubleHands: boolean, isIgnoreDressSlotLevel: boolean, isDressable: boolean, isUsable: boolean, isWeapon: boolean, isGuildItem: boolean, buyConfirmationRequired: boolean, needCheckPredicates: boolean, showOnlyIconInLink: boolean }
+---@return nil | { id: ObjectId, name: WString, description: ValuedText | nil, sourceDescription: GlossaryId | nil, dressSlot: DRESS_SLOT, sysName: string, level: integer, forceShowLevel: boolean, requiredLevel: integer, requiredReputationLevel: REPUTATION_LEVEL, requiredReputationQuantity: integer, isRitual: boolean, debugName: string, icon: TextureId, isDoubleHands: boolean, isIgnoreDressSlotLevel: boolean, isDressable: boolean, isUsable: boolean, isWeapon: boolean, isGuildItem: boolean, buyConfirmationRequired: boolean, needCheckPredicates: boolean, showOnlyIconInLink: boolean }
 function itemLib.GetItemInfo( itemId ) end
 
 ---@param itemId ObjectId
@@ -243,7 +243,7 @@ function itemLib.GetOwnershipLimit( itemId ) end
 function itemLib.GetPriceInfo( itemId ) end
 
 ---@param itemId ObjectId
----@return nil | { quality: ITEM_QUALITY, forceShow: boolean }
+---@return nil | { quality: ITEM_QUALITY, isNeedVisualize: boolean, isCursed: boolean, hasSetBonus: boolean }
 function itemLib.GetQuality( itemId ) end
 
 ---@param itemId ObjectId
@@ -315,12 +315,12 @@ function itemLib.GetUsageOnItemInfo( itemId, targetItemId ) end
 function itemLib.GetUsageOnMountInfo( itemId, mountId ) end
 
 ---@param itemId ObjectId
----@return { sysIndex: integer, consumeItems: integer, usageDesc: WString | nil, usageImage: TextureId | nil, givenAltCurrency: CurrencyId | nil, givenItem: unknown | nil, givenCount: number | nil, givenUnlock: ObjectId | nil, maxStack: integer | nil }
+---@return { sysIndex: integer, consumeItems: integer, usageDesc: WString | nil, usageImage: TextureId | nil, givenAltCurrency: CurrencyId | nil, givenItem: unknown | nil, givenCount: number | nil, givenUnlock: UnlockId | nil, maxStack: integer | nil }
 function itemLib.GetUsagesItemInfo( itemId ) end
 
 ---@param itemId ObjectId
 ---@param targetItemId ObjectId
----@return { sysIndex: integer, consumeUsedItem: integer, consumeTargetItem: integer, usageDesc: WString | nil, usageImage: TextureId | nil, givenAltCurrency: CurrencyId | nil, givenItem: unknown | nil, givenCount: number | nil, givenUnlock: ObjectId | nil }
+---@return { sysIndex: integer, consumeUsedItem: integer, consumeTargetItem: integer, usageDesc: WString | nil, entryWarningUseText: WString | nil, usageImage: TextureId | nil, givenAltCurrency: CurrencyId | nil, givenItem: unknown | nil, givenCount: number | nil, givenUnlock: UnlockId | nil }
 function itemLib.GetUsagesOnItemInfo( itemId, targetItemId ) end
 
 ---@param itemId ObjectId

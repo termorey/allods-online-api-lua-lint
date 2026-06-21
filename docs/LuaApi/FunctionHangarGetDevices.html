@@ -29,14 +29,11 @@ function GetDevices()
 нет
 
 -- возвращаемые значения -
-nil or table of ObjectId  - если НПС ответил на запрос, то таблица идентификаторов устройств
+table[1] of ObjectId  - таблица идентификаторов устройств
 
 -- пример:
-local devices = hangar.GetDevices()
-if devices then
-  for i, deviceId in pairs( devices ) do
-    local deviceInfo = hangar.GetDeviceInfo( deviceId )
-  end
+for _, deviceId in ipairs( hangar.GetDevices() ) do
+  local deviceInfo = hangar.GetDeviceInfo( deviceId )
 end
 </pre>
 <p></p>

@@ -45,7 +45,7 @@ nil, если рецепт не найден по идентификатору, 
   components: table of ObjectId or ResourceId - массив компонент рецепта (см. ниже)
   resultQuantity: number( int ) - количество предметов, получаемых из рецепта по умолчанию
   defaultItem: ObjectId or nil - идентификатор предмета, получаемый из рецепта по умолчанию
-  nextRecipe: ObjectId or nil - идентификатор анлока следующего ресурса (если ещё не выполнен)
+  nextRecipe: UnlockId or nil - идентификатор анлока следующего ресурса (если ещё не выполнен)
   nextRecipeId: RecipeId or nil - следующий рецепт
   nextRecipePoints: number( int ) - Сколько надо просветления для анлока следующего рецепта
   qualificationPoints: CurrencyId - Id альтернативной ценности

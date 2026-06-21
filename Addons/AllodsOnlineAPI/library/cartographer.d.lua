@@ -68,7 +68,7 @@ function cartographer.GetMapModifierInfo( mapModifierId ) end
 function cartographer.GetMapModifierValuedObject( mapModifierId ) end
 
 ---@param markerId InterfaceMapMarkerId
----@return nil | { name: WString, description: WString, priority: integer, image?: TextureId }
+---@return nil | { name: WString, sysName: string, description: WString, priority: integer, image: TextureId }
 function cartographer.GetMarkerInfo( markerId ) end
 
 ---@param objectId ObjectId

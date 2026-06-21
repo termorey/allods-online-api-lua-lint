@@ -47,7 +47,17 @@ function tutorialLib.GetTutorialBySysName( sysName ) end
 function tutorialLib.GetTutorialContent( id ) end
 
 ---@param id TutorialId
----@return { sysName: string | nil, viewType: ENUM_TutorialViewType, runType: ENUM_TutorialRunType, isForced: boolean, isUnlearnable: boolean, minLevel: integer, maxLevel: integer, nextTutorial: TutorialId | nil }
+---@return {
+--- sysName: string | nil,
+--- viewType: ENUM_TutorialViewType,
+--- runType: ENUM_TutorialRunType,
+--- isForced: boolean,
+--- isUnlearnable: boolean,
+--- minLevel: integer,
+--- maxLevel: integer,
+--- nextTutorial: TutorialId | nil,
+--- runTimeout: integer,
+--- }
 function tutorialLib.GetTutorialInfo( id ) end
 
 ---@param id TutorialId

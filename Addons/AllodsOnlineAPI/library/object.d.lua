@@ -73,19 +73,44 @@ function object.DetachWidget2D( objectId, widget ) end
 ---@param widget WidgetSafe # 2D-контрол, который был "привязан" как Widget3D к объекту
 function object.DetachWidget3D( objectId, widget ) end
 
----@param Id ObjectId | BuffId # идентификатор или объекта или ресурса буфа
+---@param Id ObjectId # идентификатор экземпляра бафа
 ---@return nil | { durationMs: integer, remainingMs: integer, stackCount: integer }
 function object.GetBuffDynamicInfo( Id ) end
 
----@param Id ObjectId | BuffId # идентификатор или объекта или ресурса буфа
+---@param id ObjectId | BuffId # идентификатор или объекта или ресурса буфа
+---@param includeResourceInfo boolean | nil # Включать ли информацию о ресурсе бафа при получении информации о экземпляре бафа. По умолчанию true
+---@param onlyResourceInfo boolean | nil # Включать только информацию о ресурсе бафа при получении информации о экземпляре бафа. По умолчанию false
 ---@return nil | BuffInfo
-function object.GetBuffInfo( Id ) end
----@alias BuffInfo { id: ObjectId, buffId: BuffId, ownerId: nil | ObjectId, name: WString, description: ValuedText | nil, debugName: string | nil, sysName: string, durationMs: integer, remainingMs: integer, isStackable: boolean, stackCount: integer, stackLimit: integer, isPositive: boolean, isGradual: boolean, canDetach: boolean, isNeedVisualize: boolean, isNeedBisualizeDuration: boolean, interfaceHighPriority: boolean, gainSpell: nil | table<integer, SpellId>, groups: table<number, string>, producer: { casterId: ObjectId | nil, spellId: SpellId | nil, abilityId: AbilityId | nil, buffId: BuffId | nil }, texture?: TextureId, debugGroups?: table<integer, string> }
+function object.GetBuffInfo( id, includeResourceInfo, onlyResourceInfo ) end
+---@alias BuffInfo {
+--- buffId: BuffId,
+--- name: WString,
+--- sysName: string,
+--- texture: UITextureId,
+--- isStackable: boolean,
+--- stackLimit: integer,
+--- isPositive: boolean,
+--- isGradual: boolean,
+--- canDetach: boolean,
+--- isNeedVisualizeDuration: boolean,
+--- priority: ENUM_UIBuffPriority,
+--- groups: table<string, true>,
+--- gainSpell: table<integer, SpellId>,
+--- isNeedVisualize: boolean,
+--- id: ObjectId,
+--- ownerId: ObjectId | nil,
+--- casterId: ObjectId | nil,
+--- stackCount: integer,
+--- durationMs: integer,
+--- remainingMs: integer,
+--- debugName?: string,
+--- debugGroups?: table<integer, string>,
+--- }
 
 ---@param objectId ObjectId # идентификатор объекта
----@param buffId ObjectId # идентификатор бафа
----@return table<integer, ObjectId> # индексированный с 0 список идентификаторов бафов с таким ресурсом на объекте
-function object.GetBuffInstances ( objectId, buffId ) end
+---@param key BuffId | string | ENUM_UIBuffPriority # Критерий поиска бафов
+---@return table<integer, ObjectId> # индексированный с 1 список идентификаторов бафов удовлетворяющих заданному критерию
+function object.GetBuffInstances ( objectId, key ) end
 
 ---@param id ObjectId # Идентификатор экземпляра (должен быть валидным) буфа
 ---@return nil | { casterId: ObjectId | nil, spellId: SpellId | nil, abilityId: AbilityId | nil, buffId: BuffId | nil, mapModifierId" MapModifierId | nil }
@@ -95,19 +120,23 @@ function object.GetBuffProducer( id ) end
 ---@return table<integer, BuffId> # TODO: possibly incorrect
 function object.GetBuffRanks( buffId ) end
 
----@param objectId ObjectId
+---@param objectId ObjectId # ид объекта на котором ищем бафы. Объект должен существовать и иметь бафф-менеджер.
+---@param ignoreInvisible boolean | nil # игнорировать бафы с needVisualize == false. По умолчанию false.
 ---@return table<integer, ObjectId> # индексированный с 1 список идентификаторов бафов на объекте
-function object.GetBuffs( objectId ) end
+function object.GetBuffs( objectId, ignoreInvisible ) end
 
----@param table table<integer, ObjectId>
----@return table<integer, BuffInfo>
-function object.GetBuffsInfo( table ) end
+---@param data ObjectId | table<integer, ObjectId>
+---@param includeResourceInfo boolean | nil # Включать ли информацию о ресурсе бафа при получении информации о экземпляре бафа. По умолчанию true
+---@param ignoreInvisible boolean | nil # игнорировать бафы с needVisualize == false. По умолчанию false.
+---@return table<BuffId, BuffInfo>
+function object.GetBuffsInfo( data, includeResourceInfo, ignoreInvisibleBuffs ) end
 
 ---@param objectId ObjectId # идентификатор юнита
 ---@param isPositive boolean # true если баф положительный, false если отрицательный(дебаф)
 ---@param isNeedVisualize boolean # true если баф отображаемый, false если скрытый
 ---@return table<integer, ObjectId> # индексированный с 1 список идентификаторов бафов на объекте
-function object.GetBuffsWithProperties( objectId, isPositive, isNeedVisualize ) end
+---@deprecated
+function object.GetBuffsWithProperties(objectId, isPositive, isNeedVisualize) end
 
 ---@param id ObjectId | BuffInfo # идентификатор или объекта или ресурса баффа
 ---@return string | nil # внутреннее имя баффа (может быть использовано для специальной обработки), соответствующее поле в базе для баффа - "sysUIScriptName"
@@ -118,7 +147,7 @@ function object.GetBuffSysName( id ) end
 function object.GetBuffTooltipInfo( id ) end
 
 ---@param objectId ObjectId # идентификатор интерактивного объекта
----@return table<integer, string> # список уникальных строковых имен детекторов. Строка прописана в данных детектора
+---@return table<CLIENT_DETECTOR, true> # Хеш-мап активных детекторов
 function object.GetDetectors( objectId ) end
 
 ---@param objectId ObjectId # идентификатор объекта
@@ -166,7 +195,7 @@ function object.GetProjectedInfo( objectId ) end
 ---@alias ProjectedInfo { posX: number, posY: number, playerDistance: number, cameraDistance: number, isLos: boolean, canProject: boolean }
 
 ---@param objectId ObjectId
----@return table<integer, ObjectId> # индексированный с 0 список идентификаторов тайн мира
+---@return table<integer, ObjectId> # индексированный с 1 список идентификаторов тайн мира
 function object.GetWorldSecrets( objectId ) end
 
 ---@param objectId ObjectId # идентификатор объекта

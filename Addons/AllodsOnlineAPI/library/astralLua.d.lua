@@ -132,17 +132,18 @@ function astral.GetSectorAstrolabeInfo( sectorId ) end
 ---@return ObjectId | nil # идентификатор точки астрального эвента в этом секторе, к которому мы хотим выполнить прыжок
 function astral.GetSectorDirectPOI( sectorId ) end
 
----@param sectorId ObjectId # идентификатор сектора
+---@param sectorId ObjectId | AstralSectionId # идентификатор сектора
 ---@return table<integer, ObjectId> # список идентификаторов секторов, связанных с данным
 function astral.GetSectorEdges( sectorId )end
 
----@param sectorId ObjectId # идентификатор сектора
+---@param sectorId ObjectId | AstralSectorId # идентификатор сектора
 ---@return nil | SectorInfo
 function astral.GetSectorInfo( sectorId ) end
 ---@alias SectorInfo { id: ObjectId, addonId: ObjectId | nil, name: WString | nil, description: ValuedText | nil, techLevel: integer, quality: ITEM_QUALITY, requiredUnlock: number, ticketsCount: number, maxServerProgress: number, number: integer, x: number, y: number, astrolabeVisible: boolean, mapVisible: boolean, allowChoiceLoot: boolean }
 
 ---@param astralSectorId AstralSectorId
 ---@return nil | SectorInfo
+---@deprecated
 function astral.GetSectorInfoById( astralSectorId ) end
 
 ---@param sectorId ObjectId # идентификатор сектора

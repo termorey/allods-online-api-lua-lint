@@ -73,7 +73,7 @@ function lfgLib.GetDestinationCategories() end
 function lfgLib.GetDestinationRequirements( destinationId ) end
 
 ---@param destinationId LfgDestinationId
----@return nil | { money: integer, experience: integer, loyalty: integer, authority: integer, mandatoryItems: table<integer, ObjectId>, mandatoryItemsCount: integer, alternativeItems: table<integer, ObjectId>, reputations: table<integer, { faction: WString, value: integer }>, currencies: table<integer, { currencyId: CurrencyId, value: integer }>, unlocks: table<integer, ObjectId> }
+---@return nil | { money: integer, experience: integer, loyalty: integer, authority: integer, mandatoryItems: table<integer, ObjectId>, mandatoryItemsCount: integer, alternativeItems: table<integer, ObjectId>, reputations: table<integer, { faction: WString, value: integer }>, currencies: table<integer, { currencyId: CurrencyId, value: integer }>, unlocks: table<integer, UnlockId> }
 function lfgLib.GetDestinationReward( destinationId ) end
 
 ---@return nil | table<integer, LfgDestinationId>

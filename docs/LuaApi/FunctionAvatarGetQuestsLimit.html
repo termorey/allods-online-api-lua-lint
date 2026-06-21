@@ -16,9 +16,9 @@
 <p></p>
 <h2> avatar.GetQuestsLimit()</h2>
 <p></p>
-<p>Возвращает максимально допустимое количество заданий.</p>
+<p>Возвращает текущее и максимально допустимое количество заданий в квестбуке.</p>
 <p></p>
-<p>Замечание. Максимально допустимое количество обычных и ежедневных заданий совпадают.</p>
+<p>Замечание: При подсчете текущего числа заданий некоторые специальные задания (compendium и тп) не учитываются и нее влияют на лимиты.</p>
 <p></p>
 <pre>
 -- библиотека:
@@ -30,7 +30,8 @@ function GetQuestsLimit()
 -- параметры:
 нет
 
--- возвращаемое значение:
+-- возвращаемые значения:
+number (int) - текущее количество заданий
 number (int) - максимальное количество заданий
 </pre>
 <p></p>
@@ -75,6 +76,7 @@ LogInfo( "Limit: ", avatar.GetQuestsLimit( )
 <br><a href="FunctionAvatarAcceptShareQuest.html">FunctionAvatarAcceptShareQuest</a>
 <br><a href="FunctionAvatarDeclineShareQuest.html">FunctionAvatarDeclineShareQuest</a>
 <br><a href="FunctionAvatarDiscardQuest.html">FunctionAvatarDiscardQuest</a>
+<br><a href="FunctionAvatarFindCurrentSecretComponentQuest.html">FunctionAvatarFindCurrentSecretComponentQuest</a>
 <br><a href="FunctionAvatarFindNextQuest.html">FunctionAvatarFindNextQuest</a>
 <br><a href="FunctionAvatarFindNextSecretComponentQuest.html">FunctionAvatarFindNextSecretComponentQuest</a>
 <br><a href="FunctionAvatarGetAvailableItemQuests.html">FunctionAvatarGetAvailableItemQuests</a>
@@ -103,8 +105,11 @@ LogInfo( "Limit: ", avatar.GetQuestsLimit( )
 <br><a href="FunctionCartographerGetZonesMapQuests.html">FunctionCartographerGetZonesMapQuests</a>
 <br><a href="FunctionCartographerIsFinalQuestCompleted.html">FunctionCartographerIsFinalQuestCompleted</a>
 <br><a href="FunctionDeviceGetRelatedQuestObjectives.html">FunctionDeviceGetRelatedQuestObjectives</a>
+<br><a href="FunctionDeviceHasRelatedQuestObjectives.html">FunctionDeviceHasRelatedQuestObjectives</a>
+<br><a href="FunctionItemLibHasRelatedQuestObjectives.html">FunctionItemLibHasRelatedQuestObjectives</a>
 <br><a href="FunctionObjectGetInteractorQuests.html">FunctionObjectGetInteractorQuests</a>
 <br><a href="FunctionUnitGetRelatedQuestObjectives.html">FunctionUnitGetRelatedQuestObjectives</a>
+<br><a href="FunctionUnitHasRelatedQuestObjectives.html">FunctionUnitHasRelatedQuestObjectives</a>
 <br><a href="QuestId.html">QuestId</a>
 <br><a href="QuestLocation.html">QuestLocation</a>
 <br><a href="QuestShareResult.html">QuestShareResult</a>

@@ -78,12 +78,13 @@ function containerLib.GetFirstSimilarItemId( slotType, id ) end
 function containerLib.GetItem( slotType, slot ) end
 
 ---@param slotType ITEM_CONT
----@return nil | table<integer, ObjectId | nil>
+---@return table<integer, ItemId>
 function containerLib.GetItems( slotType ) end
 
 ---@param itemId ObjectId
+---@param slotType ITEM_CONT
 ---@return nil | { slotType: ITEM_CONT, slot: integer }
-function containerLib.GetItemSlot( itemId ) end
+function containerLib.GetItemSlot( itemId, slotType ) end
 
 ---@param id ObjectId | ItemId # идентификатор предмета
 ---@param slotType ITEM_CONT_EQUIPMENT # тип контейнера с предметами

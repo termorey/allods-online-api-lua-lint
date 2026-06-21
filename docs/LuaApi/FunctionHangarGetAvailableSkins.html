@@ -29,12 +29,12 @@ function GetAvailableSkins()
 нет
 
 -- возвращаемые значения -
-table of ShipSkinId or nil - список (индексированная числами от 0 таблица) идентификаторов скинов, доступных для активного корпуса активного корабля; если активного корабля нет, то nil
+table of ShipSkinId or nil - список (индексированная числами от 1 таблица) идентификаторов скинов, доступных для активного корпуса активного корабля; если активного корабля нет, то nil
 
 -- пример:
 local skins = hangar.GetAvailableSkins()
-if skins and skins[0] then
-  local skinInfo = hangar.GetSkinInfo( skins[0] )
+if skins and skins[1] then
+  local skinInfo = hangar.GetSkinInfo( skins[1] )
 end
 </pre>
 <p></p>

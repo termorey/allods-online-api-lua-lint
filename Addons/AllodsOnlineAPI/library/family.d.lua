@@ -41,6 +41,6 @@ function family.GetSpouseName( unitId ) end
 ---@return boolean
 function family.IsExist( unitId ) end
 
----@param unitId ObjectId
----@return boolean
-function family.IsSpouse( unitId ) end
+---@param id ObjectId | WString # идентификатор игрока или его имя
+---@return boolean # true если игрок супруг аватара
+function family.IsSpouse( id ) end

@@ -48,7 +48,7 @@ function common.RegisterEventHandler( eventFunction, sysEventName, params, requi
 
 ---@param id ObjectId
 ---@return nil | { id: ObjectId, firstteam: nil | table<integer, ObjectId>, secondTeam: nil | table<integer, ObjectId>, disabled: boolean, radius: number, owner: ENUM_DominationFightTeam, actualOwner: ENUM_DominationFightTeam, state: ENUM_DominationAreaState, progress: number, progressToCapture: number, timeSwitched: number, timeToCapture: number }
-function dominationLib.GetMedalInfo( id ) end
+function dominationLib.GetObjectiveInfo( id ) end
 
 ---@return nil | table<integer, ObjectId>
 function dominationLib.GetObjectives() end

@@ -29,14 +29,11 @@ function GetShips()
 нет
 
 -- возвращаемые значения -
-nil or table of ObjectId  - список (индексированная числами от 0 таблица) идентификаторов кораблей
+table of ObjectId  - список (индексированная числами от 1 таблица) идентификаторов кораблей
 
 -- пример:
-local ships = hangar.GetShips()
-if ships then
-  for i, shipId in pairs( ships ) do
-    local shipInfo = hangar.GetShipInfo( shipId )
-  end
+for i, shipId in ipairs( hangar.GetShips() ) do
+  local shipInfo = hangar.GetShipInfo( shipId )
 end
 </pre>
 <p></p>

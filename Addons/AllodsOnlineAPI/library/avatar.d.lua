@@ -46,15 +46,16 @@ guild = {}
 
 -- ENUM_SubElement
 
----@alias CLIENT_DETECTOR_QUEST_NPC unknown # NPC, принимающий или выдающий квесты
----@alias CLIENT_DETECTOR_TRAINER_NPC unknown # тренер
----@alias CLIENT_DETECTOR_VENDOR_NPC unknown # торговец (кроме крафтовых)
----@alias CLIENT_DETECTOR_SERVICE_NPC unknown # другие NPC
----@alias CLIENT_DETECTOR_PLAYER unknown # одногруппники или сорейдовики
----@alias CLIENT_DETECTOR_SPOUSE unknown # супруг
----@alias CLIENT_DETECTOR_BATTLEGROUND_CHECKPOINT unknown # контрольная точка баттлграунда
----@alias CLIENT_DETECTOR_PROFESSION_NPC unknown # крафтовый наставник (торговец)
----@alias CLIENT_DETECTOR CLIENT_DETECTOR_QUEST_NPC | CLIENT_DETECTOR_TRAINER_NPC | CLIENT_DETECTOR_VENDOR_NPC | CLIENT_DETECTOR_SERVICE_NPC | CLIENT_DETECTOR_PLAYER | CLIENT_DETECTOR_SPOUSE | CLIENT_DETECTOR_BATTLEGROUND_CHECKPOINT | CLIENT_DETECTOR_PROFESSION_NPC
+---@alias CLIENT_DETECTOR_QUEST_NPC 0 # NPC, принимающий или выдающий квесты
+---@alias CLIENT_DETECTOR_TRAINER_NPC 1 # тренер
+---@alias CLIENT_DETECTOR_VENDOR_NPC 2 # торговец (кроме крафтовых)
+---@alias CLIENT_DETECTOR_SERVICE_NPC 3 # другие NPC
+---@alias CLIENT_DETECTOR_PLAYER 4 # одногруппники или сорейдовики
+---@alias CLIENT_DETECTOR_SPOUSE 5 # супруг
+---@alias CLIENT_DETECTOR_BATTLEGROUND_CHECKPOINT 6 # контрольная точка баттлграунда
+---@alias CLIENT_DETECTOR_PROFESSION_NPC 7 # крафтовый наставник (торговец)
+---@alias CLIENT_DETECTOR_CUSTOM 8
+---@alias CLIENT_DETECTOR CLIENT_DETECTOR_QUEST_NPC | CLIENT_DETECTOR_TRAINER_NPC | CLIENT_DETECTOR_VENDOR_NPC | CLIENT_DETECTOR_SERVICE_NPC | CLIENT_DETECTOR_PLAYER | CLIENT_DETECTOR_SPOUSE | CLIENT_DETECTOR_BATTLEGROUND_CHECKPOINT | CLIENT_DETECTOR_PROFESSION_NPC | CLIENT_DETECTOR_CUSTOM
 
 ---@alias ACTION_TYPE_SPELL unknown
 ---@alias ACTION_TYPE_ITEM unknown
@@ -650,7 +651,7 @@ function avatar.GetBarriersInfo() end
 ---@param line integer # номер столбца
 ---@return nil | BaseTalentInfo
 function avatar.GetBaseTalentInfo( layer, line ) end
----@alias BaseTalentInfo { canUpdate: boolean, isEmpty: boolean, isLearned: boolean, isRecomended: boolean, requiredSpentTP: integer, currentRank: integer | nil, nextRank: integer | nil, replacement: nil | { text: WString, image: TextureId }, ranks: nil | { rank: integer, name: WString, desc: WString, spellId: nil | SpellId, abilityId: nil | AbilityId, image: TextureId }, unlockInfo: { isLocked: boolean, isLockable: boolean, unlockName: nil | WString, unlockDescription: nil | WString }, parentTalentInfo: nil | { spellId: nil | SpellId, abilityId: nil | AbilityId, layer: integer, line: integer }, relatedSpells: nil | table<integer, SpellId> }
+---@alias BaseTalentInfo { canUpdate: boolean, isEmpty: boolean, isLearned: boolean, priorityType: ENUM_PriorityType, requiredSpentTP: integer, currentRank: integer, nextRank: integer | nil, replacement: nil | { text: WString, image: TextureId }, ranks: nil | { rank: integer, name: WString, desc: WString, spellId: nil | SpellId, abilityId: nil | AbilityId, image: TextureId }, requiredUnlocks: table<integer, UnlockId>, parentTalentInfo: nil | { spellId: nil | SpellId, abilityId: nil | AbilityId, layer: integer, line: integer }, relatedSpells: nil | table<integer, SpellId> }
 
 ---@return { layersCount: integer, linesCount: integer }
 --- TODO: check return type
@@ -666,7 +667,7 @@ function avatar.GetBonusPools() end
 ---@return ValuedObject # экземпляр ValuedObject
 function avatar.GetBuffValuedObject( buffId ) end
 
----@return nil | integer # количество доступных специализации аватара; если ошибка, то nil
+---@return integer # количество специализации аватара
 function avatar.GetBuildsCount() end
 
 ---@return integer # количество доступных специализации аватара
@@ -843,7 +844,7 @@ function avatar.GetImprovedInnateStats() end
 ---@return table<integer, UnlockCategoryId>
 function avatar.GetInfiniteUnlockCategories() end
 
----@return nil | table<integer, ObjectId> # nil если анлоков нет; индексированная с 1 таблица с идентификаторами возможностей
+---@return table<integer, ObjectId> # индексированная таблица с идентификаторами возможностей
 function avatar.GetInfiniteUnlocks() end
 
 ---@param unlockCategoryId UnlockCategoryId # идентификатор типа категории возможностей (анлоков)
@@ -877,7 +878,7 @@ function avatar.GetInteractorInfo() end
 ---@return table<integer, InteractorCue> # список реплик, приходящих после соответствующего ответа по индексу от 0
 function avatar.GetInteractorNextCues() end
 
----@return table<integer, ObjectId> # индексированный с 0 список идентификаторов точек телепортации
+---@return table<integer, ObjectId> # индексированный список идентификаторов точек телепортации
 function avatar.GetInteractorTeleportLocations() end
 
 ---@return nil | ObjectId # идентификатор собеседника или nil, если его нет
@@ -1012,7 +1013,7 @@ function avatar.GetQuestProgress( questId ) end
 ---@param questId QuestId # идентификатор задания
 ---@return nil | QuestReward
 function avatar.GetQuestReward( questId ) end
----@alias QuestReward { money: integer, experience: integer, loyalty: integer, authority: integer, mandatoryItems: table<integer, ObjectId>, mandatoryItemsCount: integer, alternativeItems: table<integer, ObjectId>, reputation: table<integer, { faction: WString, value: integer }>, currencies: table<integer, { currencyId: CurrencyId, value: integer }>, unlocks: table<integer, ObjectId> }
+---@alias QuestReward { money: integer, experience: integer, loyalty: integer, authority: integer, mandatoryItems: table<integer, ObjectId>, mandatoryItemsCount: integer, alternativeItems: table<integer, ObjectId>, reputation: table<integer, { faction: WString, value: integer }>, currencies: table<integer, { currencyId: CurrencyId, value: integer }>, unlocks: table<integer, UnlockId> }
 
 ---@return table<integer, { shareId: ObjectId, questId: QuestId, sharerName: WString }> # таблица со списком приглашений, индексация [0..]
 function avatar.GetQuestShareInvitations() end
@@ -1030,7 +1031,7 @@ function avatar.GetRecipeAfflatusItem( id ) end
 ---@param id RecipeId
 ---@return nil | RecipeInfo
 function avatar.GetRecipeInfo( id ) end
----@alias RecipeInfo { id: RecipeId, name: WString, description: nil | ValuedText, skillId: nil | SkillId, score: integer, image?: TextureId, components: table<integer, ObjectId | ResourceId>, resultQuantity: integer, defaultItem: nil | ObjectId, nextRecipeId: nil | RecipeId, nextRecipePoints: integer, qualificaionPoints: CurrencyId, resultItems: table<integer, ObjectId>, bindResult: boolean }
+---@alias RecipeInfo { id: RecipeId, name: WString, description: nil | ValuedText, skillId: nil | SkillId, score: integer, image?: TextureId, components: table<integer, ObjectId | ResourceId>, resultQuantity: integer, defaultItem: nil | ObjectId, nextRecipe: UnlockId | nil, nextRecipeId: nil | RecipeId, nextRecipePoints: integer, qualificaionPoints: CurrencyId, resultItems: table<integer, ObjectId>, bindResult: boolean }
 
 ---@return { commonGoldStats: nil | table<integer, { resourceId: SpecialStatId, innateType: nil | ENUM_InnateStats }>, commonSilverStats: nil | table<integer, { resourceId: SpecialStatId, innateType: nil | ENUM_InnateStats }>, slots: nil | table<DRESS_SLOT, { goldStats: nil | table, silverStats: nil | table }> }
 function avatar.GetRecommendedStats() end
@@ -1129,7 +1130,7 @@ function avatar.GetTalentSelectMinLevel() end
 ---@return nil | ObjectId # идентификатор цели аватара или nil, если цели нет
 function avatar.GetTarget() end
 
----@param locationId ObjectId | TeleportMasterId | table # идентификатор точки телепорта
+---@param locationId ObjectId | TeleportMasterId # идентификатор точки телепорта
 ---@return nil | { id: ObjectId, name: WString, isHighPriority: boolean, minLevel: 0 | integer, maxLevel: 0 | integer }
 function avatar.GetTeleportLocationInfo( locationId ) end
 
@@ -1139,7 +1140,7 @@ function avatar.GetTeleportLocations() end
 ---@return table<integer, UnlockCategoryId> # таблица (индексированная с 1) UnlockCategoryId временных анлоков имеющихся у аватара. Если анлоков нет - пустая таблица
 function avatar.GetTemporaryUnlockCategories() end
 
----@return nil | table<integer, ObjectId> # nil если анлоков нет; индексированная с 0 таблица с идентификаторами возможностей
+---@return table<integer, ObjectId> # индексированная таблица с идентификаторами возможностей
 function avatar.GetTemporaryUnlocks() end
 
 ---@param unlockCategoryId UnlockCategoryId # идентификатор типа категории возможностей (анлоков)
@@ -1158,25 +1159,25 @@ function avatar.GetUniqueId() end
 ---@return table<integer, ObjectId> # индексированный с 1 cписок идентификаторов видимых юнитов
 function avatar.GetUnitList() end
 
----@return nil | table<integer, UnlockCategoryId> # nil если анлоков нет; иначе список (таблица, индексированная с 0) UnlockCategoryId
+---@return table<integer, UnlockCategoryId> # иначе список (таблица, индексированная с 1) UnlockCategoryId
 function avatar.GetUnlockCategories() end
 
 ---@param unlockId ObjectId | UnlockId
 ---@return nil | UnlockInfo
 function avatar.GetUnlockInfo( unlockId ) end
----@alias UnlockInfo { id: nil | ObjectId, unlockId: nil | UnlockId, name: WString, description: WString, sysName: string, sysDebugName: nil | string, image?: TextureId, isBoundToRemort: boolean, edTime: nil | LuaFullDateTime, category: nil | { name: WString, sysName: string, categoryId: UnlockCategoryId } }
+---@alias UnlockInfo { id: nil | ObjectId, unlockId: nil | UnlockId, name: WString, description: WString, sourceDescription: GlossaryId | nil, sysName: string, sysDebugName: nil | string, image?: TextureId, isBoundToRemort: boolean, edTime: nil | LuaFullDateTime, category: nil | { name: WString, sysName: string, categoryId: UnlockCategoryId } }
 
----@return nil | table<integer, ObjectId> # nil если анлоков нет; индексированная с 0 таблица с идентификаторами возможностей
+---@return table<integer, ObjectId> # индексированная таблица с идентификаторами возможностей
 function avatar.GetUnlocks() end
 
 ---@param unlockCategoryId UnlockCategoryId
----@return nil | table<integer, ObjectId> # nil если анлоков нет; иначе индексированная с 0 таблица с идентификаторами возможностей(анлоков)
+---@return table<integer, ObjectId> # индексированная таблица с идентификаторами возможностей(анлоков)
 function avatar.GetUnlocksInCategory( unlockCategoryId ) end
 
 ---@param variableId VariableId | string # идентификатор ресурса переменной или алиас
 ---@return nil | table<integer, VariableInfo>
 function avatar.GetVariableInfo( variableId ) end
----@alias VariableInfo { id: VariableId, sysName: string, name: WString, sysDebugName: WString, value: number, minValue: number, maxValue: number, hasRelatedSpell: boolean }
+---@alias VariableInfo { id: VariableId, sysName: string, name: WString, value: number, minValue: number, maxValue: number, hasRelatedSpell: boolean }
 
 ---@return table<integer, VariableId> # индексированная с 0 таблица с идентификаторами ресурсов имеющихся переменных
 function avatar.GetVariables() end
@@ -1341,7 +1342,7 @@ function avatar.IsTargetInMeleeRange() end
 ---@return boolean # true, если текущая цель инспектируется
 function avatar.IsTargetInspected() end
 
----@param locationId ObjectId | TeleportMasterId | table # идентификатор точки телепорта
+---@param locationId ObjectId | TeleportMasterId # идентификатор точки телепорта
 ---@return boolean # true, если locationId валидный
 function avatar.IsTeleportLocationValid( locationId ) end
 
@@ -1486,7 +1487,7 @@ function avatar.TargetSelf() end
 ---@param accept boolean # true, если игрок согласен на телепортацию
 function avatar.TeleportOfferReply( accept ) end
 
----@param locationId ObjectId # идентификатор точки телепортации
+---@param locationId ObjectId | TeleportMasterId # идентификатор точки телепортации
 function avatar.TeleportToLocation( locationId ) end
 
 ---@param index integer # индекс слота от 0 до max
@@ -1509,7 +1510,7 @@ function avatar.UpgradeMetaItem( sourceId, enhancerId, agentId, agentCount ) end
 
 function avatar.UseHearthStone() end
 
----@param locationId ObjectId # идентификатор точки телепортации
+---@param locationId ObjectId | TeleportMasterId # идентификатор точки телепортации
 function avatar.UseHearthStoneToLocation( locationId ) end
 
 ---@param itemId ObjectId # идентификатор предмета

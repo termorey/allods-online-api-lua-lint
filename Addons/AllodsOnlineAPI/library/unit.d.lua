@@ -407,6 +407,7 @@ function unit.IsPet( unitId ) end
 
 ---@param unitId ObjectId
 ---@return boolean
+---@deprecated
 function unit.IsPlayer( unitId ) end
 
 ---@param unitId ObjectId

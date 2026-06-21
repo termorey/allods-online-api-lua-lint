@@ -37,6 +37,7 @@ isUnlearnable: Boolean -- нельзя выучить
 minLevel: Number(int) -- минимальный уровень
 maxLevel: Number(int) -- максимальный уровень
 nextTutorial: TutorialId or nil - следующее обучение в цепочке
+runTimeout: Number(int) -- время показа обучения при бездействии пользователя
 
 -- пример использования
 local testTutorialInfo = tutorialLib.GetTutorialInfo( tutorialLib.GetTutorialBySysName( "test" ) )

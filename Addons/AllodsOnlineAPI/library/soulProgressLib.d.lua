@@ -32,7 +32,10 @@ function soulProgressLib.GetCurrentExperience() end
 --- TODO: missed docs argument
 function soulProgressLib.GetExperienceBySoulLevel( level ) end
 
----@return { talentCurrency: CurrencyId | nil }
+---@return {
+--- talentCurrency: CurrencyId | nil,
+--- minSoulExpLevel: integer,
+--- }
 function soulProgressLib.GetInfo() end
 
 ---@return number | nil

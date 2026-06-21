@@ -139,8 +139,11 @@ function craft.GetReforgeVariants() end
 
 function craft.IncreaseQualification() end
 
+---@param forgeId ForgeCraftResourceId # ресурс forge крафта (поле tierResource в craft.GetForgeRecipeInfo)
+---@param recipeId ForgeCraftRecipeId # ресурс рецепта крафта
+---@param components table<integer, table<integeer, ObjectId>> # таблица таблиц компонентов. Индекс внешней таблицы - номер компонента, значение - таблица (индексированная с 1) с objectId предметов компонентов в порядке приоритета применения.
 ---@return boolean
-function craft.MakeForge() end
+function craft.MakeForge( forgeId, recipeId, components ) end
 
 ---@return boolean
 function craft.MakeReforge() end

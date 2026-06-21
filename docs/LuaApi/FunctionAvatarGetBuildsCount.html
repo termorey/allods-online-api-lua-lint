@@ -16,7 +16,7 @@
 <p></p>
 <h2> avatar.GetBuildsCount()</h2>
 <p></p>
-<p>Получить количество доступных специализаций аватара.</p>
+<p>Получить количество специализаций аватара. Может быть больше числа доступных специализаций в случае если их число когда-либо было временно увеличено а затем вновь уменьшилось. Сохраненные данные специализации будут доступны, но активировать ее будет нельзя.</p>
 <p></p>
 <pre>
 -- библиотека:
@@ -29,7 +29,7 @@ function GetBuildsCount()
 нет
 
 -- возвращаемые значения
-number (int) или nil - количество доступных специализации аватара; если ошибка, то nil
+number (int) - количество специализации аватара
 
 -- пример
 LogInfo( avatar.GetBuildsCount() )
@@ -48,11 +48,12 @@ LogInfo( avatar.GetBuildsCount() )
 <br><a href="FunctionAvatarGetBaseTalentInfo.html">FunctionAvatarGetBaseTalentInfo</a>
 <br><a href="FunctionAvatarGetBaseTalentTableSize.html">FunctionAvatarGetBaseTalentTableSize</a>
 <br><a href="FunctionAvatarGetBuildsCount.html">FunctionAvatarGetBuildsCount</a>
+<br><a href="FunctionAvatarGetBuildsUnlockedCount.html">FunctionAvatarGetBuildsUnlockedCount</a>
 <br><a href="FunctionAvatarGetBuildSwitchSpell.html">FunctionAvatarGetBuildSwitchSpell</a>
 <br><a href="FunctionAvatarGetCommonFieldTalentInfo.html">FunctionAvatarGetCommonFieldTalentInfo</a>
 <br><a href="FunctionAvatarGetFieldTalentInfo.html">FunctionAvatarGetFieldTalentInfo</a>
 <br><a href="FunctionAvatarGetFieldTalentTableSize.html">FunctionAvatarGetFieldTalentTableSize</a>
-<br><a href="FunctionAvatarGetLayerRelatedSpells.html">FunctionAvatarGetLayerRelatedSpells</a>
+<br><a href="FunctionAvatarGetLinkedTalents.html">FunctionAvatarGetLinkedTalents</a>
 <br><a href="FunctionAvatarGetRubyStartLevel.html">FunctionAvatarGetRubyStartLevel</a>
 <br><a href="FunctionAvatarGetSpentTalentPoints.html">FunctionAvatarGetSpentTalentPoints</a>
 <br><a href="FunctionAvatarGetViewedBuild.html">FunctionAvatarGetViewedBuild</a>

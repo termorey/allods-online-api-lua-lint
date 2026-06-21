@@ -48,7 +48,7 @@ table or nil - таблица с описанием, если информаци
     currencyId: СurrencyId - имя альтернативной валюты
     value: number (int) - величина награды
 
-  unlocks: table of ObjectId - индексированный с 0 список идентификаторов возможностей (анлоков), даваемых в награду
+  unlocks: table of UnlockId - индексированный с 1 список идентификаторов возможностей (анлоков), даваемых в награду
 
 -- пример:
 local destinationtReward = lfgLib.GetDestinationReward( questId )

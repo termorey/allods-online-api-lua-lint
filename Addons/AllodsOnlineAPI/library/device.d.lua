@@ -99,45 +99,45 @@ function common.RegisterEventHandler( eventFunction, sysEventName, params, requi
 ---@return boolean
 function device.CanUse( deviceId ) end
 
----@param deviceId ObjectId
+---@param cannonDeviceId ObjectId
 ---@return ObjectId | nil
-function device.GetCannonTarget( deviceId ) end
+function device.GetCannonTarget(cannonDeviceId) end
 
----@param deviceId ObjectId
+---@param usableDeviceId ObjectId
 ---@param actionIndex integer
 ---@return nil | { remainingMs: integer, durationMs: integer }
-function device.GetCooldown( deviceId, actionIndex ) end
+function device.GetCooldown( usableDeviceId, actionIndex ) end
 
----@param deviceId ObjectId
+---@param usableDeviceId ObjectId
 ---@return ObjectId | nil
-function device.GetItemInstalled( deviceId ) end
+function device.GetItemInstalled( usableDeviceId ) end
 
----@param deviceId ObjectId
+---@param usableDeviceId ObjectId
 ---@return number
-function device.GetMass( deviceId ) end
+function device.GetMass( usableDeviceId ) end
 
----@return table<integer, WString>
+---@return nil | table<integer, WString> # таблица (индексирована с 1) названий увиденных сундуков если сундуки есть, иначе - nil
 function device.GetNavigatorTargetChests() end
 
----@param deviceId ObjectId
----@return nil | table<integer, ObjectId>
+---@param deviceId ObjectId # идентификатор устройства
+---@return nil | table<integer, ObjectId> # если такие цели задании имеются у игрока, то индексированный с 1 список идентификаторов целей заданий
 function device.GetRelatedQuestObjectives( deviceId ) end
 
----@param deviceId ObjectId
+---@param shieldDeviceId ObjectId
 ---@return nil | { value: integer, maxValue: integer }
-function device.GetShieldStrength( deviceId ) end
+function device.GetShieldStrength( shieldDeviceId ) end
 
 ---@param deviceId ObjectId
----@return nil | { interfaceSlot: integer, side: SHIP_SIDE }
+---@return nil | { interfaceSlot: integer, side: SHIP_SIDE, sysSlotType: ENUM_SlotName }
 function device.GetShipSlotInfo( deviceId ) end
 
 ---@param deviceId ObjectId
 ---@return WString
 function device.GetTitle( deviceId ) end
 
----@param deviceId ObjectId
+---@param usableDeviceId ObjectId
 ---@return ObjectId | nil
-function device.GetTransport( deviceId ) end
+function device.GetTransport( usableDeviceId ) end
 
 ---@param usableDeviceId ObjectId # идентификатор устройства
 ---@param actionIndex integer # номер действия (должен попадать в диапазон [0:actionsCount-1]
@@ -152,9 +152,9 @@ function device.GetUsableDeviceActionsInfo( usableDeviceId ) end
 ---@return nil | { id: ObjectId, type: USDEV, name: WString, hasCrosshair: boolean, actionsCount: integer }
 function device.GetUsableDeviceInfo( usableDeviceId ) end
 
----@param deviceId ObjectId
+---@param usableDeviceId ObjectId
 ---@return USDEV
-function device.GetUsableDeviceType( deviceId ) end
+function device.GetUsableDeviceType( usableDeviceId ) end
 
 ---@return boolean | nil
 function device.HasNavigatorFollowedMarker() end
@@ -168,17 +168,17 @@ function device.HasRelatedQuestObjectives( deviceId ) end
 ---@return boolean
 function device.IsInUse( deviceId ) end
 
----@param deviceId ObjectId
+---@param usableDeviceId ObjectId
 ---@return boolean
-function device.IsOffline( deviceId ) end
+function device.IsOffline( usableDeviceId ) end
+
+---@param shieldDeviceId ObjectId
+---@return boolean
+function device.IsShieldRegenInProgress( shieldDeviceId ) end
 
 ---@param deviceId ObjectId
----@return boolean
-function device.IsShieldRegenInProgress( deviceId ) end
-
----@param deviceId ObjectId
----@return boolean
-function device.IsUsable( deviceId ) end
+---@return (boolean, integer)
+function device.IsUsable(deviceId) end
 
 ---@return ObjectId | nil
 function device.NavigatorGetTarget() end

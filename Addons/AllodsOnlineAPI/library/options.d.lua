@@ -58,9 +58,9 @@ function options.GetOptionIds( blockId ) end
 ---@return integer #  номер варианта опции
 function options.GetOptionIndex( id ) end
 
----@param optionId ObjectId
+---@param id ObjectId | string # идентификатор опции
 ---@return { isEnabled: boolean, isNeedPreview: boolean, isPreview: boolean, dataType: UI_OPTION_DATA, viewType: UI_OPTION_VIEW, sysCustomId: string, sysCustomType: string, name: WString, description: WString, useAttemptWarning: WString, minName: WString, minDescription: WString, maxName: WString, maxDescription: WString, currentIndex: integer, defaultIndex: integer, baseIndex: integer, values: {} | { name: WString, description: WString, stringValue: string, floatValue: number }, valueCount: integer, isRestartToApply: boolean }
-function options.GetOptionInfo( optionId ) end
+function options.GetOptionInfo( id ) end
 
 ---@param id ObjectId | string # идентификатор опции
 ---@return number | string

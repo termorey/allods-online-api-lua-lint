@@ -30,11 +30,11 @@ orderNumber : number - порядковый номер ордена
 
 -- возвращаемые значения:
 table or nil:
-  orderNumber : number - порядковый номер ордена
   image : TextureId - текстура с иконкой предмета
-  description : wstring or nil - описание ордена
-  sysName : string - sysname ордена
+  description : WString or nil - описание ордена
+  name: WString - имя ордена в игре
   isAvailable: Boolean - true, если орден доступен для вступления
+  sysName : string - sysname ордена
 
 -- пример:
 local orderInfo = order.GetOrderInfo( 1 )
@@ -55,7 +55,6 @@ local orderInfo = order.GetOrderInfo( 1 )
 <br><a href="FunctionOrderGetBonusDuration.html">FunctionOrderGetBonusDuration</a>
 <br><a href="FunctionOrderGetBonusVoitingList.html">FunctionOrderGetBonusVoitingList</a>
 <br><a href="FunctionOrderGetMainPlayerOrder.html">FunctionOrderGetMainPlayerOrder</a>
-<br><a href="FunctionOrderGetMainPlayerVoteWeigh.html">FunctionOrderGetMainPlayerVoteWeigh</a>
 <br><a href="FunctionOrderGetMainPlayerVoteWeight.html">FunctionOrderGetMainPlayerVoteWeight</a>
 <br><a href="FunctionOrderGetMaxAvatarVotesCount.html">FunctionOrderGetMaxAvatarVotesCount</a>
 <br><a href="FunctionOrderGetOrderBonus.html">FunctionOrderGetOrderBonus</a>
@@ -73,7 +72,6 @@ local orderInfo = order.GetOrderInfo( 1 )
 <br><a href="FunctionOrderRequestOrderInfo.html">FunctionOrderRequestOrderInfo</a>
 <br><a href="FunctionOrderRequestPrestigeAchivements.html">FunctionOrderRequestPrestigeAchivements</a>
 <br><a href="FunctionOrderRequestRatingAchivements.html">FunctionOrderRequestRatingAchivements</a>
-<br><a href="FunctionOrderSendBonusVote.html">FunctionOrderSendBonusVote</a>
 <br><a href="FunctionOrderSendBonusVotes.html">FunctionOrderSendBonusVotes</a>
 <br><a href="FunctionOrderSetMainPlayerOrder.html">FunctionOrderSetMainPlayerOrder</a>
 <p></p>

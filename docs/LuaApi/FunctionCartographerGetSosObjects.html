@@ -29,14 +29,13 @@ function GetSosObjects()
 нет
 
 -- возвращаемые значения
-table of ObjectId - индексированная с 0 таблица с идентификаторами
+table of ObjectId - индексированная с 1 таблица с идентификаторами
 </pre>
 <p></p>
 <p>Пример:</p>
 <pre>
-local sosObjects = cartographer.GetSosObjects()
-for i = 0, GetTableSize( sosObjects ) - 1 do
-  local sosObject = cartographer.GetSosInfo( sosObjects[ i ] )
+for _ sosObjectId in ipairs( cartographer.GetSosObjects() ) do
+  local sosObject = cartographer.GetSosInfo( sosObjectId )
 end
 </pre>
 <p></p>
@@ -56,6 +55,7 @@ end
 <br><a href="FunctionCartographerGetCurrentZoneInfo.html">FunctionCartographerGetCurrentZoneInfo</a>
 <br><a href="FunctionCartographerGetMapBlockInfo.html">FunctionCartographerGetMapBlockInfo</a>
 <br><a href="FunctionCartographerGetMapBlocks.html">FunctionCartographerGetMapBlocks</a>
+<br><a href="FunctionCartographerGetMapGeodata.html">FunctionCartographerGetMapGeodata</a>
 <br><a href="FunctionCartographerGetMapMarkerObjects.html">FunctionCartographerGetMapMarkerObjects</a>
 <br><a href="FunctionCartographerGetMapMarkers.html">FunctionCartographerGetMapMarkers</a>
 <br><a href="FunctionCartographerGetMapModifierInfo.html">FunctionCartographerGetMapModifierInfo</a>
