@@ -163,7 +163,22 @@ function CurrencyCategoryId:IsEqual( resourceId ) end
 
 ---@class CurrencyId # идентификатор ресурса валюты
 CurrencyId = {}
----@return { category: CurrencyCategoryId, description: WString, hideMaxValue: boolean, image: TextureId, isCoupon: boolean, limitCurrency: CurrencyId, maxValue: integer, name: WString, storage: ENUM_CURRENCY_STORAGE, sysStorage: string, sysName: string, visualizeMode: ENUM_CURRENCY_VISUALIZE_MODE, sysVisualizeMode: string }
+---@return {
+--- category: CurrencyCategoryId,
+--- description: WString,
+--- sourceDescription: GlossaryId | nil,
+--- hideMaxValue: boolean,
+--- image: TextureId,
+--- isCoupon: boolean,
+--- limitCurrency: CurrencyId,
+--- maxValue: integer,
+--- name: WString,
+--- storage: ENUM_CURRENCY_STORAGE,
+--- sysStorage: string,
+--- sysName: string,
+--- visualizeMode: ENUM_CURRENCY_VISUALIZE_MODE,
+--- sysVisualizeMode: string,
+--- }
 function CurrencyId:GetInfo() end
 ---@return nil | string
 function CurrencyId:GetPath() end
