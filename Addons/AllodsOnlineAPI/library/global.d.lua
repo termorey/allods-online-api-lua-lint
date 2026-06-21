@@ -68,14 +68,22 @@ function RelatedWidgetsLua:HasWidget( sysName ) end
 
 ---@class ButtonSafe
 ButtonSafe = {}
-function ButtonSafe:ClearValues(  ) end
+function ButtonSafe:ClearValues() end
+---@return table
+function ButtonSafe:GetTextStyle() end
+---@return WString
+function ButtonSafe:GetValuedText() end
 ---@return integer
 function ButtonSafe:GetVariant(  )end
 ---@return integer
-function ButtonSafe:GetVariantCount(  ) end
+function ButtonSafe:GetVariantCount() end
+---@return WString
+function ButtonSafe:GetWString() end
 ---@param tag string | WString
 ---@param value string | WString
-function ButtonSafe:SetClassVal( tag, value ) end
+function ButtonSafe:SetClassVal(tag, value) end
+---@param styleTable table<unknown>
+function ButtonSafe:SetTextStyle( styleTable ) end
 ---@param textValues string | WString
 function ButtonSafe:SetTextValues( textValues ) end
 ---@param tag string | WString
@@ -86,6 +94,10 @@ function ButtonSafe:SetVariant( variant ) end
 
 ---@class TextViewSafe
 TextViewSafe = {}
+---@return table
+function TextViewSafe:GetTextStyle() end
+---@param styleTable table<unknown>
+function TextViewSafe:SetTextStyle( styleTable ) end
 
 ---@class Sound
 Sound = {}
