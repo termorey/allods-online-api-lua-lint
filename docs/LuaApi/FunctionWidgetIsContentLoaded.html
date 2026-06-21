@@ -6,7 +6,7 @@
 <meta content="text/html; charset=UTF-8" http-equiv="content-type">
             
 <head>
-<title>Пользовательские дополнения - Lua API - FunctionWidgetCreateChildByDesc</title>
+<title>Пользовательские дополнения - Lua API - FunctionWidgetIsContentLoaded</title>
 <link href="LuaApi.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -14,43 +14,29 @@
 <p><a href="../Index.html">На главную</a></p>
 <hr>
 <p></p>
-<h2> CreateChildByDesc( self, widgetDesc, noReposition )</h2>
+<h2> WidgetSafe:IsContentLoaded()</h2>
 <p></p>
-<p>Создает новый виджет по его описателю из ресурсной системы. Владельцем (Owner) и родителем (Parent) виджета становится текущий виджет, при его уничтожении все виджеты, которыми он владеет, также будут уничтожены. Менять владельца нельзя. Изменить родителя можно, например, функцией <a href="FunctionWidgetAddChild.html"> AddChild</a>.</p>
+<p>Проверяет загружены ли текстуры виджета. Если виджет невидим, то считается что он загружен. Проверяются текстуры всех layer виджета и его видимых детей (рекурсивно). Для успеха все они должны быть полностью загружены.</p>
 <p></p>
-<p>Замечание: С точки зрения работы с памятью лучше создавать и уничтожать виджеты по мере необходимости. При этом невостребованный виджет рекомендуется не уничтожать немедленно, а помещать в короткоживущий кэш (10-30 сек). И если за это время он остался невостребованным - уничтожить окончательно.</p>
-<p></p>
-<p>Подробнее про уничтожение виджетов смотри <a href="FunctionWidgetDestroyWidget.html"> DestroyWidget</a></p>
-<p></p>
-<p>Функция вернет ошибку если выполняется любое из нижележащих условий</p>
-<ul><li><p> Виджет является внутренним</p></li></ul>
-<p></p>
-<p>Примечание: Флаги noReposition / noParent предназначены для тонких оптимизаций при работе с динамическими виджетами, использование без понимания их работы может привести к неожиданным эффектам</p>
-<p></p>
+<p>Функция актуальна при загрузке больших списков виджетов (гардероб и тп).</p>
 <p></p>
 <pre>
 -- класс
-метод доступен у всех типов виджетов
+метод имеется у всех типов виджетов
 
 -- семантика
-function CreateChildByDesc( self, widgetDesc, noReposition )
+function IsContentLoaded( self )
 
--- входные параметры
-self: WidgetSafe - родительский виджет
-widgetDesc: WidgetDesc - описатель дочернего виджета из ресурсной системы
-noReposition: bool or nil (default false) - не позиционировать виджет
--- дополнительный параметр при вызове из WidgetFactorySafe
-noParent: bool or nil (default false) - не устанавливать родителя виджета
+-- входные параметры отсутствуют
 
--- возвращаемое значение
-WidgetSafe
+-- выходное значение
+boolean: true, если текстуры виджета и его видимых детей (рекурсивно) полностью загружены
 
 -- пример
-local desc = wtTemplate:GetWidgetDesc()
-local wtNew = mainForm:CreateChildByDesc( desc )
+local loaded = widget:IsContentLoaded()
 </pre>
 <p></p>
-<h4>Связанные страницы: "CategoryLuaApi" "CategoryWidget"</h4>
+<h3>Другие функции виджетов</h3>
 <p></p>
 <a href="CategoryButton.html">CategoryButton</a>
 <br><a href="CategoryControl3D.html">CategoryControl3D</a>
@@ -192,94 +178,6 @@ local wtNew = mainForm:CreateChildByDesc( desc )
 <br><a href="WidgetsEffectsPlayEffectSequenceTemplate.html">WidgetsEffectsPlayEffectSequenceTemplate</a>
 <br><a href="WidgetsEffectsPlayEffectTemplate.html">WidgetsEffectsPlayEffectTemplate</a>
 <br><a href="WidgetsEffectsTypes.html">WidgetsEffectsTypes</a>
-<p></p>
-<h4>Связанные страницы: "CategoryLuaApi" "CategoryTypes"</h4>
-<p></p>
-<a href="AbilityId.html">AbilityId</a>
-<br><a href="ActionGroupId.html">ActionGroupId</a>
-<br><a href="AliasVisObjectId.html">AliasVisObjectId</a>
-<br><a href="AstralSectorId.html">AstralSectorId</a>
-<br><a href="BattlegroundMarkId.html">BattlegroundMarkId</a>
-<br><a href="BillingBonusId.html">BillingBonusId</a>
-<br><a href="BuffId.html">BuffId</a>
-<br><a href="CategoryTypes.html">CategoryTypes</a>
-<br><a href="CharacterClassId.html">CharacterClassId</a>
-<br><a href="CharacterFormId.html">CharacterFormId</a>
-<br><a href="CombatTagId.html">CombatTagId</a>
-<br><a href="ComponentPropertyId.html">ComponentPropertyId</a>
-<br><a href="CurrencyCategoryId.html">CurrencyCategoryId</a>
-<br><a href="CurrencyId.html">CurrencyId</a>
-<br><a href="DecalObjectId.html">DecalObjectId</a>
-<br><a href="FactionId.html">FactionId</a>
-<br><a href="FunctionApitype.html">FunctionApitype</a>
-<br><a href="FunctionCommonCreateValuedObject.html">FunctionCommonCreateValuedObject</a>
-<br><a href="FunctionCommonGetApiType.html">FunctionCommonGetApiType</a>
-<br><a href="FunctionCommonGetFatalityPhraseLimits.html">FunctionCommonGetFatalityPhraseLimits</a>
-<br><a href="FunctionCommonIsFatalityPhraseFiltered.html">FunctionCommonIsFatalityPhraseFiltered</a>
-<br><a href="FunctionCommonIsTextFiltered.html">FunctionCommonIsTextFiltered</a>
-<br><a href="FunctionCommonIsValuedObject.html">FunctionCommonIsValuedObject</a>
-<br><a href="FunctionCommonIsValuedText.html">FunctionCommonIsValuedText</a>
-<br><a href="FunctionIsIndexableUdata.html">FunctionIsIndexableUdata</a>
-<br><a href="FunctionResourceIdGetInfo.html">FunctionResourceIdGetInfo</a>
-<br><a href="FunctionResourceIdGetInstanceId.html">FunctionResourceIdGetInstanceId</a>
-<br><a href="FunctionResourceIdGetPath.html">FunctionResourceIdGetPath</a>
-<br><a href="FunctionResourceIdIsEqual.html">FunctionResourceIdIsEqual</a>
-<br><a href="GamePosition.html">GamePosition</a>
-<br><a href="Geodata.html">Geodata</a>
-<br><a href="GlossaryId.html">GlossaryId</a>
-<br><a href="InnateStatSecondary.html">InnateStatSecondary</a>
-<br><a href="InstancedEventCategoryId.html">InstancedEventCategoryId</a>
-<br><a href="InstancedEventResourceId.html">InstancedEventResourceId</a>
-<br><a href="ItemCategoryId.html">ItemCategoryId</a>
-<br><a href="ItemId.html">ItemId</a>
-<br><a href="LfgDestinationCategoryId.html">LfgDestinationCategoryId</a>
-<br><a href="LfgDestinationId.html">LfgDestinationId</a>
-<br><a href="LifestyleCategoryId.html">LifestyleCategoryId</a>
-<br><a href="LifestyleCollectionId.html">LifestyleCollectionId</a>
-<br><a href="LootGroupId.html">LootGroupId</a>
-<br><a href="LuaApiTypes.html">LuaApiTypes</a>
-<br><a href="LuaFullDateTime.html">LuaFullDateTime</a>
-<br><a href="LuaRaceClassInfoPart.html">LuaRaceClassInfoPart</a>
-<br><a href="LuaSexInfoPart.html">LuaSexInfoPart</a>
-<br><a href="MapModifierId.html">MapModifierId</a>
-<br><a href="MedalId.html">MedalId</a>
-<br><a href="MedalRankId.html">MedalRankId</a>
-<br><a href="MountTalentGroupId.html">MountTalentGroupId</a>
-<br><a href="MountTalentId.html">MountTalentId</a>
-<br><a href="MutationInfo.html">MutationInfo</a>
-<br><a href="PostTypeId.html">PostTypeId</a>
-<br><a href="QuestId.html">QuestId</a>
-<br><a href="RecipeId.html">RecipeId</a>
-<br><a href="RelatedSoundsLua.html">RelatedSoundsLua</a>
-<br><a href="RelatedTextsLua.html">RelatedTextsLua</a>
-<br><a href="RelatedTexturesLua.html">RelatedTexturesLua</a>
-<br><a href="RelatedWidgetsLua.html">RelatedWidgetsLua</a>
-<br><a href="RequirementsTable.html">RequirementsTable</a>
-<br><a href="ResourceId.html">ResourceId</a>
-<br><a href="RuleId.html">RuleId</a>
-<br><a href="ShipSkinId.html">ShipSkinId</a>
-<br><a href="SkillId.html">SkillId</a>
-<br><a href="SocketId.html">SocketId</a>
-<br><a href="Sound2DId.html">Sound2DId</a>
-<br><a href="SpecialStatId.html">SpecialStatId</a>
-<br><a href="SpellId.html">SpellId</a>
-<br><a href="TeleportMasterId.html">TeleportMasterId</a>
-<br><a href="TextureId.html">TextureId</a>
-<br><a href="TimeTableId.html">TimeTableId</a>
-<br><a href="TutorialCategoryId.html">TutorialCategoryId</a>
-<br><a href="TutorialId.html">TutorialId</a>
-<br><a href="TypeValuedObject.html">TypeValuedObject</a>
-<br><a href="TypeValuedText.html">TypeValuedText</a>
-<br><a href="TypeWidgetDesc.html">TypeWidgetDesc</a>
-<br><a href="TypeWString.html">TypeWString</a>
-<br><a href="UITextureId.html">UITextureId</a>
-<br><a href="UniqueId.html">UniqueId</a>
-<br><a href="UnlockCategoryId.html">UnlockCategoryId</a>
-<br><a href="VisActionId.html">VisActionId</a>
-<br><a href="VisObjectId.html">VisObjectId</a>
-<br><a href="VisualShipId.html">VisualShipId</a>
-<br><a href="VoteId.html">VoteId</a>
-<br><a href="WishmasterResourceId.html">WishmasterResourceId</a>
 <p></p>
 <hr>
 <a href="CategoryLuaApi.html">CategoryLuaApi</a>

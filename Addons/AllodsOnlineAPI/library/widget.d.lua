@@ -30,6 +30,19 @@
 
 --[[ METHODS --]]
 
+---@class AnyWidgetMethods
+AnyWidgetMethods = {}
+---@param widget WidgetSafe
+---@param noReposition boolean | nil
+function AnyWidgetMethods:AddChild(widget, noReposition) end
+---@param widgetDesc WidgetDesc
+---@param noReposition boolean | nil
+---@param noParent boolean | nil
+---@return WidgetSafe
+function AnyWidgetMethods:CreateChildByDesc(widgetDesc, noReposition, noParent) end
+---@return boolean
+function AnyWidgetMethods:IsContentLoaded() end
+
 ---@class WidgetSafe
 WidgetSafe = {}
 ---@param widgetDesc WidgetDesc
@@ -55,7 +68,10 @@ function WidgetSafe:FinishMoveEffect ( finalPosition, sendEvent ) end
 function WidgetSafe:FinishResizeEffect ( finalPosition, sendEvent ) end
 ---@param finalPosition boolean | nil
 ---@param sendEvent boolean | nil
-function WidgetSafe:FinishRotationEffect ( finalPosition, sendEvent ) end
+function WidgetSafe:FinishRotationEffect(finalPosition, sendEvent) end
+---@param effectType ET
+---@return integer
+function WidgetSafe:GetActiveEffectRemainingMs( effectType ) end
 ---@return string
 function WidgetSafe:GetAddonName () end
 ---@return number
@@ -69,7 +85,9 @@ function WidgetSafe:GetChildChecked (name, recursive ) end
 ---@param name string
 ---@param recursive boolean
 ---@return WidgetSafe | nil
-function WidgetSafe:GetChildUnchecked (name, recursive ) end
+function WidgetSafe:GetChildUnchecked(name, recursive) end
+---@return string
+function WidgetSafe:GetDebugInfo() end
 ---@return number
 function WidgetSafe:GetFade () end
 ---@return Color
