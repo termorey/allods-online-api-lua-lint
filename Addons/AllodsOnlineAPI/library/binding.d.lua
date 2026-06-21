@@ -12,7 +12,7 @@ binding = {}
 ---@alias EVENT_BINDING_CHANGED "EVENT_BINDING_CHANGED"
 
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_BINDING_CHANGED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

@@ -18,7 +18,10 @@
 ---@alias ItemClassId integer # идентификатор класса предмета // TODO: требует уточнения
 ---@alias ComponetPropertyId integer # Id ресурсов компонент крафтинг // TODO: требует уточнения
 ---@alias ZodiacSignId unknown # id знака зодиака руны // TODO: требует уточнения
----@alias SpecialStatId integer # TODO: требует уточнения
+---@alias SpecialStatId ResourceId
+---@alias AstralSectorId any # идентификатор сектора
+---@alias SetBonusId ResourceId # идентификатор бонуса комплектной экипировки
+---@alias GlossaryId unknown # идентификатор ресурса для описания источника получения
 ---@alias GuildAbilityId integer # TODO: требует уточнения
 ---@alias ComponentId integer # TODO: требует уточнения
 ---@alias VariableId string # идентификатор ресурса переменной // TODO: требует уточнения
@@ -46,21 +49,45 @@
 ---@alias ItemTable { name: WString, type: WString?, special: string? }
 ---@alias LuaSexInfoPart { sex: SEX, name: WString, raceSexName: WString }
 ---@alias LuaRaceClassInfoPart { sysName: WString, name: WString, description: WString, sysClassName: WString, className: WString, sysRaceName: WString, raceName: WString }
----@alias MutationInfo { difficulty: ZONE_TIER_DIFFICULTY, population: number, buff: BuffId }
+---@alias MutationInfo {
+--- difficulty: ZONE_TIER_DIFFICULTY,
+--- population: number,
+--- buffId: BuffId,
+--- }
 ---@alias TimeEntry table
 ---@alias Locale "ru" | "en" | "de" | string
 ---@alias Localization "rus" | string
+---@alias RelatedWidgetsLua any
+
+---@class RelatedWidgetsLua
+RelatedWidgetsLua = {}
+---@return table<integer, string>
+function RelatedWidgetsLua:GetList() end
+---@param sysName string
+---@return WidgetDesc | nil
+function RelatedWidgetsLua:GetWidget( sysName ) end
+---@param sysName string
+---@return boolean
+function RelatedWidgetsLua:HasWidget( sysName ) end
 
 ---@class ButtonSafe
 ButtonSafe = {}
-function ButtonSafe:ClearValues(  ) end
+function ButtonSafe:ClearValues() end
+---@return table
+function ButtonSafe:GetTextStyle() end
+---@return WString
+function ButtonSafe:GetValuedText() end
 ---@return integer
 function ButtonSafe:GetVariant(  )end
 ---@return integer
-function ButtonSafe:GetVariantCount(  ) end
+function ButtonSafe:GetVariantCount() end
+---@return WString
+function ButtonSafe:GetWString() end
 ---@param tag string | WString
 ---@param value string | WString
-function ButtonSafe:SetClassVal( tag, value ) end
+function ButtonSafe:SetClassVal(tag, value) end
+---@param styleTable table<unknown>
+function ButtonSafe:SetTextStyle( styleTable ) end
 ---@param textValues string | WString
 function ButtonSafe:SetTextValues( textValues ) end
 ---@param tag string | WString
@@ -71,6 +98,10 @@ function ButtonSafe:SetVariant( variant ) end
 
 ---@class TextViewSafe
 TextViewSafe = {}
+---@return table
+function TextViewSafe:GetTextStyle() end
+---@param styleTable table<unknown>
+function TextViewSafe:SetTextStyle( styleTable ) end
 
 ---@class Sound
 Sound = {}
@@ -101,6 +132,14 @@ function BattlegroundMarkId:GetInstanceId() end
 ---@param resourceId WidgetSafe | ResourceId
 ---@return boolean
 function BattlegroundMarkId:IsEqual( resourceId ) end
+
+---@class GlossaryId
+GlossaryId = {}
+---@return { name: WString, image: TextureId }
+function LifestyleCategoryId:GetInfo() end
+
+---@class UITextureId
+UITextureId = {}
 
 ---@class LifestyleCategoryId
 LifestyleCategoryId = {}
@@ -136,11 +175,26 @@ function CurrencyCategoryId:GetPath() end
 function CurrencyCategoryId:GetInstanceId() end
 ---@param resourceId WidgetSafe | ResourceId
 ---@return boolean
-function CurrencyCategoryId:IsEqual( resourceId ) end
+function CurrencyCategoryId:IsEqual(resourceId) end
 
 ---@class CurrencyId # идентификатор ресурса валюты
 CurrencyId = {}
----@return { category: CurrencyCategoryId, description: WString, hideMaxValue: boolean, image: TextureId, isCoupon: boolean, limitCurrency: CurrencyId, maxValue: integer, name: WString, storage: ENUM_CURRENCY_STORAGE, sysStorage: string, sysName: string, visualizeMode: ENUM_CURRENCY_VISUALIZE_MODE, sysVisualizeMode: string }
+---@return {
+--- category: CurrencyCategoryId,
+--- description: WString,
+--- sourceDescription: GlossaryId | nil,
+--- hideMaxValue: boolean,
+--- image: TextureId,
+--- isCoupon: boolean,
+--- limitCurrency: CurrencyId,
+--- maxValue: integer,
+--- name: WString,
+--- storage: ENUM_CURRENCY_STORAGE,
+--- sysStorage: string,
+--- sysName: string,
+--- visualizeMode: ENUM_CURRENCY_VISUALIZE_MODE,
+--- sysVisualizeMode: string,
+--- }
 function CurrencyId:GetInfo() end
 ---@return nil | string
 function CurrencyId:GetPath() end
@@ -510,7 +564,7 @@ function TutorialCategoryId:GetInstanceId() end
 ---@return boolean
 function TutorialCategoryId:IsEqual( resourceId ) end
 
----@class BuffId # Идентификатор бафа
+---@class BuffId # Идентификатор бафа (TODO: ResourceId)
 BuffId = {}
 ---@return unknown
 function BuffId:GetInfo() end

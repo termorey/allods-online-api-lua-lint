@@ -16,8 +16,7 @@
 <p></p>
 <h2>avatar.IsTeleportLocationValid( locationId )</h2>
 <p></p>
-<p>Проверяем валидность locationId.</p>
-<p></p>
+<p>Проверяем валидность locationId. Валидным считается существующий локатор доступный аватару (по анлокам и предикатам) в текущий момент.</p>
 <pre>
 -- библиотека
 avatar
@@ -26,7 +25,7 @@ avatar
 function IsTeleportLocationValid( locationId )
 
 -- параметры
-locationId: ObjectId or TeleportMasterId or table - идентификатор точки телепорта
+locationId: ObjectId or TeleportMasterId - идентификатор точки телепорта
 
 -- возвращаемые значения
 boolean - true, если locationId валидный

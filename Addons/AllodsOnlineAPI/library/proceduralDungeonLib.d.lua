@@ -37,7 +37,7 @@ proceduralDungeonLib = {}
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_PROCEDURAL_DUNGEON_POINTS_CHANGED)
 ---@overload fun(eventFunction: fun(data: { id: ObjectId }), sysEventName: EVENT_PROCEDURAL_DUNGEON_SCENARIO_ADDED)
 ---@overload fun(eventFunction: fun(data: { id: ObjectId }), sysEventName: EVENT_PROCEDURAL_DUNGEON_SCENARIO_STATE_CHANGED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

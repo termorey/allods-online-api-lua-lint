@@ -1,0 +1,129 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionDeviceGetUsableDeviceActionInfo</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> device.GetUsableDeviceActionInfo( usableDeviceId, actionIndex )</h2>
+<p></p>
+<p>Возвращает информацию о действии устройства. Например выстрел из пушки.</p>
+<p></p>
+<pre>
+-- система:
+GameState
+
+-- библиотека:
+device
+
+-- объявление:
+function GetUsableDeviceActionInfo( usableDeviceId, actionIndex )
+
+-- параметры:
+usableDeviceId: ObjectId (not nil) - идентификатор устройства
+actionIndex: number (int) - номер действия (должен попадать в диапазон [0:actionsCount-1]
+
+-- возвращаемое значение:
+table or nil: таблица с информацией о действии устройстве или nil, если ошибка, поля таблицы:
+ name: WString - название действия
+ description: ValuedText or nil - описание с подставленными текущими значениями параметров
+ image: TextureId (UIState only) - пиктограмма действия
+ enabled: boolean - доступность. Можно ли в принципе использовать это действие сейчас. false - если нельзя (например, включить скорость, находясь в ангаре, или поменять устройство, находясь не в ангаре)
+ active: boolean - true, если это действие активно (это activeAction)
+ cost: number (integer) or nil - цена действия в эманациях, если они требуются
+ isPointed: boolean - требует ли действие указания точки на местности, если требует, то заданы следующие параметры:
+  radius: number - радиус воздействия (только для действий, требующих указания точки на местности)
+  range: number - максимальная дальность применения (только для действий, требующих указания точки на местности)
+  minRange: number - минимальная дальность применения (только для действий, требующих указания точки на местности)
+ cooldown: table or nil - если действие может иметь кулдаун, то таблица с полями:
+  predictedCooldown: number (int64) - прогнозируемое время отката если выполнить действие в данный момент. Прогноз может быть неточным из-за упрощений в механике на клиенте по сравнению с сервером.
+  durationMs: number (int64) - полное время текущего кд, 0 если в данный момент действие не в кд
+  remainingMs: number (int64) - оставшееся время текущего кд, 0 если в данный момент действие не в кд
+
+-- пример:
+local info = device.GetUsableDeviceInfo( usableDeviceId )
+
+if info and info.actionsCount &gt; 0 then
+  LogInfo( "Action list: )
+  local action = device.GetUsableDeviceActionInfo( usableDeviceId, 0 )
+  LogInfo( action.name )
+else
+  LogInfo( "No actions" )
+end
+</pre>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryDevice"</h4>
+<p></p>
+<a href="EnumTurnReason.html">EnumTurnReason</a>
+<br><a href="EnumUsedev.html">EnumUsedev</a>
+<br><a href="EventBeamCannonShotStarted.html">EventBeamCannonShotStarted</a>
+<br><a href="EventCannonShotFinished.html">EventCannonShotFinished</a>
+<br><a href="EventCannonShotPreparationStarted.html">EventCannonShotPreparationStarted</a>
+<br><a href="EventCannonShotStarted.html">EventCannonShotStarted</a>
+<br><a href="EventChestLooterChanged.html">EventChestLooterChanged</a>
+<br><a href="EventDeviceActionEffectivenessChanged.html">EventDeviceActionEffectivenessChanged</a>
+<br><a href="EventDeviceActiveActionChanged.html">EventDeviceActiveActionChanged</a>
+<br><a href="EventDeviceCooldownFinished.html">EventDeviceCooldownFinished</a>
+<br><a href="EventDeviceCooldownsEnableChanged.html">EventDeviceCooldownsEnableChanged</a>
+<br><a href="EventDeviceCooldownStarted.html">EventDeviceCooldownStarted</a>
+<br><a href="EventDeviceDamageReceived.html">EventDeviceDamageReceived</a>
+<br><a href="EventDeviceDeadChanged.html">EventDeviceDeadChanged</a>
+<br><a href="EventDeviceOfflineChanged.html">EventDeviceOfflineChanged</a>
+<br><a href="EventDeviceOfflineReason.html">EventDeviceOfflineReason</a>
+<br><a href="EventDeviceRelatedQuestsChanged.html">EventDeviceRelatedQuestsChanged</a>
+<br><a href="EventDevicesChanged.html">EventDevicesChanged</a>
+<br><a href="EventDeviceZeroSpeed.html">EventDeviceZeroSpeed</a>
+<br><a href="EventNavigationScanerHubPveInfo.html">EventNavigationScanerHubPveInfo</a>
+<br><a href="EventNavigationScanerHubPvpInfo.html">EventNavigationScanerHubPvpInfo</a>
+<br><a href="EventNavigationScanerHubStarted.html">EventNavigationScanerHubStarted</a>
+<br><a href="EventNavigationScanerHubTrailsInfo.html">EventNavigationScanerHubTrailsInfo</a>
+<br><a href="EventNavigatorFollowedChanged.html">EventNavigatorFollowedChanged</a>
+<br><a href="EventNavigatorTargetChestsChanged.html">EventNavigatorTargetChestsChanged</a>
+<br><a href="EventShieldRegenInProgressChanged.html">EventShieldRegenInProgressChanged</a>
+<br><a href="EventShieldStrengthChanged.html">EventShieldStrengthChanged</a>
+<br><a href="EventUsableDevicesChanged.html">EventUsableDevicesChanged</a>
+<br><a href="FunctionAvatarGetActiveUsableDevice.html">FunctionAvatarGetActiveUsableDevice</a>
+<br><a href="FunctionDeviceCanUse.html">FunctionDeviceCanUse</a>
+<br><a href="FunctionDeviceGetCannonTarget.html">FunctionDeviceGetCannonTarget</a>
+<br><a href="FunctionDeviceGetCooldown.html">FunctionDeviceGetCooldown</a>
+<br><a href="FunctionDeviceGetItemInstalled.html">FunctionDeviceGetItemInstalled</a>
+<br><a href="FunctionDeviceGetMass.html">FunctionDeviceGetMass</a>
+<br><a href="FunctionDeviceGetNavigatorTargetChests.html">FunctionDeviceGetNavigatorTargetChests</a>
+<br><a href="FunctionDeviceGetRelatedQuestObjectives.html">FunctionDeviceGetRelatedQuestObjectives</a>
+<br><a href="FunctionDeviceGetShieldStrength.html">FunctionDeviceGetShieldStrength</a>
+<br><a href="FunctionDeviceGetShipSlotInfo.html">FunctionDeviceGetShipSlotInfo</a>
+<br><a href="FunctionDeviceGetTitle.html">FunctionDeviceGetTitle</a>
+<br><a href="FunctionDeviceGetTransport.html">FunctionDeviceGetTransport</a>
+<br><a href="FunctionDeviceGetUsableDeviceActionInfo.html">FunctionDeviceGetUsableDeviceActionInfo</a>
+<br><a href="FunctionDeviceGetUsableDeviceActionsInfo.html">FunctionDeviceGetUsableDeviceActionsInfo</a>
+<br><a href="FunctionDeviceGetUsableDeviceInfo.html">FunctionDeviceGetUsableDeviceInfo</a>
+<br><a href="FunctionDeviceGetUsableDeviceType.html">FunctionDeviceGetUsableDeviceType</a>
+<br><a href="FunctionDeviceHasNavigatorFollowedMarker.html">FunctionDeviceHasNavigatorFollowedMarker</a>
+<br><a href="FunctionDeviceHasRelatedQuestObjectives.html">FunctionDeviceHasRelatedQuestObjectives</a>
+<br><a href="FunctionDeviceIsInUse.html">FunctionDeviceIsInUse</a>
+<br><a href="FunctionDeviceIsOffline.html">FunctionDeviceIsOffline</a>
+<br><a href="FunctionDeviceIsShieldRegenInProgress.html">FunctionDeviceIsShieldRegenInProgress</a>
+<br><a href="FunctionDeviceIsUsable.html">FunctionDeviceIsUsable</a>
+<br><a href="FunctionDeviceNavigatorGetTarget.html">FunctionDeviceNavigatorGetTarget</a>
+<br><a href="FunctionDeviceNavigatorGetZoomedObject.html">FunctionDeviceNavigatorGetZoomedObject</a>
+<br><a href="FunctionDeviceNavigatorSetTarget.html">FunctionDeviceNavigatorSetTarget</a>
+<br><a href="FunctionDeviceNavigatorZoom.html">FunctionDeviceNavigatorZoom</a>
+<br><a href="FunctionTransportGetDevices.html">FunctionTransportGetDevices</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryDevice.html">CategoryDevice</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

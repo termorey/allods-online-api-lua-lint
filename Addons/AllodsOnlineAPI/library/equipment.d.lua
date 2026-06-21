@@ -91,18 +91,24 @@
 ---@alias ITEM_QUALITY_DRAGON integer
 ---@alias ITEM_QUALITY ITEM_QUALITY_SYSTEM | ITEM_QUALITY_JUNK | ITEM_QUALITY_GOODS | ITEM_QUALITY_COMMON | ITEM_QUALITY_UNCOMMON | ITEM_QUALITY_RARE | ITEM_QUALITY_EPIC | ITEM_QUALITY_LEGENDARY | ITEM_QUALITY_RELIC | ITEM_QUALITY_DRAGON
 
+---@alias DUMMY_TYPE_PRIMARY integer
+---@alias DUMMY_TYPE_SECONDARY integer
+---@alias DUMMY_TYPE_TERTIARY integer
+---@alias DUMMY_TYPE_QUATERNARY integer
+---@alias DUMMY_TYPE DUMMY_TYPE_PRIMARY | DUMMY_TYPE_SECONDARY | DUMMY_TYPE_TERTIARY | DUMMY_TYPE_QUATERNARY
+
 --[[ EVENTS --]]
 
 ---@alias EVENT_EQUIP_FAILED "EVENT_EQUIP_FAILED"
----@alias EVENT_EQUIPMENT_ITEM_EFFECT "EVENT_EQUIPMENT_ITEM_EFFECT"
----@alias EVENT_EQUIPMENT_RITUAL_ENABLE_CHANGED "EVENT_EQUIPMENT_RITUAL_ENABLE_CHANGED"
 ---@alias EVENT_UNIT_EQUIPMENT_CHANGED "EVENT_UNIT_EQUIPMENT_CHANGED"
+---@alias EVENT_EQUIPMENT_ACTIVE_PRESET_CHANGED "EVENT_EQUIPMENT_ACTIVE_PRESET_CHANGED"
+---@alias EVENT_EQUIPMENT_DRESS_ENABLE_CHANGED "EVENT_EQUIPMENT_DRESS_ENABLE_CHANGED"
 
 ---@overload fun(eventFunction: fun(data: { sysCode: ENUM_DressResult, itemId: ObjectId | nil, slot: integer | nil, slotType: ITEM_CONT }), sysEventName: EVENT_EQUIP_FAILED)
 ---@overload fun(eventFunction: fun(data: { effect: EFFECT_TYPE, slot: integer, slotType: ITEM_CONT }), sysEventName: EVENT_EQUIPMENT_ITEM_EFFECT)
 ---@overload fun(eventFunction: fun(data: { unitID: ObjectId }), sysEventName: EVENT_EQUIPMENT_RITUAL_ENABLE_CHANGED)
 ---@overload fun(eventFunction: fun(data: { unitID: ObjectId, slotType: ITEM_CONT }), sysEventName: EVENT_UNIT_EQUIPMENT_CHANGED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

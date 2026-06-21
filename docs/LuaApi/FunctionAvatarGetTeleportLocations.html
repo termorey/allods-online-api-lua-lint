@@ -29,12 +29,12 @@ function GetTeleportLocations()
 нет
 
 -- возвращаемые значения
-table of ObjectId - индексированный с 0 список идентификаторов точек телепортации
+table of ObjectId - индексированный с 1 список идентификаторов точек телепортации
 
 -- пример
 local list = avatar.GetTeleportLocations()
-if list[0] do
-  local locationInfo = avatar.GetTeleportLocationInfo( list[0] )
+if list[1] do
+  local locationInfo = avatar.GetTeleportLocationInfo( list[1] )
   if locationInfo then
     local name = locationInfo.name
   end

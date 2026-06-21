@@ -38,8 +38,6 @@ rules = {}
 ---@alias EVENT_MISSION_RULE_COUNTER_CHANGED "EVENT_MISSION_RULE_COUNTER_CHANGED"
 ---@alias EVENT_MISSION_RULE_REMOVED "EVENT_MISSION_RULE_REMOVED"
 ---@alias EVENT_MISSION_RULES_CHANGED "EVENT_MISSION_RULES_CHANGED"
----@alias EVENT_NEWS_POST_LOADED "EVENT_NEWS_POST_LOADED"
----@alias EVENT_NEWS_POST_SELECTED "EVENT_NEWS_POST_SELECTED"
 ---@alias EVENT_WISHMASTER_CHANGED "EVENT_WISHMASTER_CHANGED"
 ---@alias EVENT_WISHMASTER_MULTIPLYING "EVENT_WISHMASTER_MULTIPLYING"
 
@@ -54,7 +52,7 @@ rules = {}
 ---@overload fun(eventFunction: fun(data: { ruleId: ObjectId | nil }), sysEventName: EVENT_NEWS_POST_SELECTED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_WISHMASTER_CHANGED)
 ---@overload fun(eventFunction: fun(data: { resourceId: WishmasterResourceId }), sysEventName: EVENT_WISHMASTER_MULTIPLYING)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

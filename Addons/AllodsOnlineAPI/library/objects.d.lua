@@ -18,12 +18,25 @@ objects = {}
 ---@overload fun(eventFunction: fun(data: { id: ObjectId }), sysEventName: EVENT_TRACK_OBJECT_CHANGED)
 ---@overload fun(eventFunction: fun(data: { id: ObjectId }), sysEventName: EVENT_TRACK_POS_CHANGED)
 ---@overload fun(eventFunction: fun(data: { id: ObjectId }), sysEventName: EVENT_TRACK_REMOVED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 
 ---@param trackId ObjectId
----@return nil | { id: ObjectId, objectId: ObjectId | nil, playerName: WString, text: WString, sysName: string, characterClass: CharacterClassId | nil, level: integer | 0, position: nil | GamePosition, durationMs: integer, remainingMs: integer, mutation: nil | MutationInfo, image?: TextureId | nil }
+---@return nil | {
+--- id: ObjectId,
+--- objectId: ObjectId | nil,
+--- playerName: WString,
+--- text: WString,
+--- sysName: string,
+--- characterClass: CharacterClassId | nil,
+--- level: integer | 0,
+--- position: nil | GamePosition,
+--- durationMs: integer,
+--- remainingMs: integer,
+--- mutation: nil | MutationInfo,
+--- image: TextureId | nil,
+--- }
 function objects.GetTrackInfo( trackId ) end
 
 ---@return table<integer, ObjectId>

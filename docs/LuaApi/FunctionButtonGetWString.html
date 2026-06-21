@@ -1,0 +1,62 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionButtonGetWString</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<h2> ButtonSafe:GetWString( self )</h2>
+<p></p>
+<p>Получить отображаемую строку из текста текущего варианта кнопки. Все невидимые элементы (теги, стиль и тп) будут утрачены.</p>
+<p></p>
+<p>Если требуется получить форматную строку, то надлежит использовать сочетание <a href="FunctionButtonGetValuedText.html"> ButtonSafe:GetValuedText()</a> + <a href="FunctionUserModsFromValuedText.html"> userMods.FromValuedText( text )</a></p>
+<p></p>
+<pre>
+-- класс
+ButtonSafe
+
+-- семантика
+function GetWString( self )
+
+-- входные параметры отсутствуют
+
+-- возвращаемое значение
+WString - текстовое содержимое виджета
+
+-- пример
+local textContent = wtButton:GetWString()
+</pre>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryButton"</h4>
+<p></p>
+<a href="CategoryButton.html">CategoryButton</a>
+<br><a href="FunctionButtonClearValues.html">FunctionButtonClearValues</a>
+<br><a href="FunctionButtonGetTextStyle.html">FunctionButtonGetTextStyle</a>
+<br><a href="FunctionButtonGetValuedText.html">FunctionButtonGetValuedText</a>
+<br><a href="FunctionButtonGetVariant.html">FunctionButtonGetVariant</a>
+<br><a href="FunctionButtonGetVariantCount.html">FunctionButtonGetVariantCount</a>
+<br><a href="FunctionButtonGetWString.html">FunctionButtonGetWString</a>
+<br><a href="FunctionButtonSetClassVal.html">FunctionButtonSetClassVal</a>
+<br><a href="FunctionButtonSetTextAttributes.html">FunctionButtonSetTextAttributes</a>
+<br><a href="FunctionButtonSetTextStyle.html">FunctionButtonSetTextStyle</a>
+<br><a href="FunctionButtonSetTextValues.html">FunctionButtonSetTextValues</a>
+<br><a href="FunctionButtonSetVal.html">FunctionButtonSetVal</a>
+<br><a href="FunctionButtonSetVariant.html">FunctionButtonSetVariant</a>
+<br><a href="WidgetButton.html">WidgetButton</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryButton.html">CategoryButton</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

@@ -14,7 +14,7 @@
 <p><a href="../Index.html">На главную</a></p>
 <hr>
 <p></p>
-<h2>guild.Create( inventorySlot, guildName )</h2>
+<h2>guild.Create( itemId, guildName )</h2>
 <p></p>
 <p>Создает гильдию.</p>
 <p></p>
@@ -23,17 +23,17 @@
 guild
 
 -- объявление:
-function Create( inventorySlot, guildName )
+function Create( itemId, guildName )
 
 -- параметры:
-inventorySlot: number (int) - слот сумки, из которого надо взять предмет для создания гильдии
+itemId: ObjectId - идентификатор предмета для создания гильдии. Предмет должен находиться в сумке.
 guildName: WString - желаемое имя
 
 -- возвращаемые значения:
 нет
 
 -- пример:
-guild.Create( inventorySlot, guildName )
+guild.Create( itemId, guildName )
 </pre>
 <p></p>
 <p>В случае ошибки приходит - либо <a href="EventGeneralError.html">EVENT_GENERAL_ERROR</a> с причинами GuildCreateWrongPlace (неподходящее место), GuildCreateMemberBusy (один из членов группы уже участвует в создании гильдии), GuildCreateAlreadyInGuild (один из членов группы уже состит в другой гильдии), либо типизированное сообщение <a href="EventGuildNameNotAvailable.html">EVENT_GUILD_NAME_NOT_AVAILABLE</a>, в котором передаётся уже занятое имя.</p>
@@ -117,7 +117,6 @@ guild.Create( inventorySlot, guildName )
 <br><a href="EventGuildTextureChanged.html">EventGuildTextureChanged</a>
 <br><a href="EventGuildUnlockedLevelChanged.html">EventGuildUnlockedLevelChanged</a>
 <br><a href="EventUnitGuildChanged.html">EventUnitGuildChanged</a>
-<br><a href="FunctionAvatarHasItemGuildComponent.html">FunctionAvatarHasItemGuildComponent</a>
 <br><a href="FunctionGuildAccept.html">FunctionGuildAccept</a>
 <br><a href="FunctionGuildBossLibGetAbilitiesSlots.html">FunctionGuildBossLibGetAbilitiesSlots</a>
 <br><a href="FunctionGuildBossLibGetInfo.html">FunctionGuildBossLibGetInfo</a>
@@ -145,7 +144,6 @@ guild.Create( inventorySlot, guildName )
 <br><a href="FunctionGuildGetAvatarMemberId.html">FunctionGuildGetAvatarMemberId</a>
 <br><a href="FunctionGuildGetBankInfo.html">FunctionGuildGetBankInfo</a>
 <br><a href="FunctionGuildGetBossInfo.html">FunctionGuildGetBossInfo</a>
-<br><a href="FunctionGuildGetBuffInfo.html">FunctionGuildGetBuffInfo</a>
 <br><a href="FunctionGuildGetBuffs.html">FunctionGuildGetBuffs</a>
 <br><a href="FunctionGuildGetCreationTime.html">FunctionGuildGetCreationTime</a>
 <br><a href="FunctionGuildGetCurrencies.html">FunctionGuildGetCurrencies</a>
@@ -206,6 +204,7 @@ guild.Create( inventorySlot, guildName )
 <br><a href="FunctionGuildSetMessage.html">FunctionGuildSetMessage</a>
 <br><a href="FunctionGuildSetMinimumTransaction.html">FunctionGuildSetMinimumTransaction</a>
 <br><a href="FunctionGuildTransferMoney.html">FunctionGuildTransferMoney</a>
+<br><a href="FunctionItemLibHasGuildComponent.html">FunctionItemLibHasGuildComponent</a>
 <br><a href="FunctionUnitGetGuildInfo.html">FunctionUnitGetGuildInfo</a>
 <p></p>
 <hr>

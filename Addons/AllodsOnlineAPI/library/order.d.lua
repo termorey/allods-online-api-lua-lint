@@ -22,7 +22,7 @@ order = {}
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_ORDER_CHANGED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_ORDER_INFO_CHANGED)
 ---@overload fun(eventFunction: fun(data: { isOk: boolean, result: string }), sysEventName: EVENT_ORDER_VOTE_ANSWER)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 
@@ -47,13 +47,6 @@ function order.GetBonusVoitingList() end
 ---@return number | nil
 function order.GetMainPlayerOrder() end
 
----@return number
---- TODO: is it correct in docs (title: order.GetMainPlayerVoteWeigh; named once and exist: order.GetMainPlayerVoteWeight)
-function order.GetMainPlayerVoteWeight() end
-
----@return nil | number
-function order.GetMainPlayerVoteWeight() end
-
 ---@return nil | number
 function order.GetMaxAvatarVotesCount() end
 
@@ -63,8 +56,14 @@ function order.GetOrderBonus() end
 ---@return nil | { id: OrderBonusId, name: WString, description: WString, image: TextureId }
 function order.GetOrderBonusInfo() end
 
----@param orderNumber number
----@return nil | { orderNumber: number, image: TextureId, description: WString | nil, sysName: string, isAvailable: boolean }
+---@param orderNumber number # порядковый номер ордена
+---@return nil | {
+--- image: TextureId,
+--- description: WString | nil,
+--- name: WString,
+--- isAvailable: boolean,
+--- sysName: string,
+--- }
 function order.GetOrderInfo( orderNumber ) end
 
 ---@return nil | table
@@ -85,7 +84,12 @@ function order.GetPreviousAchievementTop( objectId ) end
 ---@return nil | { name: WString, raitingEventId: ObjectId }
 function order.GetRatingSections() end
 
----@return nil | { y: integer, m: integer, d: integer }
+---@return nil | {
+--- y: number,
+--- m: number,
+--- d: number,
+--- sysMonth: string,
+--- }
 function order.GetSeasonStartDate() end
 
 --- TODO: dosc is empty
@@ -101,13 +105,6 @@ function order.RequestOrderInfo() end
 function order.RequestPrestigeAchivements() end
 
 function order.RequestRatingAchivements() end
-
----@param bonusIds OrderBonusId[]
---- TODO: incorrect dosc title
-function order.SendBonusVotes( bonusIds )end
-
----@param bonusIds OrderBonusId[]
-function order.SendBonusVotes( bonusIds ) end
 
 ---@param orderNumber number
 function order.SetMainPlayerOrder( orderNumber ) end

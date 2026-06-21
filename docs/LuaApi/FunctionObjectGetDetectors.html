@@ -16,7 +16,7 @@
 <p></p>
 <h2>object.GetDetectors( objectId )</h2>
 <p></p>
-<p>Возвращает список детекторов, отслеживающих объект. Детектор представлен уникальным строковым именем, записанным в базе данных, как для клиентских, так и для серверных детекторов.</p>
+<p>Возвращает список детекторов, отслеживающих объект.</p>
 <p></p>
 <pre>
 -- библиотека:
@@ -29,13 +29,25 @@ function GetDetectors( objectId )
 objectId: ObjectId (not nil) - идентификатор интерактивного объекта
 
 -- возвращаемые значения:
-table of string: список уникальных строковых имен детекторов. Строка прописана в данных детектора.
+table (map) of ClientDetectorType(int) -&gt; true: Хеш-мап активных детекторов.
 
 -- пример:
-local detectors = object.GetDetectors( objectId )
-for i, sysName in pairs( detectors ) do
-  LogInfo( sysName )
+if object.GetDetectors( objectId )[ CLIENT_DETECTOR_QUEST_NPC ] do
+  LogInfo( "Detected by CLIENT_DETECTOR_QUEST_NPC" )
 end
+</pre>
+<p></p>
+<p>Список существующих детекторов</p>
+<pre>
+CLIENT_DETECTOR_QUEST_NPC = 0,
+CLIENT_DETECTOR_TRAINER_NPC = 1,
+CLIENT_DETECTOR_VENDOR_NPC = 2,
+CLIENT_DETECTOR_SERVICE_NPC = 3,
+CLIENT_DETECTOR_PLAYER = 4,
+CLIENT_DETECTOR_SPOUSE = 5,
+CLIENT_DETECTOR_BATTLEGROUND_CHECKPOINT = 6,
+CLIENT_DETECTOR_PROFESSION_NPC = 7,
+CLIENT_DETECTOR_CUSTOM = 8
 </pre>
 <p></p>
 <p>Типы детекторов описаны тут: <a href="FunctionAvatarEnableClientDetector.html">avatar.EnableClientDetector</a></p>
@@ -44,6 +56,7 @@ end
 <p></p>
 <a href="CategoryObject.html">CategoryObject</a>
 <br><a href="EnumDiminishingGroup.html">EnumDiminishingGroup</a>
+<br><a href="EnumUIBuffPriority.html">EnumUIBuffPriority</a>
 <br><a href="EnumVendor.html">EnumVendor</a>
 <br><a href="EventCannotAttachWidget3D.html">EventCannotAttachWidget3D</a>
 <br><a href="EventObjectCombatStatusChanged.html">EventObjectCombatStatusChanged</a>
@@ -57,7 +70,6 @@ end
 <br><a href="EventObjectNameChanged.html">EventObjectNameChanged</a>
 <br><a href="EventObjectSelectableChanged.html">EventObjectSelectableChanged</a>
 <br><a href="EventObjectsHealthChanged.html">EventObjectsHealthChanged</a>
-<br><a href="EventObjectUiinfoChanged.html">EventObjectUiinfoChanged</a>
 <br><a href="EventObjectUiinfoRemoved.html">EventObjectUiinfoRemoved</a>
 <br><a href="EventPickObject.html">EventPickObject</a>
 <br><a href="EventProjectedObjectsChanged.html">EventProjectedObjectsChanged</a>
@@ -77,23 +89,27 @@ end
 <br><a href="FunctionObjectGetBuffDynamicInfo.html">FunctionObjectGetBuffDynamicInfo</a>
 <br><a href="FunctionObjectGetBuffInfo.html">FunctionObjectGetBuffInfo</a>
 <br><a href="FunctionObjectGetBuffInstances.html">FunctionObjectGetBuffInstances</a>
+<br><a href="FunctionObjectGetBuffProducer.html">FunctionObjectGetBuffProducer</a>
+<br><a href="FunctionObjectGetBuffRanks.html">FunctionObjectGetBuffRanks</a>
 <br><a href="FunctionObjectGetBuffs.html">FunctionObjectGetBuffs</a>
 <br><a href="FunctionObjectGetBuffsInfo.html">FunctionObjectGetBuffsInfo</a>
 <br><a href="FunctionObjectGetBuffsWithProperties.html">FunctionObjectGetBuffsWithProperties</a>
 <br><a href="FunctionObjectGetBuffSysName.html">FunctionObjectGetBuffSysName</a>
-<br><a href="FunctionObjectGetCorpulence.html">FunctionObjectGetCorpulence</a>
+<br><a href="FunctionObjectGetBuffTooltipInfo.html">FunctionObjectGetBuffTooltipInfo</a>
 <br><a href="FunctionObjectGetDetectors.html">FunctionObjectGetDetectors</a>
 <br><a href="FunctionObjectGetDiminishingState.html">FunctionObjectGetDiminishingState</a>
+<br><a href="FunctionObjectGetDistance.html">FunctionObjectGetDistance</a>
 <br><a href="FunctionObjectGetHealthInfo.html">FunctionObjectGetHealthInfo</a>
 <br><a href="FunctionObjectGetInstantProjectedInfo.html">FunctionObjectGetInstantProjectedInfo</a>
 <br><a href="FunctionObjectGetInteractorInfo.html">FunctionObjectGetInteractorInfo</a>
 <br><a href="FunctionObjectGetInteractorQuests.html">FunctionObjectGetInteractorQuests</a>
 <br><a href="FunctionObjectGetManaInfo.html">FunctionObjectGetManaInfo</a>
+<br><a href="FunctionObjectGetManaType.html">FunctionObjectGetManaType</a>
 <br><a href="FunctionObjectGetName.html">FunctionObjectGetName</a>
 <br><a href="FunctionObjectGetPos.html">FunctionObjectGetPos</a>
 <br><a href="FunctionObjectGetProjectedInfo.html">FunctionObjectGetProjectedInfo</a>
-<br><a href="FunctionObjectGetUIInfo.html">FunctionObjectGetUIInfo</a>
 <br><a href="FunctionObjectGetWorldSecrets.html">FunctionObjectGetWorldSecrets</a>
+<br><a href="FunctionObjectHasBuffManager.html">FunctionObjectHasBuffManager</a>
 <br><a href="FunctionObjectHasMobVisual.html">FunctionObjectHasMobVisual</a>
 <br><a href="FunctionObjectHasQuest.html">FunctionObjectHasQuest</a>
 <br><a href="FunctionObjectHasWorldSecret.html">FunctionObjectHasWorldSecret</a>

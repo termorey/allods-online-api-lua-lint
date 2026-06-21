@@ -18,7 +18,7 @@ cartographer = {}
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_NAVIGATE_ENABLED_CHANGED)
 ---@overload fun(eventFunction: fun(data: { id: ObjectId }), sysEventName: EVENT_SOS_FINISHED)
 ---@overload fun(eventFunction: fun(data: { id: ObjectId }), sysEventName: EVENT_SOS_STARTED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 
@@ -46,6 +46,10 @@ function cartographer.GetMapBlockInfo( mapBlockId ) end
 ---@return table<integer, ObjectId>
 function cartographer.GetMapBlocks() end
 
+---@param zonesMapId ObjectId # идентификатор интерфейсной карты зоны, для которой надо получить геодату
+---@return Geodata
+function cartographer.GetMapGeodata( zonesMapId ) end
+
 ---@param zonesMapId ObjectId
 ---@param markerId InterfaceMapMarkerId
 ---@return table<integer, { pos: GamePosition, geodata: nil | { x: integer, y: integer, height: integer, width: integer } }>
@@ -64,7 +68,7 @@ function cartographer.GetMapModifierInfo( mapModifierId ) end
 function cartographer.GetMapModifierValuedObject( mapModifierId ) end
 
 ---@param markerId InterfaceMapMarkerId
----@return nil | { name: WString, description: WString, priority: integer, image?: TextureId }
+---@return nil | { name: WString, sysName: string, description: WString, priority: integer, image: TextureId }
 function cartographer.GetMarkerInfo( markerId ) end
 
 ---@param objectId ObjectId

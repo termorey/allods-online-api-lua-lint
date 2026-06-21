@@ -42,7 +42,7 @@ craft = {}
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_REFORGE_RESULT)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_REFORGE_RESULT_FAIL)
 ---@overload fun(eventFunction: fun(data: { itemId: ObjectId }), sysEventName: EVENT_REFORGE_RESULT_READY)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 
@@ -104,13 +104,6 @@ function craft.FinishReforge( choice ) end
 ---@return nil | { defaultItemId: ObjectId, results: table<integer, { diceValue: integer, itemId: ObjectId, resultQuantity: integer, bonusQuantity: integer }> }
 function craft.GetDiceCraftRecipeResults( recipeId ) end
 
----@param slot integer
----@return ObjectId | nil
-function craft.GetForgeComponent( slot ) end
-
----@return ForgeRecipeId | nil
-function craft.GetForgeRecipe() end
-
 ---@param recipeId ForgeRecipeId
 ---@return nil | { name: WString, price: integer, description: ValuedText | nil, tierResource: ForgeResourceId | nil, result: ObjectId | nil, resources: table<integer, ObjectId>, available: boolean, requirements: RequirementsTable | nil, altCurrencies: table<integer, { currency: CurrencyId, count: integer }> }
 function craft.GetForgeRecipeInfo( recipeId ) end
@@ -146,8 +139,11 @@ function craft.GetReforgeVariants() end
 
 function craft.IncreaseQualification() end
 
+---@param forgeId ForgeCraftResourceId # ресурс forge крафта (поле tierResource в craft.GetForgeRecipeInfo)
+---@param recipeId ForgeCraftRecipeId # ресурс рецепта крафта
+---@param components table<integer, table<integeer, ObjectId>> # таблица таблиц компонентов. Индекс внешней таблицы - номер компонента, значение - таблица (индексированная с 1) с objectId предметов компонентов в порядке приоритета применения.
 ---@return boolean
-function craft.MakeForge() end
+function craft.MakeForge( forgeId, recipeId, components ) end
 
 ---@return boolean
 function craft.MakeReforge() end
@@ -155,16 +151,7 @@ function craft.MakeReforge() end
 ---@param slot integer
 ---@param itemId ObjectId | nil
 ---@return boolean
-function craft.PutForgeComponent( slot, itemId ) end
-
----@param slot integer
----@param itemId ObjectId | nil
----@return boolean
 function craft.PutReforgeComponent( slot, itemId ) end
-
----@param recipeId ForgeCraftRecipeId
----@return boolean
-function craft.SetForgeRecipe( recipeId ) end
 
 ---@param resorceId ReforgeResourceId
 ---@param itemId ObjectId

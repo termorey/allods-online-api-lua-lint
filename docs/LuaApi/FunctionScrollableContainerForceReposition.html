@@ -14,16 +14,16 @@
 <p><a href="../Index.html">На главную</a></p>
 <hr>
 <p></p>
-<h2> ForceReposition( self, force )</h2>
+<h2> ScrollableContainerSafe:ForceReposition( force )</h2>
 <p></p>
 <p>Вызывает немедленную репозицию контейнера. По умолчанию репозиция выполняется 1 раз в конце кадра если была запланирована. К планированию репозиции приводит</p>
-<ul><li><p> Добавление или удаление элементов</p></li></ul>
-<ul><li><p> Изменение placement контейнера, любого из его родителей или детей (в том числе элементов).</p></li></ul>
+<ul><li><p> Добавление, удаление или перемещение элементов</p></li></ul>
+<ul><li><p> Изменение placement самого контейнера, любого его внутреннего виджета, любого элемента, родительского виджета при условии что у контейнера align == BOTH.</p></li></ul>
 <p>Если после такого действия необходимо сразу получить актуальные placement контейнера или его элементов - нужно вызвать данный метод.</p>
 <p></p>
-<p>Важно! Репозиция контейнера с большим числом элементов - дорогая операция, не следует вызывать ее без существенной необходимости.</p>
+<p>'''Важно! Репозиция контейнера с большим числом элементов - дорогая операция, не следует вызывать ее без существенной необходимости.'''</p>
 <p></p>
-<p>Важно! Флаг force - жуткое колдунство. Если он вам понадобился, то что-то пошло сильно не так.</p>
+<p>'''Важно! Флаг force - жуткое колдунство. Если он вам понадобился, то что-то пошло сильно не так.'''</p>
 <p></p>
 <pre>
 -- класс
@@ -57,6 +57,7 @@ wtScrollableContainer:ForceReposition()
 <br><a href="FunctionScrollableContainerIsContain.html">FunctionScrollableContainerIsContain</a>
 <br><a href="FunctionScrollableContainerIsSliderMax.html">FunctionScrollableContainerIsSliderMax</a>
 <br><a href="FunctionScrollableContainerIsSliderMin.html">FunctionScrollableContainerIsSliderMin</a>
+<br><a href="FunctionScrollableContainerMoveElement.html">FunctionScrollableContainerMoveElement</a>
 <br><a href="FunctionScrollableContainerPopBack.html">FunctionScrollableContainerPopBack</a>
 <br><a href="FunctionScrollableContainerPopFront.html">FunctionScrollableContainerPopFront</a>
 <br><a href="FunctionScrollableContainerPushBack.html">FunctionScrollableContainerPushBack</a>
@@ -65,6 +66,7 @@ wtScrollableContainer:ForceReposition()
 <br><a href="FunctionScrollableContainerRemoveAt.html">FunctionScrollableContainerRemoveAt</a>
 <br><a href="FunctionScrollableContainerRemoveItems.html">FunctionScrollableContainerRemoveItems</a>
 <br><a href="FunctionScrollableContainerSetContainerOffset.html">FunctionScrollableContainerSetContainerOffset</a>
+<br><a href="FunctionScrollableContainerSwapElements.html">FunctionScrollableContainerSwapElements</a>
 <br><a href="WidgetContainer.html">WidgetContainer</a>
 <br><a href="WidgetScrollableContainer.html">WidgetScrollableContainer</a>
 <p></p>

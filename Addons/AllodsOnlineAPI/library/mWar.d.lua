@@ -18,7 +18,7 @@ mwar = {}
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_MWAR_LADDER_CHANGED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_MWAR_QUEUE_CHANGED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_MWAR_RATING_PROGRESS_CHANGED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 
@@ -31,10 +31,6 @@ function mwar.GetCommonMatchMakingInfo() end
 ---@param eventResourceId InstancedEventResourceId
 ---@return TimeEntry[]
 function mwar.GetEventStartTimeEntries( eventResourceId ) end
-
----@return nil | table<integer, unknown>
---- TODO: check return type
-function mwar.GetFlagCosts() end
 
 ---@return nil | { combats: table<integer, { time: LuaFullDateTime, winnerId: ObjectId, winnerScore: integer, winLeadName: WString, loserId: ObjectId, loserScore: integer, lossLeadName: WString, isRatingBattle: boolean }> }
 function mwar.GetGuildHistory() end

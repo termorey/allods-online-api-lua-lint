@@ -15,7 +15,7 @@
 
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_LOTTERY_END)
 ---@overload fun(eventFunction: fun(data: { state: integer }), sysEventName: EVENT_LOTTERY_STATE_CHANGED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

@@ -29,12 +29,12 @@ function GetAvailableHulls()
 нет
 
 -- возвращаемые значения -
-table of VisualShipId or nil - список (индексированная числами от 0 таблица) идентификаторов корпусов, доступных для активного корабля; если активного корабля нет, то nil
+table of VisualShipId or nil - список (индексированная числами от 1 таблица) идентификаторов корпусов, доступных для активного корабля; если активного корабля нет, то nil
 
 -- пример:
 local hulls = hangar.GetAvailableHulls()
-if hulls and hulls[0] then
-  local hullInfo = hangar.GetHullInfo( hulls[0] )
+if hulls and hulls[1] then
+  local hullInfo = hangar.GetHullInfo( hulls[1] )
 end
 </pre>
 <p></p>

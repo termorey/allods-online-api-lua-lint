@@ -24,7 +24,7 @@ mission = {}
 ---@overload fun(eventFunction: fun(data: { sysStage: ENUM_LOADING_PROGRESS, current: integer, total: integer, firstTime: boolean, finished: boolean, fraction: number, mapName: WString, mapDescription: WString, mapImage: TextureId }), sysEventName: EVENT_LOADING_PROGRESS)
 ---@overload fun(eventFunction: fun(data: { id: SpellId }), sysEventName: EVENT_UNSTUCK_SPELL_EFFECT)
 ---@overload fun(eventFunction: fun(data: { id: SpellId, effect: EFFECT_TYPE } | { id: SpellId, effect: EFFECT_TYPE_COOLDOWN_STARTED, duration: integer, remaining: integer } | { id: SpellId, effect: EFFECT_TYPE_SPELL_PREPARED, prepared: boolean } | { id: SpellId, effect: EFFECT_TYPE_SPELL_ACTIVE_STATE_CHANGED, isActive: boolean, objectId: ObjectId | nil }), sysEventName: EVENT_UNSTUCK_SPELL_CHANGED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 
@@ -90,6 +90,9 @@ function mission.GetWeakFactionBonus() end
 
 ---@return nil | FactionId # если есть на сервере информация о более слабой фракции, которой выдаются дополнительные бонусы, то FactionId
 function mission.GetWeakFactionId() end
+
+---@return number # Серверное время в формате unixTimeMs
+function mission.GetWorldTimeMs() end
 
 ---@param currencyId CurrencyId | ResourceId # идентификатор валюты, служащей счётчиком полученных призов (см. mission.LoginLotteryReceivePrizes( currencyId ), поля counter)
 ---@return nil | { comboCounter: CurrencyId | ResourceId, prizes: table<integer, { daysToReceive: integer, counter: CurrencyId | ResourceId, prizes: table<integer, ItemId> }> }

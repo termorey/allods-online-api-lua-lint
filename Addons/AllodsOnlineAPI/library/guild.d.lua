@@ -218,19 +218,19 @@ guildHallLib = {}
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_GUILD_LEADER_CHANGED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_GUILD_LEVEL_CHANGED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_GUILD_LIST_CHANGED)
----@overload fun(eventFunction: fun(data: { id: ObjectId, name: WString }), sysEventName: EVENT_GUILD_MEMBER_ADDED)
+---@overload fun(eventFunction: fun(data: { id: ObjectId, playerId: ObjectId | nil, name: WString }), sysEventName: EVENT_GUILD_MEMBER_ADDED)
 ---@overload fun(eventFunction: fun(data: { id: ObjectId, name: WString, delta: integer }), sysEventName: EVENT_GUILD_MEMBER_AUTHORITY_CHANGED)
 ---@overload fun(eventFunction: fun(data: { id: ObjectId }), sysEventName: EVENT_GUILD_MEMBER_BALANCE_CHANGED)
----@overload fun(eventFunction: fun(data: { id: ObjectId, name: WString }), sysEventName: EVENT_GUILD_MEMBER_CHANGED)
+---@overload fun(eventFunction: fun(data: { id: ObjectId, playerId: ObjectId | nil, name: WString }), sysEventName: EVENT_GUILD_MEMBER_CHANGED)
 ---@overload fun(eventFunction: fun(data: { id: ObjectId, name: WString, delta: integer }), sysEventName: EVENT_GUILD_MEMBER_DAY_AUTHORITY_CHANGED)
 ---@overload fun(eventFunction: fun(data: { kicked: WString, kicker: WString }), sysEventName: EVENT_GUILD_MEMBER_KICKED)
 ---@overload fun(eventFunction: fun(data: { id: ObjectId, name: WString, delta: integer }), sysEventName: EVENT_GUILD_MEMBER_LOYALTY_CHANGED)
 ---@overload fun(eventFunction: fun(data: { id: ObjectId, name: WString, delta: integer }), sysEventName: EVENT_GUILD_MEMBER_MONTH_AUTHORITY_CHANGED)
----@overload fun(eventFunction: fun(data: { id: ObjectId, name: WString }), sysEventName: EVENT_GUILD_MEMBER_ONLINE_STATUS_CHANGED)
----@overload fun(eventFunction: fun(data: { id: ObjectId, name: WString }), sysEventName: EVENT_GUILD_MEMBER_RANK_CHANGED)
----@overload fun(eventFunction: fun(data: { id: ObjectId, name: WString }), sysEventName: EVENT_GUILD_MEMBER_REMOVED)
+---@overload fun(eventFunction: fun(data: { id: ObjectId, playerId: ObjectId | nil, name: WString }), sysEventName: EVENT_GUILD_MEMBER_ONLINE_STATUS_CHANGED)
+---@overload fun(eventFunction: fun(data: { id: ObjectId, playerId: ObjectId | nil, name: WString }), sysEventName: EVENT_GUILD_MEMBER_RANK_CHANGED)
+---@overload fun(eventFunction: fun(data: { id: ObjectId, playerId: ObjectId | nil, name: WString }), sysEventName: EVENT_GUILD_MEMBER_REMOVED)
 ---@overload fun(eventFunction: fun(data: { mount: ObjectId | nil, smile: ObjectId | nil, lifestyle: ObjectId | nil, ability: ObjectId | nil, granted: boolean, member: WString, guild: WString }), sysEventName: EVENT_GUILD_MEMBER_SYMBOLICS)
----@overload fun(eventFunction: fun(data: { id: ObjectId, name: WString }), sysEventName: EVENT_GUILD_MEMBER_TABARD_CHANGED)
+---@overload fun(eventFunction: fun(data: { id: ObjectId, playerId: ObjectId | nil, name: WString }), sysEventName: EVENT_GUILD_MEMBER_TABARD_CHANGED)
 ---@overload fun(eventFunction: fun(data: { id: ObjectId, name: WString, delta: integer }), sysEventName: EVENT_GUILD_MEMBER_WEEK_AUTHORITY_CHANGED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_GUILD_MESSAGE_CHANGED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_GUILD_MONTH_AUTHORITY_CHANGED)
@@ -246,7 +246,7 @@ guildHallLib = {}
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_GUILD_TEXTURE_CHANGED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_GUILD_UNLOCKED_LEVEL_CHANGED)
 ---@overload fun(eventFunction: fun(data: { unitId: ObjectId }), sysEventName: EVENT_UNIT_GUILD_CHANGED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 
@@ -287,8 +287,8 @@ function guildBossLib.IsExist() end
 ---@param abilities table<integer, SpellId | AbilityId>
 function guildBossLib.SelectAbilities( abilities ) end
 
----@param inventorySlot integer
-function guild.CanCreateGuildHereRequest( inventorySlot ) end
+---@param itemId integer # идентификатор предмета для создания гильдии
+function guild.CanCreateGuildHereRequest( itemId ) end
 
 ---@param memberId ObjectId
 ---@return boolean
@@ -306,9 +306,9 @@ function guild.ChangeRank( memberId, rank ) end
 ---@param comment WString
 function guild.CorrectMemberBalance( memberId, changeSum, comment ) end
 
----@param inventorySlot integer
----@param guildName WString
-function guild.Create( inventorySlot, guildName ) end
+---@param itemId integer # идентификатор предмета для создания гильдии. Предмет должен находиться в сумке
+---@param guildName WString # желаемое имя
+function guild.Create( itemId, guildName ) end
 
 ---@param guildHallName WString
 function guild.CreateGuildHall( guildHallName ) end
@@ -336,10 +336,6 @@ function guild.GetBankInfo() end
 
 ---@return nil | { hasBoss: boolean, experience: integer, gearScore: integer, name: WString | nil, maxAvailableAbilities: nil | integer, currentState: nil | integer, states: nil | table<integer, { experienceRequired: integer, maxAvailableAbilities: integer }> }
 function guild.GetBossInfo() end
-
----@param Id ObjectId | BuffId
----@return BuffInfo
-function guild.GetBuffInfo( Id ) end
 
 ---@return table<integer, ObjectId>
 function guild.GetBuffs() end
@@ -393,8 +389,8 @@ function guild.GetMemberBalance( memberId ) end
 ---@return WString
 function guild.GetMemberDescription( memberId ) end
 
----@param memberId ObjectId
----@return nil | { id: ObjectId, playerId: ObjectId, name: WString, level: integer, onlineStatus: ENUM_AvatarOnlineStatus, authority: integer, monthAuthority: integer, weekAuthority: integer, dayAuthority: integer, fame: integer, monthFame: integer, weekFame: integer, dayFame: integer, loyalty: integer, description: WString, zoneName: WString, subZoneName: WString, class: WString, sysClassName: string, tabardType: ENUM_TabardType, joinTime: table, lastOnlineTime: table, profit: nil | table<CurrencyId, { totalProfit: integer, profitForPeriod: integer }> }
+---@param memberId ObjectId # идентификатор члена гильдии
+---@return nil | { id: ObjectId, playerId: ObjectId, name: WString, level: integer, onlineStatus: ENUM_AvatarOnlineStatus, authority: integer, monthAuthority: integer, weekAuthority: integer, dayAuthority: integer, fame: integer, monthFame: integer, weekFame: integer, dayFame: integer, loyalty: integer, description: WString, zoneName: WString, subZoneName: WString, class: WString, sysClassName: string, tabardType: ENUM_TabardType, joinTime: table, lastOnlineTime: table, profit: nil | table<CurrencyId, { profitLongPeriod: integer, profitMediumPeriod: integer, profitShortPeriod: integer, totalProfit: integer }> }
 function guild.GetMemberInfo( memberId ) end
 
 ---@return table<integer, ObjectId>

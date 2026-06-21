@@ -40,7 +40,7 @@ loot = {}
 ---@overload fun(eventFunction: fun(data: { rollId: ObjectId, itemId: ObjectId, count: integer }), sysEventName: EVENT_LOOT_FOR_GREED_NEED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_LOOTSELECTOR_CHANGED)
 ---@overload fun(eventFunction: fun(data: { rollId: ObjectId, itemId: ObjectId, looters: table<integer, UniqueId> }), sysEventName: EVENT_LOOT_TO_DISTRIBUTE)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

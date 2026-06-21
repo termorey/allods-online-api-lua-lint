@@ -77,7 +77,7 @@ auction = {}
 ---@overload fun(eventFunction: fun(data: { id: ObjectId, sysResult: ENUM_AuctionGetParamsResultMsgStatus }), sysEventName: EVENT_AUCTION_PROPERTIES)
 ---@overload fun(eventFunction: fun(data: { sysResult: ENUM_AuctionSearchResultMsgResult, totalPagesCount: integer }), sysEventName: EVENT_AUCTION_SEARCH_RESULT)
 ---@overload fun(eventFunction: fun(data: { id: ObjectId, sysResult: ENUM_AuctionGetResultMsgResult }), sysEventName: EVENT_AUCTION_UPDATE_RESULT)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

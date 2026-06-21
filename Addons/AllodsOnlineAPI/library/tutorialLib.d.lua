@@ -23,7 +23,7 @@ tutorialLib = {}
 
 ---@overload fun(eventFunction: fun(data: { id: TutorialId }), sysEventName: EVENT_TUTORIAL_REQUEST)
 ---@overload fun(eventFunction: fun(data: { id: TutorialId, request: WString, tutorials: table<integer, TutorialId>, categories: table<integer, TutorialCategoryId> }), sysEventName: EVENT_TUTORIAL_SEARCH_RESULT)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 
@@ -47,7 +47,17 @@ function tutorialLib.GetTutorialBySysName( sysName ) end
 function tutorialLib.GetTutorialContent( id ) end
 
 ---@param id TutorialId
----@return { sysName: string | nil, viewType: ENUM_TutorialViewType, runType: ENUM_TutorialRunType, isForced: boolean, isUnlearnable: boolean, minLevel: integer, maxLevel: integer, nextTutorial: TutorialId | nil }
+---@return {
+--- sysName: string | nil,
+--- viewType: ENUM_TutorialViewType,
+--- runType: ENUM_TutorialRunType,
+--- isForced: boolean,
+--- isUnlearnable: boolean,
+--- minLevel: integer,
+--- maxLevel: integer,
+--- nextTutorial: TutorialId | nil,
+--- runTimeout: integer,
+--- }
 function tutorialLib.GetTutorialInfo( id ) end
 
 ---@param id TutorialId

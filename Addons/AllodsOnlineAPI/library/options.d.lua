@@ -25,7 +25,7 @@ options = {}
 ---@alias EVENT_OPTION_CHANGED "EVENT_OPTION_CHANGED"
 
 ---@overload fun(eventFunction: fun(data: { sysCustomId: string }), sysEventName: EVENT_OPTION_CHANGED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 
@@ -50,33 +50,43 @@ function options.GetCollectionInfo( collectionId ) end
 ---@return table<integer, ObjectId>
 function options.GetGroupIds( pageId ) end
 
----@param sysCustomId string
----@return nil | ObjectId
-function options.GetOptionByCustomId( sysCustomId ) end
-
 ---@param blockId ObjectId
 ---@return table<integer, ObjectId>
 function options.GetOptionIds( blockId ) end
 
----@param optionId ObjectId
----@return { isEnabled: boolean, isNeedPreview: boolean, isPreview: boolean, dataType: UI_OPTION_DATA, viewType: UI_OPTION_VIEW, sysCustomId: string, sysCustomType: string, name: WString, description: WString, useAttemptWarning: WString, minName: WString, minDescription: WString, maxName: WString, maxDescription: WString, currentIndex: integer, defaultIndex: integer, baseIndex: integer, values: {} | { name: WString, description: WString, stringValue: string, floatValue: number }, valueCount: integer, isRestartToApply: boolean }
-function options.GetOptionInfo( optionId ) end
+---@param id ObjectId | string # идентификатор опции
+---@return integer #  номер варианта опции
+function options.GetOptionIndex( id ) end
 
----@param sysCustomType string
----@return table<integer, ObjectId>
-function options.GetOptionsByCustomType( sysCustomType ) end
+---@param id ObjectId | string # идентификатор опции
+---@return { isEnabled: boolean, isNeedPreview: boolean, isPreview: boolean, dataType: UI_OPTION_DATA, viewType: UI_OPTION_VIEW, sysCustomId: string, sysCustomType: string, name: WString, description: WString, useAttemptWarning: WString, minName: WString, minDescription: WString, maxName: WString, maxDescription: WString, currentIndex: integer, defaultIndex: integer, baseIndex: integer, values: {} | { name: WString, description: WString, stringValue: string, floatValue: number }, valueCount: integer, isRestartToApply: boolean }
+function options.GetOptionInfo( id ) end
+
+---@param id ObjectId | string # идентификатор опции
+---@return number | string
+function options.GetOptionValue( id ) end
 
 ---@return table<integer, ObjectId>
 function options.GetPageIds() end
+
+---@param id ObjectId | string # идентификатор опции
+---@return boolean # значение опции
+function options.IsOptionEnabled( id ) end
+
+---@param id ObjectId | string # идентификатор опции
+---@param value boolean # новое значение для опции
+---@param apply boolean | nil # если true, то значение применяется немедленно
+function options.SetOptionEnabled( id, value, apply ) end
+
+---@param id ObjectId | string # идентификатор опции
+---@param index integer # новое значение для опции
+---@param apply boolean | nil # если true, то значение применяется немедленно
+function options.SetOptionIndex( id, index, apply ) end
 
 ---@param optionBaseId ObjectId
 function options.Preview( optionBaseId ) end
 
 ---@param optionBaseId ObjectId
 function options.ResetToDefault( optionBaseId ) end
-
----@param optionId ObjectId
----@param index integer
-function options.SetOptionCurrentIndex( optionId, index ) end
 
 function options.Update() end

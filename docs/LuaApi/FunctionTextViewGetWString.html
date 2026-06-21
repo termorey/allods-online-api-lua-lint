@@ -15,7 +15,9 @@
 <hr>
 <h2> TextViewSafe:GetWString( self )</h2>
 <p></p>
-<p>Преобразование содержимого виджета TextView в UTF-строку.</p>
+<p>Получить отображаемую строку из текущего текста. Все невидимые элементы (теги, стиль и тп) будут утрачены.</p>
+<p></p>
+<p>Если требуется получить форматную строку, то надлежит использовать сочетание <a href="FunctionTextViewGetValuedText.html"> TextViewSafe:GetValuedText()</a> + <a href="FunctionUserModsFromValuedText.html"> userMods.FromValuedText( text )</a></p>
 <p></p>
 <pre>
 -- класс
@@ -40,24 +42,20 @@ local textContent = wtTextView:GetWString()
 <br><a href="FunctionTextViewGetDefaultTag.html">FunctionTextViewGetDefaultTag</a>
 <br><a href="FunctionTextViewGetTextRect.html">FunctionTextViewGetTextRect</a>
 <br><a href="FunctionTextViewGetTextScale.html">FunctionTextViewGetTextScale</a>
+<br><a href="FunctionTextViewGetTextStyle.html">FunctionTextViewGetTextStyle</a>
 <br><a href="FunctionTextViewGetValuedText.html">FunctionTextViewGetValuedText</a>
 <br><a href="FunctionTextViewGetWString.html">FunctionTextViewGetWString</a>
 <br><a href="FunctionTextViewPlayTextScaleEffect.html">FunctionTextViewPlayTextScaleEffect</a>
 <br><a href="FunctionTextViewPlayTextScaleEffectSequence.html">FunctionTextViewPlayTextScaleEffectSequence</a>
-<br><a href="FunctionTextViewSetAlignY.html">FunctionTextViewSetAlignY</a>
 <br><a href="FunctionTextViewSetClassVal.html">FunctionTextViewSetClassVal</a>
-<br><a href="FunctionTextViewSetEllipsis.html">FunctionTextViewSetEllipsis</a>
 <br><a href="FunctionTextViewSetFormat.html">FunctionTextViewSetFormat</a>
-<br><a href="FunctionTextViewSetLinespacing.html">FunctionTextViewSetLinespacing</a>
-<br><a href="FunctionTextViewSetMultiline.html">FunctionTextViewSetMultiline</a>
 <br><a href="FunctionTextViewSetTextAttributes.html">FunctionTextViewSetTextAttributes</a>
 <br><a href="FunctionTextViewSetTextScale.html">FunctionTextViewSetTextScale</a>
+<br><a href="FunctionTextViewSetTextStyle.html">FunctionTextViewSetTextStyle</a>
 <br><a href="FunctionTextViewSetTextValues.html">FunctionTextViewSetTextValues</a>
 <br><a href="FunctionTextViewSetVal.html">FunctionTextViewSetVal</a>
 <br><a href="FunctionTextViewSetValuedText.html">FunctionTextViewSetValuedText</a>
-<br><a href="FunctionTextViewSetWrapText.html">FunctionTextViewSetWrapText</a>
-<br><a href="FunctionTextViewShowClippedLine.html">FunctionTextViewShowClippedLine</a>
-<br><a href="FunctionTextViewShowClippedSymbol.html">FunctionTextViewShowClippedSymbol</a>
+<br><a href="WidgetTextStyle.html">WidgetTextStyle</a>
 <br><a href="WidgetTextView.html">WidgetTextView</a>
 <p></p>
 <hr>

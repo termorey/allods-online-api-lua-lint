@@ -19,7 +19,7 @@
 ---@overload fun(eventFunction: fun(data: { id: ObjectId }), sysEventName: EVENT_SECRET_FINISHER_STATUS_CHANGED)
 ---@overload fun(eventFunction: fun(data: { id: ObjectId }), sysEventName: EVENT_SECRET_OPENED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_SECRETS_CHANGED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

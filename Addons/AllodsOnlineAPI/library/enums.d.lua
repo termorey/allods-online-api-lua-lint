@@ -73,6 +73,14 @@
 ---@alias ENUM_CreatureRace_SPIRIT integer | "ENUM_CreatureRace_SPIRIT"
 ---@alias ENUM_CreatureRace ENUM_CreatureRace_HUMANOID | ENUM_CreatureRace_BEAST | ENUM_CreatureRace_UNDEAD | ENUM_CreatureRace_GIANT | ENUM_CreatureRace_DRAGON | ENUM_CreatureRace_ELEMENTAL | ENUM_CreatureRace_DEMON | ENUM_CreatureRace_ABERRATION | ENUM_CreatureRace_MECHANICAL | ENUM_CreatureRace_GOBLIN | ENUM_CreatureRace_DIVINE | ENUM_CreatureRace_KOBOLD | ENUM_CreatureRace_SPIRIT
 
+---@alias ADDON_STATE_NOT_INITED integer # аддон не загружен и еще не загружался. Ресурсы аддона не загружены. Аддоном можно управлять
+---@alias ADDON_STATE_NOT_LOADED integer # аддон сейчас не загружен, но  уже загружался. Ресурсы аддона загружены. Аддоном можно управлять
+---@alias ADDON_STATE_LOADING integer # аддон находится в процессе загрузки. Аддоном нельзя управлять
+---@alias ADDON_STATE_LOADED integer # аддон загружен и активен. Аддоном можно управлять
+---@alias ADDON_STATE_UNLOADING integer # аддон находится в процессе выгрузки. Аддоном нельзя управлять
+---@alias ADDON_STATE_RELOADING integer #  аддон находится в процессе перезагрузки. Аддоном нельзя управлять
+---@alias ADDON_STATE ADDON_STATE_NOT_INITED | ADDON_STATE_NOT_LOADED | ADDON_STATE_LOADING | ADDON_STATE_LOADED | ADDON_STATE_UNLOADING | ADDON_STATE_RELOADING
+
 ---@alias ATTACK_RESULT_UNKNOWN number
 ---@alias ATTACK_FAILED_DISTANCE number
 ---@alias ATTACK_FAILED_IN_FRONT number
@@ -166,9 +174,10 @@
 ---@alias EFFECT_TYPE_UNKNOWN unknown # не используется
 ---@alias EFFECT_TYPE_COOLDOWN_STARTED unknown # начался кулдаун
 ---@alias EFFECT_TYPE_COOLDOWN_FINISHED unknown # кулдаун закончился
+---@alias EFFECT_TYPE_COOLDOWN_CHANGED unknown # активный кулдаун изменил время неестественным образом. Например был уменьшен или увеличен эффектом и тп
 ---@alias EFFECT_TYPE_SPELL_PREPARED unknown # заклинание приготовлено к использованию
 ---@alias EFFECT_TYPE_SPELL_ACTIVE_STATE_CHANGED unknown # у заклинания изменено состояние активности
----@alias EFFECT_TYPE EFFECT_TYPE_UNKNOWN | EFFECT_TYPE_COOLDOWN_STARTED | EFFECT_TYPE_COOLDOWN_FINISHED | EFFECT_TYPE_SPELL_PREPARED | EFFECT_TYPE_SPELL_ACTIVE_STATE_CHANGED
+---@alias EFFECT_TYPE EFFECT_TYPE_UNKNOWN | EFFECT_TYPE_COOLDOWN_STARTED | EFFECT_TYPE_COOLDOWN_FINISHED | EFFECT_TYPE_COOLDOWN_CHANGED | EFFECT_TYPE_SPELL_PREPARED | EFFECT_TYPE_SPELL_ACTIVE_STATE_CHANGED
 
 ---@alias CHAR_SCENE_CHARACTER integer
 ---@alias CHAR_SCENE_ITEMMALL integer
@@ -187,6 +196,11 @@
 ---@alias ENUM_ColorType_SHADOW integer
 ---@alias ENUM_ColorType_OUTLINE integer
 ---@alias EnumColorType ENUM_ColorType_TEXT | ENUM_ColorType_SHADOW | ENUM_ColorType_OUTLINE
+
+---@alias ENUM_PriorityType_Default integer
+---@alias ENUM_PriorityType_Recommended integer
+---@alias ENUM_PriorityType_Suggested integer
+---@alias ENUM_PriorityType ENUM_PriorityType_Default | ENUM_PriorityType_Recommended | ENUM_PriorityType_Suggested
 
 ---@alias HT_NONE unknown
 ---@alias HT_UNKNOWN unknown

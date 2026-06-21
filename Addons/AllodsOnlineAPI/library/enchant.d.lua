@@ -22,7 +22,7 @@ enchant = {}
 ---@alias EVENT_ITEM_SERVER_CMD_FINISHED "EVENT_ITEM_SERVER_CMD_FINISHED"
 
 ---@overload fun(eventFunction: fun(data: { itemId: ObjectId,  isSuccess: boolean }), sysEventName: EVENT_ITEM_SERVER_CMD_FINISHED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

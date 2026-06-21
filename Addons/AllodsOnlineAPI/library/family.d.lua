@@ -20,7 +20,7 @@ family = {}
 ---@overload fun(eventFunction: fun(data: { spellid: SpellId }), sysEventName: EVENT_FAMILY_SPELL_EXPERIENCE_CHANGED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_FAMILY_SPELLS_CHANGED)
 ---@overload fun(eventFunction: fun(data: { id: ObjectId }), sysEventName: EVENT_SPOUSE_POSITION_UPDATED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 
@@ -41,6 +41,6 @@ function family.GetSpouseName( unitId ) end
 ---@return boolean
 function family.IsExist( unitId ) end
 
----@param unitId ObjectId
----@return boolean
-function family.IsSpouse( unitId ) end
+---@param id ObjectId | WString # идентификатор игрока или его имя
+---@return boolean # true если игрок супруг аватара
+function family.IsSpouse( id ) end

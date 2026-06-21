@@ -16,7 +16,7 @@
 <p></p>
 <h2>transport.GetShieldStrength( transportId, side )</h2>
 <p></p>
-<p>Возвращает информацию о силе щита транспортного средства по какой-либо стороне (<a href="EnumShipSide.html">SHIP_SIDE_...</a>). Сила представлена парой - значение/максимальное значение. Если транспорт не найден, то возвращает 0/0.</p>
+<p>Возвращает информацию о силе щита транспортного средства по какой-либо стороне (<a href="EnumShipSide.html">SHIP_SIDE_...</a>). Сила представлена парой - значение/максимальное значение. Если транспорт не найден, то бросает исключение и возвращает 0/0.</p>
 <p></p>
 <pre>
 -- библиотека:
@@ -38,9 +38,7 @@ table - таблица, содержащая поля:
 local transportId = unit.GetTransport( avatar.GetId() )
 if transportId then
   local strength = transport.GetShieldStrength( transportId, SHIP_SIDE_FRONT )
-  if strength then
-    LogInfo( strength.value, " / ", strength.maxValue )
-  end
+  LogInfo( strength.value, " / ", strength.maxValue )
 end
 </pre>
 <p></p>

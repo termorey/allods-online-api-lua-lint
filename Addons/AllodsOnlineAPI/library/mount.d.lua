@@ -36,7 +36,7 @@ mount = {}
 ---@overload fun(eventFunction: fun(data: { id: ObjectId }), sysEventName: EVENT_STABLE_MOUNT_SKINS_CHANGED)
 ---@overload fun(eventFunction: fun(data: { id: ObjectId }), sysEventName: EVENT_STABLE_MOUNT_TALENTS_CHANGED)
 ---@overload fun(eventFunction: fun(data: { id: ObjectId }), sysEventName: EVENT_STABLE_SLOTS_COUNT_CHANGED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

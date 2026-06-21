@@ -14,7 +14,7 @@ dungeonChoice = {}
 
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_DUNGEON_CHOICE_FINISHED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_DUNGEON_CHOICE_STARTED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

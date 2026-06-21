@@ -46,8 +46,3 @@ function wtEditLine:SetMaxSize( maxSize ) end
 
 ---@param text WString
 function wtEditLine:SetText( text ) end
-
----@param tagName WString | string | nil
----@param color integer | string | WString | Color
----@param colorType? EnumColorType
-function wtEditLine:SetTextColor( tagName, color, colorType ) end

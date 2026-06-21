@@ -23,7 +23,7 @@
 ---@overload fun(eventFunction: fun(data: { factionId: FactionId }), sysEventName: EVENT_REPUTATION_DISAPPEARED)
 ---@overload fun(eventFunction: fun(data: { factionId: FactionId }), sysEventName: EVENT_REPUTATION_LEVEL_CHANGED)
 ---@overload fun(eventFunction: fun(data: { factionId: FactionId, delta: integer }), sysEventName: EVENT_REPUTATION_VALUE_CHANGED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

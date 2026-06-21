@@ -26,19 +26,17 @@ astral
 function GetAstrolabeInfoEx()
 
 -- возвращаемые значения:
-таблица, индексированная [0..], значения - таблицы доступных и потенциально доступных секторов с полями:
+таблица, индексированная [1..], значения - таблицы доступных и потенциально доступных секторов с полями:
  techLevel: number (integer) - уровень доступных секторов для прыжка
- sectors: таблица, индексированная [0..], содержащая значения:
+ sectors: таблица, индексированная [1..], содержащая значения:
   ObjectId - идентификатор сектора
 
 -- пример:
 
 -- прыжок в первый же доступный сектор
 local levels = astral.GetAstrolabeInfoEx()
-for i = 0, GetTableSize( levels ) - 1 do
-  local level = levels[i]
-  for j = 0, GetTableSize( level.sectors ) - 1 do
-    local sectorId = level.sectors[j]
+for _, level in ipairs( levels ) do
+  for _, sectorId in ipairs( level.sectors ) do
     local sectorInfo = astral.GetSectorInfo( sectorId )
     LogInfo( "Jump to: ", level.techLevel, ", name: ", sectorInfo.name )
   end
@@ -91,13 +89,12 @@ end
 <br><a href="FunctionAstralGetSectorAstrolabeInfo.html">FunctionAstralGetSectorAstrolabeInfo</a>
 <br><a href="FunctionAstralGetSectorDirectPOI.html">FunctionAstralGetSectorDirectPOI</a>
 <br><a href="FunctionAstralGetSectorEdges.html">FunctionAstralGetSectorEdges</a>
-<br><a href="FunctionAstralGetSectorEdgesById.html">FunctionAstralGetSectorEdgesById</a>
-<br><a href="FunctionAstralGetSectorEdgesObsolete.html">FunctionAstralGetSectorEdgesObsolete</a>
 <br><a href="FunctionAstralGetSectorInfo.html">FunctionAstralGetSectorInfo</a>
 <br><a href="FunctionAstralGetSectorInfoById.html">FunctionAstralGetSectorInfoById</a>
 <br><a href="FunctionAstralGetSectorPOIs.html">FunctionAstralGetSectorPOIs</a>
 <br><a href="FunctionAstralGetSectorRelatedQuests.html">FunctionAstralGetSectorRelatedQuests</a>
 <br><a href="FunctionAstralGetUnits.html">FunctionAstralGetUnits</a>
+<br><a href="FunctionAstralIsInHub.html">FunctionAstralIsInHub</a>
 <br><a href="FunctionAstralIsSectorKnownForGroup.html">FunctionAstralIsSectorKnownForGroup</a>
 <br><a href="FunctionAstralIsSectorKnownForPlayer.html">FunctionAstralIsSectorKnownForPlayer</a>
 <p></p>

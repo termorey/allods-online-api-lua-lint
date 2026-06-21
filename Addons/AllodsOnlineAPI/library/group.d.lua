@@ -80,7 +80,7 @@ group = {}
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_READY_CHECK_ENDED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_READY_CHECK_INFO_CHANGED)
 ---@overload fun(eventFunction: fun(data: { initiatorId: UniqueId }), sysEventName: EVENT_READY_CHECK_STARTED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 
@@ -102,9 +102,6 @@ function group.Decline() end
 
 ---@return { invited: boolean, inviterName: WString, inviterShardName: WString }
 function group.GetInviteInfo() end
-
----@return -1 | integer # индекс [0..] лидера в группе или -1, если группы нет или лидер еще неизвестен
-function group.GetLeaderIndex() end
 
 ---@return UniqueId
 function group.GetLeader() end

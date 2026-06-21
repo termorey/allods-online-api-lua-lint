@@ -16,7 +16,7 @@ premiumLib = {}
 ---@overload fun(eventFunction: fun(data: { stage: number }), sysEventName: EVENT_PREMIUM_BONUS_STAGE_CHANGED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_PREMIUM_CHANGED)
 ---@overload fun(eventFunction: fun(data: { stage: number }), sysEventName: EVENT_PREMIUM_STAGE_CHANGED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

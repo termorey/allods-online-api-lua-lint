@@ -42,13 +42,13 @@ dominationLib = {}
 ---@overload fun(eventFunction: fun(data: { id: ObjectId, team: ENUM_DominationFightTeam }), sysEventName: EVENT_DOMINATION_OBJECTIVE_TEAM_CHANGED)
 ---@overload fun(eventFunction: fun(data: { id: ObjectId, timeSwitched: number }), sysEventName: EVENT_DOMINATION_OBJECTIVE_TIME_SWITCHED_CHANGED)
 ---@overload fun(eventFunction: fun(data: { id: ObjectId, timeToCapture: number }), sysEventName: EVENT_DOMINATION_OBJECTIVE_TIME_TO_CAPTURE_CHANGED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 
 ---@param id ObjectId
 ---@return nil | { id: ObjectId, firstteam: nil | table<integer, ObjectId>, secondTeam: nil | table<integer, ObjectId>, disabled: boolean, radius: number, owner: ENUM_DominationFightTeam, actualOwner: ENUM_DominationFightTeam, state: ENUM_DominationAreaState, progress: number, progressToCapture: number, timeSwitched: number, timeToCapture: number }
-function dominationLib.GetMedalInfo( id ) end
+function dominationLib.GetObjectiveInfo( id ) end
 
 ---@return nil | table<integer, ObjectId>
 function dominationLib.GetObjectives() end

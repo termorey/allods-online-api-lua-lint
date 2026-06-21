@@ -14,7 +14,7 @@
 <p><a href="../Index.html">На главную</a></p>
 <hr>
 <p></p>
-<h2> CreateChildByDesc( self, widgetDesc )</h2>
+<h2> CreateChildByDesc( self, widgetDesc, noReposition )</h2>
 <p></p>
 <p>Создает новый виджет по его описателю из ресурсной системы. Владельцем (Owner) и родителем (Parent) виджета становится текущий виджет, при его уничтожении все виджеты, которыми он владеет, также будут уничтожены. Менять владельца нельзя. Изменить родителя можно, например, функцией <a href="FunctionWidgetAddChild.html"> AddChild</a>.</p>
 <p></p>
@@ -23,18 +23,24 @@
 <p>Подробнее про уничтожение виджетов смотри <a href="FunctionWidgetDestroyWidget.html"> DestroyWidget</a></p>
 <p></p>
 <p>Функция вернет ошибку если выполняется любое из нижележащих условий</p>
-<ul><li><p> Dиджет является внутренним</p></li></ul>
+<ul><li><p> Виджет является внутренним</p></li></ul>
+<p></p>
+<p>Примечание: Флаги noReposition / noParent предназначены для тонких оптимизаций при работе с динамическими виджетами, использование без понимания их работы может привести к неожиданным эффектам</p>
+<p></p>
 <p></p>
 <pre>
 -- класс
 метод доступен у всех типов виджетов
 
 -- семантика
-function CreateChildByDesc( self, widgetDesc )
+function CreateChildByDesc( self, widgetDesc, noReposition )
 
 -- входные параметры
 self: WidgetSafe - родительский виджет
 widgetDesc: WidgetDesc - описатель дочернего виджета из ресурсной системы
+noReposition: bool or nil (default false) - не позиционировать виджет
+-- дополнительный параметр при вызове из WidgetFactorySafe
+noParent: bool or nil (default false) - не устанавливать родителя виджета
 
 -- возвращаемое значение
 WidgetSafe
@@ -69,7 +75,6 @@ local wtNew = mainForm:CreateChildByDesc( desc )
 <br><a href="EventEffectFinished.html">EventEffectFinished</a>
 <br><a href="EventEffectSequenceFinished.html">EventEffectSequenceFinished</a>
 <br><a href="EventEffectSequenceStep.html">EventEffectSequenceStep</a>
-<br><a href="EventUpdateShrinkRatio.html">EventUpdateShrinkRatio</a>
 <br><a href="EventValuedObjectClicked.html">EventValuedObjectClicked</a>
 <br><a href="EventValuedObjectDoubleClicked.html">EventValuedObjectDoubleClicked</a>
 <br><a href="EventValuedObjectMouseOver.html">EventValuedObjectMouseOver</a>
@@ -79,6 +84,7 @@ local wtNew = mainForm:CreateChildByDesc( desc )
 <br><a href="EventWidgetDNDDropAttempt.html">EventWidgetDNDDropAttempt</a>
 <br><a href="EventWidgetDNDPickAttempt.html">EventWidgetDNDPickAttempt</a>
 <br><a href="EventWidgetShowChanged.html">EventWidgetShowChanged</a>
+<br><a href="FunctionCommonCallTooltip.html">FunctionCommonCallTooltip</a>
 <br><a href="FunctionFormCreateWidgetByDesc.html">FunctionFormCreateWidgetByDesc</a>
 <br><a href="FunctionFormGetWidgetCoreTree.html">FunctionFormGetWidgetCoreTree</a>
 <br><a href="FunctionTextContainerInsertText.html">FunctionTextContainerInsertText</a>
@@ -109,12 +115,14 @@ local wtNew = mainForm:CreateChildByDesc( desc )
 <br><a href="FunctionWidgetFinishResizeEffect.html">FunctionWidgetFinishResizeEffect</a>
 <br><a href="FunctionWidgetFinishRotationEffect.html">FunctionWidgetFinishRotationEffect</a>
 <br><a href="FunctionWidgetGetActiveChildrenRects.html">FunctionWidgetGetActiveChildrenRects</a>
+<br><a href="FunctionWidgetGetActiveEffectRemainingMs.html">FunctionWidgetGetActiveEffectRemainingMs</a>
 <br><a href="FunctionWidgetGetAddonName.html">FunctionWidgetGetAddonName</a>
 <br><a href="FunctionWidgetGetAddonType.html">FunctionWidgetGetAddonType</a>
 <br><a href="FunctionWidgetGetBackgroundColor.html">FunctionWidgetGetBackgroundColor</a>
 <br><a href="FunctionWidgetGetBackgroundTexture.html">FunctionWidgetGetBackgroundTexture</a>
 <br><a href="FunctionWidgetGetChildChecked.html">FunctionWidgetGetChildChecked</a>
 <br><a href="FunctionWidgetGetChildUnchecked.html">FunctionWidgetGetChildUnchecked</a>
+<br><a href="FunctionWidgetGetDebugInfo.html">FunctionWidgetGetDebugInfo</a>
 <br><a href="FunctionWidgetGetFade.html">FunctionWidgetGetFade</a>
 <br><a href="FunctionWidgetGetForegroundColor.html">FunctionWidgetGetForegroundColor</a>
 <br><a href="FunctionWidgetGetForegroundTexture.html">FunctionWidgetGetForegroundTexture</a>
@@ -135,6 +143,7 @@ local wtNew = mainForm:CreateChildByDesc( desc )
 <br><a href="FunctionWidgetHasBackground.html">FunctionWidgetHasBackground</a>
 <br><a href="FunctionWidgetHasForeground.html">FunctionWidgetHasForeground</a>
 <br><a href="FunctionWidgetIsClipContent.html">FunctionWidgetIsClipContent</a>
+<br><a href="FunctionWidgetIsContentLoaded.html">FunctionWidgetIsContentLoaded</a>
 <br><a href="FunctionWidgetIsEnabled.html">FunctionWidgetIsEnabled</a>
 <br><a href="FunctionWidgetIsEnabledEx.html">FunctionWidgetIsEnabledEx</a>
 <br><a href="FunctionWidgetIsFocused.html">FunctionWidgetIsFocused</a>
@@ -217,6 +226,7 @@ local wtNew = mainForm:CreateChildByDesc( desc )
 <br><a href="FunctionResourceIdIsEqual.html">FunctionResourceIdIsEqual</a>
 <br><a href="GamePosition.html">GamePosition</a>
 <br><a href="Geodata.html">Geodata</a>
+<br><a href="GlossaryId.html">GlossaryId</a>
 <br><a href="InnateStatSecondary.html">InnateStatSecondary</a>
 <br><a href="InstancedEventCategoryId.html">InstancedEventCategoryId</a>
 <br><a href="InstancedEventResourceId.html">InstancedEventResourceId</a>
@@ -243,6 +253,7 @@ local wtNew = mainForm:CreateChildByDesc( desc )
 <br><a href="RelatedSoundsLua.html">RelatedSoundsLua</a>
 <br><a href="RelatedTextsLua.html">RelatedTextsLua</a>
 <br><a href="RelatedTexturesLua.html">RelatedTexturesLua</a>
+<br><a href="RelatedWidgetsLua.html">RelatedWidgetsLua</a>
 <br><a href="RequirementsTable.html">RequirementsTable</a>
 <br><a href="ResourceId.html">ResourceId</a>
 <br><a href="RuleId.html">RuleId</a>
@@ -261,6 +272,7 @@ local wtNew = mainForm:CreateChildByDesc( desc )
 <br><a href="TypeValuedText.html">TypeValuedText</a>
 <br><a href="TypeWidgetDesc.html">TypeWidgetDesc</a>
 <br><a href="TypeWString.html">TypeWString</a>
+<br><a href="UITextureId.html">UITextureId</a>
 <br><a href="UniqueId.html">UniqueId</a>
 <br><a href="UnlockCategoryId.html">UnlockCategoryId</a>
 <br><a href="VisActionId.html">VisActionId</a>

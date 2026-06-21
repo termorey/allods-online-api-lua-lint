@@ -21,7 +21,7 @@ customizationLib = {}
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_CUSTOMIZATION_ACTIVE_SLOT_CHANGED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_CUSTOMIZATION_ACTIVE_SLOT_CONTENT_CHANGED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_CUSTOMIZATION_STATE_CHANGED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

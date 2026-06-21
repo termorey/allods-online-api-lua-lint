@@ -18,7 +18,7 @@ bulletinBoard = {}
 ---@overload fun(eventFunction: fun(data: { postId: integer }), sysEventName: EVENT_BULLETIN_BOARD_OPERATION_IN_PROGRESS_CHANGED)
 ---@overload fun(eventFunction: fun(data: { id: integer }), sysEventName: EVENT_BULLETIN_BOARD_POST_ADDED)
 ---@overload fun(eventFunction: fun(data: { id: integer }), sysEventName: EVENT_BULLETIN_BOARD_POST_CHANGED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

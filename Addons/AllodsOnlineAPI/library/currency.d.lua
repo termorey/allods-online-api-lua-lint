@@ -24,7 +24,7 @@
 ---@overload fun(eventFunction: fun(data: { id: CurrencyId }), sysEventName: EVENT_CURRENCY_NOT_ENOUGH)
 ---@overload fun(eventFunction: fun(data: { id: CurrencyId, delta: integer, sysName: string }), sysEventName: EVENT_CURRENCY_VALUE_CHANGED)
 ---@overload fun(eventFunction: fun(data: { id: CurrencyId, delta: integer, sysName: string }), sysEventName: EVENT_HIDDEN_CURRENCY_VALUE_CHANGED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

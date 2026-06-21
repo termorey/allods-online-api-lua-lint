@@ -55,8 +55,11 @@ unit = {}
 ---@alias EVENT_ENDURE_BARRIER_DAMAGE "EVENT_ENDURE_BARRIER_DAMAGE"
 ---@alias EVENT_MOB_RELATED_GOALS_CHANGED "EVENT_MOB_RELATED_GOALS_CHANGED"
 ---@alias EVENT_MOB_RELATED_QUESTS_CHANGED "EVENT_MOB_RELATED_QUESTS_CHANGED"
+---@alias EVENT_OBJECT_BUFF_CHANGED "EVENT_OBJECT_BUFF_CHANGED"
 ---@alias EVENT_OBJECT_BUFF_ADDED "EVENT_OBJECT_BUFF_ADDED"
+---@alias EVENT_OBJECT_BUFF_PROGRESS_CHANGED "EVENT_OBJECT_BUFF_PROGRESS_CHANGED"
 ---@alias EVENT_OBJECT_BUFF_PROGRESS_ADDED "EVENT_OBJECT_BUFF_PROGRESS_ADDED"
+---@alias EVENT_OBJECT_BUFF_PROGRESS_CHANGED "EVENT_OBJECT_BUFF_PROGRESS_CHANGED"
 ---@alias EVENT_OBJECT_BUFF_PROGRESS_REMOVED "EVENT_OBJECT_BUFF_PROGRESS_REMOVED"
 ---@alias EVENT_OBJECT_BUFF_REMOVED "EVENT_OBJECT_BUFF_REMOVED"
 ---@alias EVENT_OBJECT_BUFFS_CHANGED "EVENT_OBJECT_BUFFS_CHANGED"
@@ -97,10 +100,10 @@ unit = {}
 ---@overload fun(eventFunction: fun(data: { damage: integer }), sysEventName: EVENT_ENDURE_BARRIER_DAMAGE)
 ---@overload fun(eventFunction: fun(data: { unitId: ObjectId }), sysEventName: EVENT_MOB_RELATED_GOALS_CHANGED)
 ---@overload fun(eventFunction: fun(data: { unitId: ObjectId }), sysEventName: EVENT_MOB_RELATED_QUESTS_CHANGED)
----@overload fun(eventFunction: fun(data: { objectId: ObjectId, buffId: ObjectId, buffName: WString, sysName: string, resourceId: BuffId }), sysEventName: EVENT_OBJECT_BUFF_ADDED)
----@overload fun(eventFunction: fun(data: { objectId: ObjectId, buffId: ObjectId, buffName: WString, sysName: string }), sysEventName: EVENT_OBJECT_BUFF_PROGRESS_ADDED)
----@overload fun(eventFunction: fun(data: { objectId: ObjectId, buffId: ObjectId, buffName: WString, sysName: string }), sysEventName: EVENT_OBJECT_BUFF_PROGRESS_REMOVED)
----@overload fun(eventFunction: fun(data: { objectId: ObjectId, buffId: ObjectId, buffName: WString, sysName: string, resourceId: BuffId }), sysEventName: EVENT_OBJECT_BUFF_REMOVED)
+---@overload fun(eventFunction: fun(data: { objectId: ObjectId, buffId: ObjectId, buffName: WString, sysName: string, resourceId: BuffId, isNeedVisualize: boolean, interfacePriority: ENUM_UIBuffPriority }), sysEventName: EVENT_OBJECT_BUFF_ADDED)
+---@overload fun(eventFunction: fun(data: { objectId: ObjectId, buffId: ObjectId, buffName: WString, sysName: string, resourceId: BuffId, isNeedVisualize: boolean, interfacePriority: ENUM_UIBuffPriority }), sysEventName: EVENT_OBJECT_BUFF_PROGRESS_ADDED)
+---@overload fun(eventFunction: fun(data: { objectId: ObjectId, buffId: ObjectId, buffName: WString, sysName: string, resourceId: BuffId, isNeedVisualize: boolean, interfacePriority: ENUM_UIBuffPriority }), sysEventName: EVENT_OBJECT_BUFF_PROGRESS_REMOVED)
+---@overload fun(eventFunction: fun(data: { objectId: ObjectId, buffId: ObjectId, buffName: WString, sysName: string, resourceId: BuffId, isNeedVisualize: boolean, interfacePriority: ENUM_UIBuffPriority }), sysEventName: EVENT_OBJECT_BUFF_REMOVED)
 ---@overload fun(eventFunction: fun(data: { objectId: ObjectId }), sysEventName: EVENT_OBJECT_BUFFS_CHANGED)
 ---@overload fun(eventFunction: fun(data: table<ObjectId, table<ObjectId, boolean>>), sysEventName: EVENT_OBJECT_BUFFS_ELEMENT_CHANGED)
 ---@overload fun(eventFunction: fun(data: { playerId: ObjectId }), sysEventName: EVENT_PLAYER_GEAR_SCORE_CHANGED)
@@ -130,7 +133,7 @@ unit = {}
 ---@overload fun(eventFunction: fun(data: { unitId: ObjectId }), sysEventName: EVENT_UNIT_VETERAN_RANK_CHANGED)
 ---@overload fun(eventFunction: fun(data: { unitId: ObjectId }), sysEventName: EVENT_UNIT_WILL_CHANGED)
 ---@overload fun(eventFunction: fun(data: { unitId: ObjectId }), sysEventName: EVENT_UNIT_ZONE_PVP_TYPE_CHANGED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 
@@ -234,14 +237,6 @@ function unit.GetHealAbsorbPoolInfo( unitId ) end
 ---@return integer
 function unit.GetLevel( unitId ) end
 
----@param unitId ObjectId
----@return { mana: integer | nil, maxMana: integer | nil, percents: integer | nil }
-function unit.GetMana( unitId ) end
-
----@param unitId ObjectId
----@return integer | nil
-function unit.GetManaPercentage( unitId ) end
-
 ---@param unitId ObjectId # идентификатор юнита
 ---@return nil | { duration: integer, progress: integer, name: WString, spellId: SpellId | nil, isPrecast: boolean | nil, isChannel: boolean | nil }
 function unit.GetMobActionProgress( unitId ) end
@@ -317,6 +312,10 @@ function unit.GetRelatedQuestObjectives( unitId ) end
 ---@return REPUTATION_LEVEL
 function unit.GetReputationLevel( mobId ) end
 
+---@param unitId ObjectId # идентификатор игрока
+---@return DUMMY_TYPE # идентификатор активного набора ритуальных вещей
+function unit.GetRitualActivePreset( unitId ) end
+
 ---@param unitId ObjectId
 ---@return integer
 function unit.GetRuneWoundsComplexity( unitId ) end
@@ -324,6 +323,10 @@ function unit.GetRuneWoundsComplexity( unitId ) end
 ---@param id ObjectId
 ---@return nil | { sex: SEX, name: WString, raceSexName: WString }
 function unit.GetSex(id) end
+
+---@param unitId ObjectId # идентификатор юнита
+---@return ENUM_CreatureRace # раса существа
+function unit.GetSysRace(id) end
 
 ---@param unitId ObjectId
 ---@return ObjectId | nil
@@ -377,6 +380,11 @@ function unit.HasBossPlate( unitId ) end
 ---@return boolean
 function unit.HasEquipment( unitId ) end
 
+---@param unitId ObjectId # идентификатор юнита
+---@param nil | QuestId | ObjectId
+---@return boolean # true, если такие цели задании имеются у игрока
+function unit.HasRelatedQuestObjectives( unitId ) end
+
 ---@param id ObjectId
 ---@return boolean
 function unit.IsAfk(id) end
@@ -399,6 +407,7 @@ function unit.IsPet( unitId ) end
 
 ---@param unitId ObjectId
 ---@return boolean
+---@deprecated
 function unit.IsPlayer( unitId ) end
 
 ---@param unitId ObjectId

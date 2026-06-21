@@ -29,13 +29,12 @@ function GetDevices( transportId )
 transportId: ObjectId (not nil) -- идентификатор транспортного средства
 
 -- возвращаемые значения -
-table of ObjectId - Если транспортное средство найдено, то возвращается таблица идентификаторов используемых устройств
+table of ObjectId - Таблица (индексирована с 1) идентификаторов используемых устройств. В случае ошибки (транспорт не найден и тп) - пустая таблица
 
 -- пример:
 local transportId = unit.GetTransport( avatar.GetId() )
 if transportId then
-  local devices = transport.GetDevices( transportId )
-  for i, deviceId in pairs( devices ) do
+  for _, deviceId in ipairs( transport.GetDevices( transportId ) ) do
     local name = device.GetName( deviceId ) )
   end
 end

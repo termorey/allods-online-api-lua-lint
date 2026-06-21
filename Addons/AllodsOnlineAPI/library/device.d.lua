@@ -91,7 +91,7 @@ device = {}
 ---@overload fun(eventFunction: fun(data: { id: ObjectId }), sysEventName: EVENT_SHIELD_REGEN_IN_PROGRESS_CHANGED)
 ---@overload fun(eventFunction: fun(data: { id: ObjectId, strengthDelta: integer }), sysEventName: EVENT_SHIELD_STRENGTH_CHANGED)
 ---@overload fun(eventFunction: fun(data: { spawned: table<integer, ObjectId>, despawned: table<integer, ObjectId> }), sysEventName: EVENT_USABLE_DEVICES_CHANGED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 
@@ -99,88 +99,86 @@ function common.RegisterEventHandler( eventFunction, sysEventName, params, requi
 ---@return boolean
 function device.CanUse( deviceId ) end
 
----@param deviceId ObjectId
+---@param cannonDeviceId ObjectId
 ---@return ObjectId | nil
-function device.GetCannonTarget( deviceId ) end
+function device.GetCannonTarget(cannonDeviceId) end
 
----@param deviceId ObjectId
+---@param usableDeviceId ObjectId
 ---@param actionIndex integer
 ---@return nil | { remainingMs: integer, durationMs: integer }
-function device.GetCooldown( deviceId, actionIndex ) end
+function device.GetCooldown( usableDeviceId, actionIndex ) end
 
----@param deviceId ObjectId
+---@param usableDeviceId ObjectId
 ---@return ObjectId | nil
-function device.GetItemInstalled( deviceId ) end
+function device.GetItemInstalled( usableDeviceId ) end
 
----@param deviceId ObjectId
+---@param usableDeviceId ObjectId
 ---@return number
-function device.GetMass( deviceId ) end
+function device.GetMass( usableDeviceId ) end
 
----@return table<integer, WString>
+---@return nil | table<integer, WString> # таблица (индексирована с 1) названий увиденных сундуков если сундуки есть, иначе - nil
 function device.GetNavigatorTargetChests() end
 
----@param deviceId ObjectId
----@return nil | table<integer, ObjectId>
+---@param deviceId ObjectId # идентификатор устройства
+---@return nil | table<integer, ObjectId> # если такие цели задании имеются у игрока, то индексированный с 1 список идентификаторов целей заданий
 function device.GetRelatedQuestObjectives( deviceId ) end
 
----@return nil | { hasMajorAllods: boolean, mobDensity: number, mobDifficulty: number }
-function device.GetScanerHubInfo() end
-
----@return nil | { islandCount: integer, wreckCount: integer }
-function device.GetScanerPvEInfo() end
-
----@return nil | { shipCount: integer }
-function device.GetScanerPvPInfo() end
-
----@param trailId ObjectId
----@return nil | { strength: number }
-function device.GetScanerTrailInfo( trailId ) end
-
----@return table<integer, unknown>
---- TODO: check return type
-function device.GetScanerTrails() end
-
----@param deviceId ObjectId
+---@param shieldDeviceId ObjectId
 ---@return nil | { value: integer, maxValue: integer }
-function device.GetShieldStrength( deviceId ) end
+function device.GetShieldStrength( shieldDeviceId ) end
 
 ---@param deviceId ObjectId
----@return nil | { interfaceSlot: integer, side: SHIP_SIDE }
+---@return nil | { interfaceSlot: integer, side: SHIP_SIDE, sysSlotType: ENUM_SlotName }
 function device.GetShipSlotInfo( deviceId ) end
 
 ---@param deviceId ObjectId
 ---@return WString
 function device.GetTitle( deviceId ) end
 
----@param deviceId ObjectId
+---@param usableDeviceId ObjectId
 ---@return ObjectId | nil
-function device.GetTransport( deviceId ) end
+function device.GetTransport( usableDeviceId ) end
 
----@param deviceId ObjectId
+---@param usableDeviceId ObjectId # идентификатор устройства
+---@param actionIndex integer # номер действия (должен попадать в диапазон [0:actionsCount-1]
+---@return nil | { name: WString, description: ValuedText | nil, image: TextureId, enabled: boolean, active: boolean, cost: integer | nil, isPointed: boolean, cooldown: nil | { predictedCooldown: integer, durationMs: integer, remainingMs: integer } }
+function device.GetUsableDeviceActionInfo( usableDeviceId, actionIndex ) end
+
+---@param usableDeviceId ObjectId # идентификатор устройства
+---@return nil | table<integer, any>
+function device.GetUsableDeviceActionsInfo( usableDeviceId ) end
+
+---@param usableDeviceId ObjectId # идентификатор устройства
+---@return nil | { id: ObjectId, type: USDEV, name: WString, hasCrosshair: boolean, actionsCount: integer }
+function device.GetUsableDeviceInfo( usableDeviceId ) end
+
+---@param usableDeviceId ObjectId
 ---@return USDEV
-function device.GetUsableDeviceType( deviceId ) end
+function device.GetUsableDeviceType( usableDeviceId ) end
 
 ---@return boolean | nil
 function device.HasNavigatorFollowedMarker() end
+
+---@param deviceId ObjectId # идентификатор устройства
+---@param nil | QuestId | ObjectId
+---@return boolean # true, если такие цели задании имеются у игрока
+function device.HasRelatedQuestObjectives( deviceId ) end
 
 ---@param deviceId ObjectId
 ---@return boolean
 function device.IsInUse( deviceId ) end
 
----@param deviceId ObjectId
+---@param usableDeviceId ObjectId
 ---@return boolean
-function device.IsOffline( deviceId ) end
+function device.IsOffline( usableDeviceId ) end
 
+---@param shieldDeviceId ObjectId
 ---@return boolean
-function device.IsScanerScanning() end
-
----@param deviceId ObjectId
----@return boolean
-function device.IsShieldRegenInProgress( deviceId ) end
+function device.IsShieldRegenInProgress( shieldDeviceId ) end
 
 ---@param deviceId ObjectId
----@return boolean
-function device.IsUsable( deviceId ) end
+---@return (boolean, integer)
+function device.IsUsable(deviceId) end
 
 ---@return ObjectId | nil
 function device.NavigatorGetTarget() end
@@ -188,13 +186,8 @@ function device.NavigatorGetTarget() end
 ---@return ObjectId | nil
 function device.NavigatorGetZoomedObject() end
 
----@param objectId ObjectId | nil
+---@param objectId ObjectId | nil # идентификатор транспорта или астрального юнита, или nil, если надо сбросить цель
 function device.NavigatorSetTarget( objectId ) end
 
----@param objectId ObjectId | nil
+---@param objectId ObjectId | nil # идентификатор корабля или астрального юнита, или nil, если надо отзумиться
 function device.NavigatorZoom( objectId ) end
-
-function device.SetScanerDestinationDevice() end
-
----@param trailId ObjectId
-function device.SetScanerDestinationTrail( trailId ) end

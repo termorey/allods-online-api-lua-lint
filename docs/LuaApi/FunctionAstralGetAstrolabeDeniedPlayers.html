@@ -27,16 +27,11 @@ function GetAstrolabeDeniedPlayers()
 
 -- возвращаемые значения:
 table - таблица с полями:
-  withoutCoins: table of WString - индексированный с 0 список имён игроков команды, у которых не хватает альтернативной валюты для прыжка
-  withoutFairies: table of WString - индексированный с 0 список имён игроков команды, у которых покровитель не благосклонен
+  withoutCoins: table of WString - индексированный с 1 список имён игроков команды, у которых не хватает альтернативной валюты для прыжка
+  withoutFairies: table of WString - индексированный с 1 список имён игроков команды, у которых покровитель не благосклонен
 
 -- пример:
-local players = astral.GetAstrolabeDeniedPlayers()
-if players.withoutCoins then
-  for i = 0, GetTableSize( players.withoutCoins ) - 1 do
-    local name = players.withoutCoins[ i ]
-  end
-end
+LogInfo( astral.GetAstrolabeDeniedPlayers() )
 </pre>
 <p></p>
 <h4>Связанные страницы: "CategoryLuaApi" "CategoryAstralLua"</h4>
@@ -80,13 +75,12 @@ end
 <br><a href="FunctionAstralGetSectorAstrolabeInfo.html">FunctionAstralGetSectorAstrolabeInfo</a>
 <br><a href="FunctionAstralGetSectorDirectPOI.html">FunctionAstralGetSectorDirectPOI</a>
 <br><a href="FunctionAstralGetSectorEdges.html">FunctionAstralGetSectorEdges</a>
-<br><a href="FunctionAstralGetSectorEdgesById.html">FunctionAstralGetSectorEdgesById</a>
-<br><a href="FunctionAstralGetSectorEdgesObsolete.html">FunctionAstralGetSectorEdgesObsolete</a>
 <br><a href="FunctionAstralGetSectorInfo.html">FunctionAstralGetSectorInfo</a>
 <br><a href="FunctionAstralGetSectorInfoById.html">FunctionAstralGetSectorInfoById</a>
 <br><a href="FunctionAstralGetSectorPOIs.html">FunctionAstralGetSectorPOIs</a>
 <br><a href="FunctionAstralGetSectorRelatedQuests.html">FunctionAstralGetSectorRelatedQuests</a>
 <br><a href="FunctionAstralGetUnits.html">FunctionAstralGetUnits</a>
+<br><a href="FunctionAstralIsInHub.html">FunctionAstralIsInHub</a>
 <br><a href="FunctionAstralIsSectorKnownForGroup.html">FunctionAstralIsSectorKnownForGroup</a>
 <br><a href="FunctionAstralIsSectorKnownForPlayer.html">FunctionAstralIsSectorKnownForPlayer</a>
 <p></p>

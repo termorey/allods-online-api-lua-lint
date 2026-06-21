@@ -30,15 +30,14 @@ function GetCustomizationSlotDevices( slotId )
 slotId: ObjectId - идентификатор слота для кастомизации
 
 -- возвращаемые значения
-table of ObjectId - индексированный с 0 список идентификаторов устройств, находящихся в ангаре
+table of ObjectId - индексированный с 1 список идентификаторов устройств, находящихся в ангаре
 
 -- пример:
-local slots = hangar.GetCustomizationSlots()
-if slots then
-  for i, slotId in pairs( slots ) do
+if hangar.CanCustomize() then
+  for i, slotId in ipairs( hangar.GetCustomizationSlots() ) do
     local devices = hangar.GetCustomizationSlotDevices( slotId )
-    if devices[ 0 ] then
-      local firstDeviceInfo = hangar.GetDeviceInfo( devices[ 0 ] )
+    if devices[ 1 ] then
+      local firstDeviceInfo = hangar.GetDeviceInfo( devices[ 1 ] )
     end
   end
 end

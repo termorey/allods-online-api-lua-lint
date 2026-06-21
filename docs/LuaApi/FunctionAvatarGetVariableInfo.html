@@ -29,11 +29,10 @@ function GetVariableInfo( variableId )
 variableId: VariableId or string - или идентификатор ресурса переменной или алиас
 
 -- возвращаемые значения:
-table or nil - если нет ошибки, то таблица с полями:
-  id: VariableId - Id валюты
+table or nil - если переменная существует на аватаре или текущей карте, то таблица с полями, иначе nil:
+  id: VariableId - Id переменной
   sysName: string - внутриигровой псевдоним переменной
   name: WString - название переменной
-  sysDebugName: WString - дебажный путь к ресурсу переменной
   value: number - значение переменной
   minValue: number - минимальное значение переменной
   maxValue: number - максимальное значение переменной
@@ -41,8 +40,8 @@ table or nil - если нет ошибки, то таблица с полями
 
 -- пример:
 local ids = avatar.GetVariables()
-if ids and ids[0] then
-  local info = avatar.GetVariableInfo( ids[0] )
+if ids and ids[1] then
+  local info = avatar.GetVariableInfo( ids[1] )
   if info then
     local currentValue = info.value
   end

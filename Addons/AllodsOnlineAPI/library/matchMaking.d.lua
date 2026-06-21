@@ -76,7 +76,7 @@ matchMaking = {}
 ---@overload fun(eventFunction: fun(data: { eventId: ObjectId | nil }), sysEventName: EVENT_MATCH_MAKING_MEMBERS_ROLES_CHANGED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_MATCH_MAKING_PROGRESS_ACHIEVEMENTS_CHANGED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_MATCH_MAKING_PROGRESS_MEMBERS_ACHIEVEMENTS_CHANGED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 
@@ -85,13 +85,13 @@ function matchMaking.AwayBattleEvent() end
 ---@return boolean
 function matchMaking.CanAwayBattleEvent() end
 
+---@param eventId ObjectId | InstancedEventResourceId | nil # id инстанс-ивента, если нужно проверить возможность вставания на конкретный эвент, nil для общей проверки возможности вступления
+---@return boolean # true если аватар в данный момент может встать в очередь на инстанс-ивент (не приглашён, не участвует в инстанс-ивенте и тп), иначе false.
+function matchMaking.CanJoinInstancedEvent( eventId ) end
+
 ---@param eventResourceId InstancedEventResourceId
 ---@return boolean
 function matchMaking.CanJoinInstancedEventById( eventResourceId ) end
-
----@param eventId ObjectId | nil
----@return boolean
-function matchMaking.CanJoinInstancedEvents( eventId ) end
 
 ---@return boolean
 function matchMaking.CanReturnToBattle() end
@@ -122,7 +122,7 @@ function matchMaking.GetEventJoinTimeEstimate( eventId ) end
 function matchMaking.GetEventProgressInfo() end
 
 ---@param eventId ObjectId
----@return nil | { money: integer, experience: integer, loyalty: integer, authority: integer, mandatoryItems: table<integer, ObjectId>, mandatoryItemsCount: integer, alternativeItems: table<integer, ObjectId>, reputations: table<integer, { faction: WString, value: integer }>, currencies: table<integer, { currencyId: CurrencyId, value: integer }>, unlocks: table<integer, ObjectId> }
+---@return nil | { money: integer, experience: integer, loyalty: integer, authority: integer, mandatoryItems: table<integer, ObjectId>, mandatoryItemsCount: integer, alternativeItems: table<integer, ObjectId>, reputations: table<integer, { faction: WString, value: integer }>, currencies: table<integer, { currencyId: CurrencyId, value: integer }>, unlocks: table<integer, UnlockId> }
 function matchMaking.GetEventReward( eventId ) end
 
 ---@return nil | table<integer, unknown>
@@ -152,10 +152,6 @@ function matchMaking.GetRatingPvPScoreByUnitId( arenaType, unitId ) end
 ---@param arenaType ENUM_RatingArenaType
 ---@return WString | nil
 function matchMaking.GetRatingURL( arenaType ) end
-
----@param accept boolean
---- TODO: lost dosc argument
-function matchMaking.InstancedEventTeleportReply( accept ) end
 
 ---@return boolean
 function matchMaking.IsAvatarInMatchMakingEvent() end
@@ -198,9 +194,6 @@ function matchMaking.LeaveInstancedEventQueue( eventId ) end
 
 ---@param eventResourceId InstancedEventResourceId
 function matchMaking.LeaveInstancedEventQueueById( eventResourceId ) end
-
----@param needListen boolean
-function matchMaking.ListenEventProgress( needListen ) end
 
 ---@param needListen boolean
 function matchMaking.ListenEvents( needListen ) end

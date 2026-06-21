@@ -12,9 +12,9 @@
 ---@alias EVENT_ADDON_HEALTH_CHANGED "EVENT_ADDON_HEALTH_CHANGED"
 ---@alias EVENT_ADDON_REDUCE_PERFOMANCE "EVENT_ADDON_REDUCE_PERFOMANCE"
 
----@overload fun(eventFunction: fun(data: { name: string, status: ENUM_ADDON_HEALTH_STATUS }), sysEventName: EVENT_ADDON_HEALTH_CHANGED)
----@overload fun(eventFunction: fun(data: { name: WString, sysName: string, deltaFps: number, maxDeltaFps: number }), sysEventName: EVENT_ADDON_REDUCE_PERFOMANCE)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+---@overload fun(eventFunction: fun(data: { sysName: string, status: ENUM_ADDON_HEALTH_STATUS }), sysEventName: EVENT_ADDON_HEALTH_CHANGED)
+---@overload fun(eventFunction: fun(data: { sysName: WString, timeMs: string, deltaFps: number, maxDeltaFps: number }), sysEventName: EVENT_ADDON_REDUCE_PERFOMANCE)
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS ]]
 
@@ -49,11 +49,6 @@ function userMods.GetCallStack() end
 ---@param sysName string # название секции
 ---@return nil | table # таблица с данными или nil, если секция не найдена
 function userMods.GetGlobalConfigSection( sysName ) end
-
----SendEvent
----@param eventName string # идентификатор события
----@param eventParams table # таблица с параметрами события, у каждого события свой набор параметров
-function userMods.SendEvent( eventName, eventParams ) end
 
 ---SendSelfChatMessage
 ---@param message WString # текст сообщения

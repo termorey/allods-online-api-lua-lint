@@ -23,7 +23,7 @@ battleground = {}
 ---@overload fun(eventFunction: fun(data: { id: ObjectId }), sysEventName: EVENT_BATTLEGROUND_CHECKPOINT_REMOVED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_BATTLEGROUND_CHECKPOINTS_CHANGED)
 ---@overload fun(eventFunction: fun(data: { checkpointId: ObjectId }), sysEventName: EVENT_BATTLEGROUND_CHECKPOINT_STATE_CHANGED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

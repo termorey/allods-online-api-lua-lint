@@ -23,7 +23,7 @@ changeRoom = {}
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_CHANGE_ROOM_CHARACTER_SCENE_CAMERA_READY)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_CHANGE_ROOM_STARTED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_CHANGE_ROOM_ZOOM_TRIGGER_CHANGED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 
@@ -35,16 +35,15 @@ function changeRoom.ChargenShowHelm( show ) end
 function changeRoom.GetAvatarTemplate( isMale ) end
 ---@alias AvatarVariationTemplateInfo { skins: table<integer, table<integer, boolean>>, skinColors:  table<integer, table<integer, boolean>>, hairs:  table<integer, table<integer, boolean>>, hairColors: table<integer, table<integer, boolean>>, faces: table<integer, table<integer, boolean>>, facials: table<integer, table<integer, boolean>>, additionals: table<integer, table<integer, boolean>>, morphPresets: table<integer, table<integer, boolean>> }
 
----@return nil | { ticketCurrencyId: nil | CurrencyId, sexChangeCost: integer, petChangeCost: integer, petNameChangeCost: integer, petFacialChangeCost: integer, whiteList: CostsVariationsTable, greyList: CostsVariationsTable }
-function changeRoom.GetCosts() end
----@alias CostsVariationsTable { skin: integer, skinColors: integer, petColor: integer, hairColor: integer, hair: integer, facial: integer, face: integer, body: integer, additional: integer }
-
----@return nil | { primary: PlayerIndexesVariationsTable, trio2: nil | PlayerIndexesVariationsTable, trio3: nil | PlayerIndexesVariationsTable, pet: nil | PlayerIndexesVariationsTable, petIndex: integer | nil }
+---@return nil | { primary: PlayerIndexesVariationsTable, secondary: nil | PlayerIndexesVariationsTable, tertiary: nil | PlayerIndexesVariationsTable, pet: nil | PlayerIndexesVariationsTable, petIndex: integer | nil }
 function changeRoom.GetPlayerIndexes() end
 ---@alias PlayerIndexesVariationsTable { name: WString, sexId: SEX, variations: { skin: integer, skinColor: integer, hair: integer, hairColor: integer, face: integer, facial: integer, additional: integer, body: integer } }
 
 ---@return nil | { primaryId: ObjectId | nil, trio2Id: ObjectId | nil, trio3Id: ObjectId | nil, petId: ObjectId | nil }
 function changeRoom.GetSceneAvatarInfo() end
+
+---@return nil | CurrencyId # если нет ошибки, то идентификатор ресурса альтернативной валюты
+function changeRoom.GetTicketCurrencyId() end
 
 ---@return boolean
 function changeRoom.IsZoomEnabled() end

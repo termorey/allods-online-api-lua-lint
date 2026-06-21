@@ -84,7 +84,7 @@
 ---@overload fun(eventFunction: fun(data: { questId: QuestId }), sysEventName: EVENT_QUEST_TIMER_FINISHED)
 ---@overload fun(eventFunction: fun(data: { questId: QuestId, durationMs: integer, timeLeftMs: integer }), sysEventName: EVENT_QUEST_TIMER_UPDATED)
 ---@overload fun(eventFunction: fun(data: { questId: QuestId }), sysEventName: EVENT_QUEST_UPDATED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

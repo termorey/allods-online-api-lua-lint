@@ -13,11 +13,6 @@
 
 --[[ EVENTS --]]
 
----@alias EVENT_DND_DRAG_CANCELLED "EVENT_DND_DRAG_CANCELLED"
----@alias EVENT_DND_DRAG_OVER "EVENT_DND_DRAG_OVER"
----@alias EVENT_DND_DRAG_TO "EVENT_DND_DRAG_TO"
----@alias EVENT_DND_DROP_ATTEMPT "EVENT_DND_DROP_ATTEMPT"
----@alias EVENT_DND_PICK_ATTEMPT "EVENT_DND_PICK_ATTEMPT"
 ---@alias EVENT_GROUP_INVITE_END "EVENT_GROUP_INVITE_END"
 
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_DND_DRAG_CANCELLED)
@@ -26,7 +21,7 @@
 ---@overload fun(eventFunction: fun(data: { srcWidget: WidgetSafe, srcId: integer, targetWidget: WidgetSafe | nil, targetId: integer, kbFlags: KBF }), sysEventName: EVENT_DND_DROP_ATTEMPT)
 ---@overload fun(eventFunction: fun(data: { srcWidget: WidgetSafe, srcId: integer, posX: integer, posY: integer, kbFlags: KBF }), sysEventName: EVENT_DND_PICK_ATTEMPT)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_GROUP_INVITE_END)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ METHODS --]]
 

@@ -30,6 +30,22 @@
 
 --[[ METHODS --]]
 
+---@class FactoryCache
+FactoryCache = {}
+
+---@class AnyWidgetMethods
+AnyWidgetMethods = {}
+---@param widget WidgetSafe
+---@param noReposition boolean | nil
+function AnyWidgetMethods:AddChild(widget, noReposition) end
+---@param widgetDesc WidgetDesc
+---@param noReposition boolean | nil
+---@param noParent boolean | nil
+---@return WidgetSafe
+function AnyWidgetMethods:CreateChildByDesc(widgetDesc, noReposition, noParent) end
+---@return boolean
+function AnyWidgetMethods:IsContentLoaded() end
+
 ---@class WidgetSafe
 WidgetSafe = {}
 ---@param widgetDesc WidgetDesc
@@ -55,7 +71,10 @@ function WidgetSafe:FinishMoveEffect ( finalPosition, sendEvent ) end
 function WidgetSafe:FinishResizeEffect ( finalPosition, sendEvent ) end
 ---@param finalPosition boolean | nil
 ---@param sendEvent boolean | nil
-function WidgetSafe:FinishRotationEffect ( finalPosition, sendEvent ) end
+function WidgetSafe:FinishRotationEffect(finalPosition, sendEvent) end
+---@param effectType ET
+---@return integer
+function WidgetSafe:GetActiveEffectRemainingMs( effectType ) end
 ---@return string
 function WidgetSafe:GetAddonName () end
 ---@return number
@@ -69,7 +88,9 @@ function WidgetSafe:GetChildChecked (name, recursive ) end
 ---@param name string
 ---@param recursive boolean
 ---@return WidgetSafe | nil
-function WidgetSafe:GetChildUnchecked (name, recursive ) end
+function WidgetSafe:GetChildUnchecked(name, recursive) end
+---@return string
+function WidgetSafe:GetDebugInfo() end
 ---@return number
 function WidgetSafe:GetFade () end
 ---@return Color
@@ -237,9 +258,64 @@ function EditLineSafe:SetText( text ) end
 ---@param isRTag boolean
 ---@param tagName WString
 ---@param tagAttributes table<WString, false | string | WString>
-function EditLineSafe:SetTextAttributes( isRTag, tagName, tagAttributes ) end
+function EditLineSafe:SetTextAttributes(isRTag, tagName, tagAttributes) end
+
+---@class ScrollableContainerSafe
+ScrollableContainerSafe = {}
+---@param pos integer
+---@return WidgetSafe | nil
+function ScrollableContainerSafe:At(pos) end
+---@param widget WidgetSafe
+function ScrollableContainerSafe:EnsureVisible(widget) end
+---@param force boolean
+function ScrollableContainerSafe:ForceReposition(force) end
+---@return number
+function ScrollableContainerSafe:GetContainerOffset() end
+---@return integer
+function ScrollableContainerSafe:GetElementCount() end
+---@return integer
+function ScrollableContainerSafe:GetElementLimit() end
+---@return number
+function ScrollableContainerSafe:GetMaxContainerOffset() end
+---@param pos integer
+---@param widget WidgetSafe
+function ScrollableContainerSafe:Insert(pos, widget) end
+---@param widget WidgetSafe
+---@return boolean
+function ScrollableContainerSafe:IsContain(widget) end
+---@return boolean
+function ScrollableContainerSafe:IsSliderMax() end
+---@return boolean
+function ScrollableContainerSafe:IsSliderMin() end
+---@param oldPos integer
+---@param newPos integer
+function ScrollableContainerSafe:MoveElement(oldPos, newPos) end
+---@return WidgetSafe | nil
+function ScrollableContainerSafe:PopBack() end
+---@return WidgetSafe | nil
+function ScrollableContainerSafe:PopFront() end
+---@param widget WidgetSafe
+function ScrollableContainerSafe:PushBack(widget) end
+---@param widget WidgetSafe
+function ScrollableContainerSafe:PushFront(widget) end
+---@param widget WidgetSafe
+function ScrollableContainerSafe:Remove(widget) end
+---@param pos integer
+---@return WidgetSafe | nil
+function ScrollableContainerSafe:RemoveAt(pos) end
+function ScrollableContainerSafe:RemoveItems() end
+---@param offset number
+function ScrollableContainerSafe:SetContainerOffset(offset) end
+---@param pos1 integer
+---@param pos2 integer
+function ScrollableContainerSafe:SwapElements( pos1, pos2 ) end
+
+---@class FormSafe
+FormSafe = {}
+---@return FactoryCache
+function FormSafe:GetFactoryCache() end
 
 --[[ GLOBALS --]]
 
----@type WidgetSafe
+---@type WidgetSafe | FormSafe
 mainForm = {}

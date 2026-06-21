@@ -1,0 +1,660 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            
+<html>
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+            
+<head>
+<title>Пользовательские дополнения - Lua API - FunctionCommonCallTooltip</title>
+<link href="LuaApi.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Пользовательские дополнения</h1>
+<p><a href="../Index.html">На главную</a></p>
+<hr>
+<p></p>
+<h2> common.CallTooltip( isActive, tooltipData )</h2>
+<p></p>
+<p>Отправляет команду системному тултипу (всплываюшие описания)</p>
+<p></p>
+<pre>
+-- система
+GameState
+
+-- библиотека:
+common
+
+-- объявление:
+function CallTooltip( isActive, tooltipData )
+
+-- параметры:
+isActive: boolean - true, если нужно показать тултип, false - скрыть
+tooltipData: table (tooltipData) or nil - если isActive == true, то должна быть передана таблица параметров, подробнее смотри в разделе "Описание tooltipData"
+
+-- возвращаемые значение:
+нет
+
+-- пример:
+function OnItemOver( reaction )
+  local tooltip = reaction.active and {
+    tooltip = TOOLTIP_ITEM,
+    itemId = itemId,
+    rect = reaction.widget:GetRealRect()
+  }
+  common.CallTooltip( reaction.active, tooltip )
+end
+
+</pre>
+<p></p>
+<p>Описание tooltipData</p>
+<pre>
+-- обязательные поля
+tooltip: number (enum TOOLTIP_*) - тип тултипа, подробнее смотри в разделе "Типы тултипов"
+Обязательные поля конкретного типа, подробнее смотри в разделе "Типы тултипов"
+
+-- опциональные поля
+tooltipLocker: boolean [false] - принудительно разрешить лочить тултип. По умолчанию можно лочить некоторые типы тултипов и тултипы содержащие активные ссылки
+tooltipNoDelay: boolean [false] - отобразить тултип без задержки. По умолчанию задержка 300мс. Использовать только при обновлении существующего тултипа
+forceHideCompare: boolean [false] - не вычислять и не показывать дополнительные тултипы
+customCompare: table (index from 1) of tables (tooltipData) - таблица с описателями дополнительных тултипов, порядок отображения сверху вниз
+rect: table (WidgetRect) - виджет привязки тултипа, подробнее смотри в разделе "Позиционирование тултипа"
+shortcut: table (tooltipShortcutData) - таблица параметров шортката, подробнее смотри в разделе "Описание tooltipShortcutData"
+[number (int)]: table - таблица описывающая кастомный элемент тултипа, подробнее смотри в разделе "Компоненты тултипа"
+Опциональные поля конкретного типа, подробнее смотри в разделе "Типы тултипов"
+
+</pre>
+<p></p>
+<p>Описание tooltipShortcutData</p>
+<pre>
+Специальная таблица описывающая подсказки для действий мышью или нажатия кнопки клавиатуры.
+Порядок отображения мышиных действий (если задано более одного) - как в описании.
+Клавиатурное действие может быть только одно и отображается последним.
+
+Поля таблицы (все являются опциональными):
+[LMB]: table (ValuedText:SetTextValues) - описание для клика левой кнопкой мыши
+[LMBDOUBLE]: table (ValuedText:SetTextValues) - описание для двойного клика левой кнопкой мыши
+[RMB]: table (ValuedText:SetTextValues) - описание для клика правой кнопкой мыши
+[MMB]: table (ValuedText:SetTextValues) - описание для клика колесиком кнопкой мыши
+[LMBALT]: table (ValuedText:SetTextValues) - описание для клика левой кнопкой мыши с зажатым Alt
+[LMBSHIFT]: table (ValuedText:SetTextValues) - описание для клика левой кнопкой мыши с зажатым Shift
+[LMBCTRL]: table (ValuedText:SetTextValues) - описание для клика левой кнопкой мыши с зажатым Ctrl
+[RMBALT]: table (ValuedText:SetTextValues) - описание для клика правой кнопкой мыши с зажатым Alt
+[RMBCTRL]: table (ValuedText:SetTextValues) - описание для клика правой кнопкой мыши с зажатым Shift
+[RMBSHIFT]: table (ValuedText:SetTextValues) - описание для клика правой кнопкой мыши с зажатым Ctrl
+[LMBDRAG]: table (ValuedText:SetTextValues) - описание для Drag&Drop
+[LRMB]: table (ValuedText:SetTextValues) - описание для зажатия левой и правой кнопок мыши
+
+[sysSectionName]: string - имя секции клавиатурной реакции
+[sysBindName]: string - имя бинда клавиатурной реакции
+
+</pre>
+<p></p>
+<p>Правила сборки тултипа</p>
+<pre>
+Если в тултипе нет кастомных компонентов и задан шаблон, то собирается по шаблону
+Если в тултипе шаблон TOOLTIP_NONE и заданы кастомные компоненты, то собирается из кастомных компонентов в порядке индексов
+Если же имеется и шаблон и кастомные компоненты, то все сложнее: шаблон резолвится в индексы и мержится с кастомными компонентами
+
+В коде выглядит так:
+
+  local content = GetTemplateContent( params )
+  local customContent = GetCustomContent( params )
+  if customContent then
+    local order = {}
+    for id, entry in pairs( customContent ) do
+      table.insert( order, id )
+    end
+    table.sort( order )
+
+    local contentLen = #content
+
+    for _, id in ipairs( order ) do
+      if id &gt; contentLen then
+        table.insert( content, customContent[ id ] )
+      elseif not content[ id ] or not content[ id ][ 1 ] then
+        content[ id ] = customContent[ id ]
+      else
+        table.insert( content, id, customContent[ id ] )
+      end
+    end
+  end
+
+</pre>
+<p></p>
+<p>Позиционирование тултипа</p>
+<pre>
+Для позиционирования тултипа может быть передана таблица WidgetRect (результат WidgetSafe:GetRealRect()) для привязки к конкретному виджету.
+Если rect не передан, то тулпип будет расположен в правой нижней части экрана.
+
+Основной тултип всегда стараемся разместить
+  По X
+    Справа (левая граница тултипа совпадает с правой границей виджета) ИЛИ
+    Слева (правая граница тултипа совпадает с левой границей виджета) - уже без проверки границ
+  По Y
+    Снизу (верхние границы тултипа и виджета совпадают) ИЛИ
+    Сверху (нижние границы тултипа и виджета совпадают) ИЛИ
+    По центру экрана (таргет игнорируется) - уже без проверки границ
+
+Дополнительные тултипы (тултипы сравнения) всегда склеены в стопку, стараемся разместить ее
+  По X
+    Обязательно должна быть цепочка [таргет | основной тултип | стопка дополнительных тултипов]
+      Приоритетно слева направо, но в случае выхода за границы экрана - справа налево, уже без проверки границ
+        Основной тултип при этом может быть перепозиционирован по X
+  По Y
+   Верхние границы основного и стопки дополнительных тултипов совпадают ИЛИ
+   Нижние границы основного и стопки дополнительных тултипов совпадают ИЛИ
+   По центру экрана (положение основного тултипа игнорируется) - уже без проверки границ
+
+</pre>
+<p></p>
+<p>Типы тултипов</p>
+<pre>
+Под каждым типом перечислены параметры, без квадратных скобок - обязательные, с ними - опциональные
+Звездочкой отмечены "специфические" параметры, задавать их не рекомендуется
+В данном блоке под ValidText подразумевается непустой WString / ValuedText / ValuedObject
+
+TOOLTIP_NONE - шаблон отсутствует, собирается полностью вручную
+
+TOOLTIP_SIMPLE - простой тултип
+  name: ValidText - текст
+    Формат текста: &lt;header&gt;&lt;tip_white&gt;&lt;r name = "value" parsing = "smart" /&gt;&lt;/tip_white&gt;&lt;/header&gt;
+
+TOOLTIP_SIMPLEDESC - простой тултип-описание
+  name: ValidText - имя
+    Формат текста: &lt;header&gt;&lt;tip_white&gt;&lt;r name = "value" parsing = "smart" /&gt;&lt;/tip_white&gt;&lt;/header&gt;
+  desc: ValidText - описание
+    Формат текста: &lt;tip_golden alignx = "left" &gt;&lt;r name = "value" parsing = "smart" /&gt;&lt;/tip_golden&gt;
+  *[requirements]: table (predicateData) - таблица условий (например предикаты спелла)
+
+TOOLTIP_UNIT - тултип юнита
+  unitId: ObjectId - идентификатор юнита
+  [name]: ValidText - оверрайд имени
+
+TOOLTIP_ITEM - тултип предмета
+  itemId: ObjectId - идентификатор предмета
+  [name]: ValidText - оверрайд имени
+  [desc]: ValidText - оверрайд описания
+  [ignoreBinding]: boolean - если true, то считать предмет не привязанным
+  [binding]: number (enum ITEM_BINDING_*) - оверрайд биндинга
+  [bindResult]: boolean - если true, то считать что привязывается при получении
+  [isCursed]: boolean - оверрайд статуса проклятости
+  [count]: number (int) - оверрайд количества предметов в стаке
+  *[canExchange]: boolean - возможно ли выставить предмет на биржу негоциантов
+  *[endTime]: number (int) - время завершения предложения
+  *[lotteryPrice]: number (int) - цена в лотерее
+  *[lotteryDiscount]: number (int) - скидка в лотерее
+  *[lotteryIsSuperPrize]: boolean - является суперпризом в лотерее
+
+
+TOOLTIP_ITEM_VENDOR - тултип предмета в продаже
+  Аналогично TOOLTIP_ITEM
+  Дополнительно
+  [quantity]: number (int) - количество предметов в продаже
+  [showReputation]: boolean - показывать информацию о требуемой для покупки репутации
+  [requiredUnlocks]: table (index from 1) of UnlockId - список возможностей требуемых для покупки
+  [requiredAchievements]: table (index from 1) of tables - список рейтинговых достижений требуемых для покупки, каждое значение - таблица с полями:
+    ruleId: RuleId - идентификатор ресурса рейтингового события
+    achievement: number (int) - требуемое значение достижения
+  [price]: number (int) - оверрайд цены покупки
+  *[alternativePrice]: table (param for moneyCountAdvanced) - альтернативная цена
+
+TOOLTIP_ITEM_DEVICE - тултип предмета корабельного устройства в шкафу устройств
+  Аналогично TOOLTIP_ITEM
+  Игнорируется
+  [ignoreBinding]
+  [binding]
+  [bindResult]
+  [count]
+
+TOOLTIP_ITEM_BESTIARY - тултип предмета моба лабиринта в бестиарии
+  Аналогично TOOLTIP_ITEM
+  Игнорируется
+  [ignoreBinding]
+  [binding]
+  [bindResult]
+  [count]
+
+TOOLTIP_SPELL - тултип спелла
+  spellId: SpellId - идентификатор ресурса спелла
+  [name]: ValidText - оверрайд имени
+  [desc]: ValidText - оверрайд описания
+  [customRank]: number (int) - оверрайд ранга
+  *[tactics]: boolean - обрезать большую часть информации, для тактик гильдии
+
+TOOLTIP_SPELL_SHIP - тултип корабельного спелла
+  Аналогично TOOLTIP_SPELL
+
+TOOLTIP_SPELL_BUTTON - тултип кнопки спелла
+  Аналогично TOOLTIP_SPELL
+
+TOOLTIP_BUFF - тултип бафа
+  buffId: ObjectId or BuffId - идентификатор бафа или ресурса бафа
+  [name]: ValidText - оверрайд имени
+  [desc]: ValidText - оверрайд описания
+
+TOOLTIP_ABILITY - тултип способности
+  abilityId: AbilityId - идентификатор ресурса способности
+  [name]: ValidText - оверрайд имени
+  [desc]: ValidText - оверрайд описания
+  [customRank]: number (int) - оверрайд ранга
+
+TOOLTIP_GLOSSARY - тултип встроенной ссылки. Для вложенных тултипов
+  glossaryId: GlossaryId - идентификатор ресурса глоссария
+
+TOOLTIP_COMPONENT - тултип алхимического компонента
+  componentId: ComponentPropertyId - идентификатор ресурса алхимического свойства
+  [name]: ValidText - оверрайд имени
+  [desc]: ValidText - оверрайд описания
+
+TOOLTIP_RECIPE - тултип рецепта профессии
+  recipeId: RecipeId - идентификатор ресурса рецепта
+  armorCraft: boolean - являются ли компоненты рецепта предметами (true) или алхимическими компонентами (false)
+  [name]: ValidText - оверрайд имени
+  [desc]: ValidText - оверрайд описания
+
+TOOLTIP_USABLE_DEVICE - тултип UsableDevice
+  deviceId: ObjectId - идентификатор устройства
+  [name]: ValidText - оверрайд имени
+
+TOOLTIP_USABLE_DEVICE_ACTION - тултип действия UsableDevice
+  deviceId: ObjectId - идентификатор устройства
+  index: number (int) - индекс действия
+  [name]: ValidText - оверрайд имени
+  [desc]: ValidText - оверрайд описания
+
+TOOLTIP_ASTRAL_UNIT - тултип астрального юнита
+  unitId: ObjectId - идентификатор астрального юнита
+  [name]: ValidText - оверрайд имени
+
+TOOLTIP_FAIRY - тултип покровителя
+  unitId: ObjectId - идентификатор юнита
+  [name]: ValidText - оверрайд имени
+  [desc]: ValidText - оверрайд описания
+
+TOOLTIP_BASE_TALENT - тултип таланта
+  position: table - позиция таланта
+    row: number (int) - строка (с 1)
+  column: number (int) - столбец (с 1)
+  rank: number (int) - ранг
+  [isLocked]: boolean - залочен ли талант
+  [cost]: table - данные о стоимости изучения
+    value: number (int) - стоимость в очках умений
+  spentValue: number (int) - всего потрачено очков умений
+  count: number (int) - доступно очков умений
+  [parentRank]: number (int) - ранг родительского таланта
+
+TOOLTIP_FIELD_TALENT - тултип вехи развития
+  position: table - позиция вехи развития
+    field: number (int) - поле (с 1)
+    row: number (int) - строка (с 1)
+  column: number (int) - столбец (с 1)
+  rank: number (int) - ранг
+  [cost]: table - данные о стоимости изучения
+    value: number (int) - стоимость в вехах развития (на данный момент всегда 1)
+  count: number (int) - доступно вех развития
+  isAvailable: boolean - доступно ли для изучения (по соседним клеткам)
+
+TOOLTIP_REPUTATION - тултип репутации
+  factionId: FactionId - идентификатор ресурса фракции
+  [name]: ValidText - оверрайд имени
+
+TOOLTIP_CURRENCY - тултип альтернативной валюты
+  currencyId: CurrencyId - идентификатор ресурса валюты
+  [short]: boolean - использовать сокращенный вариант описания
+  [couponBuyLimit]: number (int) - если задано, то зачение валюты принимается за (couponBuyLimit - значение)
+
+TOOLTIP_CURRENCY_VENDOR - тултип цены в альтернативных валютах
+  prices: table (index from 1) of CurencyId - список идентификатор альтернативных валют
+
+TOOLTIP_HEARTHSTONE - тултип камня путешественника
+  [name]: ValidText - оверрайд имени
+  [desc]: ValidText - оверрайд описания
+
+TOOLTIP_INNATE_STAT - тултип харакреристики
+  statId: number (enum ENUM_InnateStats_*) - идентификатор характеристики
+  *[info]: table (InnateStatsInfo) - оверрайд информации о характеристиках
+
+TOOLTIP_TRANSPORT - тултип астрального корабля
+  transportId: ObjectId - идентификатор астрального корабля
+  [name]: ValidText - оверрайд имени
+
+TOOLTIP_BG_CONTROLPOINT - тултип контрольной точки сражения
+  pointId: ObjectId - идентификатор контрольной точки сражения
+  [name]: ValidText - оверрайд имени
+
+TOOLTIP_MOUNT - тултип маунта
+  mountId: ObjectId - идентификатор маунта
+  [mountSkinId]: ObjectId - идентификатор окраса маунта
+  [name]: ValidText - оверрайд имени
+  [desc]: ValidText - оверрайд описания
+
+TOOLTIP_CONTEXT_ACTION - тултип контекстного действия
+  actionId: ObjectId - идентификатор контекстного действия
+  [name]: ValidText - оверрайд имени
+  [desc]: ValidText - оверрайд описания
+
+TOOLTIP_SKILL - тултип профессии
+  skillId: SkillId - идентификатор ресурса профессии
+  [name]: ValidText - оверрайд имени
+  [desc]: ValidText - оверрайд описания
+
+TOOLTIP_ZONE_PROGRESS - тултип квестпрогресса зоны
+  zonesMapId: ObjectId - идентификатор зоны cartographer.GetZonesMapQuests
+
+TOOLTIP_ASTRAL_SECTOR - тултип астрального сектора
+  sectorId: ObjectId - идентификатор астрального сектора
+  [name]: ValidText - оверрайд имени
+  [desc]: ValidText - оверрайд описания
+
+TOOLTIP_ASTRAL_POI - тултип точки интереса в астральном хабе
+  poiId: ObjectId - идентификатор точки интереса
+  [name]: ValidText - оверрайд имени
+  [desc]: ValidText - оверрайд описания
+
+TOOLTIP_ASTRAL_HUB - тултип астрального хаба
+  hubId: ObjectId - идентификатор астрального хаба
+
+TOOLTIP_QUEST_COUNTER - тултип цели задания
+  objectiveId: ObjectId - идентификатор цели задания
+  [desc]: ValidText - оверрайд описания
+
+TOOLTIP_QUEST - тултип задания
+  questId: QuestId - идентификатор ресурса задания
+  [complete]: boolean - если true, то считать задание выполненным
+  [compendium]: boolean - является заданием боевого похода
+
+TOOLTIP_MAP_QUEST - тултип точки выполнения задания(ий) на карте
+  questId: QuestId - идентификатор ресурса основного задания (будет верхним в списке)
+  objectives: table (index from 1) of ObjectId - список целей задания(ий) связанных с данной точкой
+  [quests]: table (index from 1) of QuestId - список ресурсов дополнительных заданий
+
+TOOLTIP_RULE - тултип события
+  ruleId: ObjectId - идентификатор события
+  [name]: ValidText - оверрайд имени
+  [desc]: ValidText - оверрайд описания
+
+TOOLTIP_GUILD_TALENT - тултип таланта гильдии
+  field: number (int) - поле
+  row: number (int) - строка
+  column: number (int) - столбец
+  [shortDescription]: boolean - если true, то, по возможности, использовать короткое описание
+
+TOOLTIP_GUILD_ABILITY - тултип способности гильдии
+  abilityId: GuildAbilityId - идентификатор ресурса гильдейской способности
+  [name]: ValidText - оверрайд имени
+  [desc]: ValidText - оверрайд описания
+  [shortDescription]: boolean - если true, то, по возможности, использовать короткое описание
+
+TOOLTIP_SHIP_REACTOR - тултип реактора корабля
+  transportId: ObjectId - идентификатор корабля
+
+TOOLTIP_PROCEDURAL_GOAL - тултип цели процедурного данжа
+  goalId: ObjectId - идентификатор цели
+
+TOOLTIP_MAP_PROCEDURAL_GOAL - тултип точки выполнения цели(ей) процедурного данжа на карте
+  goalId: ObjectId - идентификатор основной цели
+  goals: table (index from 1) of ObjectId - идентификатор иных целей
+
+TOOLTIP_PROCEDURAL_SCENARIOS - тултип сценария процедурного данжа
+  scenarioId: ObjectId - идентификатор сценария
+
+TOOLTIP_INSTANCED_EVENT - тултип инстанс-события (как PvP, так и PvE)
+  instanceId: ObjectId - идентификатор события
+  [name]: ValidText - оверрайд имени
+  [desc]: ValidText - оверрайд описания
+  [needLeader]: table (param for TC_SMART_LINE) - дополнительный текст в конце
+  [needRole]: table (param for TC_SMART_LINE) - дополнительный текст после needLeader
+
+TOOLTIP_LFG_DESTINATION - тултип LFG
+  destinationId: LfgDestinationId - идентификатор ресурса LFG
+  [name]: ValidText - оверрайд имени
+  [desc]: ValidText - оверрайд описания
+  [isDepart]: boolean - если true, то отобразить проваленные требования к отпрвлению, иначе - к посещению
+  [needLeader]: table (param for TC_SMART_LINE) - дополнительный текст в конце
+  [needRole]: table (param for TC_SMART_LINE) - дополнительный текст после needLeader
+
+TOOLTIP_HIDDEN_BUFFS - тултип списка спрятанных бафов
+  [name]: ValidText - имя
+  [desc]: ValidText - описание
+  [list]: table (index from 1) of (ObjectId or BuffId) - список идентификатор бафов, отображаются первые 10
+  [more]: table (param for TC_SMART_LINE) - дополнительный текст при длинне списка более 10
+
+TOOLTIP_MEDAL - тултип достижения
+  medalId: ObjectId - идентификатор достижения
+  [desc]: ValidText - оверрайд описания
+  [isCompare]: boolean - является тултипом сравнения
+  [compareId]: ObjectId - идентификатор сравниваемого достижения
+
+TOOLTIP_SOUL_TALENT - тултип таланта искры
+  [current]: AbilityId - идентификатор текущего ранга способности
+  [next]: AbilityId - идентификатор следующего ранга способности
+  [compare]: boolean - является тултипом сравнения
+
+TOOLTIP_MAP_MODIFIER - тултип модификатора карты
+  modifierId: ObjectId - идентификатор модификатора карты
+  [name]: ValidText - оверрайд имени
+  [desc]: ValidText - оверрайд описания
+
+TOOLTIP_ARENA - тултип рейтиногового достижения
+  unitId: ObjectId - идентификатор юнита владельца достижения
+  type: number (enum ?) - тип рейтиногового достижения matchMaking.GetRatingPvPScoreByUnitId
+
+TOOLTIP_HISTORY_PLATE - тултип операции в казне гильдии
+  ranks: table (index from 1) of ValidText - тексты затронутых рангов
+  tabards: table (index from 1) of ValidText - тексты затронутых типов накидок
+
+TOOLTIP_SETBONUS - тултип сетового бонуса
+  info: table (setBonusInfo) - один элемент из itemLib.GetSetBonusRoot()
+
+</pre>
+<p></p>
+<p>Компоненты тултипа</p>
+<pre>
+Каждый компонент описывается таблицей с полями
+  type: number (enum TC_*) - тип компонента
+  [1]: any or nil - параметр компонента, для большинства компонентов - таблица, если nil, то компонент игнорируется
+    Примечание: Использование единицы в качестве индекса - неудачное историческое решение, поменять слишком сложно
+  updaters: table (tooltipUpdater) - триггеры обновления
+    Примечание: Доступно только внутри ContextTooltip, подробнее смотри в ClassTooltipComponents.lua
+
+Форматы текста по умолчанию:
+  Default:
+    &lt;tip_base alignx = "left" &gt;&lt;rs class = "style"&gt;&lt;r name = "value" parsing = "smart" /&gt;&lt;r name = "value2" parsing = "smart" /&gt;&lt;r name = "value3" parsing = "smart" /&gt;&lt;/rs&gt;&lt;/tip_base&gt;
+  DefaultRight
+    &lt;tip_base alignx = "right" &gt;&lt;rs class = "style"&gt;&lt;r name = "value"/&gt;&lt;r name = "value2"/&gt;&lt;r name = "value3"/&gt;&lt;/rs&gt;&lt;/tip_base&gt;
+
+TC_SEPARATOR - разделительная линия
+  Пустая таблица параметров
+
+TC_SMART_LINE - простой текст
+  Таблица параметров напрямую передается в ValuedText:SetTextValues
+  Если format не задан, то берется Default (смотри выше)
+
+TC_ICON_SMART_LINE - текст с иконкой
+  [text]: table (ValuedText:SetTextValues) - текст
+    Если format не задан, то берется Default (смотри выше)
+  [leftIcon]: table - описание левой иконки, таблица с полями
+    [icon]: UITextureId or TextureId - текстура BackLayer
+    [foreicon]: UITextureId or TextureId - текстура FrontLayer
+    [color]: Color (table or string or uint32_t) - цвет BackLayer
+    [forecolor]: Color (table or string or uint32_t) - цвет FrontLayer
+    [fullsize]: table - размер иконки по осям, если не задано, то берется из поля size
+      sizeX: number (float) - по X
+      sizeY: number (float) - по Y
+    [size]: number (float) - размер квадратной иконки, если не задано, то берется размер текстуры
+  [rightIcon]: table - описание правой иконки, аналогично левой
+
+TC_DOUBLE_LINE - двойной текст
+  [left]: table (ValuedText:SetTextValues) - текст слева
+    Если format не задан, то берется Default (смотри выше)
+  [right]: table (ValuedText:SetTextValues) - текст справа
+    Если format не задан, то берется DefaultRight (смотри выше)
+
+TC_ICON_DOUBLE_LINE - двойной текст с иконкой
+  [left]: table (ValuedText:SetTextValues) - текст слева
+    Если format не задан, то берется Default (смотри выше)
+  [right]: table (ValuedText:SetTextValues) - текст справа
+    Если format не задан, то берется DefaultRight (смотри выше)
+  [leftIcon]: table - описание левой иконки, аналогично TC_ICON_SMART_LINE =&gt; leftIcon
+  [rightIcon]: table - описание правой иконки, аналогично TC_ICON_SMART_LINE =&gt; rightIcon
+
+TC_ICON_BAR - несколько иконок в линию
+  [1-N]: table - параметры иконки, таблица с полями
+    [icon]: UITextureId or TextureId - текстура
+    [size]: number (float) - размер квадратной иконки, если не задано, то берется 50х50
+    [text]: ValidText - текст на иконке (расположен в правом нижнем углу)
+    [subicon]: UITextureId or TextureId - текстура наложенной иконки, имеет размер 20х20 и расположена в левом верхнем углу
+
+TC_PRICE - цена
+  Параметр напрямую передается в moneyCountAdvanced, это может быть
+    number (int) - число денег в меди. Важно! Из-за некоторых ограничейний в одном тултипе может быть только одна такая цена.
+    table [1-3] of tables - описание набора до трех валют (порядок справа налево), каждая это таблица с полями
+      value: number (int) - значение валюты
+      [currencyId]: CurrencyId - идентификатор ресурса валюты, если задано, то: при наведении будет генерироваться суб-тултип валюты, текстура может быть взята из валюты
+      [texture]: UITextureId or TextureId - текстура, должна быть задана либо явно, либо через currencyId
+      [text]: ValidText - Текст вместо иконки / значения валюты, если задано, то currencyId, texture, value игнорируются
+      [shiftPosition]: number (float) - только если задан text, сдвиг текста по X, для тонкого тюнинга положения
+
+TC_ITEM_SOURCE - источник получения, обертка над GlossaryId
+  glossaryId: GlossaryId - идентификатор ресурса интерактивного описания
+
+TC_PROGRESS_BAR - прогрессбар
+  [color]: Color (table or string or uint32_t) - цвет (по умолчанию { a = 1, r = 128/255, g = 184/255, b = 96/255 } )
+  [label]: table (ValuedText:SetTextValues) - кастомный текст
+  [progressType]: string - если "reputation" то:
+    stateCur: number (int) - текущее значение
+    stateNext: number (int) - максимальное значение
+  иначе:
+    state: number [0-100] - процент прогрессбара
+    [isMeta]: boolean - если true, то точность до сотых долей процента.
+
+TC_FIVESTARS_RATING - рейтинг
+  rating: number [0-5] - значение рейтинга
+  format: ValidText - текст
+
+</pre>
+<p></p>
+<h4>Связанные страницы: "CategoryLuaApi" "CategoryCommon" </h4>
+<p></p>
+<a href="CategoryCommon.html">CategoryCommon</a>
+<br><a href="EnumAddonState.html">EnumAddonState</a>
+<br><a href="EnumGoalState.html">EnumGoalState</a>
+<br><a href="EventAddonLoadStateChanged.html">EventAddonLoadStateChanged</a>
+<br><a href="EventAllodsGoalAdded.html">EventAllodsGoalAdded</a>
+<br><a href="EventAllodsGoalChanged.html">EventAllodsGoalChanged</a>
+<br><a href="EventAllodsGoalCompleted.html">EventAllodsGoalCompleted</a>
+<br><a href="EventFullscreenChanged.html">EventFullscreenChanged</a>
+<br><a href="EventLocaleChanged.html">EventLocaleChanged</a>
+<br><a href="EventPosConverterChanged.html">EventPosConverterChanged</a>
+<br><a href="EventUserScreenshot.html">EventUserScreenshot</a>
+<br><a href="FunctionApitype.html">FunctionApitype</a>
+<br><a href="FunctionCommonCallTooltip.html">FunctionCommonCallTooltip</a>
+<br><a href="FunctionCommonCancelDelayedCall.html">FunctionCommonCancelDelayedCall</a>
+<br><a href="FunctionCommonCreateValuedObject.html">FunctionCommonCreateValuedObject</a>
+<br><a href="FunctionCommonCreateValuedText.html">FunctionCommonCreateValuedText</a>
+<br><a href="FunctionCommonDelayedCall.html">FunctionCommonDelayedCall</a>
+<br><a href="FunctionCommonDisablePersonalEvent.html">FunctionCommonDisablePersonalEvent</a>
+<br><a href="FunctionCommonEnablePersonalEvent.html">FunctionCommonEnablePersonalEvent</a>
+<br><a href="FunctionCommonEnableUIRender.html">FunctionCommonEnableUIRender</a>
+<br><a href="FunctionCommonFormatFloat.html">FunctionCommonFormatFloat</a>
+<br><a href="FunctionCommonFormatInt.html">FunctionCommonFormatInt</a>
+<br><a href="FunctionCommonFormatNumber.html">FunctionCommonFormatNumber</a>
+<br><a href="FunctionCommonGetAbsTimeMs.html">FunctionCommonGetAbsTimeMs</a>
+<br><a href="FunctionCommonGetAddonInfo.html">FunctionCommonGetAddonInfo</a>
+<br><a href="FunctionCommonGetAddonMainForm.html">FunctionCommonGetAddonMainForm</a>
+<br><a href="FunctionCommonGetAddonName.html">FunctionCommonGetAddonName</a>
+<br><a href="FunctionCommonGetAddonSysName.html">FunctionCommonGetAddonSysName</a>
+<br><a href="FunctionCommonGetAllodsGoals.html">FunctionCommonGetAllodsGoals</a>
+<br><a href="FunctionCommonGetAllodsGoalsOnLoadingScreen.html">FunctionCommonGetAllodsGoalsOnLoadingScreen</a>
+<br><a href="FunctionCommonGetApiType.html">FunctionCommonGetApiType</a>
+<br><a href="FunctionCommonGetApiVersion.html">FunctionCommonGetApiVersion</a>
+<br><a href="FunctionCommonGetClientArch.html">FunctionCommonGetClientArch</a>
+<br><a href="FunctionCommonGetCredits.html">FunctionCommonGetCredits</a>
+<br><a href="FunctionCommonGetCSSList.html">FunctionCommonGetCSSList</a>
+<br><a href="FunctionCommonGetDateTimeFromMs.html">FunctionCommonGetDateTimeFromMs</a>
+<br><a href="FunctionCommonGetDelayedCalls.html">FunctionCommonGetDelayedCalls</a>
+<br><a href="FunctionCommonGetEmptyWstring.html">FunctionCommonGetEmptyWstring</a>
+<br><a href="FunctionCommonGetFatalityPhraseLimits.html">FunctionCommonGetFatalityPhraseLimits</a>
+<br><a href="FunctionCommonGetFirstPaymentBonusInfo.html">FunctionCommonGetFirstPaymentBonusInfo</a>
+<br><a href="FunctionCommonGetFPSData.html">FunctionCommonGetFPSData</a>
+<br><a href="FunctionCommonGetLocalDateTime.html">FunctionCommonGetLocalDateTime</a>
+<br><a href="FunctionCommonGetLocalDateTimeMs.html">FunctionCommonGetLocalDateTimeMs</a>
+<br><a href="FunctionCommonGetLocale.html">FunctionCommonGetLocale</a>
+<br><a href="FunctionCommonGetLocaleList.html">FunctionCommonGetLocaleList</a>
+<br><a href="FunctionCommonGetLocalization.html">FunctionCommonGetLocalization</a>
+<br><a href="FunctionCommonGetMks.html">FunctionCommonGetMks</a>
+<br><a href="FunctionCommonGetMsFromDateTime.html">FunctionCommonGetMsFromDateTime</a>
+<br><a href="FunctionCommonGetPosConverterParams.html">FunctionCommonGetPosConverterParams</a>
+<br><a href="FunctionCommonGetRandFloat.html">FunctionCommonGetRandFloat</a>
+<br><a href="FunctionCommonGetRandInt.html">FunctionCommonGetRandInt</a>
+<br><a href="FunctionCommonGetScriptCfgVar.html">FunctionCommonGetScriptCfgVar</a>
+<br><a href="FunctionCommonGetSetBonusInfo.html">FunctionCommonGetSetBonusInfo</a>
+<br><a href="FunctionCommonGetShortString.html">FunctionCommonGetShortString</a>
+<br><a href="FunctionCommonGetSpecialStatInfo.html">FunctionCommonGetSpecialStatInfo</a>
+<br><a href="FunctionCommonGetStateManagedAddons.html">FunctionCommonGetStateManagedAddons</a>
+<br><a href="FunctionCommonGetStateName.html">FunctionCommonGetStateName</a>
+<br><a href="FunctionCommonGetTerritoryInfo.html">FunctionCommonGetTerritoryInfo</a>
+<br><a href="FunctionCommonGetTextureInfo.html">FunctionCommonGetTextureInfo</a>
+<br><a href="FunctionCommonGetTextureSize.html">FunctionCommonGetTextureSize</a>
+<br><a href="FunctionCommonHitFrameHandler.html">FunctionCommonHitFrameHandler</a>
+<br><a href="FunctionCommonIsAvatarNameValid.html">FunctionCommonIsAvatarNameValid</a>
+<br><a href="FunctionCommonIsCapsLockEnabled.html">FunctionCommonIsCapsLockEnabled</a>
+<br><a href="FunctionCommonIsEmptyValuedText.html">FunctionCommonIsEmptyValuedText</a>
+<br><a href="FunctionCommonIsEmptyWstring.html">FunctionCommonIsEmptyWstring</a>
+<br><a href="FunctionCommonIsEqualStats.html">FunctionCommonIsEqualStats</a>
+<br><a href="FunctionCommonIsFatalityPhraseFiltered.html">FunctionCommonIsFatalityPhraseFiltered</a>
+<br><a href="FunctionCommonIsKeyEnabled.html">FunctionCommonIsKeyEnabled</a>
+<br><a href="FunctionCommonIsOnPayToPlayShard.html">FunctionCommonIsOnPayToPlayShard</a>
+<br><a href="FunctionCommonIsSoundEnabled.html">FunctionCommonIsSoundEnabled</a>
+<br><a href="FunctionCommonIsSubstring.html">FunctionCommonIsSubstring</a>
+<br><a href="FunctionCommonIsSubstringEx.html">FunctionCommonIsSubstringEx</a>
+<br><a href="FunctionCommonIsTextFiltered.html">FunctionCommonIsTextFiltered</a>
+<br><a href="FunctionCommonIsUIRenderEnabled.html">FunctionCommonIsUIRenderEnabled</a>
+<br><a href="FunctionCommonIsValidText.html">FunctionCommonIsValidText</a>
+<br><a href="FunctionCommonIsValuedObject.html">FunctionCommonIsValuedObject</a>
+<br><a href="FunctionCommonIsValuedText.html">FunctionCommonIsValuedText</a>
+<br><a href="FunctionCommonIsWidget.html">FunctionCommonIsWidget</a>
+<br><a href="FunctionCommonIsWString.html">FunctionCommonIsWString</a>
+<br><a href="FunctionCommonLogError.html">FunctionCommonLogError</a>
+<br><a href="FunctionCommonLogInfo.html">FunctionCommonLogInfo</a>
+<br><a href="FunctionCommonLogWarning.html">FunctionCommonLogWarning</a>
+<br><a href="FunctionCommonMakeUserScreenshot.html">FunctionCommonMakeUserScreenshot</a>
+<br><a href="FunctionCommonOnEvent.html">FunctionCommonOnEvent</a>
+<br><a href="FunctionCommonOnFrame.html">FunctionCommonOnFrame</a>
+<br><a href="FunctionCommonOnReaction.html">FunctionCommonOnReaction</a>
+<br><a href="FunctionCommonQuitGame.html">FunctionCommonQuitGame</a>
+<br><a href="FunctionCommonRegisterEventHandler.html">FunctionCommonRegisterEventHandler</a>
+<br><a href="FunctionCommonRegisterFrameHandler.html">FunctionCommonRegisterFrameHandler</a>
+<br><a href="FunctionCommonRegisterReactionHandler.html">FunctionCommonRegisterReactionHandler</a>
+<br><a href="FunctionCommonSendEvent.html">FunctionCommonSendEvent</a>
+<br><a href="FunctionCommonSendUserModsEvent.html">FunctionCommonSendUserModsEvent</a>
+<br><a href="FunctionCommonSetCursor.html">FunctionCommonSetCursor</a>
+<br><a href="FunctionCommonSetIconFlash.html">FunctionCommonSetIconFlash</a>
+<br><a href="FunctionCommonSetLocale.html">FunctionCommonSetLocale</a>
+<br><a href="FunctionCommonStateLoadManagedAddon.html">FunctionCommonStateLoadManagedAddon</a>
+<br><a href="FunctionCommonStateReloadManagedAddon.html">FunctionCommonStateReloadManagedAddon</a>
+<br><a href="FunctionCommonStateUnloadManagedAddon.html">FunctionCommonStateUnloadManagedAddon</a>
+<br><a href="FunctionCommonUnRegisterEvent.html">FunctionCommonUnRegisterEvent</a>
+<br><a href="FunctionCommonUnRegisterEventHandler.html">FunctionCommonUnRegisterEventHandler</a>
+<br><a href="FunctionCommonUnRegisterFrameHandler.html">FunctionCommonUnRegisterFrameHandler</a>
+<br><a href="FunctionCommonUnRegisterReaction.html">FunctionCommonUnRegisterReaction</a>
+<br><a href="FunctionCommonUnRegisterReactionHandler.html">FunctionCommonUnRegisterReactionHandler</a>
+<br><a href="FunctionCompareWString.html">FunctionCompareWString</a>
+<br><a href="FunctionCompareWStringEx.html">FunctionCompareWStringEx</a>
+<br><a href="FunctionEscapeWString.html">FunctionEscapeWString</a>
+<br><a href="FunctionGlobal.html">FunctionGlobal</a>
+<br><a href="FunctionGlobalConst.html">FunctionGlobalConst</a>
+<br><a href="FunctionHasGlobalConst.html">FunctionHasGlobalConst</a>
+<br><a href="FunctionIsIndexableUdata.html">FunctionIsIndexableUdata</a>
+<br><a href="GoalId.html">GoalId</a>
+<p></p>
+<hr>
+<a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryFunction.html">CategoryFunction</a>
+<a href="CategoryCommon.html">CategoryCommon</a>
+<a href="CategoryWidget.html">CategoryWidget</a>
+<hr>
+<p><a href="../Index.html">На главную</a></p>
+</body>
+</html>

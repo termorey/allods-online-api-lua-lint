@@ -20,7 +20,7 @@
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_META_DIALOG)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_META_UPGRADE_BREAK)
 ---@overload fun(eventFunction: fun(data: { sysCause: ENUM_ActionFailCause, isLucky: boolean, improvementIncrease: number, upgradeChanceBehavior: ENUM_UpgradeChanceBehavior, upgradeVector: META_UPGRADE, sourceId?: ObjectId, enchancerId?: ObjectId, agentId?: ObjectId, agentCount?: integer, resultId?: ObjectId }), sysEventName: EVENT_META_UPGRADE_RESULT)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

@@ -15,11 +15,13 @@
 <hr>
 <h2> EVENT_OBJECT_BUFFS_CHANGED</h2>
 <p></p>
-<p>Событие посылается каждый раз, когда у объекта меняется набор буфов.</p>
-<p>Информация о буфах доступна через функции библиотеки "object".</p>
+<p>Событие посылается не чаще одного раза в кадр, если в данном кадре у объекта изменился набор буфов. Подразумевается именно добавление или удаление бафов, но не изменение свойств существующих.</p>
 <p></p>
-<p>Для срабатывания данного события требуется указание идентификатора объекта ObjectId(number) в качестве параметра функции <a href="FunctionCommonRegisterEventHandler.html"> common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread )</a>.</p>
+<p>Для срабатывания данного события требуется активация персонального эвента по носителю бафа, смотри <a href="FunctionCommonRegisterEventHandler.html"> common.RegisterEventHandler</a>, <a href="FunctionCommonEnablePersonalEvent.html"> common.EnablePersonalEvent</a>.</p>
 <p></p>
+<p>'''ВНИМАНИЕ!''' НЕ рекомендуется по данному событию полностью обновлять информацию о всех бафах объекта</p>
+<p></p>
+<p>DEPRECATED: Событие не рекомендуется к использованию и помечено к удалению</p>
 <pre>
 -- поля:
 objectId: ObjectId (not nil)
@@ -27,41 +29,70 @@ objectId: ObjectId (not nil)
 <p></p>
 <p>Связанные события и функции:</p>
 <p></p>
+<h4>Search: "CategoryLuaApi" "CategoryLuaApiDeprecated" </h4>
+<a href="CategoryLuaApiDeprecated.html">CategoryLuaApiDeprecated</a>
+<br><a href="EventObjectBuffsChanged.html">EventObjectBuffsChanged</a>
+<br><a href="FunctionAstralGetSectorInfoById.html">FunctionAstralGetSectorInfoById</a>
+<br><a href="FunctionCommonGetApiType.html">FunctionCommonGetApiType</a>
+<br><a href="FunctionCommonGetShortString.html">FunctionCommonGetShortString</a>
+<br><a href="FunctionCommonIsEmptyValuedText.html">FunctionCommonIsEmptyValuedText</a>
+<br><a href="FunctionCommonIsEmptyWstring.html">FunctionCommonIsEmptyWstring</a>
+<br><a href="FunctionCommonIsSubstring.html">FunctionCommonIsSubstring</a>
+<br><a href="FunctionCommonIsSubstringEx.html">FunctionCommonIsSubstringEx</a>
+<br><a href="FunctionCommonIsValuedObject.html">FunctionCommonIsValuedObject</a>
+<br><a href="FunctionCommonIsValuedText.html">FunctionCommonIsValuedText</a>
+<br><a href="FunctionCommonIsWString.html">FunctionCommonIsWString</a>
+<br><a href="FunctionCommonUnRegisterEvent.html">FunctionCommonUnRegisterEvent</a>
+<br><a href="FunctionCommonUnRegisterReaction.html">FunctionCommonUnRegisterReaction</a>
+<br><a href="FunctionCompareWString.html">FunctionCompareWString</a>
+<br><a href="FunctionCompareWStringEx.html">FunctionCompareWStringEx</a>
+<br><a href="FunctionFormCreateWidgetByDesc.html">FunctionFormCreateWidgetByDesc</a>
+<br><a href="FunctionObjectGetBuffsWithProperties.html">FunctionObjectGetBuffsWithProperties</a>
+<br><a href="FunctionTextContainerPushBackRawText.html">FunctionTextContainerPushBackRawText</a>
+<br><a href="FunctionTextContainerPushBackValuedText.html">FunctionTextContainerPushBackValuedText</a>
+<br><a href="FunctionTextContainerPushFrontRawText.html">FunctionTextContainerPushFrontRawText</a>
+<br><a href="FunctionTextContainerPushFrontValuedText.html">FunctionTextContainerPushFrontValuedText</a>
+<br><a href="FunctionUnitIsPlayer.html">FunctionUnitIsPlayer</a>
+<p></p>
 <h4>Search: "CategoryLuaApi" "CategoryBuff" </h4>
 <a href="BuffId.html">BuffId</a>
 <br><a href="CategoryBuff.html">CategoryBuff</a>
 <br><a href="EnumDiminishingGroup.html">EnumDiminishingGroup</a>
+<br><a href="EnumUIBuffPriority.html">EnumUIBuffPriority</a>
 <br><a href="EventAvatarBuffRemovingFailed.html">EventAvatarBuffRemovingFailed</a>
 <br><a href="EventGuildBuffAdded.html">EventGuildBuffAdded</a>
 <br><a href="EventGuildBuffsChanged.html">EventGuildBuffsChanged</a>
 <br><a href="EventObjectBuffAdded.html">EventObjectBuffAdded</a>
+<br><a href="EventObjectBuffChanged.html">EventObjectBuffChanged</a>
 <br><a href="EventObjectBuffProgressAdded.html">EventObjectBuffProgressAdded</a>
+<br><a href="EventObjectBuffProgressChanged.html">EventObjectBuffProgressChanged</a>
 <br><a href="EventObjectBuffProgressRemoved.html">EventObjectBuffProgressRemoved</a>
 <br><a href="EventObjectBuffRemoved.html">EventObjectBuffRemoved</a>
 <br><a href="EventObjectBuffsChanged.html">EventObjectBuffsChanged</a>
 <br><a href="EventObjectBuffsElementChanged.html">EventObjectBuffsElementChanged</a>
 <br><a href="EventObjectDiminishingChanged.html">EventObjectDiminishingChanged</a>
 <br><a href="EventObjectDiminishingGroupChanged.html">EventObjectDiminishingGroupChanged</a>
-<br><a href="FunctionAvatarGetBuffInfoById.html">FunctionAvatarGetBuffInfoById</a>
-<br><a href="FunctionAvatarIsBuffDisease.html">FunctionAvatarIsBuffDisease</a>
-<br><a href="FunctionAvatarIsBuffMagic.html">FunctionAvatarIsBuffMagic</a>
-<br><a href="FunctionAvatarIsBuffPoison.html">FunctionAvatarIsBuffPoison</a>
-<br><a href="FunctionGuildGetBuffInfo.html">FunctionGuildGetBuffInfo</a>
 <br><a href="FunctionGuildGetBuffs.html">FunctionGuildGetBuffs</a>
 <br><a href="FunctionObjectGetBuffBySysName.html">FunctionObjectGetBuffBySysName</a>
 <br><a href="FunctionObjectGetBuffCount.html">FunctionObjectGetBuffCount</a>
 <br><a href="FunctionObjectGetBuffDynamicInfo.html">FunctionObjectGetBuffDynamicInfo</a>
 <br><a href="FunctionObjectGetBuffInfo.html">FunctionObjectGetBuffInfo</a>
 <br><a href="FunctionObjectGetBuffInstances.html">FunctionObjectGetBuffInstances</a>
+<br><a href="FunctionObjectGetBuffProducer.html">FunctionObjectGetBuffProducer</a>
+<br><a href="FunctionObjectGetBuffRanks.html">FunctionObjectGetBuffRanks</a>
 <br><a href="FunctionObjectGetBuffs.html">FunctionObjectGetBuffs</a>
 <br><a href="FunctionObjectGetBuffsInfo.html">FunctionObjectGetBuffsInfo</a>
 <br><a href="FunctionObjectGetBuffsWithProperties.html">FunctionObjectGetBuffsWithProperties</a>
 <br><a href="FunctionObjectGetBuffSysName.html">FunctionObjectGetBuffSysName</a>
+<br><a href="FunctionObjectGetBuffTooltipInfo.html">FunctionObjectGetBuffTooltipInfo</a>
 <br><a href="FunctionObjectGetDiminishingState.html">FunctionObjectGetDiminishingState</a>
+<br><a href="FunctionObjectHasBuffManager.html">FunctionObjectHasBuffManager</a>
+<br><a href="FunctionObjectIsValidBuff.html">FunctionObjectIsValidBuff</a>
 <br><a href="FunctionObjectRemoveBuff.html">FunctionObjectRemoveBuff</a>
 <p></p>
 <hr>
 <a href="CategoryLuaApi.html">CategoryLuaApi</a>
+<a href="CategoryLuaApiDeprecated.html">CategoryLuaApiDeprecated</a>
 <a href="CategoryEvent.html">CategoryEvent</a>
 <a href="CategoryUnit.html">CategoryUnit</a>
 <a href="CategoryBuff.html">CategoryBuff</a>

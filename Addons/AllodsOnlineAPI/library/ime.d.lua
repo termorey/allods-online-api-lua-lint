@@ -14,6 +14,6 @@ widgetsSystem = {}
 
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_IME_SELECT_FINISHED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_IME_SELECT_STARTED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]

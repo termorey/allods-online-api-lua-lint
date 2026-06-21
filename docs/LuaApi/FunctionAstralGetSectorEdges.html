@@ -26,14 +26,14 @@ astral
 function GetSectorEdges( sectorId )
 
 -- параметры:
-sectorId: ObjectId - идентификатор сектора
+sectorId: ObjectId or AstralSectorId - идентификатор сектора
 
 -- возвращаемые значения:
-table of ObjectId - список идентификаторов секторов, связанных с данным
+table of ObjectId - список (индексирован с 1) идентификаторов секторов, связанных с данным
 
 -- пример:
 local edges = astral.GetSectorEdges( sectorId )
-for i, objectId in pairs( edges ) do
+for i, objectId in ipairs( edges ) do
   local sectorInfo = astral.GetSectorInfo( objectId )
   if sectorInfo then
     local name = sectorInfo.name
@@ -82,13 +82,12 @@ end
 <br><a href="FunctionAstralGetSectorAstrolabeInfo.html">FunctionAstralGetSectorAstrolabeInfo</a>
 <br><a href="FunctionAstralGetSectorDirectPOI.html">FunctionAstralGetSectorDirectPOI</a>
 <br><a href="FunctionAstralGetSectorEdges.html">FunctionAstralGetSectorEdges</a>
-<br><a href="FunctionAstralGetSectorEdgesById.html">FunctionAstralGetSectorEdgesById</a>
-<br><a href="FunctionAstralGetSectorEdgesObsolete.html">FunctionAstralGetSectorEdgesObsolete</a>
 <br><a href="FunctionAstralGetSectorInfo.html">FunctionAstralGetSectorInfo</a>
 <br><a href="FunctionAstralGetSectorInfoById.html">FunctionAstralGetSectorInfoById</a>
 <br><a href="FunctionAstralGetSectorPOIs.html">FunctionAstralGetSectorPOIs</a>
 <br><a href="FunctionAstralGetSectorRelatedQuests.html">FunctionAstralGetSectorRelatedQuests</a>
 <br><a href="FunctionAstralGetUnits.html">FunctionAstralGetUnits</a>
+<br><a href="FunctionAstralIsInHub.html">FunctionAstralIsInHub</a>
 <br><a href="FunctionAstralIsSectorKnownForGroup.html">FunctionAstralIsSectorKnownForGroup</a>
 <br><a href="FunctionAstralIsSectorKnownForPlayer.html">FunctionAstralIsSectorKnownForPlayer</a>
 <p></p>

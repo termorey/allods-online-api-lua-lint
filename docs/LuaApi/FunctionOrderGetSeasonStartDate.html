@@ -30,7 +30,11 @@ function order.GetSeasonStartDate()
 
 -- возвращаемые значения:
 table or nil
- дата начала сезона y,m,d  - год, месяц, день
+   d : number - день начала сезона
+   m : number - месяц начала сезона
+   month : number - номер месяца, уменьшенный на 1.
+   y : год начала сезона
+   sysMonth : ENUM - системный ENUM месяца
 
 </pre>
 <p></p>
@@ -49,7 +53,6 @@ table or nil
 <br><a href="FunctionOrderGetBonusDuration.html">FunctionOrderGetBonusDuration</a>
 <br><a href="FunctionOrderGetBonusVoitingList.html">FunctionOrderGetBonusVoitingList</a>
 <br><a href="FunctionOrderGetMainPlayerOrder.html">FunctionOrderGetMainPlayerOrder</a>
-<br><a href="FunctionOrderGetMainPlayerVoteWeigh.html">FunctionOrderGetMainPlayerVoteWeigh</a>
 <br><a href="FunctionOrderGetMainPlayerVoteWeight.html">FunctionOrderGetMainPlayerVoteWeight</a>
 <br><a href="FunctionOrderGetMaxAvatarVotesCount.html">FunctionOrderGetMaxAvatarVotesCount</a>
 <br><a href="FunctionOrderGetOrderBonus.html">FunctionOrderGetOrderBonus</a>
@@ -67,7 +70,6 @@ table or nil
 <br><a href="FunctionOrderRequestOrderInfo.html">FunctionOrderRequestOrderInfo</a>
 <br><a href="FunctionOrderRequestPrestigeAchivements.html">FunctionOrderRequestPrestigeAchivements</a>
 <br><a href="FunctionOrderRequestRatingAchivements.html">FunctionOrderRequestRatingAchivements</a>
-<br><a href="FunctionOrderSendBonusVote.html">FunctionOrderSendBonusVote</a>
 <br><a href="FunctionOrderSendBonusVotes.html">FunctionOrderSendBonusVotes</a>
 <br><a href="FunctionOrderSetMainPlayerOrder.html">FunctionOrderSetMainPlayerOrder</a>
 <p></p>

@@ -20,7 +20,7 @@ wtControl3D = {}
 ---@alias EVENT_CANNOT_ATTACH_WIDGET_3D "EVENT_CANNOT_ATTACH_WIDGET_3D"
 
 ---@overload fun(eventFunction: fun(data: { objectId: ObjectId }), sysEventName: EVENT_CANNOT_ATTACH_WIDGET_3D)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 
@@ -46,4 +46,8 @@ function wtControl3D:SetWidget3DPos( widget, pos ) end
 
 ---@param widget WidgetSafe
 ---@param size { sizeX: number, sizeY: number }
-function wtControl3D:SetWidget3DSize( widget, size ) end
+function wtControl3D:SetWidget3DSize(widget, size) end
+
+---@param widget WidgetSafe
+---@param isVisible boolean
+function wtControl3D:SetWidget3DVisibleUnattached( widget, isVisible ) end

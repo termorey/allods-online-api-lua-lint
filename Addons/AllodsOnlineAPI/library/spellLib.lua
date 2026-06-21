@@ -24,13 +24,9 @@ spellLib = {}
 ---@alias EVENT_SPELL_LANDED_NO_TARGET "EVENT_SPELL_LANDED_NO_TARGET"
 
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_SPELL_LANDED_NO_TARGET)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
-
----@param UnitId ObjectId
----@return boolean
-function spellLib.BuffsCanDispel ( UnitId ) end
 
 ---@param SpellId SpellId
 ---@param ignoreCasterResources boolean | nil
@@ -50,7 +46,12 @@ function spellLib.GetActionGroups( id ) end
 function spellLib.GetAESectorProps( SpellId ) end
 
 ---@param SpellId SpellId
----@return nil | { durationMs: integer, remainingMs: integer, debugName: string | nil }
+---@return nil | {
+--- durationMs: integer,
+--- remainingMs: integer,
+--- ignoreGlobalCooldown: boolean,
+--- debugName: string | nil,
+--- }
 function spellLib.GetCooldown( SpellId ) end
 
 ---@param SpellId SpellId
@@ -61,9 +62,13 @@ function spellLib.GetCurrentValues( SpellId ) end
 ---@return nil | { name: WString, description: WString, sysName: string, objectId: ObjectId | nil, debugName?: string | nil }
 function spellLib.GetDescription( SpellId ) end
 
----@param spellId SpellId
----@return nil | ObjectId
-function spellLib.GetDurationBuff( spellId ) end
+---@param id SpellId # Id умения
+---@return nil | table<integer, table<WString, ValuedText | number>>
+function spellLib.GetDescriptionParams( SpellId ) end
+
+---@param id SpellId # Id умения
+---@return BuffId | nil # идентификатор бафа, если такой баф есть у спелла
+function spellLib.GetDurationBuffId( spellId ) end
 
 ---@param id SpellId
 ---@return table<integer, { sysName: string, name: WString, image: TextureId | nil }>
@@ -87,7 +92,10 @@ function spellLib.GetObjectSpell( objectId ) end
 function spellLib.GetProperties( SpellId ) end
 
 ---@param SpellId SpellId
----@return nil | table<ObjectId, number>
+---@return table<integer, {
+--- buffId: BuffId,
+--- stackCount: integer,
+--- }>
 function spellLib.GetRequiredBuffs( SpellId ) end
 
 ---@param spellId SpellId
@@ -102,10 +110,10 @@ function spellLib.GetRequirements( id ) end
 ---@return nil | { enabled: boolean, autocastOn: boolean, prepared: boolean, isActive: boolean }
 function spellLib.GetState( SpellId ) end
 
+---@param id SpellId # Id умения
+---@return any # TODO: should be confirmed
+function spellLib.GetSysName( SpellId ) end
+
 ---@param spellId SpellId
 ---@return ValuedObject
 function spellLib.GetValuedObject( spellId ) end
-
----@param spellId SpellId
----@return boolean
-function spellLib.HasDurationBuff( spellId ) end

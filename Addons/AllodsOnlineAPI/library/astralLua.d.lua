@@ -49,7 +49,7 @@ astral = {}
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_ISLAND_DEATH_LIMIT_CHANGED)
 ---@overload fun(eventFunction: fun(data: { playerId: ObjectId }), sysEventName: EVENT_PLAYER_ASTRAL_UNLOCK_CHANGED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_SCANNED_HUB_OBJECTS_CHANGED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 
@@ -132,25 +132,18 @@ function astral.GetSectorAstrolabeInfo( sectorId ) end
 ---@return ObjectId | nil # идентификатор точки астрального эвента в этом секторе, к которому мы хотим выполнить прыжок
 function astral.GetSectorDirectPOI( sectorId ) end
 
----@param sectorId ObjectId # идентификатор сектора
+---@param sectorId ObjectId | AstralSectionId # идентификатор сектора
 ---@return table<integer, ObjectId> # список идентификаторов секторов, связанных с данным
 function astral.GetSectorEdges( sectorId )end
 
----@param astralSectorId AstralSectorId
----@return nil | table<integer, AstralSectorId> # nil если нет информации; иначе список идентификаторов секторов (индексация начинается с 0), связанных с данным
-function astral.GetSectorEdgesById( astralSectorId ) end
-
----@param sectorId ObjectId # идентификатор сектора
----@return table<integer, ObjectId> # список идентификаторов секторов, связанных с данным
-function astral.GetSectorEdgesObsolete( sectorId ) end
-
----@param sectorId ObjectId # идентификатор сектора
+---@param sectorId ObjectId | AstralSectorId # идентификатор сектора
 ---@return nil | SectorInfo
 function astral.GetSectorInfo( sectorId ) end
 ---@alias SectorInfo { id: ObjectId, addonId: ObjectId | nil, name: WString | nil, description: ValuedText | nil, techLevel: integer, quality: ITEM_QUALITY, requiredUnlock: number, ticketsCount: number, maxServerProgress: number, number: integer, x: number, y: number, astrolabeVisible: boolean, mapVisible: boolean, allowChoiceLoot: boolean }
 
 ---@param astralSectorId AstralSectorId
 ---@return nil | SectorInfo
+---@deprecated
 function astral.GetSectorInfoById( astralSectorId ) end
 
 ---@param sectorId ObjectId # идентификатор сектора
@@ -163,6 +156,9 @@ function astral.GetSectorRelatedQuests( sectorId ) end
 
 ---@return table<integer, ObjectId> # список идентификаторов астральных юнитов (индексирован с 1)
 function astral.GetUnits() end
+
+---@return boolean # true, если игрок в астральном хабе
+function astral.IsInHub() end
 
 ---@param playerId ObjectId # идентификатор игрока
 ---@param sectorId ObjectId # идентификатор астрального сектора

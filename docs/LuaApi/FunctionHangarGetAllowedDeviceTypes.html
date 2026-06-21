@@ -18,8 +18,6 @@
 <p></p>
 <p>Возвращает список список устройств имеющихся в ангаре, доступных для покупки в режиме просмотра. Возможно получить только после разговора с НПС в ангаре</p>
 <p></p>
-<p>Типы устройств: <a href="EnumUsedev.html">USDEV_...</a></p>
-<p></p>
 <pre>
 -- библиотека:
 hangar
@@ -31,20 +29,15 @@ function GetAllowedDeviceTypes()
 нет
 
 -- возвращаемые значения -
-table of table - индексированный с 0 список типов устройств для продажи, каждый элемент - описание одного типа. Таблица с полями:
-  type: number (enum USDEV_...) - тип используемого устройства
-  soldDevices: table - индексированный с 0 список устройств этого типа, доступных для покупки. Таблица с полями:
-    deviceId: ObjectId - идентификатор устройства
-    currencyId: CurrencyId or nil - идентификатор альтернативной валюты, если стоимость выражена в ней/ Иначе стоимость выражена в деньгах
-    amount: number (integer) - стоимость устройства в валюте, если есть currencyId, или в меди (деньгах), если currencyId = nil
+table[1] of table - индексированный с 1 список устройств для продажи. Таблица с полями:
+  deviceId: ObjectId - идентификатор устройства
+  currencyId: CurrencyId or nil - идентификатор альтернативной валюты, если стоимость выражена в ней/ Иначе стоимость выражена в деньгах
+  amount: number (integer) - стоимость устройства в валюте, если есть currencyId, или в меди (деньгах), если currencyId = nil
 
 -- пример:
-local devicesTypes = hangar.GetAllowedDeviceTypes()
-for i, devicesType in pairs( devicesTypes ) do
-  for j, device in pairs( devicesType.soldDevices ) do
-    local deviceInfo = hangar.GetDeviceInfo( device.deviceId )
-    local deviceMoney = device.currencyId and 0 or device.amount
-  end
+for i, device in pairs( hangar.GetAllowedDeviceTypes() ) do
+  local deviceInfo = hangar.GetDeviceInfo( device.deviceId )
+  local deviceMoney = device.currencyId and 0 or device.amount
 end
 </pre>
 <p></p>

@@ -11,7 +11,7 @@
 
 ---@overload fun(eventFunction: fun(data: { id: ObjectId }), sysEventName: EVENT_PROFICIENCY_ADDED)
 ---@overload fun(eventFunction: fun(data: { id: ObjectId }), sysEventName: EVENT_PROFICIENCY_REMOVED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

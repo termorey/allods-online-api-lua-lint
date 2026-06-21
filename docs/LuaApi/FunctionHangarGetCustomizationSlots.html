@@ -29,12 +29,11 @@ function GetCustomizationSlots()
 нет
 
 -- возвращаемые значения -
-nil or table of ObjectId  - индексированная с 0 таблица идентификаторов слотов
+table of ObjectId  - индексированная с 1 таблица идентификаторов слотов
 
 -- пример:
-local slots = hangar.GetCustomizationSlots()
-if slots then
-  for i, slotId in pairs( slots ) do
+if hangar.CanCustomize() then
+  for i, slotId in ipairs( hangar.GetCustomizationSlots() ) do
     local slotInfo = hangar.GetCustomizationSlotInfo( slotId )
   end
 end

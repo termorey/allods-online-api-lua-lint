@@ -16,7 +16,7 @@
 <p></p>
 <h2> EVENT_MAILBOX_CHANGED_ON_SERVER</h2>
 <p></p>
-<p>Уведомление об изменении состояния почтового ящика на сервере. Означает, что данные на клиенте устарели и должны быть обновлены (см. <a href="FunctionMailBoxRequestMails.html"> mailBox.RequestMails( startIndex, count )</a> и <a href="FunctionMailBoxRequestMailInfo.html"> mailBox.RequestMailInfo( mailId )</a>), до обновления функции <a href="FunctionMailBoxGetMails.html"> mailBox.GetMails()</a> и <a href="FunctionMailBoxGetMail.html"> mailBox.GetMail( mailId )</a> будут возвращать nil.</p>
+<p>Уведомление об изменении состояния почтового ящика на сервере. Означает, что данные на клиенте устарели и должны быть обновлены (см. <a href="FunctionMailBoxRequestMails.html"> mailBox.RequestMails( startIndex, count )</a> и  mailBox.RequestMailInfo( mailId ) (закрытая ссылка)), до обновления функции <a href="FunctionMailBoxGetMails.html"> mailBox.GetMails()</a> и <a href="FunctionMailBoxGetMail.html"> mailBox.GetMail( mailId )</a> будут возвращать nil.</p>
 <p></p>
 <pre>
 -- поля
@@ -26,7 +26,7 @@
 <p>См. также</p>
 <p></p>
 <ul><li><p> <a href="FunctionMailBoxRequestMails.html"> mailBox.RequestMails( startIndex, count )</a></p></li></ul>
-<ul><li><p> <a href="FunctionMailBoxRequestMail.html"> mailBox.RequestMail( mailId )</a></p></li></ul>
+<ul><li><p>  mailBox.RequestMail( mailId ) (закрытая ссылка)</p></li></ul>
 <p></p>
 <h4>Search: "CategoryLuaApi" "CategoryMailBox"</h4>
 <p></p>
@@ -47,10 +47,8 @@
 <br><a href="EventMailReturnResult.html">EventMailReturnResult</a>
 <br><a href="EventMailsChanged.html">EventMailsChanged</a>
 <br><a href="FunctionMailBoxClose.html">FunctionMailBoxClose</a>
-<br><a href="FunctionMailBoxDeleteMail.html">FunctionMailBoxDeleteMail</a>
 <br><a href="FunctionMailBoxExtractMailItems.html">FunctionMailBoxExtractMailItems</a>
 <br><a href="FunctionMailBoxExtractMailMoney.html">FunctionMailBoxExtractMailMoney</a>
-<br><a href="FunctionMailBoxFirstPage.html">FunctionMailBoxFirstPage</a>
 <br><a href="FunctionMailBoxGetInfo.html">FunctionMailBoxGetInfo</a>
 <br><a href="FunctionMailBoxGetLimits.html">FunctionMailBoxGetLimits</a>
 <br><a href="FunctionMailBoxGetMail.html">FunctionMailBoxGetMail</a>
@@ -58,14 +56,8 @@
 <br><a href="FunctionMailBoxIsActive.html">FunctionMailBoxIsActive</a>
 <br><a href="FunctionMailBoxIsInteracting.html">FunctionMailBoxIsInteracting</a>
 <br><a href="FunctionMailBoxIsReady.html">FunctionMailBoxIsReady</a>
-<br><a href="FunctionMailBoxNextPage.html">FunctionMailBoxNextPage</a>
 <br><a href="FunctionMailBoxOpen.html">FunctionMailBoxOpen</a>
-<br><a href="FunctionMailBoxPrevPage.html">FunctionMailBoxPrevPage</a>
-<br><a href="FunctionMailBoxReadMail.html">FunctionMailBoxReadMail</a>
-<br><a href="FunctionMailBoxRequestMail.html">FunctionMailBoxRequestMail</a>
 <br><a href="FunctionMailBoxRequestMailGroupOperation.html">FunctionMailBoxRequestMailGroupOperation</a>
-<br><a href="FunctionMailBoxRequestMailIds.html">FunctionMailBoxRequestMailIds</a>
-<br><a href="FunctionMailBoxRequestMailInfo.html">FunctionMailBoxRequestMailInfo</a>
 <br><a href="FunctionMailBoxRequestMails.html">FunctionMailBoxRequestMails</a>
 <br><a href="FunctionMailBoxReturnMailToSender.html">FunctionMailBoxReturnMailToSender</a>
 <br><a href="VoteId.html">VoteId</a>

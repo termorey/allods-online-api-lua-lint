@@ -10,8 +10,8 @@ itemLib = {}
 ---@alias ENUM_FloatingBudgetType_OffenceBudget unknown
 ---@alias ENUM_FloatingBudgetType ENUM_FloatingBudgetType_MainBudget | ENUM_FloatingBudgetType_DefenceBudget | ENUM_FloatingBudgetType_OffenceBudget
 
----@alias ENUM_SpecialStatType_Offence unknown -- атакующие
----@alias ENUM_SpecialStatType_Defence unknown -- защитные
+---@alias ENUM_SpecialStatType_Offence number -- атакующие
+---@alias ENUM_SpecialStatType_Defence number -- защитные
 ---@alias ENUM_SpecialStatType ENUM_SpecialStatType_Offence | ENUM_SpecialStatType_Defence
 
 ---@alias ENUM_ToolProperty
@@ -34,7 +34,7 @@ itemLib = {}
 ---@alias EVENT_ITEM_RELATED_QUESTS_CHANGED "EVENT_ITEM_RELATED_QUESTS_CHANGED"
 
 ---@overload fun(eventFunction: fun(data: { itemId: ObjectId }), sysEventName: EVENT_ITEM_RELATED_QUESTS_CHANGED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 
@@ -79,10 +79,6 @@ function itemLib.CanUseOnItem( sourceId, targerId ) end
 ---@param mountId ObjectId
 ---@return nil | boolean
 function itemLib.CanUseOnMount( itemId, mountId ) end
-
----@param itemId ObjectId
----@return integer
-function itemLib.CountSimilarItemInBag( itemId ) end
 
 ---@param itemId ObjectId
 ---@return nil | table<integer, { actionGroupId: ActionGroupId | nil, statBonuses: table<ENUM_InnateStats, number | nil> }>
@@ -151,15 +147,11 @@ function itemLib.GetClassInfo( itemClassId ) end
 function itemLib.GetCompatibleSlots( itemId ) end
 
 ---@param itemId ObjectId
----@return nil | { slot: integer, slotType: ITEM_CONT }
-function itemLib.GetContainerInfo( itemId ) end
-
----@param itemId ObjectId
 ---@return nil | { count: integer, limit: integer }
 function itemLib.GetCountInfo( itemId ) end
 
 ---@param itemResourceId ItemId
----@return { isCoupon: boolean, items: nil | table<integer, ItemId> }
+---@return { isCoupon: false, items: nil } | { isCoupon: true, items: table<integer, ItemId> }
 function itemLib.GetCouponInfo( itemResourceId ) end
 
 ---@param itemId ObjectId
@@ -178,6 +170,10 @@ function itemLib.GetDestroyValue( itemId ) end
 ---@param ignoredConditions? ENUM_DressResult[]
 ---@return { sysFirstCondition: ENUM_DressResult, failedConditions: table<ENUM_DressResult, true> }
 function itemLib.GetDressConditions( itemId, ignoredConditions ) end
+
+---@param objectId integer # идентификатор предмета
+---@return DRESS_SLOT # номер слота экипировки
+function itemLib.GetDressSlot( objectId ) end
 
 ---@param itemId ObjectId
 ---@param dressSlot integer
@@ -206,10 +202,6 @@ function itemLib.GetExtraDescsRatings( itemId ) end
 function itemLib.GetGearScore( itemId ) end
 
 ---@param itemId ObjectId
----@return integer
-function itemLib.GetInBagStackCount( itemId ) end
-
----@param itemId ObjectId
 ---@return nil | { type: ENUM_BeastType, sysType: ENUM_BeastType, mob: { name: WString, title: WString, description: WString, kind: { race: ENUM_CreatureRace, sysRace: ENUM_CreatureRace } } }
 function itemLib.GetIncludedMob( itemId ) end
 
@@ -218,7 +210,7 @@ function itemLib.GetIncludedMob( itemId ) end
 function itemLib.GetIncludedMountSkin( itemId ) end
 
 ---@param itemId ObjectId
----@return nil | { id: ObjectId, name: WString, description: ValuedText | nil, dressSlot: DRESS_SLOT, sysName: string, level: integer, forceShowLevel: boolean, requiredLevel: integer, requiredReputationLevel: REPUTATION_LEVEL, requiredReputationQuantity: integer, isRitual: boolean, debugName: string, icon: TextureId, isDoubleHands: boolean, isIgnoreDressSlotLevel: boolean, isDressable: boolean, isUsable: boolean, isWeapon: boolean, isGuildItem: boolean, buyConfirmationRequired: boolean, needCheckPredicates: boolean, showOnlyIconInLink: boolean }
+---@return nil | { id: ObjectId, name: WString, description: ValuedText | nil, sourceDescription: GlossaryId | nil, dressSlot: DRESS_SLOT, sysName: string, level: integer, forceShowLevel: boolean, requiredLevel: integer, requiredReputationLevel: REPUTATION_LEVEL, requiredReputationQuantity: integer, isRitual: boolean, debugName: string, icon: TextureId, isDoubleHands: boolean, isIgnoreDressSlotLevel: boolean, isDressable: boolean, isUsable: boolean, isWeapon: boolean, isGuildItem: boolean, buyConfirmationRequired: boolean, needCheckPredicates: boolean, showOnlyIconInLink: boolean }
 function itemLib.GetItemInfo( itemId ) end
 
 ---@param itemId ObjectId
@@ -238,10 +230,6 @@ function itemLib.GetName( itemId ) end
 ---@return integer
 function itemLib.GetOverallCount( itemId ) end
 
----@param itemId ItemId
----@return table<integer, ObjectId>
-function itemLib.GetOverallItemsByResource( itemId ) end
-
 ---@param itemId ObjectId
 ---@return integer
 function itemLib.GetOverallStackCount( itemId ) end
@@ -255,7 +243,7 @@ function itemLib.GetOwnershipLimit( itemId ) end
 function itemLib.GetPriceInfo( itemId ) end
 
 ---@param itemId ObjectId
----@return nil | { quality: ITEM_QUALITY, forceShow: boolean }
+---@return nil | { quality: ITEM_QUALITY, isNeedVisualize: boolean, isCursed: boolean, hasSetBonus: boolean }
 function itemLib.GetQuality( itemId ) end
 
 ---@param itemId ObjectId
@@ -268,6 +256,13 @@ function itemLib.GetResourceId( itemId ) end
 
 ---@return table<integer, ItemCategoryId>
 function itemLib.GetRootCategories() end
+
+---@return nil | { hasSetBonus: boolean, name: nil | WString, description: nil | ValuedText, loreDescription: nil | WString, sourceDescription: nil | GlossaryId }
+function itemLib.GetSetBonusInfo( itemId ) end
+
+---@param itemId ObjectId # идентификатор предмета
+---@return nil | { name: WString, description: ValuedText, loreDescription: WString, sourceDescription: GlossaryId }
+function itemLib.GetSetBonusRoot() end
 
 ---@param itemId ObjectId
 ---@return nil | { level: integer, zodiacSignId: ZodiacSignId, offensiveBonus: number, defensiveBonus: number, upgradedRuneItem: nil | ObjectId }
@@ -320,12 +315,12 @@ function itemLib.GetUsageOnItemInfo( itemId, targetItemId ) end
 function itemLib.GetUsageOnMountInfo( itemId, mountId ) end
 
 ---@param itemId ObjectId
----@return { sysIndex: integer, consumeItems: integer, usageDesc: WString | nil, usageImage: TextureId | nil, givenAltCurrency: CurrencyId | nil, givenItem: unknown | nil, givenCount: number | nil, givenUnlock: ObjectId | nil, maxStack: integer | nil }
+---@return { sysIndex: integer, consumeItems: integer, usageDesc: WString | nil, usageImage: TextureId | nil, givenAltCurrency: CurrencyId | nil, givenItem: unknown | nil, givenCount: number | nil, givenUnlock: UnlockId | nil, maxStack: integer | nil }
 function itemLib.GetUsagesItemInfo( itemId ) end
 
 ---@param itemId ObjectId
 ---@param targetItemId ObjectId
----@return { sysIndex: integer, consumeUsedItem: integer, consumeTargetItem: integer, usageDesc: WString | nil, usageImage: TextureId | nil, givenAltCurrency: CurrencyId | nil, givenItem: unknown | nil, givenCount: number | nil, givenUnlock: ObjectId | nil }
+---@return { sysIndex: integer, consumeUsedItem: integer, consumeTargetItem: integer, usageDesc: WString | nil, entryWarningUseText: WString | nil, usageImage: TextureId | nil, givenAltCurrency: CurrencyId | nil, givenItem: unknown | nil, givenCount: number | nil, givenUnlock: UnlockId | nil }
 function itemLib.GetUsagesOnItemInfo( itemId, targetItemId ) end
 
 ---@param itemId ObjectId
@@ -437,3 +432,11 @@ function itemLib.IsUserChoice( itemId ) end
 ---@param itemId ObjectId
 ---@return boolean
 function itemLib.IsWeapon( itemId ) end
+
+---@param itemId ObjectId # идентификатор предмета
+---@return boolean # true если гильдейский компонент есть
+function itemLib.HasGuildComponent( itemId ) end
+
+---@param itemId ObjectId # идентификатор предмета
+---@return nil | QuestId | ObjectId
+function itemLib.HasRelatedQuestObjectives( itemId ) end

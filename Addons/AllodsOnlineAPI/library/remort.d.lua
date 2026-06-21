@@ -28,7 +28,7 @@ remortCreation = {}
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_REMORT_VARIATIONS_INFO_CHANGED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_REMORT_CHARACTER_SCENE_CAMERA_READY)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_REMORT_ZOOM_TRIGGER_CHANGED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

@@ -20,7 +20,7 @@
 <p></p>
 <pre>
 -- система:
-UIState - расширенная информация, GameState - базовая информация
+GameState
 
 -- библиотека:
 cartographer
@@ -34,11 +34,10 @@ markerId: InterfaceMapMarkerId - идентификатор ресурса ма�
 -- возвращаемые значения
 table or nil - если такой тип маркера найден, то таблица с полями:
   name: WString - название типа маркера
+  syaName: string - системное имя типа маркера, для специальной обработки в скриптах
   description: WString - описание типа маркера
   priority: number (integer) - приоритет такого маркера. Используется, если для одного объекта обнаружено несколько типов маркеров. Минимальный приоритет 0.
---{ часть таблицы, реализованная только для UI
   image: TextureId - идентификатор текстуры иконки типа маркера
---}
 </pre>
 <p></p>
 <p>Пример:</p>
@@ -66,6 +65,7 @@ end
 <br><a href="FunctionCartographerGetCurrentZoneInfo.html">FunctionCartographerGetCurrentZoneInfo</a>
 <br><a href="FunctionCartographerGetMapBlockInfo.html">FunctionCartographerGetMapBlockInfo</a>
 <br><a href="FunctionCartographerGetMapBlocks.html">FunctionCartographerGetMapBlocks</a>
+<br><a href="FunctionCartographerGetMapGeodata.html">FunctionCartographerGetMapGeodata</a>
 <br><a href="FunctionCartographerGetMapMarkerObjects.html">FunctionCartographerGetMapMarkerObjects</a>
 <br><a href="FunctionCartographerGetMapMarkers.html">FunctionCartographerGetMapMarkers</a>
 <br><a href="FunctionCartographerGetMapModifierInfo.html">FunctionCartographerGetMapModifierInfo</a>

@@ -60,9 +60,10 @@ table or nil - таблица с информацией о персонаже и
   profit: table или nil - nil если нет информации; иначе данные о заработанных для гильдии ресурсах в виде списка (индексированного начиная от 0) таблиц с полями:
     key: CurrencyId - идентификатор валюты
     value: table - таблица с полями:
+      profitLongPeriod : number (integer) - количество валюты за текущий месяц
+      profitMediumPeriod : number (integer) - количество валюты за текущую неделю (начиная с четверга)
+      profitShortPeriod : number (integer) - количество валюты за текущий день
       totalProfit: number (integer) - количество валюты за всё время
-      profitForPeriod: number (integer) - количество валюты за текущую неделю (начиная с четверга)
-
 -- пример:
 local members = guild.GetMembers()
 if members[ 0 ] then
