@@ -13,7 +13,7 @@
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_SPELLBOOK_CHANGED)
 ---@overload fun(eventFunction: fun(data: { id: ObjectId }), sysEventName: EVENT_SPELLBOOK_ELEMENT_ADDED)
 ---@overload fun(eventFunction: fun(data: { id: SpellId }), sysEventName: EVENT_SPELLBOOK_ELEMENT_CHANGED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

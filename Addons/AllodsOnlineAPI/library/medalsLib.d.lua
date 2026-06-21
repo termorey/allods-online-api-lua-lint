@@ -26,7 +26,7 @@ medalsLib = {}
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_MEDALS_CHANGED)
 ---@overload fun(eventFunction: fun(data: table<integer, MedalRankId>), sysEventName: EVENT_MEDALS_SEARCH_RESULTS)
 ---@overload fun(eventFunction: fun(data: { id: ObjectId, avatarName: WString }), sysEventName: EVENT_MEMBER_MEDAL_FINISHED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

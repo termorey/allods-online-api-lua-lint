@@ -22,7 +22,7 @@ order = {}
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_ORDER_CHANGED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_ORDER_INFO_CHANGED)
 ---@overload fun(eventFunction: fun(data: { isOk: boolean, result: string }), sysEventName: EVENT_ORDER_VOTE_ANSWER)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

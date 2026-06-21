@@ -25,7 +25,7 @@
 ---@overload fun(eventFunction: fun(data: { allodId: ObjectId | nil, allod: WString, newOwner: WString, oldOwner: WString }), sysEventName: EVENT_GUILD_ALLOD_OWNER_CHANGED)
 ---@overload fun(eventFunction: fun(data: { allodId: ObjectId }), sysEventName: EVENT_GUILD_ALLOD_TELEPORT_COOLDOWN_FINISHED)
 ---@overload fun(eventFunction: fun(data: { allodId: ObjectId, duration: integer, remaining: integer }), sysEventName: EVENT_GUILD_ALLOD_TELEPORT_COOLDOWN_STARTED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

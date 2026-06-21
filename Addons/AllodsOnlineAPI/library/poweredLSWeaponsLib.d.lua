@@ -14,7 +14,7 @@ poweredLSWeaponsLib = {}
 
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_POWEREDLSWEAPONS_CHANGED)
 ---@overload fun(eventFunction: fun(data: { itemId: ObjectId, slot: integer }), sysEventName: EVENT_POWEREDLSWEAPONS_ITEM_ADDED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

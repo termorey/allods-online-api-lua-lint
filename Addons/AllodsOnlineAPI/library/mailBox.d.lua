@@ -70,7 +70,7 @@ mailBox = {}
 ---@overload fun(eventFunction: fun(data: { sysResult: ENUM_MailServiceReply, mailId: ObjectId }), sysEventName: EVENT_MAIL_EXTRACT_MONEY_RESULT)
 ---@overload fun(eventFunction: fun(data: { sysResult: ENUM_MailServiceReply, mailId: ObjectId }), sysEventName: EVENT_MAIL_RETURN_RESULT)
 ---@overload fun(eventFunction: fun(data: table<integer, ObjectId>), sysEventName: EVENT_MAILS_CHANGED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

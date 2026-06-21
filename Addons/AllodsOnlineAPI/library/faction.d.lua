@@ -13,7 +13,7 @@
 
 ---@overload fun(eventFunction: fun(data: { isLevelUp: boolean, noDiscard: boolean }), sysEventName: EVENT_PRIDEN_FACTION_CHOICE)
 ---@overload fun(eventFunction: fun(data: { unitId: ObjectId }), sysEventName: EVENT_UNIT_FACTION_CHANGED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

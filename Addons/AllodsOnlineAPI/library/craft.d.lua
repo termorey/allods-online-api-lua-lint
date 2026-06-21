@@ -42,7 +42,7 @@ craft = {}
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_REFORGE_RESULT)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_REFORGE_RESULT_FAIL)
 ---@overload fun(eventFunction: fun(data: { itemId: ObjectId }), sysEventName: EVENT_REFORGE_RESULT_READY)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

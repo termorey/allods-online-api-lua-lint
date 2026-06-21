@@ -17,7 +17,7 @@
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_HEARTHSTONE_CREATED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_HEARTHSTONE_DESTROYED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_HEARSTONE_LOCATOR_CHANGED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

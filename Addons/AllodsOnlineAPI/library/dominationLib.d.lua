@@ -42,7 +42,7 @@ dominationLib = {}
 ---@overload fun(eventFunction: fun(data: { id: ObjectId, team: ENUM_DominationFightTeam }), sysEventName: EVENT_DOMINATION_OBJECTIVE_TEAM_CHANGED)
 ---@overload fun(eventFunction: fun(data: { id: ObjectId, timeSwitched: number }), sysEventName: EVENT_DOMINATION_OBJECTIVE_TIME_SWITCHED_CHANGED)
 ---@overload fun(eventFunction: fun(data: { id: ObjectId, timeToCapture: number }), sysEventName: EVENT_DOMINATION_OBJECTIVE_TIME_TO_CAPTURE_CHANGED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

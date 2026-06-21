@@ -60,7 +60,7 @@ interaction = {}
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_ITEMS_EXCHANGE_SLOT_IS_BUSY)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_ITEMS_EXCHANGE_STARTED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_ITEMS_EXCHANGE_STATE_CHANGED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

@@ -49,7 +49,7 @@ astral = {}
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_ISLAND_DEATH_LIMIT_CHANGED)
 ---@overload fun(eventFunction: fun(data: { playerId: ObjectId }), sysEventName: EVENT_PLAYER_ASTRAL_UNLOCK_CHANGED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_SCANNED_HUB_OBJECTS_CHANGED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

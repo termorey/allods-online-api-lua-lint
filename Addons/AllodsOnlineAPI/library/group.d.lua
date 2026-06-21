@@ -80,7 +80,7 @@ group = {}
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_READY_CHECK_ENDED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_READY_CHECK_INFO_CHANGED)
 ---@overload fun(eventFunction: fun(data: { initiatorId: UniqueId }), sysEventName: EVENT_READY_CHECK_STARTED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

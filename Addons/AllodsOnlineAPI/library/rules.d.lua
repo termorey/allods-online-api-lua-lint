@@ -52,7 +52,7 @@ rules = {}
 ---@overload fun(eventFunction: fun(data: { ruleId: ObjectId | nil }), sysEventName: EVENT_NEWS_POST_SELECTED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_WISHMASTER_CHANGED)
 ---@overload fun(eventFunction: fun(data: { resourceId: WishmasterResourceId }), sysEventName: EVENT_WISHMASTER_MULTIPLYING)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

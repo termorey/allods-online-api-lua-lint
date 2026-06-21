@@ -45,7 +45,7 @@
 ---@overload fun(eventFunction: fun(data: { text: WString }), sysEventName: EVENT_UNKNOWN_SLASH_COMMAND)
 ---@overload fun(eventFunction: fun(data: { value: integer, rewards: table<integer, { value: integer, name: WString }> }), sysEventName: EVENT_VETERANRANKS_COMMAND_RESPONSE)
 ---@overload fun(eventFunction: fun(data: { name: WString, sysReason: ENUM_EnumRequestAddressByNameFailCause }), sysEventName: EVENT_WHISPER_FAILED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

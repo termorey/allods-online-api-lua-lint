@@ -20,7 +20,7 @@ wtControl3D = {}
 ---@alias EVENT_CANNOT_ATTACH_WIDGET_3D "EVENT_CANNOT_ATTACH_WIDGET_3D"
 
 ---@overload fun(eventFunction: fun(data: { objectId: ObjectId }), sysEventName: EVENT_CANNOT_ATTACH_WIDGET_3D)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

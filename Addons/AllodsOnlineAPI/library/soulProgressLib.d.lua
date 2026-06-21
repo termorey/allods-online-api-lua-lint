@@ -20,7 +20,7 @@ soulProgressLib = {}
 ---@overload fun(eventFunction: fun(data: { slot: integer }), sysEventName: EVENT_INVENTORY_GEMS_SLOT_REMOVED)
 ---@overload fun(eventFunction: fun(data: { currentValue: integer, deltaValue: integer, currentLevel: integer, deltaLevel: integer }), sysEventName: EVENT_SOUL_PROGRESS_EXPERIENCE_CHANGED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_SOUL_PROGRESS_TALENTS_CHANGED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

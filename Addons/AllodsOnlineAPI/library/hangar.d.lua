@@ -54,7 +54,7 @@ hangar = {}
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_SHIP_CUSTOMIZING_STARTED)
 ---@overload fun(eventFunction: fun(data: { hasName: boolean, oldName: WString }), sysEventName: EVENT_TRANSPORT_RENAME_REPLY)
 ---@overload fun(eventFunction: fun(data: { success: boolean, sysNameErrorKind: ENUM_InvalidNameKind, name: WString }), sysEventName: EVENT_TRANSPORT_RENAME_REPLY_RESULT)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

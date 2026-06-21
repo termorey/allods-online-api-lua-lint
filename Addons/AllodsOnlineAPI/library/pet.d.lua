@@ -25,7 +25,7 @@
 ---@overload fun(eventFunction: fun(data: { palyerId: ObjectId }), sysEventName: EVENT_PARTY_MEMBER_ACTIVE_PET_CHANGED)
 ---@overload fun(eventFunction: fun(data: { id: ObjectId }), sysEventName: EVENT_PET_INFO_CHANGED)
 ---@overload fun(eventFunction: fun(data: { id: ObjectId }), sysEventName: EVENT_UNIT_FOLLOWERS_LIST_CHANGED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

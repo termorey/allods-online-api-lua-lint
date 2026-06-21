@@ -79,7 +79,7 @@ social = {}
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_BEST_FRIEND_TELEPORT_STATE_CHANGED)
 ---@overload fun(eventFunction: fun(data: { status: ENUM_CreateRevivalRollResultStatus }), sysEventName: EVENT_REVIVAL_ROLL_RESULT)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_REVIVALS_CHANGED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

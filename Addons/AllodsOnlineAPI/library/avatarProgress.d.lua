@@ -27,7 +27,7 @@
 ---@overload fun(eventFunction: fun(data: { type: ENUM_DevelopmentTrack, sysType: ENUM_DevelopmentTrack }), sysEventName: EVENT_BONUS_POOL_CHANGED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_BONUS_POOLS_CHANGED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_GLOBAL_RATES_CHANGED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

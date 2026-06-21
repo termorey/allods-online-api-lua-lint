@@ -21,7 +21,7 @@
 ---@overload fun(eventFunction: fun(data: { srcWidget: WidgetSafe, srcId: integer, targetWidget: WidgetSafe | nil, targetId: integer, kbFlags: KBF }), sysEventName: EVENT_DND_DROP_ATTEMPT)
 ---@overload fun(eventFunction: fun(data: { srcWidget: WidgetSafe, srcId: integer, posX: integer, posY: integer, kbFlags: KBF }), sysEventName: EVENT_DND_PICK_ATTEMPT)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_GROUP_INVITE_END)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ METHODS --]]
 

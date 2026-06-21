@@ -68,7 +68,7 @@ raid = {}
 ---@overload fun(eventFunction: fun(data: { id: ObjectId }), sysEventName: EVENT_RAID_MEMBER_POSITION_UPDATED)
 ---@overload fun(eventFunction: fun(data: { name: WString, id: ObjectId | nil, uniqueId: UniqueId | nil }), sysEventName: EVENT_RAID_MEMBER_REMOVED)
 ---@overload fun(eventFunction: fun(data: { timeoutMs: integer, mapName: WString | nil }), sysEventName: EVENT_RAID_SAVE_MAP_QUESTION)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

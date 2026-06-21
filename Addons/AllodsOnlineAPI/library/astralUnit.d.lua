@@ -18,7 +18,7 @@ astralUnit = {}
 ---@overload fun(eventFunction: fun(data: { id: ObjectId }), sysEventName: EVENT_ASTRAL_UNIT_AGGRO_CHANGED)
 ---@overload fun(eventFunction: fun(data: { unitId: ObjectId }), sysEventName: EVENT_ASTRAL_UNIT_POS_CHANGED)
 ---@overload fun(eventFunction: fun(data: { spawned: table<integer, ObjectId>, despawned: table<integer, ObjectId> }), sysEventName: EVENT_ASTRAL_UNITS_CHANGED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

@@ -24,7 +24,7 @@ spellLib = {}
 ---@alias EVENT_SPELL_LANDED_NO_TARGET "EVENT_SPELL_LANDED_NO_TARGET"
 
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_SPELL_LANDED_NO_TARGET)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

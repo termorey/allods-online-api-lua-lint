@@ -23,7 +23,7 @@
 ---@overload fun(eventFunction: fun(data: { sysResult: ENUM_BoxOperationResult }), sysEventName: EVENT_BOX_OPERATION_RESULT)
 ---@overload fun(eventFunction: fun(data: { effect: EFFECT_TYPE, slot: integer, slotType: ITEM_CONT } | { effect: EFFECT_TYPE_COOLDOWN_STARTED, duration: integer, remaining: integer }), sysEventName: EVENT_INVENTORY_ITEM_EFFECT)
 ---@overload fun(eventFunction: fun(data: { slot: integer, itemId: ObjectId | nil }), sysEventName: EVENT_ITEM_QUESTS_RECEIVED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

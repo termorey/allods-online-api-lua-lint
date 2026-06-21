@@ -76,7 +76,7 @@ matchMaking = {}
 ---@overload fun(eventFunction: fun(data: { eventId: ObjectId | nil }), sysEventName: EVENT_MATCH_MAKING_MEMBERS_ROLES_CHANGED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_MATCH_MAKING_PROGRESS_ACHIEVEMENTS_CHANGED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_MATCH_MAKING_PROGRESS_MEMBERS_ACHIEVEMENTS_CHANGED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

@@ -25,7 +25,7 @@
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_ALCHEMY_RECIPES_CHANGED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_ALCHEMY_SCORE_CHANGED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_ALCHEMY_STARTED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

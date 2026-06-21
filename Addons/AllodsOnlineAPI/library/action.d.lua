@@ -328,6 +328,6 @@
 ---@overload fun(eventFunction: fun(data: table<integer, { text: WString, delayMs: integer }>), sysEventName: EVENT_SHOW_SUBTITLES)
 ---@overload fun(eventFunction: fun(data: { cause: TAKE_ITEMS_RESULT }), sysEventName: EVENT_TAKE_ITEMS_FAILED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_FORAGING_FAILED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]

@@ -62,7 +62,7 @@ transport = {}
 ---@overload fun(eventFunction: fun(data: { id: ObjectId, side: SHIP_SIDE, strengthDelta: integer }), sysEventName: EVENT_TRANSPORT_SHIELD_CHANGED)
 ---@overload fun(eventFunction: fun(data: { objectId: ObjectId }), sysEventName: EVENT_TRANSPORT_SHIP_INFO_CHANGED)
 ---@overload fun(eventFunction: fun(data: { id: ObjectId }), sysEventName: EVENT_TRANSPORT_VERTICAL_VELOCITY_CHANGED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

@@ -246,7 +246,7 @@ guildHallLib = {}
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_GUILD_TEXTURE_CHANGED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_GUILD_UNLOCKED_LEVEL_CHANGED)
 ---@overload fun(eventFunction: fun(data: { unitId: ObjectId }), sysEventName: EVENT_UNIT_GUILD_CHANGED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

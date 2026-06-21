@@ -17,7 +17,7 @@
 ---@overload fun(eventFunction: fun(data: { skillId: SkillId }), sysEventName: EVENT_SKILL_REMOVED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_SKILLS_CHANGED)
 ---@overload fun(eventFunction: fun(data: { skillId: SkillId }), sysEventName: EVENT_SKILL_SCORE_CHANGED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

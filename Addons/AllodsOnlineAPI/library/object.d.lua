@@ -39,7 +39,7 @@ object = {}
 ---@overload fun(eventFunction: fun(data: { id: ObjectId }), sysEventName: EVENT_OBJECT_UIINFO_REMOVED)
 ---@overload fun(eventFunction: fun(data: { id: ObjectId, simplified: boolean, moveByClick: boolean, primary: boolean, dbClock: boolean, kbfFlags: KBF }), sysEventName: EVENT_PICK_OBJECT)
 ---@overload fun(eventFunction: fun(data: table<integer, ObjectId>), sysEventName: EVENT_PROJECTED_OBJECTS_CHANGED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

@@ -108,7 +108,7 @@
 ---@overload fun(eventFunction: fun(data: { effect: EFFECT_TYPE, slot: integer, slotType: ITEM_CONT }), sysEventName: EVENT_EQUIPMENT_ITEM_EFFECT)
 ---@overload fun(eventFunction: fun(data: { unitID: ObjectId }), sysEventName: EVENT_EQUIPMENT_RITUAL_ENABLE_CHANGED)
 ---@overload fun(eventFunction: fun(data: { unitID: ObjectId, slotType: ITEM_CONT }), sysEventName: EVENT_UNIT_EQUIPMENT_CHANGED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

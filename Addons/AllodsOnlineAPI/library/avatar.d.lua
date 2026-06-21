@@ -405,7 +405,7 @@ guild = {}
 ---@overload fun(eventFunction: fun(data: { itemId: ObjectId }), sysEventName: EVENT_VENDOR_ITEM_NOT_FOR_SALE)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_VENDOR_LIST_UPDATED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_VICTIM_TRACKER_CHANGED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal) end
 
 --[[ FUNCTIONS --]]
 

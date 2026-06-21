@@ -23,7 +23,7 @@ changeRoom = {}
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_CHANGE_ROOM_CHARACTER_SCENE_CAMERA_READY)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_CHANGE_ROOM_STARTED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_CHANGE_ROOM_ZOOM_TRIGGER_CHANGED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

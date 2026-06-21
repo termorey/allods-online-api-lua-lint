@@ -31,7 +31,7 @@ containerLib = {}
 ---@overload fun(eventFunction: fun(data: { effect: EFFECT_TYPE, itemId: ObjectId, slot: integer, slotType: ITEM_CONT } | { effect: EFFECT_TYPE_COOLDOWN_STARTED, itemId: ObjectId, slot: integer, slotType: ITEM_CONT, duration: integer, remaining: integer }), sysEventName: EVENT_CONTAINER_ITEM_EFFECT)
 ---@overload fun(eventFunction: fun(data: { ownerId: ObjectId, slotType: ITEM_CONT, slot: integer, sysName: string, isRemovedItem: boolean }), sysEventName: EVENT_CONTAINER_ITEM_REMOVED)
 ---@overload fun(eventFunction: fun(data: { slotType: ITEM_CONT }), sysEventName: EVENT_EQUIPMENT_ACTIVATE)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

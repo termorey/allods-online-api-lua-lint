@@ -27,7 +27,7 @@ runeLib = {}
 ---@alias EVENT_RUNE_OPERATION_RESULT "EVENT_RUNE_OPERATION_RESULT"
 
 ---@overload fun(eventFunction: fun(data: { sysResult: ENUM_RuneOperationResult }), sysEventName: EVENT_RUNE_OPERATION_RESULT)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

@@ -25,7 +25,7 @@ options = {}
 ---@alias EVENT_OPTION_CHANGED "EVENT_OPTION_CHANGED"
 
 ---@overload fun(eventFunction: fun(data: { sysCustomId: string }), sysEventName: EVENT_OPTION_CHANGED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

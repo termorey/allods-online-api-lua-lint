@@ -18,7 +18,7 @@ wheelOfLoot = {}
 ---@overload fun(eventFunction: fun(data: { wheelId: number }), sysEventName: EVENT_WHEELOFLOOT_CHANGED)
 ---@overload fun(eventFunction: fun(data: { wheelId: number, slots: table<integer, GameId>, prizes: table<integer, GameId> }), sysEventName: EVENT_WHEELOFLOOT_ITEMS)
 ---@overload fun(eventFunction: fun(data: { wheelId: number }), sysEventName: EVENT_WHEELOFLOOT_REMOVED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

@@ -30,7 +30,7 @@ mentor = {}
 ---@overload fun(eventFunction: fun(data: { mentorId: ObjectId }), sysEventName: EVENT_MENTOR_INFO_CHANGED)
 ---@overload fun(eventFunction: fun(data: { mentorId: ObjectId }), sysEventName: EVENT_MENTOR_MESSAGE_CHANGED)
 ---@overload fun(eventFunction: fun(data: { mentorPlayerId: ObjectId }), sysEventName: EVENT_MENTOR_PLAYER_INFO_CHANGED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

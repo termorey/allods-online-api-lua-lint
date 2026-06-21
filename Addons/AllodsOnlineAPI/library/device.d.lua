@@ -91,7 +91,7 @@ device = {}
 ---@overload fun(eventFunction: fun(data: { id: ObjectId }), sysEventName: EVENT_SHIELD_REGEN_IN_PROGRESS_CHANGED)
 ---@overload fun(eventFunction: fun(data: { id: ObjectId, strengthDelta: integer }), sysEventName: EVENT_SHIELD_STRENGTH_CHANGED)
 ---@overload fun(eventFunction: fun(data: { spawned: table<integer, ObjectId>, despawned: table<integer, ObjectId> }), sysEventName: EVENT_USABLE_DEVICES_CHANGED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

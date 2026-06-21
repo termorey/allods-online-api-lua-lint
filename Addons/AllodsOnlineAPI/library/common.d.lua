@@ -393,9 +393,9 @@ function common.QuitGame() end
 ---RegisterEventHandler
 ---@param eventFunction function # функция-обработчик
 ---@param sysEventName string # название события
----@param params? (ObjectId | table) # необязательный параметр (можно опустить) с таблицей описывающей фильтр сообщения или идентификатор объекта
----@param requireMainThread? boolean # необязательный параметр, указывает клиенту на то, что при обработке события будет вызван "непотокобезопасный" код и событие нужно обработать в основном потоке; для аддонов разработчиков по умолчанию false; для аддонов пользователей всегда true
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+---@param filter? table | nil # фильтр сообщения или nil (по умолчанию, без фильтрации)
+---@param registerPersonal? boolean | nil # автоматически активировать personalEvents если это применимо (по умолчанию true).
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 ---@param handlerFunction function # функция-обработчик соответствующая шаблону
 ---@param needHit boolean # требуется ли взводить флаг для вызова обработчика

@@ -18,7 +18,7 @@ mwar = {}
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_MWAR_LADDER_CHANGED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_MWAR_QUEUE_CHANGED)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_MWAR_RATING_PROGRESS_CHANGED)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 

@@ -14,7 +14,7 @@
 
 ---@overload fun(eventFunction: fun(data: { sysName: string, status: ENUM_ADDON_HEALTH_STATUS }), sysEventName: EVENT_ADDON_HEALTH_CHANGED)
 ---@overload fun(eventFunction: fun(data: { sysName: WString, timeMs: string, deltaFps: number, maxDeltaFps: number }), sysEventName: EVENT_ADDON_REDUCE_PERFOMANCE)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS ]]
 

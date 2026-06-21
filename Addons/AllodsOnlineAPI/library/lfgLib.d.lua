@@ -48,7 +48,7 @@ lfgLib = {}
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_LFG_LEAVE)
 ---@overload fun(eventFunction: fun(data: { initiator: WString, type: ENUM_LFGVoteType, destination: LfgDestinationId | nil, endTimeMs: number, roles: table<integer, ENUM_LFGRole> }), sysEventName: EVENT_LFG_VOTE)
 ---@overload fun(eventFunction: fun(), sysEventName: EVENT_LFG_VOTE_TERMINATE)
-function common.RegisterEventHandler( eventFunction, sysEventName, params, requireMainThread ) end
+function common.RegisterEventHandler( eventFunction, sysEventName, filter, registerPersonal ) end
 
 --[[ FUNCTIONS --]]
 
