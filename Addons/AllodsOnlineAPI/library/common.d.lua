@@ -446,8 +446,9 @@ function common.UnRegisterEvent( sysEventName ) end
 ---UnRegisterEventHandler
 ---@param eventHandler function # функция-обработчик
 ---@param sysEventName string # название события
----@param params? (table | ObjectId) # необязательный параметр (может быть опущен), описывающий фильтр сообщения
-function common.UnRegisterEventHandler( eventHandler, sysEventName, params ) end
+---@param filter? table | nil # фильтр сообщения или nil (по умолчанию, без фильтрации)
+---@param unregisterPersonal? boolean | nil # автоматически деактивировать personalEvents если это применимо (по умолчанию true).
+function common.UnRegisterEventHandler( eventHandler, sysEventName, filter, unregisterPersonal ) end
 
 function common.UnRegisterFrameHandler() end
 
