@@ -30,6 +30,9 @@
 
 --[[ METHODS --]]
 
+---@class FactoryCache
+FactoryCache = {}
+
 ---@class AnyWidgetMethods
 AnyWidgetMethods = {}
 ---@param widget WidgetSafe
@@ -309,7 +312,7 @@ function ScrollableContainerSafe:SwapElements( pos1, pos2 ) end
 
 ---@class FormSafe
 FormSafe = {}
----@return unknown
+---@return FactoryCache
 function FormSafe:GetFactoryCache() end
 
 --[[ GLOBALS --]]
