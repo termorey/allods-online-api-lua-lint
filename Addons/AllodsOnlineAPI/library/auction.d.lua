@@ -45,17 +45,27 @@ auction = {}
 ---| "ENUM_AuctionGetResultMsgResult_NOTFOUND"
 ---| "ENUM_AuctionGetResultMsgResult_ERROR"
 
----@alias AUCTION_ORDERFIELD_NAME unknown
----@alias AUCTION_ORDERFIELD_CLASS unknown
----@alias AUCTION_ORDERFIELD_SLOT unknown
----@alias AUCTION_ORDERFIELD_RARETY unknown
----@alias AUCTION_ORDERFIELD_LEVEL unknown
----@alias AUCTION_ORDERFIELD_TYPE unknown
----@alias AUCTION_ORDERFIELD_BID unknown
----@alias AUCTION_ORDERFIELD_BUYOUT unknown
----@alias AUCTION_ORDERFIELD_LEFTTIME unknown
----@alias AUCTION_ORDERFIELD_NONE unknown
----@alias AUCTION_ORDERFIELD AUCTION_ORDERFIELD_NAME | AUCTION_ORDERFIELD_CLASS | AUCTION_ORDERFIELD_SLOT | AUCTION_ORDERFIELD_RARETY | AUCTION_ORDERFIELD_LEVEL | AUCTION_ORDERFIELD_TYPE | AUCTION_ORDERFIELD_BID | AUCTION_ORDERFIELD_BUYOUT | AUCTION_ORDERFIELD_LEFTTIME | AUCTION_ORDERFIELD_NONE
+---@alias AUCTION_ORDERFIELD_NAME 0 # Задает сортировку результатов по имени лота
+---@alias AUCTION_ORDERFIELD_CLASS 1 # Задает сортировку результатов по классу предмета
+---@alias AUCTION_ORDERFIELD_SLOT 2 # Задает сортировку результатов по слоту экипировки предмета
+---@alias AUCTION_ORDERFIELD_RARETY 3 # Задает сортировку результатов по редкости (качеству) предмета
+---@alias AUCTION_ORDERFIELD_LEVEL 4 # Задает сортировку результатов по уровню предмета
+---@alias AUCTION_ORDERFIELD_TYPE 5 # Задает сортировку результатов по типу предмета
+---@alias AUCTION_ORDERFIELD_BID 6 # Задает сортировку результатов по размеру текущей ставки
+---@alias AUCTION_ORDERFIELD_BUYOUT 7 # Задает сортировку результатов по цене выкупа
+---@alias AUCTION_ORDERFIELD_LEFTTIME 8 # Задает сортировку результатов по оставшемуся времени до завершения торгов
+---@alias AUCTION_ORDERFIELD_NONE 9 # Порядок элементов определяется на стороне сервера
+---@alias AUCTION_ORDERFIELD
+---| AUCTION_ORDERFIELD_NAME
+---| AUCTION_ORDERFIELD_CLASS
+---| AUCTION_ORDERFIELD_SLOT
+---| AUCTION_ORDERFIELD_RARETY
+---| AUCTION_ORDERFIELD_LEVEL
+---| AUCTION_ORDERFIELD_TYPE
+---| AUCTION_ORDERFIELD_BID
+---| AUCTION_ORDERFIELD_BUYOUT
+---| AUCTION_ORDERFIELD_LEFTTIME
+---| AUCTION_ORDERFIELD_NONE
 
 ---@alias ENUM_AuctionSearchResultMsgResult
 ---| "ENUM_AuctionSearchResultMsgResult_SUCCESS"
