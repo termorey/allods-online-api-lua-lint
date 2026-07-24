@@ -27,7 +27,31 @@ rules = {}
 
 ---@alias ENUM_ItemMallCurrency unknown
 
----@alias ENUM_Month integer месяц (1-12, начиная с января)
+---@alias ENUM_Month
+---| 0
+---| "ENUM_Month_January"
+---| 1
+---| "ENUM_Month_February"
+---| 2
+---| "ENUM_Month_March"
+---| 3
+---| "ENUM_Month_April"
+---| 4
+---| "ENUM_Month_May"
+---| 5
+---| "ENUM_Month_June"
+---| 6
+---| "ENUM_Month_July"
+---| 7
+---| "ENUM_Month_August"
+---| 8
+---| "ENUM_Month_September"
+---| 9
+---| "ENUM_Month_October"
+---| 10
+---| "ENUM_Month_November"
+---| 11
+---| "ENUM_Month_December"
 
 --[[ EVENTS --]]
 
