@@ -100,7 +100,7 @@ function common.RegisterEventHandler( eventFunction, sysEventName, filter, regis
 function rules.BillingInfoGetBonuses() end
 
 ---@param bonusId BillingBonusId
----@return nil | { name: WString, description: WString, currency: ENUM_ItemMallCurrency, limitTotal: integer, bonusPercent: number, isSinglePayment: boolean, limitUsed: integer | nil, loyalPart: integer, updateTime: nil | { year: integer, month: integer, day: ENUM_Month_int, day: integer, wday: integer, hour: integer, minute: integer, second: integer, msec: integer }, removeTime: nil | { year: integer, month: integer, day: ENUM_Month_int, day: integer, wday: integer, hour: integer, minute: integer, second: integer, msec: integer }, image?: TextureId }
+---@return nil | { name: WString, description: WString, currency: ENUM_ItemMallCurrency, limitTotal: integer, bonusPercent: number, isSinglePayment: boolean, limitUsed: integer | nil, loyalPart: integer, updateTime: nil | { year: integer, month: ENUM_Month_int, day: integer, day: integer, wday: integer, hour: integer, minute: integer, second: integer, msec: integer }, removeTime: nil | { year: integer, month: ENUM_Month_int, day: integer, day: integer, wday: integer, hour: integer, minute: integer, second: integer, msec: integer }, image?: TextureId }
 function rules.BillingInfoGetBonusInfo( bonusId ) end
 
 function rules.BillingInfoUpdate() end
