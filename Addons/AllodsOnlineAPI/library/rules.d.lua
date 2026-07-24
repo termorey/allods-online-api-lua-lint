@@ -27,31 +27,47 @@ rules = {}
 
 ---@alias ENUM_ItemMallCurrency unknown
 
----@alias ENUM_Month
----| 0
+---@alias ENUM_Month_January 0
+---@alias ENUM_Month_February 1
+---@alias ENUM_Month_March 2
+---@alias ENUM_Month_April 3
+---@alias ENUM_Month_May 4
+---@alias ENUM_Month_June 5
+---@alias ENUM_Month_July 6
+---@alias ENUM_Month_August 7
+---@alias ENUM_Month_September 8
+---@alias ENUM_Month_October 9
+---@alias ENUM_Month_November 10
+---@alias ENUM_Month_December 11
+---@alias ENUM_Month_int
+---| ENUM_Month_January
+---| ENUM_Month_February
+---| ENUM_Month_March
+---| ENUM_Month_April
+---| ENUM_Month_May
+---| ENUM_Month_June
+---| ENUM_Month_July
+---| ENUM_Month_August
+---| ENUM_Month_September
+---| ENUM_Month_October
+---| ENUM_Month_November
+---| ENUM_Month_December
+---@alias ENUM_Month_str
 ---| "ENUM_Month_January"
----| 1
 ---| "ENUM_Month_February"
----| 2
 ---| "ENUM_Month_March"
----| 3
 ---| "ENUM_Month_April"
----| 4
 ---| "ENUM_Month_May"
----| 5
 ---| "ENUM_Month_June"
----| 6
 ---| "ENUM_Month_July"
----| 7
 ---| "ENUM_Month_August"
----| 8
 ---| "ENUM_Month_September"
----| 9
 ---| "ENUM_Month_October"
----| 10
 ---| "ENUM_Month_November"
----| 11
 ---| "ENUM_Month_December"
+---@alias ENUM_Month
+---| ENUM_Month_int
+---| ENUM_Month_str
 
 --[[ EVENTS --]]
 
@@ -84,7 +100,7 @@ function common.RegisterEventHandler( eventFunction, sysEventName, filter, regis
 function rules.BillingInfoGetBonuses() end
 
 ---@param bonusId BillingBonusId
----@return nil | { name: WString, description: WString, currency: ENUM_ItemMallCurrency, limitTotal: integer, bonusPercent: number, isSinglePayment: boolean, limitUsed: integer | nil, loyalPart: integer, updateTime: nil | { year: integer, month: integer, day: ENUM_Month, day: integer, wday: integer, hour: integer, minute: integer, second: integer, msec: integer }, removeTime: nil | { year: integer, month: integer, day: ENUM_Month, day: integer, wday: integer, hour: integer, minute: integer, second: integer, msec: integer }, image?: TextureId }
+---@return nil | { name: WString, description: WString, currency: ENUM_ItemMallCurrency, limitTotal: integer, bonusPercent: number, isSinglePayment: boolean, limitUsed: integer | nil, loyalPart: integer, updateTime: nil | { year: integer, month: integer, day: ENUM_Month_int, day: integer, wday: integer, hour: integer, minute: integer, second: integer, msec: integer }, removeTime: nil | { year: integer, month: integer, day: ENUM_Month_int, day: integer, wday: integer, hour: integer, minute: integer, second: integer, msec: integer }, image?: TextureId }
 function rules.BillingInfoGetBonusInfo( bonusId ) end
 
 function rules.BillingInfoUpdate() end
